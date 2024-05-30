@@ -7,7 +7,7 @@ import Header from './components/Header.vue';
 <template>
   <DarkMode/>
   <div>
-    <Header/>
+    <Header></Header>
     <main>
     <RouterView />
     </main>

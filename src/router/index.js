@@ -5,6 +5,7 @@ import projects from '../views/projects.vue';
 import hobbies from '../views/hobbies.vue';
 import formations from '../views/formations.vue';
 import experience from '../views/experience.vue';
+import contact from '../views/contact.vue';
 
 const routes = [
   { 
@@ -27,7 +28,11 @@ const routes = [
     path: '/experience',
     name: 'experience',
     component: experience 
-},
+},{ 
+    path: '/contact',
+    name: 'contact',
+    component: contact 
+}
 ]
 
 const router = createRouter({

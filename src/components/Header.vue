@@ -19,11 +19,18 @@ import 'primeicons/primeicons.css'
         <RouterLink to="/hobbies">
             <li class="menuItem">Hobbies</li>
         </RouterLink>
+        <RouterLink to="/contact">
+            <li class="menuItem">Contact me</li>
+        </RouterLink>
     </nav>
 </template>
 
 
 <style scoped>
+  nav{
+    margin-bottom:50px;
+  }
+
   .menuItem:hover{
     color:rgb(61, 61, 255);
     transition:0.5s ease-in all;
