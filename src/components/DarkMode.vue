@@ -13,12 +13,14 @@ function switchMode(){
         body.style.backgroundColor = '#282828';
         body.style.color = 'white';
 
+
     }else{
         icon.value.classList.remove('pi-moon');
         icon.value.classList.add('pi-sun');
 
         body.style.backgroundColor = 'lightgray';
         body.style.color = 'black';
+
     }
 }
 </script>
@@ -30,11 +32,13 @@ function switchMode(){
 
 <style scoped>
     .pi-moon{
-        color:darkblue;
+        color:yellow;
+        background-color:darkslateblue;
     }
 
     .pi-sun{
-        color:orangered
+        color:orangered;
+        background-color:rgb(250, 226, 180);
     }
 
     *{
