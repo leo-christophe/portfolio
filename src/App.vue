@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <DarkMode />
     <HeaderCmt />
     <main>
@@ -19,13 +19,13 @@ document.querySelector('body').style.overflowX = 'hidden';
 </script>
 
 <style scoped>
-#app {
+main {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-}
+  min-height:80vh;
 
-main {
   flex: 1;
 }
+
+
 </style>

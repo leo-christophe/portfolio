@@ -1,43 +1,45 @@
 <script setup>
-import 'primeicons/primeicons.css'
+import 'primeicons/primeicons.css';
+import { RouterLink } from 'vue-router';
+
+const items = [
+  { label: 'Home', route: '/', icon: 'pi pi-home' },
+  { label: 'Formations', route: '/formations', icon: 'pi pi-book' },
+  { label: 'Experience', route: '/experience', icon: 'pi pi-briefcase' },
+  { label: 'Projects', route: '/projects', icon: 'pi pi-folder' },
+  { label: 'Hobbies', route: '/hobbies', icon: 'pi pi-heart' },
+  { label: 'Contact', route: '/contact', icon: 'pi pi-envelope' }
+];
 </script>
 
 <template>
-    <nav>
-        <RouterLink to="/">
-            <li class="menuItem">Home</li>
-        </RouterLink>
-        <RouterLink to="/formations">
-            <li class="menuItem">Formations</li>
-        </RouterLink>
-        <RouterLink to="/experience">
-            <li class="menuItem">Experience</li>
-        </RouterLink>
-        <RouterLink to="/projects">
-            <li class="menuItem">Projects</li>
-        </RouterLink>
-        <RouterLink to="/hobbies">
-            <li class="menuItem">Hobbies</li>
-        </RouterLink>
-        <RouterLink to="/contact">
-            <li class="menuItem">Contact me</li>
-        </RouterLink>
-    </nav>
+  <nav>
+      <ul>
+          <li v-for="(item, index) in items" :key="index" class="menuItem">
+              <RouterLink :to="item.route">
+                  <i :class="item.icon"></i> {{ item.label }}
+              </RouterLink>
+          </li>
+      </ul>
+  </nav>
 </template>
 
-
 <style scoped>
+  i{
+    margin-right: 10px;
+  }
+
   nav{
     margin-bottom:50px;
   }
 
   .menuItem:hover{
-    color:rgb(61, 61, 255);
     transition:0.5s ease-in all;
   }
 
   .menuItem{
     transition:1s ease-out all;
+    align-items: center;
   }
 
   li:hover{
@@ -57,6 +59,7 @@ import 'primeicons/primeicons.css'
 
   ul{
     top:0px;
+    padding:10px;
   }
 
   a{

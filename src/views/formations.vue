@@ -16,7 +16,7 @@
                 <h4 class="obtention">{{ formation.obtention }}</h4>
                 <h5 class="annees">{{ formation.annees }}</h5>
             </div>
-            <div v-if="formation.image">
+            <div v-if="formation.image" class="imgFormationContainer">
                 <img :src="formation.image" :id="formation.id+'_img'" class="imgFormation">
             </div>
         </div>
@@ -26,6 +26,7 @@
 </template>
 
 <style scoped>
+    
 
     #titreFormations{
         text-align: center;
@@ -36,21 +37,45 @@
     }
 
     #conteneurFormations{
+        margin-left:10vw;
+        margin-bottom:5vh;
+        border:2px solid black;
+        border-radius:5px;
+        box-shadow: 2px 2px 5px black;
         padding:30px;
         background-color:lightgrey;
         width:80vw;
+        
     }
 
     #butinfo{
-        background-color: darkred
+        background-color: rgb(133, 74, 70);
+        transition:0.5s ease-in-out all;
+    }
+
+    #butinfo:hover{
+        background-color: rgb(131, 38, 32);
+        transition:0.5s ease-in-out all;
     }
 
     #bac{
-        background-color: darkblue
+        background-color: rgb(139, 120, 102);
+        transition:0.5s ease-in-out all;
+    }
+
+    #bac:hover{
+        background-color: rgb(134, 98, 65);
+        transition:0.5s ease-in-out all;
     }
 
     #brevet{
-        background-color: darkgreen
+        background-color: rgb(85, 71, 138);
+        transition:0.5s ease-in-out all;
+    }
+
+    #brevet:hover{
+        background-color: rgb(55, 42, 105);
+        transition:0.5s ease-in-out all;
     }
 
     .information{
@@ -69,12 +94,15 @@
         margin: 20px;
     }
 
-    .imgFormation{
-        width:450px;
-        border-radius: 10px;
-        height:100%;
-        border:1px solid white;
+    .imgFormationContainer .imgFormation{
+
+        width:300px;
     }
 
+    div.imgFormationContainer{
+        float:right;
+        margin-bottom:-6px;
+        height:100%;
+    }
     
 </style>

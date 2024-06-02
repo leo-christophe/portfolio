@@ -1,7 +1,9 @@
 <script setup>
   import { reactive } from 'vue';
   import emailjs from 'emailjs-com';
-  
+  import Button from 'primevue/button';
+  import Textarea from 'primevue/textarea';
+
   // Initialiser le formulaire réactif
   const form = reactive({
     name: '',
@@ -27,8 +29,10 @@
 </script>
 
 <template>
-    <div id="app">
-      <h1>Contactez-moi</h1>
+  <div id="content">
+    <div id="contactform">
+      <h2>Contactez-moi</h2>
+      <br>
       <form @submit.prevent="sendEmail">
         <div>
           <label for="name">Nom:</label>
@@ -38,16 +42,56 @@
           <label for="email">Email:</label>
           <input type="email" id="email" v-model="form.email" required />
         </div>
-        <div>
+        <div class="flex justify-content-center">
           <label for="message">Message:</label>
-          <textarea id="message" v-model="form.message" required></textarea>
+          <Textarea id="message" v-model="form.message" variant="filled" required autoResize rows="5" cols="30" ></Textarea>
         </div>
-        <button type="submit">Envoyer</button>
+        <div class="card flex justify-content-center">
+          <Button type="submit">Envoyer</Button>
+        </div>
       </form>
     </div>
+    <div id="informationsCard">
+      <div id="socialLinks">
+        <div class="link">
+          Github
+        </div>
+        <div class="link">
+          LinkedIn
+        </div>
+      </div>
+      <img id="carteLieu"></img>
+    </div>
+  </div>
+
 </template>
   
 <style scoped>
+  #informationsCard{
+    margin-top:50px;
+    float:right;
+    margin-right:20px;
+    margin-bottom:5vh;
+    border:2px solid black;
+    border-radius:5px;
+    box-shadow: 2px 2px 5px black;
+    padding:30px;
+
+    width:40%;
+  }
+
+  #contactform{
+    margin-bottom:5vh;
+    border:2px solid black;
+    border-radius:5px;
+    box-shadow: 2px 2px 5px black;
+    padding:30px;
+    background-color:rgb(61, 61, 61);
+    width:50vw;
+    float:left;
+    margin-left:20px;
+    margin-top:50px;
+  }
   /* Styles basiques pour le formulaire */
   div {
     margin-bottom: 15px;
@@ -56,8 +100,8 @@
     display: block;
     margin-bottom: 5px;
   }
-  input, textarea {
-    width: 100%;
+  input, Textarea {
+    width:50%;
     padding: 8px;
     margin-bottom: 10px;
     box-sizing: border-box;
