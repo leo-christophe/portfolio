@@ -1,6 +1,5 @@
 <script setup>
   import { reactive } from 'vue';
-  import emailjs from 'emailjs-com';
   import Button from 'primevue/button';
   import Textarea from 'primevue/textarea';
 

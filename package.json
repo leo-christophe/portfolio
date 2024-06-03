@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.3.3",
     "primeicons": "^7.0.0",
     "primevue": "^3.52.0",
     "simple-vue-timeline": "^2.0.9",

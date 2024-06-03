@@ -52,9 +52,79 @@
             "image":"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fres.cloudinary.com%2Fhttps-www-divalto-com%2Fimages%2Ff_auto%2Cq_auto%2Fw_1024%2Ch_370%2Cc_scale%2Fv1603120104%2Fdivalto_prod%2Flogo-aplha-3i%2Flogo-aplha-3i-1024x370.png&f=1&nofb=1&ipt=c9e729c41515372bf6b9d9a906c5fe37797798ffc50c88ff4e97f13498562774&ipo=images"
         }
     ],
+    "projects":[
+        {
+            "dates": ["23/05/2024","En cours"],
+            "titre": "Développement d'un portfolio web en Vue-JS",
+            "description": "Création d'un portfolio web en Vue-JS pour présenter mes compétences et mes projets",
+            "competences": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Github", "Route-JS", "JSON", "Responsive", "Ergonomie"],
+            "realisations":[
+                "Création de la structure du site",
+                "Récupération des données par un fichier en format json",
+                "Création de composants Vue",
+                "Mise en forme avec CSS et PrimeVue",
+                "Lien avec Github pour le versionning",
+                "Déploiement sur serveur Vercel.app",
+                "Création du menu de navigations avec route-js"
+            ],
+            "type":"Personnel",
+            "images":[
+                null
+            ],
+            "url": null
+        },{
+            "dates": ["01/03/2024","05/04/2024"],
+            "titre": "Création d'un site web fictif BMW en Javascript (Vue-JS) avec API Rest en C#",
+            "description": "Création d'un site web fictif en équipe de 5 personnes. Communication avec API Rest réalisée en C#. Utilisation de Vue-JS pour la partie cliente.",
+            "competences": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Github", "Route-JS", "MCD",
+            "C#", "API Rest", "SQL", "Base de données", "Visual Studio 2022", "PostgreSQL", "Azure DevOps", "Repository", "Injection de dépendances"],
+            "realisations":[
+                "Réalisation de documents de conception",
+                "Réalisation de la base de données sous PostgreSQL",
+                "Développement de l'API Rest en C#",
+                "Développement du client en Vue-JS",
+                "Optimisation",
+                "Organisation d'une réunion hebdomadaire",
+                "Gestion du projet sur Azure DevOps"
+            ],
+            "type":"Universitaire",
+            "images":[
+                null
+            ],
+            "url": null
+        },{
+            "dates": ["15/10/2023","15/01/2024"],
+            "titre": "Création d'un site web fictif de formations en PHP (Laravel)",
+            "description": "Création d'un site web fictif en équipe de 4 personnes. Utilisation de Laravel pour la partie serveur et client.",
+            "competences": ["PHP", "Laravel", "HTML", "CSS", "Github", "SCRUM", "Revues de sprints", "SQL", "Base de données", "MCD", "Diagramme des cas d'utilisations", "Azure DevOps"],
+            "realisations":[
+                "Réalisation de documents de conception",
+                "Réalisation de la base de données",
+                "Développement du site en Laravel",
+                "Optimisation"
+            ],
+            "type":"Universitaire",
+            "images":[
+                null
+            ],
+            "url": null
+        }
+    ],
     "hobbies": [
         "Playing guitar",
         "Reading books",
         "Hiking"
+    ],
+    "links": [
+        {
+            "name": "Linkedin",
+            "url": "https://www.linkedin.com/in/leo-christophe/",
+            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogopng.com.br%2Flogos%2Flinkedin-83.png&f=1&nofb=1&ipt=dc66bbb08b2ea34d09367206dd5c669ee65d6b99f7198244a29605273c1296a8&ipo=images"
+        },{
+            "name": "Github",
+            "url": "https://github.com/leo-christophe",
+            "image": "https://static-00.iconduck.com/assets.00/github-icon-2048x2048-qlv5m092.png"
+        }
+        
     ]
 }

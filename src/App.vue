@@ -23,7 +23,6 @@ main {
   display: flex;
   flex-direction: column;
   min-height:80vh;
-
   flex: 1;
 }
 
