@@ -54,26 +54,49 @@
     ],
     "projects":[
         {
-            "dates": ["23/05/2024","En cours"],
-            "titre": "Développement d'un portfolio web en Vue-JS",
-            "description": "Création d'un portfolio web en Vue-JS pour présenter mes compétences et mes projets",
-            "competences": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Github", "Route-JS", "JSON", "Responsive", "Ergonomie"],
+            "id":"project_sae101",
+            "nom": "Mars Invaders",
+            "dates": ["2023-01-01","2023-01-15"],
+            "titre": "Développement d'un jeu vidéo sur le thème de l'espace",
+            "description": "Programmation en C# avec le framework MonoGame en équipe de deux.",
+            "competences": ["C#", "MonoGame", "Travail en équipe", "Design", "Montage vidéo"],
             "realisations":[
-                "Création de la structure du site",
-                "Récupération des données par un fichier en format json",
-                "Création de composants Vue",
-                "Mise en forme avec CSS et PrimeVue",
-                "Lien avec Github pour le versionning",
-                "Déploiement sur serveur Vercel.app",
-                "Création du menu de navigations avec route-js"
+                "Formation de quelques semaines sur le framework MonoGame",
+                "Recherche de l'idée de jeu à développer, brainstorming",
+                "Développement du jeu en C#",
+                "Création des assets",
+                "Présentation du jeu à la fin du projet en vidéo"
             ],
-            "type":"Personnel",
+            "type":"Universitaire",
             "images":[
                 null
             ],
-            "url": null
+            "url": null,
+            "route":"/projects/marsinvaders"
         },{
-            "dates": ["01/03/2024","05/04/2024"],
+            "id":"project_sae301",
+            "nom": "SkillUpNow",
+            "dates": ["2023-10-15","2024-01-15"] ,
+            "titre": "Création d'un site web fictif de formations en PHP (Laravel)",
+            "description": "Création d'un site web fictif en équipe de 4 personnes. Utilisation de Laravel pour la partie serveur et client.",
+            "competences": ["PHP", "Laravel", "HTML", "CSS", "Github", "SCRUM", "Revues de sprints", "SQL", "Base de données", "MCD", "Diagramme des cas d'utilisations", "Azure DevOps"],
+            "realisations":[
+                "Réalisation de documents de conception",
+                "Réalisation de la base de données",
+                "Développement du site en Laravel",
+                "Optimisation"
+            ],
+            "type":"Universitaire",
+            "images":[
+                null
+            ],
+            "url": null,
+            "route":"/projects/skillupnow"
+        },
+        {
+            "id":"project_sae401",
+            "nom": "BMW",
+            "dates": ["2024-03-01","2024-04-05"],
             "titre": "Création d'un site web fictif BMW en Javascript (Vue-JS) avec API Rest en C#",
             "description": "Création d'un site web fictif en équipe de 5 personnes. Communication avec API Rest réalisée en C#. Utilisation de Vue-JS pour la partie cliente.",
             "competences": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Github", "Route-JS", "MCD",
@@ -91,23 +114,30 @@
             "images":[
                 null
             ],
-            "url": null
+            "url": null,
+            "route":"/projects/bmw"
         },{
-            "dates": ["15/10/2023","15/01/2024"],
-            "titre": "Création d'un site web fictif de formations en PHP (Laravel)",
-            "description": "Création d'un site web fictif en équipe de 4 personnes. Utilisation de Laravel pour la partie serveur et client.",
-            "competences": ["PHP", "Laravel", "HTML", "CSS", "Github", "SCRUM", "Revues de sprints", "SQL", "Base de données", "MCD", "Diagramme des cas d'utilisations", "Azure DevOps"],
+            "id":"project_portfolio",
+            "nom": "Portfolio",
+            "dates": ["2024-05-23","En cours"] ,
+            "titre": "Développement d'un portfolio web en Vue-JS",
+            "description": "Création d'un portfolio web en Vue-JS pour présenter mes compétences et mes projets",
+            "competences": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Github", "Route-JS", "JSON", "Responsive", "Ergonomie"],
             "realisations":[
-                "Réalisation de documents de conception",
-                "Réalisation de la base de données",
-                "Développement du site en Laravel",
-                "Optimisation"
+                "Création de la structure du site",
+                "Récupération des données par un fichier en format json",
+                "Création de composants Vue",
+                "Mise en forme avec CSS et PrimeVue",
+                "Lien avec Github pour le versionning",
+                "Déploiement sur serveur Vercel.app",
+                "Création du menu de navigations avec route-js"
             ],
-            "type":"Universitaire",
+            "type":"Personnel",
             "images":[
                 null
             ],
-            "url": null
+            "url": null,
+            "route":"/projects/portfolio"
         }
     ],
     "hobbies": [

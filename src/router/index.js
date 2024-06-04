@@ -7,6 +7,12 @@ import formations from '../views/formations.vue';
 import experience from '../views/experience.vue';
 import contact from '../views/contact.vue';
 
+import project_portfolio from '../views/projects/project_portfolio.vue';
+import project_sae101 from '../views/projects/project_sae101.vue';
+import project_sae301 from '../views/projects/project_sae301.vue';
+import project_sae401 from '../views/projects/project_sae401.vue';
+
+
 const routes = [
   { 
     path: '/',
@@ -16,6 +22,22 @@ const routes = [
     path: '/projects',
     name: 'projects',
     component: projects 
+},{
+    path: '/projects/portfolio',
+    name: 'portfolio',
+    component: project_portfolio
+},{
+    path: '/projects/marsinvaders',
+    name: 'marsinvaders',
+    component: project_sae101
+},{
+    path: '/projects/skillupnow',
+    name: 'skillupnow',
+    component: project_sae301
+},{
+    path: '/projects/bmw',
+    name: 'bmw',
+    component: project_sae401
 },{ 
     path: '/hobbies',
     name: 'hobbies',
