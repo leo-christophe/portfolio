@@ -77,6 +77,13 @@ const filteredProjects = computed(() => {
 
 
 <style scoped>
+.projectCard{
+    padding:20px;
+    margin:20px;
+    border: 3px solid gray;
+}
+
+
 #competenceFilter{
     padding-top: 10px;
     

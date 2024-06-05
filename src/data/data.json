@@ -141,9 +141,63 @@
         }
     ],
     "hobbies": [
-        "Playing guitar",
-        "Reading books",
-        "Hiking"
+        {
+            "id":"videogames",
+            "nom": "Jeux vidéo",
+            "description": "Passionné de jeux vidéo depuis tout petit, j'aime découvrir de nouveaux jeux et de nouvelles expériences vidéoludiques.",
+            "image": [
+            ],
+            "exemples":[
+                "Minecraft","Stardew Valley", "Terraria", "Super Mario"
+            ]
+        },{
+            "id":"animes",
+            "nom": "Animes",
+            "description": "Fan d'animes, je regarde régulièrement des séries animées japonaises.",
+            "image": [
+            ],
+            "exemples":[
+                "My Hero Academia", "Kimi no Nawae", "Demon Slayer", "Hunter x Hunter"
+            ]
+        },{
+            "id":"cuisine",
+            "nom": "Cuisine",
+            "description": "J'aime cuisiner et découvrir de nouvelles recettes. J'aime particulièrement la cuisine asiatique.",
+            "image": [
+            ],
+            "exemples":[
+                "Tiramisù", "Gateaux au chocolat", "Pizza", "Pâtes à la carbonara"
+            ]
+        },{
+            "id":"musique",
+            "nom": "Musique",
+            "description": "J'écoute de la musique régulièrement, j'aime particulièrement la pop japonaise.",
+            "image": [
+            ],
+            "exemples":{
+                "Artistes":["Machico", "Suzuki Konomi", "Miki Matsubara"],
+                "Musiques":["Redo", "Tomorrow", "Stay With Me"]
+            }
+        },{
+            "id": "jardinage",
+            "nom": "Jardinage",
+            "description": "J'aime m'occuper de mes plantes et de mon jardin. J'aime particulièrement les plantes grasses.",
+            "image": [
+            ],
+            "exemples":[
+                "Plantes aromatiques et légumes"
+            ]
+        },{
+            "id": "programmation",
+            "nom": "Programmation personnelle",
+            "description": "J'aime programmer en dehors de mes études, j'aime particulièrement les projets personnels.",
+            "image": [
+            ],
+            "exemples":{
+                "descriptions":["Développement de jeux vidéo", "Développement de sites web", "Développement d'outils"],
+                "liens":[]
+            }
+        }
     ],
     "links": [
         {

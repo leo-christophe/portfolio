@@ -1,5 +1,6 @@
 <script setup>
-
+import DocumentViewer from '../components/DocumentViewer.vue'
+import News from '../components/News.vue'
 </script>
 
 <template>
@@ -14,6 +15,12 @@
             <p>Based in Annecy, France</p>
         </div>
     </div>
+
+    <News></News>
+
+    <!-- <DocumentViewer/> -->
+
+    
 
 </template>
 
