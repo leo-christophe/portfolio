@@ -4,7 +4,7 @@
 
 <template>
 
-    <div>
+    <div id="welcome">
         <div id="photo">
             Photo
         </div>
@@ -28,5 +28,9 @@
 
     #text{
         display:inline;
+    }
+
+    #welcome{
+        text-align:center;
     }
 </style>

@@ -2,6 +2,9 @@
   import { reactive } from 'vue';
   import Button from 'primevue/button';
   import Textarea from 'primevue/textarea';
+  import FloatLabel from 'primevue/floatlabel';
+  import InputText from 'primevue/inputtext';
+
 
   // Initialiser le formulaire réactif
   const form = reactive({
@@ -33,21 +36,25 @@
       <h2>Contactez-moi</h2>
       <br>
       <form @submit.prevent="sendEmail">
-        <div>
-          <label for="name">Nom:</label>
-          <input type="text" id="name" v-model="form.name" required />
-        </div>
-        <div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" v-model="form.email" required />
-        </div>
+        <div class="flex flex-column gap-2">
+        <FloatLabel>
+          <InputText id="name" v-model="form.name" aria-required="true" />
+          <label for="name">Nom</label>
+        </FloatLabel></div>
+        <div class="flex flex-column gap-2">
+        <FloatLabel id="email">
+          <InputText id="email" v-model="form.email" aria-required="true" aria-errormessage="Erreur"/>
+          <label for="email">Email</label>
+        </FloatLabel></div>
+
         <div class="flex justify-content-center">
-          <label for="message">Message:</label>
-          <Textarea id="message" v-model="form.message" variant="filled" required autoResize rows="5" cols="30" ></Textarea>
+          <Textarea id="message" v-model="form.message" variant="filled" required autoResize rows="5" cols="30" aria-required="true" placeholder="Message"></Textarea>
         </div>
-        <div class="card flex justify-content-center">
+
+        <div>
           <Button type="submit">Envoyer</Button>
         </div>
+
       </form>
     </div>
     <div id="informationsCard">
@@ -58,6 +65,16 @@
         <div class="link">
           LinkedIn
         </div>
+        <div id="Mails">
+          <h2>Mail personnel: </h2>
+          <div class="maillink">
+            leochristophe@outlook.fr
+          </div>
+          <h2>Mail universitaire: </h2>
+          <div class="maillink">
+            leo.christophe@etu.univ-savoie.fr
+          </div>
+        </div>
       </div>
       <img id="carteLieu"></img>
     </div>
@@ -66,17 +83,18 @@
 </template>
   
 <style scoped>
+  
   #informationsCard{
     margin-top:50px;
     float:right;
-    margin-right:20px;
+    margin-right:250px;
     margin-bottom:5vh;
     border:2px solid black;
     border-radius:5px;
     box-shadow: 2px 2px 5px black;
     padding:30px;
-
-    width:40%;
+    background-color:rgb(61, 61, 61);
+    width:500px;
   }
 
   #contactform{
@@ -88,23 +106,33 @@
     background-color:rgb(61, 61, 61);
     width:50vw;
     float:left;
-    margin-left:20px;
+    margin-left:250px;
     margin-top:50px;
+    width:500px;
   }
   /* Styles basiques pour le formulaire */
   div {
     margin-bottom: 15px;
   }
-  label {
-    display: block;
-    margin-bottom: 5px;
+
+  label{
+    text-align:center;
+    vertical-align: center;
+    color:lightcoral;
+    font-size:15px;
   }
+ 
   input, Textarea {
-    width:50%;
+    width:100%;
     padding: 8px;
-    margin-bottom: 10px;
+    margin-top:20px;
     box-sizing: border-box;
   }
+
+  Textarea::placeholder{
+    color:lightcoral;
+  }
+
   button {
     padding: 10px 15px;
     background-color: #4CAF50;

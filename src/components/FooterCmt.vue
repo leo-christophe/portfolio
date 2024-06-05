@@ -41,6 +41,9 @@ p{
         width: 100%;
         overflow: hidden;
         color: white;
+        text-align:center;
     }
+
+
 </style>
   

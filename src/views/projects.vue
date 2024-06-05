@@ -45,24 +45,23 @@ const filteredProjects = computed(() => {
         
         <!-- Ajouter des champs de filtre de date -->
         <div id="dates" class="card flex flex-wrap gap-3 p-fluid">
-            <input class="dateInput" type="date" v-model="startDate" id="startDate">
+            <div class="datesIn">
+                <h3>Dates</h3>
+                <input class="dateInput" type="date" v-model="startDate" id="startDate">
 
-            <div class="flex-auto">
-                <label for="buttondisplay" class="font-bold block mb-2"> Start Date: </label>
-                <Calendar v-model="startDate"  :showOnFocus="true" inputId="buttondisplay" />
+                <input class="dateInput" type="date" v-model="endDate" id="endDate">
             </div>
             
-            <div class="flex-auto">
-                <label for="buttondisplay" class="font-bold block mb-2"> End Date: </label>
-                <Calendar v-model="endDate"  :showOnFocus="true" inputId="buttondisplay" />
+            <div class="datesIn">
+                <h3>Mots clés</h3>
+                <div id="competenceFilter" class=" p-fluid chip">
+                    <Chips v-model="Compvalue" separator=","  />
+                </div>
             </div>
 
-            <input class="dateInput" type="date" v-model="endDate" id="endDate">
         </div>
 
-        <div id="competenceFilter" class="card p-fluid">
-            <Chips v-model="Compvalue" separator=","  />
-        </div>
+        
 
         <ul>
             <li v-for="project in filteredProjects" :key="project.id" :id="project.id" class="projectCard">
@@ -78,6 +77,27 @@ const filteredProjects = computed(() => {
 
 
 <style scoped>
+#competenceFilter{
+    padding-top: 10px;
+    
+}
+.datesIn{
+    display:table-column;
+    margin-left:10px;
+}
+h1{
+    text-align:center;
+
+}
+.chip{
+    width:500px;
+    text-align:center;
+}
+
+input{
+    text-align:center;
+}
+
 li .p-chips-token{
     display: flex;
     flex-wrap: wrap;
@@ -99,7 +119,7 @@ ul {
     list-style-type: none;
     border: 1px solid black;
     margin: 10px;
-    padding: 10px;
+    padding: 10px 0px 0px 0px;
     width: 20vw;
     height: 100px;
     background-color: white;
