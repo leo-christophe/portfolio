@@ -4,7 +4,9 @@
   import Textarea from 'primevue/textarea';
   import FloatLabel from 'primevue/floatlabel';
   import InputText from 'primevue/inputtext';
-
+  import { useToast } from "primevue/usetoast";
+  import Toast from 'primevue/toast';
+  const toast = useToast();
 
   // Initialiser le formulaire réactif
   const form = reactive({
@@ -22,15 +24,25 @@
   
     emailjs.send(serviceID, templateID, form, userID)
       .then((response) => {
-        console.log('Email envoyé avec succès!', response.status, response.text);
+        showSuccess();
       })
       .catch((error) => {
-        console.error('Erreur lors de l\'envoi de l\'email:', error);
+        showError();
+        //console.error('Erreur lors de l\'envoi de l\'email:', error);
       });
+  };
+
+  const showSuccess = () => {
+    toast.add({ severity: 'success', summary: 'Succès', detail: 'Message envoyé avec succès!', life: 3000 });
+  };
+
+  const showError = () => {
+    toast.add({ severity: 'error', summary: 'Erreur', detail: 'Réessayez ou contactez moi.', life: 5000 });
   };
 </script>
 
 <template>
+  <Toast/>
   <div id="content">
     <div id="contactform">
       <h2>Contactez-moi</h2>
