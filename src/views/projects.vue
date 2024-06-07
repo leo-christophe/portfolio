@@ -3,10 +3,13 @@ import { ref, computed } from 'vue'
 import data from '../data/data.json'
 import Chips from 'primevue/chips'
 import Calendar from 'primevue/calendar'
+import Checkbox from 'primevue/checkbox'
 
 const Compvalue = ref(null)
 const startDate = ref('')
 const endDate = ref('')
+const checkType = ref()
+
 
 const filteredProjects = computed(() => {
   let filteredByDate = data.projects || []
@@ -42,8 +45,16 @@ const filteredProjects = computed(() => {
     })
   }
 
+  if (checkType.value) {
+    return filteredByDate.filter(project => {
+      return project.type && checkType.value.includes(project.type)
+    })
+  }
+
   return filteredByDate
 })
+
+
 </script>
 
 <template>
@@ -52,7 +63,7 @@ const filteredProjects = computed(() => {
     
     <!-- Ajouter des champs de filtre de date -->
     <div id="dates" class="card flex flex-wrap gap-3 p-fluid">
-      <div class="datesIn">
+      <div class="datesIn" id="dateFilters">
         <h3>Dates</h3>
         <input class="dateInput" type="date" v-model="startDate" id="startDate">
         <input class="dateInput" type="date" v-model="endDate" id="endDate">
@@ -64,6 +75,21 @@ const filteredProjects = computed(() => {
           <Chips v-model="Compvalue" separator=","  />
         </div>
       </div>
+
+      <div class="datesIn">
+        <h3>Type de projet:</h3>
+        <div class=" flex flex-wrap gap-3">
+            <div class="flex align-items-center">
+                <Checkbox v-model="checkType" inputId="universitaire" name="checkType" value="Universitaire"/>
+                <label for="universitaire" class="ml-2"> Universitaire </label>
+            </div>
+            <div class="flex align-items-center">
+                <Checkbox v-model="checkType" inputId="personnel" name="checkType" value="Personnel"/>
+                <label for="personnel" class="ml-2"> Personnel </label>
+            </div>
+        </div>
+      </div>
+
     </div>
 
     <ul>
@@ -79,6 +105,14 @@ const filteredProjects = computed(() => {
 </template>
 
 <style scoped>
+#dates > div.card.flex.flex-wrap.justify-content-center.gap-3{
+  height:60px;
+  position:relative;
+}
+h3{
+  height:30px;
+}
+
 .projectCard {
   margin: 20px;
   border: 3px solid gray;
@@ -95,7 +129,8 @@ const filteredProjects = computed(() => {
 
 .datesIn {
   display: table-column;
-  margin-left: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 h1 {
   text-align: center;
@@ -150,6 +185,10 @@ label {
 
 input[type="date"] {
   margin: 5px;
+}
+
+input[name="checkType"] {
+  color:black;
 }
 
 .dateInput {
