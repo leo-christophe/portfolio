@@ -1,5 +1,6 @@
 <script setup>
 import 'primeicons/primeicons.css';
+import { onMounted } from 'vue';
 import { RouterLink } from 'vue-router';
 
 const items = [
@@ -10,15 +11,19 @@ const items = [
   { label: 'Hobbies', route: '/hobbies', icon: 'pi pi-heart' },
   { label: 'Contact', route: '/contact', icon: 'pi pi-envelope' }
 ];
+
 </script>
 
 <template>
   <nav>
       <ul>
-          <li v-for="(item, index) in items" :key="index" class="menuItem">
-              <RouterLink :to="item.route">
-                  <i :class="item.icon"></i> {{ item.label }}
-              </RouterLink>
+          <li v-for="(item, index) in items" :key="index" class="menuItem" >
+            <RouterLink :to="item.route">
+              <span :ref="'menu_'+index">
+                <i :class="item.icon"></i> 
+                {{ item.label }}
+              </span>
+            </RouterLink>
           </li>
       </ul>
   </nav>
@@ -32,6 +37,7 @@ const items = [
   nav{
     margin-bottom:50px;
     text-align: center;
+    background-color: black;
   }
 
   .menuItem:hover{
@@ -41,10 +47,11 @@ const items = [
   .menuItem{
     transition:1s ease-out all;
     align-items: center;
+    padding-bottom:10px;
+    margin-right:10px;
   }
 
   li:hover{
-    padding-bottom:1.2rem;
     transition:0.5s all;
   }
 
@@ -53,7 +60,7 @@ const items = [
     text-decoration: none;
     list-style: none;
     display: inline;
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 1rem 2rem 0rem 2rem;
     margin:1px;
     transition:0.5s ease-out all;
   }
@@ -61,6 +68,7 @@ const items = [
   ul{
     top:0px;
     padding:10px;
+    
   }
 
   a{

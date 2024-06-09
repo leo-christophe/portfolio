@@ -1,14 +1,31 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import data from '../data/data.json'
 import Chips from 'primevue/chips'
 import Calendar from 'primevue/calendar'
 import Checkbox from 'primevue/checkbox'
+import { COULEUR_MENU_SELECTIONNE, COULEUR_MENU_BASIC } from '../data/const'
+import json from '../data/data';
+import { findClosestCompetence } from '../utils/levenshtein'
 
-const Compvalue = ref(null)
+// Liste de compétences prédéfinies
+const predefinedCompetences = json.valid_skills
+
+const Compvalue = ref([])
 const startDate = ref('')
 const endDate = ref('')
-const checkType = ref()
+const checkType = ref([])
+
+onMounted(() => {
+  $('nav ul li:nth-child(4)').css('border-bottom', '2px solid ' + COULEUR_MENU_SELECTIONNE);
+  $('nav ul li:nth-child(4) span').css('color', COULEUR_MENU_SELECTIONNE);
+})
+
+onUnmounted(() => {
+  $('nav ul li:nth-child(4)').css('border-bottom', '0px');
+  $('nav ul li:nth-child(4) span').css('color', COULEUR_MENU_BASIC);
+})
+
 
 
 const filteredProjects = computed(() => {
@@ -16,16 +33,17 @@ const filteredProjects = computed(() => {
 
   // Filtrer par date
   if (startDate.value || endDate.value) {
-    // Défaut pour endDate à une date très lointaine
     const end = endDate.value ? new Date(endDate.value) : new Date("2100-01-01")
-    endDate.value = end.toISOString().split('T')[0]
-
-    // Défaut pour startDate à une date très ancienne
     const start = startDate.value ? new Date(startDate.value) : new Date("1970-01-01")
-    startDate.value = start.toISOString().split('T')[0]
+
+    if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+      alert('Veuillez entrer des dates valides.')
+      return []
+    }
 
     if (start > end) {
       alert('La date de début doit être antérieure à la date de fin')
+      return []
     } else {
       filteredByDate = filteredByDate.filter(project => {
         if (!project.dates || project.dates.length < 2) return false
@@ -40,28 +58,28 @@ const filteredProjects = computed(() => {
 
   // Filtrer par compétence
   if (Compvalue.value && Compvalue.value.length > 0) {
-    return filteredByDate.filter(project => {
-      return project.competences && project.competences.some(competence => Compvalue.value.includes(competence))
+    const correctedCompetences = Compvalue.value.map(comp => findClosestCompetence(comp))
+    console.log(correctedCompetences)
+    filteredByDate = filteredByDate.filter(project => {
+      return project.competences && project.competences.some(competence => correctedCompetences.includes(competence))
     })
   }
 
-  if (checkType.value) {
-    return filteredByDate.filter(project => {
+  // Filtrer par type de projet
+  if (checkType.value && checkType.value.length > 0) {
+    filteredByDate = filteredByDate.filter(project => {
       return project.type && checkType.value.includes(project.type)
     })
   }
 
   return filteredByDate
 })
-
-
 </script>
 
 <template>
   <div>
     <h1>Projects</h1>
     
-    <!-- Ajouter des champs de filtre de date -->
     <div id="dates" class="card flex flex-wrap gap-3 p-fluid">
       <div class="datesIn" id="dateFilters">
         <h3>Dates</h3>
@@ -71,14 +89,14 @@ const filteredProjects = computed(() => {
       
       <div class="datesIn">
         <h3>Mots clés</h3>
-        <div id="competenceFilter" class=" p-fluid chip">
-          <Chips v-model="Compvalue" separator=","  />
+        <div id="competenceFilter" class="p-fluid chip">
+          <Chips v-model="Compvalue" separator="," />
         </div>
       </div>
 
       <div class="datesIn">
         <h3>Type de projet:</h3>
-        <div class=" flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-3">
             <div class="flex align-items-center">
                 <Checkbox v-model="checkType" inputId="universitaire" name="checkType" value="Universitaire"/>
                 <label for="universitaire" class="ml-2"> Universitaire </label>
@@ -89,7 +107,6 @@ const filteredProjects = computed(() => {
             </div>
         </div>
       </div>
-
     </div>
 
     <ul>

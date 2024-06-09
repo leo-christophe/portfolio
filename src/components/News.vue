@@ -18,8 +18,10 @@
         padding: 20px;
         border: 1px solid black;
         border-radius: 10px;
+        color:black;
         background-color: #f0f0f0;
     }
+    
     #nouveautesCadre div {
         margin-top: 10px;
     }

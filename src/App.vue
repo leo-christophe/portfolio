@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DarkMode />
+    <!-- <DarkMode /> -->
     <HeaderCmt />
     <main>
       <RouterView />
@@ -15,7 +15,8 @@ import DarkMode from './components/DarkMode.vue';
 import HeaderCmt from './components/HeaderCmt.vue';
 import FooterCmt from './components/FooterCmt.vue';
 
-document.querySelector('body').style.overflowX = 'hidden';
+$('body').css('overflow-x', 'hidden');
+
 </script>
 
 <style scoped>

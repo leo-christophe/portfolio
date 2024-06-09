@@ -1,11 +1,23 @@
 <script setup>
-  import { reactive } from 'vue';
+  import { onMounted, onUnmounted, reactive } from 'vue';
   import Button from 'primevue/button';
   import Textarea from 'primevue/textarea';
   import FloatLabel from 'primevue/floatlabel';
   import InputText from 'primevue/inputtext';
   import { useToast } from "primevue/usetoast";
   import Toast from 'primevue/toast';
+  import {COULEUR_MENU_SELECTIONNE, COULEUR_MENU_BASIC} from '../data/const'
+
+  onMounted(() => {
+      $('nav ul li:nth-child(6)').css('border-bottom', '2px solid '+COULEUR_MENU_SELECTIONNE);
+      $('nav ul li:nth-child(6) span').css('color', COULEUR_MENU_SELECTIONNE);
+  })
+
+  onUnmounted(() => {
+      $('nav ul li:nth-child(6)').css('border-bottom', '0px');
+      $('nav ul li:nth-child(6) span').css('color', COULEUR_MENU_BASIC);
+  })
+
   const toast = useToast();
 
   // Initialiser le formulaire réactif
@@ -95,7 +107,10 @@
 </template>
   
 <style scoped>
-  
+  div#content{
+    min-width:1540px;
+  }
+
   #informationsCard{
     margin-top:50px;
     float:right;
