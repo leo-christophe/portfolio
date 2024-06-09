@@ -113,8 +113,10 @@ const filteredProjects = computed(() => {
       <li v-for="project in filteredProjects" :key="project.id" :id="project.id" class="projectCard">
         <router-link :to="project.route" class="liensrouteur">
           <div class="projectCardIn">
-            {{ project.titre }}
+            <h3 class="projectName">{{ project.nom }}</h3>
+            
           </div>
+          <img v-if="project.images[0]" :src="project.images[0]" alt="Image du projet" class="projectimage">
         </router-link>
       </li>
     </ul>
@@ -122,98 +124,133 @@ const filteredProjects = computed(() => {
 </template>
 
 <style scoped>
-#dates > div.card.flex.flex-wrap.justify-content-center.gap-3{
-  height:60px;
-  position:relative;
-}
-h3{
-  height:30px;
-}
+  div.projectCardIn{
+    height:min-content;
+  }
 
-.projectCard {
-  margin: 20px;
-  border: 3px solid gray;
-  color: white;
-  box-shadow: 2px 2px 2px 2px black;
-}
-.liensrouteur {
-  text-decoration: none;
-}
+  li.projectCard{
+    background-color:black;
+    height:min-content;
+    width:min-content;
+  }
 
-#competenceFilter {
-  padding-top: 10px;
-}
+  h3.projectName{
+      color:white;
+      background-color:gray;
+      text-align:center;
+      padding: 5px 0px 50px 0px;
+      border:2px solid darkslategray;
+  }
 
-.datesIn {
-  display: table-column;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-h1 {
-  text-align: center;
-}
+ .projectimage{
+    width:100%;
+    display:flex;
+    align-items:center;
+    flex:1;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-flow: wrap;
+ }
 
-.chip {
-  width: 500px;
-  text-align: center;
-}
+  #dates > div.card.flex.flex-wrap.justify-content-center.gap-3{
+    height:60px;
+    position:relative;
+  }
 
-input {
-  text-align: center;
-}
+  h3{
+    height:30px;
+  }
 
-li .p-chips-token {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-}
+  .projectCard {
+    min-width:300px;
+    margin: 20px;
+    border: 3px solid gray;
+    color: white;
+    box-shadow: 2px 2px 2px 2px black;
+  }
 
-#dates {
-  display: flex;
-  justify-content: center;
-  margin: 10px;
-}
+  .liensrouteur {
+    text-decoration: none;
+  }
 
-ul {
-  display: inline-flex;
-  list-style: none;
-}
+  #competenceFilter {
+    padding-top: 10px;
+  }
 
-.projectCardIn {
-  list-style-type: none;
-  text-decoration: none;
-  border: 1px solid black;
-  color: white;
-  padding: 10px;
-  width: 20vw;
-  height: 100px;
-  background-color: rgb(0, 0, 0);
-  transition: 1s;
-}
+  .datesIn {
+    display: table-column;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom:30px;
+  }
 
-.projectCardIn:hover {
-  font-size: 105%;
-  transition: 1s;
-}
+  .chip {
+    width: 500px;
+    text-align: center;
+  }
 
-label {
-  margin-right: 10px;
-}
+  input {
+    text-align: center;
+  }
 
-input[type="date"] {
-  margin: 5px;
-}
+  li .p-chips-token {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
 
-input[name="checkType"] {
-  color:black;
-}
+  #dates {
+    display: flex;
+    justify-content: center;
 
-.dateInput {
-  width: 150px;
-  height: 30px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  font-size: 1em;
-  border-radius: 10px;
-}
+    background-color:rgb(66, 79, 79);
+    min-width:1050px;
+  }
+
+  ul {
+    display: inline-flex;
+    space-around: 10px;
+    list-style: none;
+  }
+
+  .projectCardIn {
+    list-style-type: none;
+    text-decoration: none;
+    border: 1px solid black;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(0, 0, 0);
+    transition: 1s;
+  }
+
+  .projectCardIn:hover {
+    font-size: 105%;
+    transition: 1s;
+  }
+
+  label {
+    margin-right: 10px;
+  }
+
+  input[type="date"] {
+    margin: 5px;
+  }
+
+  input[name="checkType"] {
+    color:black;
+  }
+
+  .dateInput {
+    width: 150px;
+    height: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 10px;
+  }
 </style>

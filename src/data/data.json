@@ -70,7 +70,7 @@
             ],
             "type":"Universitaire",
             "images":[
-                null
+                "https://media.licdn.com/dms/image/D4E2DAQEvhnBVWTLpVA/profile-treasury-image-shrink_800_800/0/1700320007072?e=1718546400&v=beta&t=I5TMo3_xhJTaR4k3lofBsaSeCJJ_gLPafXv8SxCQKyA"
             ],
             "url": null,
             "route":"/projects/marsinvaders"
@@ -81,7 +81,7 @@
             "titre": "Création d'un site web fictif de formations en PHP (Laravel)",
             "description": "Création d'un site web fictif en équipe de 4 personnes. Utilisation de Laravel pour la partie serveur et client.",
             "competences": ["PostgreSQL", "PHP", "Laravel", "HTML", "CSS", "Github", "SCRUM", "Revues de sprints", "SQL", "Base de données", "MCD", "Azure DevOps", "Travail en équipe", "Comptes rendus de sprint", "Cryptographie", "Rédaction de rapport",
-        "BPMN", "Cas d'utilisations", "UML", 
+        "BPMN", "Cas d'utilisations", "UML", "rédaction", 
         "équipe", "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conceptions", "MLD", "PostgreSQL"],
             "realisations":[
                 "Réalisation de documents de conception",
@@ -91,7 +91,8 @@
             ],
             "type":"Universitaire",
             "images":[
-                null
+                "https://media.licdn.com/dms/image/D4D2DAQHbVbCoR41Pyg/profile-treasury-image-shrink_800_800/0/1717945458733?e=1718553600&v=beta&t=Jv-9PL3AcyQSB0dKX0JUpdDtxhXl3iuahLrSHYHliPg",
+                "https://media.licdn.com/dms/image/D4D2DAQG-RRthlGa39Q/profile-treasury-image-shrink_800_800/0/1717945474890?e=1718553600&v=beta&t=faHrRmH74FD8kCXhJUaKLyRVVqU5CmnzcL5qfA6Mpzc"
             ],
             "url": null,
             "route":"/projects/skillupnow"
@@ -105,8 +106,8 @@
             "competences": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Github", "Route-JS", "MCD", "PostgreSQL",
             "C#", "API Rest", "SQL", "Base de données", "Visual Studio 2022", "PostgreSQL", "Azure DevOps", "Repository", "Injection de dépendances",
         "Organisation de réunion", "compte rendu de réunion", "travail en équipe", "gestion de projet", "déploiement continu", "CI/CD", "UI/UX", "Experience Utilisateur",
-    "Vercel.app", "Prime Vue", "MLD", "Authentification", "Bases de données", "Cypress", 
-        "équipe", "Vitest", "Tests unitaires"],
+    "Vercel.app", "Prime Vue", "MLD", "Authentification", "Bases de données", "Cypress", "Documents techniques", "Cahier de recette", "rédaction", 
+        "équipe", "Vitest", "Tests unitaires", "rédaction"],
             "realisations":[
                 "Réalisation de documents de conception",
                 "Réalisation de la base de données sous PostgreSQL",
@@ -117,10 +118,8 @@
                 "Gestion du projet sur Azure DevOps"
             ],
             "type":"Universitaire",
-            "images":[
-                null
-            ],
-            "url": null,
+            "images":["https://media.licdn.com/dms/image/D4D2DAQGVJidDrwF9UA/profile-treasury-image-shrink_800_800/0/1717946348675?e=1718553600&v=beta&t=gT6eCjCjQGGZXmtECR8id3GzRvv5aehmZUBPrs2tHgk"],
+            "url": "https://bmw-client.vercel.app/",
             "route":"/projects/bmw"
         },{
             "id":"project_portfolio",
@@ -259,7 +258,7 @@
 "Tests unitaires",
 "Organisation de réunion", "compte rendu de réunion", "travail en équipe", "gestion de projet", "déploiement continu", "CI/CD", "UI/UX", "Experience Utilisateur",
 "Vercel.app", "Prime Vue", "MLD", "Authentification", "Bases de données", "Cypress", "Vitest", "Tests unitaires",
-"Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conceptions", "MLD", "PostgreSQL"
+"Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conceptions", "MLD", "PostgreSQL", "Documents techniques", "Cahier de recette", "rédaction"
     
 ]
 }

@@ -19,11 +19,8 @@ onUnmounted(() => {
 <template>
 
     <div id="welcome">
-        <div id="photo">
-            Photo
-        </div>
         <div id="text">
-            <h1>Hi, I'm Léo CHRISTOPHE</h1>
+            <h1>Léo CHRISTOPHE</h1>
             <p>2nd year IT student</p>
             <p>Based in Annecy, France</p>
         </div>
@@ -38,6 +35,18 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+    @font-face {
+    font-family: 'goodtimes';
+        src:  url('goodtimes.otf') format('otf')
+    }
+
+
+    h1{
+        font-family:'goodtimes';
+        letter-spacing: 2px;
+        float:left;
+        margin-left:30px;
+    }
 
     #id{
         background-color:rgb(213, 249, 255);
