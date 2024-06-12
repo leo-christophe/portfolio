@@ -1,6 +1,10 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
-import DocumentViewer from '../components/DocumentViewer.vue'
+import DocumentViewer from '../components/Home/DocumentViewer.vue'
+import HomeContact from '../components/Home/HomeContact.vue'
+import HomeSkills from '../components/Home/HomeSkills.vue'
+import HomeStart from '../components/Home/HomeStart.vue'
+
 import News from '../components/News.vue'
 import {COULEUR_MENU_SELECTIONNE, COULEUR_MENU_BASIC} from '../data/const'
 
@@ -17,24 +21,32 @@ onUnmounted(() => {
 </script>
 
 <template>
-
-    <div id="welcome">
-        <div id="text">
-            <h1>Léo CHRISTOPHE</h1>
-            <p>2nd year IT student</p>
-            <p>Based in Annecy, France</p>
-        </div>
+    <div class="pageSection">
+        <HomeStart></HomeStart>
     </div>
-
-    <News></News>
-
-    <!-- <DocumentViewer/> -->
-
-    
+    <div class="pageSection">
+        <HomeSkills></HomeSkills>
+    </div>
+    <div class="pageSection"> 
+        <button>Consulter mon CV</button>
+        <HomeContact></HomeContact>
+    </div>
 
 </template>
 
 <style scoped>
+    .pageSection{
+        height:720px;
+    }
+
+    .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+    }
+
+    .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+    opacity: 0;
+    }
+
     @font-face {
     font-family: 'goodtimes';
         src:  url('goodtimes.otf') format('otf')
