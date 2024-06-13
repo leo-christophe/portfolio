@@ -116,7 +116,11 @@ const filteredProjects = computed(() => {
             <h3 class="projectName">{{ project.nom }}</h3>
             
           </div>
-          <img v-if="project.images[0]" :src="project.images[0]" alt="Image du projet" class="projectimage">
+          <img v-if="project.images[0]" 
+          :src="project.images[0].link" 
+          :alt="project.images[0].description" 
+          :title="project.images[0].description"
+          class="projectimage">
         </router-link>
       </li>
     </ul>
@@ -212,7 +216,7 @@ const filteredProjects = computed(() => {
 
   ul {
     display: inline-flex;
-    space-around: 10px;
+  
     list-style: none;
   }
 

@@ -5,7 +5,7 @@ import data from '../data/data.json'
 // Définir les props
 const props = defineProps({
   id: {
-    type: Number,
+    type: String,
     required: true
   }
 })
@@ -33,11 +33,17 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
         </div>
         
         <div v-if="hasImages" id="images" class="projectElement">
-            <button v-if="multipleImages" @click="switchImage('back')" id="leftButton">&#8678;</button>
-            <a :href="data.projects[props.id].url">
-                <img :src="data.projects[props.id].images[ActualImage]" class="projectimage">   
+            <button v-if="multipleImages" @click="switchImage('back')" id="leftButton" title="Voir la dernière image">&#8678;</button>
+            <a :v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
+            <a :v-if="!(data.projects[props.id].url) && data.projects[props.id].github" :href="data.projects[props.id].github">   
+                <img v-if="data.projects[props.id].images[ActualImage].type != 'video'" :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
+                
+                <iframe width="560" height="315" v-else :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
             </a> 
-            <button v-if="multipleImages" @click="switchImage('forward')" id="rightButton">&#8680;</button>
+            </a>
+            <button v-if="multipleImages" @click="switchImage('forward')" id="rightButton"  title="Voir la prochaine image">&#8680;</button>
         </div>
         
         <div id="desc" class="projectElement">
@@ -61,6 +67,11 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
 </template>
 
 <style scoped>
+.imageDescription{
+    color:lightgray;
+    font-size:0.9rem;
+}
+
 #project {
     margin-left: 50px;
     margin-right: 50px;
@@ -120,4 +131,8 @@ img.projectimage {
     background-color: rgb(64, 64, 64);
     text-align: center;
 }
+small{
+    margin-top:30px;
+}
+
 </style>

@@ -38,7 +38,7 @@
             "poste": "Développeur R&D (GTA)",
             "entreprise": "Groupe Alpha-3i",
             "dates": ["15/04/2024","05/07/2024"],
-            "competences": ["webdev","wlangage","javascript","ergonomie","rigueur","autonomie","travail en équipe"],
+            "competences": ["webdev","wlangage","javascript","ergonomie","rigueur","autonomie","travail en équipe", "ui/ux", "test", "optimisation"],
             "description": "Développement de nouvelles fonctionnalités dans le workflow des absences et congés des salariés",
             "missions":[
                 "Analyse des besoins",
@@ -70,7 +70,15 @@
             ],
             "type":"Universitaire",
             "images":[
-                "https://media.licdn.com/dms/image/D4E2DAQEvhnBVWTLpVA/profile-treasury-image-shrink_800_800/0/1700320007072?e=1718546400&v=beta&t=I5TMo3_xhJTaR4k3lofBsaSeCJJ_gLPafXv8SxCQKyA"
+                {
+                    "link":"https://media.licdn.com/dms/image/D4E2DAQEvhnBVWTLpVA/profile-treasury-image-shrink_800_800/0/1700320007072?e=1718546400&v=beta&t=I5TMo3_xhJTaR4k3lofBsaSeCJJ_gLPafXv8SxCQKyA",
+                    "description":"Capture d'écran du jeu pendant une partie.",
+                    "type": "image"
+                },{
+                    "link":"https://www.youtube-nocookie.com/embed/cXkS7AoTs98?si=_f9r0uaOs8Vvmosv&amp;controls=0",
+                    "description":"Vidéo de démonstration commentée du jeu.",
+                    "type": "video"
+                }
             ],
             "url": null,
             "route":"/projects/marsinvaders"
@@ -91,10 +99,18 @@
             ],
             "type":"Universitaire",
             "images":[
-                "https://media.licdn.com/dms/image/D4D2DAQHbVbCoR41Pyg/profile-treasury-image-shrink_800_800/0/1717945458733?e=1718553600&v=beta&t=Jv-9PL3AcyQSB0dKX0JUpdDtxhXl3iuahLrSHYHliPg",
-                "https://media.licdn.com/dms/image/D4D2DAQG-RRthlGa39Q/profile-treasury-image-shrink_800_800/0/1717945474890?e=1718553600&v=beta&t=faHrRmH74FD8kCXhJUaKLyRVVqU5CmnzcL5qfA6Mpzc"
-            ],
+                {
+                    "link":"https://media.licdn.com/dms/image/D4D2DAQHbVbCoR41Pyg/profile-treasury-image-shrink_800_800/0/1717945458733?e=1718553600&v=beta&t=Jv-9PL3AcyQSB0dKX0JUpdDtxhXl3iuahLrSHYHliPg",
+                    "description":"Capture d'écran de la page d'accueil du site.",
+                    "type": "image"
+                },{
+                    "link":"https://media.licdn.com/dms/image/D4D2DAQG-RRthlGa39Q/profile-treasury-image-shrink_800_800/0/1717945474890?e=1718553600&v=beta&t=faHrRmH74FD8kCXhJUaKLyRVVqU5CmnzcL5qfA6Mpzc",
+                    "description":"Capture d'écran d'une formation.",
+                    "type": "image"
+                }
+                ],
             "url": null,
+            "github":"https://github.com/leoChris7/Mars-Invaders",
             "route":"/projects/skillupnow"
         },
         {
@@ -118,8 +134,13 @@
                 "Gestion du projet sur Azure DevOps"
             ],
             "type":"Universitaire",
-            "images":["https://media.licdn.com/dms/image/D4D2DAQGVJidDrwF9UA/profile-treasury-image-shrink_800_800/0/1717946348675?e=1718553600&v=beta&t=gT6eCjCjQGGZXmtECR8id3GzRvv5aehmZUBPrs2tHgk"],
+            "images":[{
+                "link":"https://media.licdn.com/dms/image/D4D2DAQGVJidDrwF9UA/profile-treasury-image-shrink_800_800/0/1717946348675?e=1718553600&v=beta&t=gT6eCjCjQGGZXmtECR8id3GzRvv5aehmZUBPrs2tHgk",
+                "description":"Capture d'écran de la page d'accueil du site.",
+                "type": "image"
+            }],
             "url": "https://bmw-client.vercel.app/",
+            "github":null,
             "route":"/projects/bmw"
         },{
             "id":"project_portfolio",
@@ -143,6 +164,7 @@
                 null
             ],
             "url": null,
+            "github":"https://github.com/leo-christophe/portfolio",
             "route":"/projects/portfolio"
         }
     ],
@@ -216,6 +238,36 @@
             "image": "https://static-00.iconduck.com/assets.00/github-icon-2048x2048-qlv5m092.png"
         }
         
+    ],
+    "main_hard_skills":[
+        {
+            "Développement informatique":
+            [
+                {"Développement web (JS, PHP, WebDev)":"80%"},
+                {"Développement logiciel (C#, Python)": "70%"},
+                {"Réseaux": "40%"},
+                {"Gestion de bases de données SQL": "80%"}
+               
+            ]
+        },
+        {
+            "Autre":[
+                {"Traduction Anglais/Français": "80%"},
+                {"Montage vidéo": "70%"},
+                {"Montage photo": "60%"}
+                
+            ]
+        }
+    ],
+    "main_soft_skills":[
+        "Travail en équipe",
+        "Autonomie",
+        "Rigueur",
+        "Organisation",
+        "Créativité",
+        "Adaptabilité",
+        "Esprit critique",
+        "Force de proposition"
     ],
     "valid_skills":[
         "équipe",
