@@ -22,27 +22,32 @@ export default {
 
     watch(y, (newY) => {
       const deltaY = newY - prevY.value;
+      const scrollHeight = document.documentElement.scrollHeight;
+      const oneThirdHeight = scrollHeight / 3;
+    
       if (deltaY > 0) {
-        // Scroll down by one third of the scrollHeight if scrolling down
-        if (newY < scrollHeight / 3) {
-          window.scrollTo({ top: scrollHeight / 3 });
-        } else if (newY < (scrollHeight / 3) * 2) {
-          window.scrollTo({ top: (scrollHeight / 3) * 2 });
+        // Défilement vers le bas
+        if (newY < oneThirdHeight) {
+          window.scrollTo({ top: oneThirdHeight });
+        } else if (newY < 2 * oneThirdHeight) {
+          window.scrollTo({ top: 2 * oneThirdHeight });
         } else {
           window.scrollTo({ top: scrollHeight });
         }
       } else if (deltaY < 0) {
-        // Scroll up by one third of the scrollHeight if scrolling up
-        if (newY > (scrollHeight / 3) * 2) {
-          window.scrollTo({ top: (scrollHeight / 3) * 2 });
-        } else if (newY > scrollHeight / 3) {
-          window.scrollTo({ top: scrollHeight / 3 });
+        // Défilement vers le haut
+        if (newY > 2 * oneThirdHeight) {
+          window.scrollTo({ top: 2 * oneThirdHeight });
+        } else if (newY > oneThirdHeight) {
+          window.scrollTo({ top: oneThirdHeight });
         } else {
           window.scrollTo({ top: 0 });
         }
       }
+    
       prevY.value = newY;
     });
+    
 
     $(window).on('scroll', onScroll);
     el._onScroll = onScroll;

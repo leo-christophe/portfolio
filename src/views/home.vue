@@ -1,6 +1,5 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue';
-import DocumentViewer from '../components/Home/DocumentViewer.vue';
 import HomeContact from '../components/Home/HomeContact.vue';
 import HomeSkills from '../components/Home/HomeSkills.vue';
 import HomeStart from '../components/Home/HomeStart.vue';
@@ -20,24 +19,29 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="pageSection" v-scroll>
+  <div class="pageSection" id="home1" v-scroll>
     <HomeStart></HomeStart>
   </div>
-  <div class="pageSection" v-scroll>
+  <div class="pageSection" id="home2" v-scroll>
     <HomeSkills></HomeSkills>
   </div>
   <div class="pageSection" id="contactEtCv"  v-scroll>
-    <button>Consulter mon CV</button>
     <HomeContact></HomeContact>
   </div>
 </template>
 
 <style scoped>
+#home2{
+  background-color:rgb(33, 33, 33);
+}
 
+#contactEtCv{
+  padding-top:10vh;
+}
 
 .pageSection {
-  margin-top:10vh;
-  height: 100vh;
+  padding-top:10vh;
+  height: 90vh;
   opacity: 0;
   transition: opacity 2s;
 }
