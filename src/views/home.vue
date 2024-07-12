@@ -18,7 +18,7 @@ onUnmounted(() => {
 
 <template>
 
-<HomeStart id="start"></HomeStart>
+<HomeStart id="start" class></HomeStart>
 <HomeSkills id="skills"></HomeSkills>
 <HomeContact id="contact"></HomeContact>
 
