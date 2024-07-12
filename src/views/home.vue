@@ -3,8 +3,6 @@ import { onMounted, onUnmounted } from 'vue';
 import HomeContact from '../components/Home/HomeContact.vue';
 import HomeSkills from '../components/Home/HomeSkills.vue';
 import HomeStart from '../components/Home/HomeStart.vue';
-import News from '../components/News.vue';
-import scrollDirective from '../directives/scroll-directive.js';
 import { COULEUR_MENU_SELECTIONNE, COULEUR_MENU_BASIC } from '../data/const';
 
 onMounted(() => {
@@ -19,18 +17,20 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="pageSection" id="home1" v-scroll>
-    <HomeStart></HomeStart>
-  </div>
-  <div class="pageSection" id="home2" v-scroll>
-    <HomeSkills></HomeSkills>
-  </div>
-  <div class="pageSection" id="contactEtCv"  v-scroll>
-    <HomeContact></HomeContact>
-  </div>
+
+<HomeStart id="start"></HomeStart>
+<HomeSkills id="skills"></HomeSkills>
+<HomeContact id="contact"></HomeContact>
+
 </template>
 
 <style scoped>
+
+#start{
+  height:100vh;
+  background-color:rgb(39, 39, 39);
+}
+
 #home2{
   background-color:rgb(33, 33, 33);
 }

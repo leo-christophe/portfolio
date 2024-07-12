@@ -35,7 +35,7 @@ const items = [
   }
 
   nav{
-    margin-bottom:50px;
+    padding-bottom:50px;
     text-align: center;
     background-color: black;
   }
