@@ -18,7 +18,7 @@ onUnmounted(() => {
 
 <template>
 
-<HomeStart id="start" class></HomeStart>
+<HomeStart id="start"></HomeStart>
 <HomeSkills id="skills"></HomeSkills>
 <HomeContact id="contact"></HomeContact>
 
@@ -29,19 +29,26 @@ onUnmounted(() => {
 #start{
   height:100vh;
   background-color:rgb(39, 39, 39);
+  z-index:2;
+}
+
+#skills{
+  z-index:3;
+  height:100vh;
 }
 
 #home2{
   background-color:rgb(33, 33, 33);
 }
 
-#contactEtCv{
-  padding-top:10vh;
+#contact{
+
+  height:100vh;
 }
 
 .pageSection {
   padding-top:10vh;
-  height: 90vh;
+  height: 100vh;
   opacity: 0;
   transition: opacity 2s;
 }

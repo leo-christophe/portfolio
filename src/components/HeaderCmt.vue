@@ -8,7 +8,6 @@ const items = [
   { label: 'Formations', route: '/formations', icon: 'pi pi-book' },
   { label: 'Experience', route: '/experience', icon: 'pi pi-briefcase' },
   { label: 'Projects', route: '/projects', icon: 'pi pi-folder' },
-  { label: 'Hobbies', route: '/hobbies', icon: 'pi pi-heart' },
   { label: 'Contact', route: '/contact', icon: 'pi pi-envelope' }
 ];
 
@@ -35,7 +34,6 @@ const items = [
   }
 
   nav{
-    padding-bottom:50px;
     text-align: center;
     background-color: black;
   }

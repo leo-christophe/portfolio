@@ -37,6 +37,7 @@
   .skills-display {
     font-family: Arial, sans-serif;
     margin: 20px;
+    padding-top:100px;
   }
   
   .hard-skills, .soft-skills {

@@ -3,11 +3,13 @@
 </template>
 
 <script>
-
+import Button from 'primevue/button';
 </script>
 
 <style scoped>
 button{
+    width:200px;
+    height:50px;
     position:relative;
     display:block;
     text-align:center;
