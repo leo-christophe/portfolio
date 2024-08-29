@@ -20,7 +20,7 @@ onUnmounted(() => {
 
 <HomeStart id="start"></HomeStart>
 <HomeSkills id="skills"></HomeSkills>
-<HomeContact id="contact"></HomeContact>
+<HomeContact id="contactSection" class="pageSection"></HomeContact>
 
 </template>
 
@@ -41,15 +41,9 @@ onUnmounted(() => {
   background-color:rgb(33, 33, 33);
 }
 
-#contact{
-
-  height:100vh;
-}
-
 .pageSection {
   padding-top:10vh;
   height: 100vh;
-  opacity: 0;
   transition: opacity 2s;
 }
 

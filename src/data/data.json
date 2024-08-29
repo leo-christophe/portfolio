@@ -71,8 +71,12 @@
             "type":"Universitaire",
             "images":[
                 {
-                    "link":"https://media.licdn.com/dms/image/D4E2DAQEvhnBVWTLpVA/profile-treasury-image-shrink_800_800/0/1700320007072?e=1718546400&v=beta&t=I5TMo3_xhJTaR4k3lofBsaSeCJJ_gLPafXv8SxCQKyA",
+                    "link":"project-marsinvaders-1.jfif",
                     "description":"Capture d'écran du jeu pendant une partie.",
+                    "type": "image"
+                },{
+                    "link":"project-marsinvaders-2.jfif",
+                    "description":"Capture d'écran du menu du jeu.",
                     "type": "image"
                 },{
                     "link":"https://www.youtube-nocookie.com/embed/cXkS7AoTs98?si=_f9r0uaOs8Vvmosv&amp;controls=0",
@@ -100,11 +104,11 @@
             "type":"Universitaire",
             "images":[
                 {
-                    "link":"https://media.licdn.com/dms/image/D4D2DAQHbVbCoR41Pyg/profile-treasury-image-shrink_800_800/0/1717945458733?e=1718553600&v=beta&t=Jv-9PL3AcyQSB0dKX0JUpdDtxhXl3iuahLrSHYHliPg",
+                    "link":"project-skillupnow-1.jfif",
                     "description":"Capture d'écran de la page d'accueil du site.",
                     "type": "image"
                 },{
-                    "link":"https://media.licdn.com/dms/image/D4D2DAQG-RRthlGa39Q/profile-treasury-image-shrink_800_800/0/1717945474890?e=1718553600&v=beta&t=faHrRmH74FD8kCXhJUaKLyRVVqU5CmnzcL5qfA6Mpzc",
+                    "link":"project-skillupnow-2.jfif",
                     "description":"Capture d'écran d'une formation.",
                     "type": "image"
                 }
@@ -135,7 +139,7 @@
             ],
             "type":"Universitaire",
             "images":[{
-                "link":"https://media.licdn.com/dms/image/D4D2DAQGVJidDrwF9UA/profile-treasury-image-shrink_800_800/0/1717946348675?e=1718553600&v=beta&t=gT6eCjCjQGGZXmtECR8id3GzRvv5aehmZUBPrs2tHgk",
+                "link":"project-bmw-1.jfif",
                 "description":"Capture d'écran de la page d'accueil du site.",
                 "type": "image"
             }],
@@ -161,7 +165,11 @@
             ],
             "type":"Personnel",
             "images":[
-                null
+                {
+                    "link":"project-portfolio-1.jpg",
+                    "description":"Capture d'écran de la page d'accueil du site.",
+                    "type": "image"
+                }
             ],
             "url": null,
             "github":"https://github.com/leo-christophe/portfolio",

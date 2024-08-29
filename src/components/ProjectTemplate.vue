@@ -36,7 +36,7 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
             <button v-if="multipleImages" @click="switchImage('back')" id="leftButton" title="Voir la dernière image">&#8678;</button>
             <a :v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
             <a :v-if="!(data.projects[props.id].url) && data.projects[props.id].github" :href="data.projects[props.id].github">   
-                <img v-if="data.projects[props.id].images[ActualImage].type != 'video'" :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
+                <img v-if="data.projects[props.id].images[ActualImage].type != 'video'" :src="'/images/projects/'+data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
                 
                 <iframe width="560" height="315" v-else :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 

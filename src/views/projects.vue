@@ -12,21 +12,60 @@ import { findClosestCompetence } from '../utils/levenshtein'
 const predefinedCompetences = json.valid_skills
 
 const Compvalue = ref([])
-const startDate = ref('')
-const endDate = ref('')
+const startDate = ref(null)
+const endDate = ref(null)
 const checkType = ref([])
 
 onMounted(() => {
+  // Appliquer les styles
   $('nav ul li:nth-child(4)').css('border-bottom', '2px solid ' + COULEUR_MENU_SELECTIONNE);
   $('nav ul li:nth-child(4) span').css('color', COULEUR_MENU_SELECTIONNE);
+
+  // Trouver les dates des projets
+  if (data.projects && data.projects.length > 0) {
+    const projectDates = data.projects.map(project => {
+      const projectStart = new Date(project.dates[0])
+      const projectEnd = project.dates[1] === "En cours" ? new Date() : new Date(project.dates[1])
+      return { start: projectStart, end: projectEnd }
+    })
+    
+    // Trouver la date du premier projet réalisé
+    const earliestStart = projectDates.reduce((earliest, current) => {
+      return current.start < earliest ? current.start : earliest
+    }, projectDates[0].start)
+
+    // Trouver la date du dernier projet réalisé
+    const latestEnd = projectDates.reduce((latest, current) => {
+      
+      // Create a new date for today + 1 day
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+
+      if (current.end.getDate() === new Date().getDate()) {
+        current.end = tomorrow
+      }
+
+      if (current.end > latest) {
+        return current.end
+      }
+      return latest
+
+    }, projectDates[0].end)
+
+    console.log(earliestStart, latestEnd)
+
+    // Assigner les valeurs trouvées
+    startDate.value = earliestStart.toISOString().split('T')[0]
+    endDate.value = latestEnd.toISOString().split('T')[0]
+
+    
+  }
 })
 
 onUnmounted(() => {
   $('nav ul li:nth-child(4)').css('border-bottom', '0px');
   $('nav ul li:nth-child(4) span').css('color', COULEUR_MENU_BASIC);
 })
-
-
 
 const filteredProjects = computed(() => {
   let filteredByDate = data.projects || []
@@ -59,7 +98,6 @@ const filteredProjects = computed(() => {
   // Filtrer par compétence
   if (Compvalue.value && Compvalue.value.length > 0) {
     const correctedCompetences = Compvalue.value.map(comp => findClosestCompetence(comp))
-    console.log(correctedCompetences)
     filteredByDate = filteredByDate.filter(project => {
       return project.competences && project.competences.some(competence => correctedCompetences.includes(competence))
     })
@@ -76,6 +114,7 @@ const filteredProjects = computed(() => {
 })
 </script>
 
+
 <template>
   <div>
     <h1>Projects</h1>
@@ -90,7 +129,7 @@ const filteredProjects = computed(() => {
       <div class="datesIn">
         <h3>Mots clés</h3>
         <div id="competenceFilter" class="p-fluid chip">
-          <Chips v-model="Compvalue" separator="," />
+          <Chips v-model="Compvalue" separator="," title="Mots clés pour trier les projets utilisant l'algorithme de Levenshtein"/>
         </div>
       </div>
 
@@ -98,11 +137,11 @@ const filteredProjects = computed(() => {
         <h3>Type de projet:</h3>
         <div class="flex flex-wrap gap-3">
             <div class="flex align-items-center">
-                <Checkbox v-model="checkType" inputId="universitaire" name="checkType" value="Universitaire"/>
+                <Checkbox v-model="checkType" inputId="universitaire" name="checkType" value="Universitaire" title="Projets réalisés dans le cadre de mes études."/>
                 <label for="universitaire" class="ml-2"> Universitaire </label>
             </div>
             <div class="flex align-items-center">
-                <Checkbox v-model="checkType" inputId="personnel" name="checkType" value="Personnel"/>
+                <Checkbox v-model="checkType" inputId="personnel" name="checkType" value="Personnel" title="Projets réalisés en loisir ou dans mon temps personnel."/>
                 <label for="personnel" class="ml-2"> Personnel </label>
             </div>
         </div>
@@ -113,14 +152,16 @@ const filteredProjects = computed(() => {
       <li v-for="project in filteredProjects" :key="project.id" :id="project.id" class="projectCard">
         <router-link :to="project.route" class="liensrouteur">
           <div class="projectCardIn">
-            <h3 class="projectName">{{ project.nom }}</h3>
-            
+            <h3 class="projectName">{{ project.nom }}</h3> 
           </div>
-          <img v-if="project.images[0]" 
-          :src="project.images[0].link" 
-          :alt="project.images[0].description" 
-          :title="project.images[0].description"
-          class="projectimage">
+
+          <div class="pjtImgContainer">
+            <img v-if="project.images[0]" 
+            :src="'/images/projects/'+project.images[0].link" 
+            :alt="project.images[0].description" 
+            :title="project.images[0].description"
+            class="projectimage">
+          </div>
         </router-link>
       </li>
     </ul>
@@ -148,12 +189,38 @@ const filteredProjects = computed(() => {
 
  .projectimage{
     width:100%;
+    object-fit: cover;
     display:flex;
     align-items:center;
     flex:1;
     flex-wrap: wrap;
     flex-direction: row;
     flex-flow: wrap;
+ }
+
+ .pjtImgContainer{
+  width: 300px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+ }
+
+ .pjtImgContainer .projectimage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease, object-position 0.5s ease;
+ }
+
+ .pjtImgContainer:hover .projectimage{
+    transform: scale(0.90);
+    
+    border:1 px solid white;
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.5s ease, object-position 0.75s ease-out, color 1s ease-in, border 1s ease-in;
  }
 
   #dates > div.card.flex.flex-wrap.justify-content-center.gap-3{
@@ -234,7 +301,7 @@ const filteredProjects = computed(() => {
 
   .projectCardIn:hover {
     font-size: 105%;
-    transition: 1s;
+    transition: 0.1s;
   }
 
   label {
