@@ -85,6 +85,7 @@
                 }
             ],
             "url": null,
+            "github":"https://github.com/leoChris7/Mars-Invaders",
             "route":"/projects/marsinvaders"
         },{
             "id":"project_sae301",
@@ -171,7 +172,7 @@
                     "type": "image"
                 }
             ],
-            "url": null,
+            "url": "https://portfolio-wheat-six-32.vercel.app/",
             "github":"https://github.com/leo-christophe/portfolio",
             "route":"/projects/portfolio"
         }
@@ -244,6 +245,9 @@
             "name": "Github",
             "url": "https://github.com/leo-christophe",
             "image": "https://static-00.iconduck.com/assets.00/github-icon-2048x2048-qlv5m092.png"
+        },{
+            "name": "Internet Link",
+            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngrepo.com%2Fpng%2F278330%2F512%2Finternet.png&f=1&nofb=1&ipt=8612de18f582c30f9a421a547805d2bd447c0cead17501fdbcc4f8d986741cb7&ipo=images"
         }
         
     ],

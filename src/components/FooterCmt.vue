@@ -10,7 +10,7 @@
         <strong><p>© {{new Date().getFullYear()}} Léo CHRISTOPHE</p></strong>
         <div id="links">
             <div v-for="link in links" :key="link.name" :id="link.name" class="link">
-                <a :href="link.url" target="_blank">
+                <a :href="link.url" target="_blank"  v-if="link.url">
                     <img :src="link.image" :id="link.name+'_img'" class="imgLink"/>
                 </a>
             </div>

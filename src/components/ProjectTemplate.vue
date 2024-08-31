@@ -32,20 +32,33 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
             {{ data.projects[props.id].titre }}
         </div>
         
-        <div v-if="hasImages" id="images" class="projectElement">
-            <button v-if="multipleImages" @click="switchImage('back')" id="leftButton" title="Voir la dernière image">&#8678;</button>
-            <a :v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
-            <a :v-if="!(data.projects[props.id].url) && data.projects[props.id].github" :href="data.projects[props.id].github">   
-                <img v-if="data.projects[props.id].images[ActualImage].type != 'video'" :src="'/images/projects/'+data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
-                
-                <iframe width="560" height="315" v-else :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div id="images-container" class="projectElement">
 
-                <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
-            </a> 
-            </a>
-            <button v-if="multipleImages" @click="switchImage('forward')" id="rightButton"  title="Voir la prochaine image">&#8680;</button>
+            <div v-if="hasImages" id="images">
+                <button v-if="multipleImages" @click="switchImage('back')" id="leftButton" title="Voir la dernière image">&#8678;</button>
+                <a :v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
+                    <a :v-if="!(data.projects[props.id].url) && data.projects[props.id].github" :href="data.projects[props.id].github">   
+                        <img v-if="data.projects[props.id].images[ActualImage].type != 'video'" :src="'/images/projects/'+data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
+                        
+                        <iframe width="560" height="315" v-else :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                        <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
+                    </a> 
+                </a>
+                <button v-if="multipleImages" @click="switchImage('forward')" id="rightButton" title="Voir la prochaine image">&#8680;</button>
+            </div>
+            
+            <div id="Projectlinks">
+                <a v-if="data.projects[props.id].github" :href="data.projects[props.id].github">
+                    <img :src="data.links[1].image" title="Lien vers le Github / Le code source" class="imgProjectLinks"/>
+                </a>
+                <a v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
+                    <img :src="data.links[2].image" title="Lien vers le site web / Le téléchargement du projet" class="imgProjectLinks"/>
+                </a>
+            </div>
+
         </div>
-        
+
         <div id="desc" class="projectElement">
             {{ data.projects[props.id].description }}
         </div>
@@ -80,19 +93,6 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
 .projectElement {
     margin: 20px;
     text-align: center;
-}
-
-#images {
-    background-color: gray;
-    border-radius: 10px;
-    width: 900px;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    box-shadow: 2px 2px 2px 2px black;
-    margin: auto;
 }
 
 button#leftButton, button#rightButton {
@@ -133,6 +133,41 @@ img.projectimage {
 }
 small{
     margin-top:30px;
+}
+
+#images-container {
+    justify-content: center;
+    align-self: center;
+    display:grid;
+    
+}
+
+#Projectlinks {
+    bottom: 10px; /* Le placer en bas du rectangle gris */
+    left: 10px; /* Le placer à gauche du rectangle gris */
+    display: flex;
+    flex-direction: row; /* Aligner les liens horizontalement */
+    gap: 10px; /* Espacement entre les liens */
+    margin-top:10px;
+}
+
+#images {
+    position: relative; /* Assurer que #Projectlinks se positionne correctement */
+    background-color: gray;
+    border-radius: 10px;
+    width: 900px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 2px 2px 2px 2px black;
+}
+
+.imgProjectLinks {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
 }
 
 </style>
