@@ -1,6 +1,7 @@
 <script setup>
 import { defineProps, ref, computed } from 'vue'
 import data from '../data/data.json'
+import { PowerBIEmbedModule } from 'powerbi-client-vue-js';
 
 // Définir les props
 const props = defineProps({
@@ -9,6 +10,22 @@ const props = defineProps({
     required: true
   }
 })
+
+
+function downloadFile(downloadlink){
+    // Lien vers le fichier existant (URL absolue ou relative)
+    const fileUrl = downloadlink; // Remplacer avec l'URL réelle du fichier
+    const fileName = downloadlink.substring(downloadlink.lastIndexOf('/') + 1); // Nom du fichier téléchargé
+
+    // Créer un élément de lien
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = fileName;
+
+    // Simuler un clic pour déclencher le téléchargement
+    link.click();
+}
+
 
 const ActualImage = ref(0)
 const switchImage = (way) => {
@@ -38,10 +55,20 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
                 <button v-if="multipleImages" @click="switchImage('back')" id="leftButton" title="Voir la dernière image">&#8678;</button>
                 <a :v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
                     <a :v-if="!(data.projects[props.id].url) && data.projects[props.id].github" :href="data.projects[props.id].github">   
-                        <img v-if="data.projects[props.id].images[ActualImage].type != 'video'" :src="'/images/projects/'+data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
                         
-                        <iframe width="560" height="315" v-else :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div v-if="data.projects[props.id].images[ActualImage].type == 'image'">
+                            <img  :src="'/images/projects/'+data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
+                        </div>
 
+                        <div v-else-if="data.projects[props.id].images[ActualImage].type == 'video'">
+                            <iframe width="560" height="315" :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <div v-else-if="data.projects[props.id].images[ActualImage].type == 'powerbi'">
+                            <iframe width="660" height="415" :src="data.projects[props.id].images[ActualImage].link" frameborder="1" allowFullScreen="true" class="projectimage" :title="data.projects[props.id].images[ActualImage].description"></iframe>
+                        </div>
+
+                      
                         <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
                     </a> 
                 </a>
@@ -50,10 +77,13 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
             
             <div id="Projectlinks">
                 <a v-if="data.projects[props.id].github" :href="data.projects[props.id].github">
-                    <img :src="data.links[1].image" title="Lien vers le Github / Le code source" class="imgProjectLinks"/>
+                    <i class="pi pi-github imgProjectLinks"  title="Lien vers le Github / Le code source"></i>
                 </a>
                 <a v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
-                    <img :src="data.links[2].image" title="Lien vers le site web / Le téléchargement du projet" class="imgProjectLinks"/>
+                    <i class="pi pi-globe imgProjectLinks" title="Lien vers le site web / Le téléchargement du projet"></i>
+                </a>
+                <a v-if="data.projects[props.id].download" @click="downloadFile(data.projects[props.id].download)">
+                    <i class="pi pi-download imgProjectLinks" title="Télécharger le fichier"></i>
                 </a>
             </div>
 
@@ -112,6 +142,7 @@ img.projectimage {
     border-radius: 10px;
     border: 1px solid black;
     box-shadow: 3px 3px 3px 3px darkslategray;
+    position:relative;
 }
 
 #lists {

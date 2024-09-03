@@ -85,6 +85,25 @@ button:focus-visible {
   padding: 2em;
 }
 
+Button{
+  color: RGB(159, 229, 227);
+  background-color:black;
+  
+  transition: 0.25s ease-in-out all;
+}
+
+Button:hover{
+  background-color:black;
+  transition: 0.25s ease-in-out all;
+  border:1px solid white;
+  color:white;
+}
+
+Button:active{
+}
+
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -96,6 +115,11 @@ button:focus-visible {
   }
 
 }
+
+
+
+
+
 /* Order */
 @layer reset, primevue;
 

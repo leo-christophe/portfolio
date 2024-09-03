@@ -1,4 +1,3 @@
-
 const COULEUR_MENU_SELECTIONNE = 'RGB(159, 229, 227)'
 const COULEUR_MENU_BASIC = 'white'
 const GITHUB_ICON = ''

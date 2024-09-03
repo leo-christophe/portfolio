@@ -8,11 +8,12 @@
             "departement": "74",
             "obtention": "En cours",
             "annees": "2022-En cours",
-            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.univ-smb.fr%2Fiut-annecy%2Fwp-content%2Fuploads%2Fsites%2F98%2Felementor%2Fthumbs%2Fiut1-pxpem2ky8cuq1pvh6vnodrj4wx5q9dbr7474lzc9mg.jpg&f=1&nofb=1&ipt=6d80824ba1551d4e8a3d0780fb48b3fcaeaa21cd6ecbba36496c617908383bce&ipo=images"
-          },
+            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.univ-smb.fr%2Fiut-annecy%2Fwp-content%2Fuploads%2Fsites%2F98%2Felementor%2Fthumbs%2Fiut1-pxpem2ky8cuq1pvh6vnodrj4wx5q9dbr7474lzc9mg.jpg&f=1&nofb=1&ipt=6d80824ba1551d4e8a3d0780fb48b3fcaeaa21cd6ecbba36496c617908383bce&ipo=images",
+            "siteFormation": "https://www.univ-smb.fr/iut-annecy/"
+        },
           {
             "id": "bac",
-            "titre": "Bac Général, Spécialité NSI et Mathématiques",
+            "titre": "Bac Général (Spécialités NSI, Math)",
             "lieu": "Lycée Charles Poncet",
             "ville": "Cluses",
             "departement": "74",
@@ -86,6 +87,7 @@
             ],
             "url": null,
             "github":"https://github.com/leoChris7/Mars-Invaders",
+            "download":null,
             "route":"/projects/marsinvaders"
         },{
             "id":"project_sae301",
@@ -116,6 +118,7 @@
                 ],
             "url": null,
             "github":"https://github.com/leoChris7/Mars-Invaders",
+            "download":null,
             "route":"/projects/skillupnow"
         },
         {
@@ -146,6 +149,7 @@
             }],
             "url": "https://bmw-client.vercel.app/",
             "github":null,
+            "download":null,
             "route":"/projects/bmw"
         },{
             "id":"project_portfolio",
@@ -174,7 +178,48 @@
             ],
             "url": "https://portfolio-wheat-six-32.vercel.app/",
             "github":"https://github.com/leo-christophe/portfolio",
+            "download":null,
             "route":"/projects/portfolio"
+        },{
+            "id":"project_sae104",
+            "nom": "Amphibiens",
+            "dates": ["2023-04-01","2023-06-15"],
+            "titre": "Création d'une base de données d'amphibiens et visualisation des données",
+            "description": "Création d'une base de données d'amphibiens en équipe de 3 personnes. Visualisation des données avec des requêtes SQL.",
+            "competences": ["PowerBI", "PowerAMC", "MCD", "MLD", "SQL", "PostgreSQL", "Excel", "Base de données", "Travail en équipe", "Anglais", "Présentation"],
+            "realisations":[
+                "Conception de la base de données grace à un diagramme MCD",
+                "Création de la base de données sous PostgreSQL",
+                "Création d'un jeu de données inséré dans la base à l'aide d'Excel",
+                "Réalisation de requêtes SQL simples",
+                "Visualisation des données avec PowerBI",
+                "Présentation orale des résultats devant un jury français et anglais"
+            ],
+            "type":"Universitaire",
+            "images":[
+                {
+                    "link":"project-amphibien-1.jpg",
+                    "description":"Page des caractéristiques d'amphibiens",
+                    "type":"image"
+                },{
+                    "link":"https://app.powerbi.com/view?r=eyJrIjoiN2E4MTQyNGUtNGRiZS00NWRlLTg5ZjUtNjUxYmRjZTdkNTZkIiwidCI6ImUyMWU5NzgzLWQwYTAtNDhmOC04NTBlLTBiMDgxYjQ2ZDc4OCIsImMiOjh9&pageName=ReportSection",
+                    "description":"Rapport PowerBI dynamique/interactif (Possibilité d'interaction)",
+                    "type":"powerbi"
+                },{
+                    "link":"project-amphibien-2.jpg",
+                    "description":"Page de statistiques de la population d'amphibiens",
+                    "type":"image"
+                },
+                {
+                    "link":"project-amphibien-3.jpg",
+                    "description":"Page de statistiques de comptage des amphibiens",
+                    "type":"image"
+                }
+            ],
+            "url": null,
+            "github":null,
+            "download":"/files/Rapport.pbix",
+            "route":"/projects/project_sae104"
         }
     ],
     "hobbies": [
@@ -248,6 +293,9 @@
         },{
             "name": "Internet Link",
             "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngrepo.com%2Fpng%2F278330%2F512%2Finternet.png&f=1&nofb=1&ipt=8612de18f582c30f9a421a547805d2bd447c0cead17501fdbcc4f8d986741cb7&ipo=images"
+        },{
+            "name": "Download",
+            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn3.iconfinder.com%2Fdata%2Ficons%2Fpyconic-icons-1-2%2F512%2Fdownload-2-1024.png&f=1&nofb=1&ipt=e887770a44dff205def116da5485eb641035d37bf5126a396a7f918fd693ad1b&ipo=images"
         }
         
     ],
@@ -280,6 +328,34 @@
         "Adaptabilité",
         "Esprit critique",
         "Force de proposition"
+    ],
+    "sorted_valid_skills":[
+        {
+            "Développement web":[
+                "Javascript","PHP","HTML","CSS","Laravel","Vue-JS","PrimeVue","Responsive","Ergonomie","NodeJS","JQuery","Git","Vercel.app","Déploiement continu","CI/CD","UI/UX","Experience Utilisateur"
+            ],
+            "Développement logiciel":[
+                "C#","Python", "Visual Studio 2022", "MonoGame"
+            ],
+            "Développement":[
+                "Déploiement continu", "UI/UX", "Experience Utilisateur", "Authentification","Tests unitaires", "Github", "CI/CD", "Azure", "Visual Studio Code", "Visual Studio 2022"
+            ],
+            "Tests":[
+                "Cypress","Vitest","Tests unitaires"
+            ],
+            "Gestion de bases de données":[
+                "SQL","PostgreSQL","MLD","Authentification","Bases de données","Cypress","Vitest","Tests unitaires"
+            ],
+            "Gestion de projet":[
+                "Travail en équipe","Comptes rendus de sprint","Cryptographie","Rédaction de rapport","Organisation de réunion","compte rendu de réunion","gestion de projet","déploiement continu","CI/CD","UI/UX","Experience Utilisateur","Vercel.app","Prime Vue","MLD","Authentification","Bases de données","Cypress","Vitest","Tests unitaires"
+            ],
+            "Conception":[
+                "Etats-Transitions","Diagramme de classes","Diagrammes","Conceptions","MLD","PostgreSQL","Documents techniques","Cahier de recette","rédaction"
+            ],
+            "Compétences inter-personnelles":[
+                "Travail en équipe","Autonomie","Rigueur","Organisation","Créativité","Adaptabilité","Esprit critique","Force de proposition"
+            ]
+        }
     ],
     "valid_skills":[
         "équipe",
@@ -323,6 +399,5 @@
 "Organisation de réunion", "compte rendu de réunion", "travail en équipe", "gestion de projet", "déploiement continu", "CI/CD", "UI/UX", "Experience Utilisateur",
 "Vercel.app", "Prime Vue", "MLD", "Authentification", "Bases de données", "Cypress", "Vitest", "Tests unitaires",
 "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conceptions", "MLD", "PostgreSQL", "Documents techniques", "Cahier de recette", "rédaction"
-    
 ]
 }

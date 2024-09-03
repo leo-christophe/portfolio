@@ -17,20 +17,22 @@
 
 
 <template>
+    <h1 id="titreFormations">Formations</h1>
+    
+    
     <div id="conteneurFormations">
-        <h1 id="titreFormations">Formations</h1>
-
         <div v-for="formation in formations" :key="formation.titre" :id="formation.id" class="formation">
-            <div class="information">
-                <h3 class="titreFormation">{{ formation.titre }} at <strong>{{ formation.lieu }}</strong>, {{ formation.ville }} ({{ formation.departement }})</h3>
-                <h4 class="obtention">{{ formation.obtention }}</h4>
-                <h5 class="annees">{{ formation.annees }}</h5>
-            </div>
-            <div v-if="formation.image" class="imgFormationContainer">
-                <img :src="formation.image" :id="formation.id+'_img'" class="imgFormation">
-            </div>
+          
+                <div class="information">
+                    <h4 class="titreFormation">{{ formation.titre }} au <strong>{{ formation.lieu }}</strong>, {{ formation.ville }} ({{ formation.departement }})</h4>
+                    <h5 class="obtention">{{ formation.obtention }}</h5>
+                    <h5 class="annees">{{ formation.annees }}</h5>
+                </div>
+                <div v-if="formation.image" class="imgFormationContainer" @click="window.open(formation.siteFormation, '_blank').focus();">
+                    <img :src="formation.image" :id="formation.id+'_img'" class="imgFormation">
+                </div>
+       
         </div>
-
     </div>
     
 </template>
@@ -41,78 +43,92 @@
     #titreFormations{
         text-align: center;
         font-size: 3em;
-        color:black;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: rgb(103, 103, 103);
+        color:white;
+        padding: 10px 0px 10px 0px;
     }
 
     #conteneurFormations{
-        margin-left:10vw;
-        margin-bottom:5vh;
+        margin:0px 0px 50px 10vw;
         border:2px solid black;
-        border-radius:5px;
+        border:2px solid gray;
         box-shadow: 2px 2px 5px black;
-        padding:30px;
-        background-color:lightgrey;
+        padding:10px;
+        background-color:rgb(66, 79, 79);;
         width:80vw;
-        
+        height:auto;
+        display:inline-flex;
+        flex-wrap:wrap;
+        justify-content: space-around;
+
     }
 
     #butinfo{
-        background-color: rgb(133, 74, 70);
+        background-color: rgb(41, 35, 76);
         transition:0.5s ease-in-out all;
     }
 
     #butinfo:hover{
-        background-color: rgb(131, 38, 32);
+        background-color: rgb(59, 51, 102);
         transition:0.5s ease-in-out all;
     }
 
     #bac{
-        background-color: rgb(139, 120, 102);
+        background-color: rgb(35, 42, 76);
         transition:0.5s ease-in-out all;
     }
 
     #bac:hover{
-        background-color: rgb(134, 98, 65);
+        background-color: rgb(52, 62, 114);
         transition:0.5s ease-in-out all;
     }
 
     #brevet{
-        background-color: rgb(85, 71, 138);
+        background-color: rgb(35, 53, 76);
         transition:0.5s ease-in-out all;
     }
 
     #brevet:hover{
-        background-color: rgb(55, 42, 105);
+        background-color: rgb(50, 74, 125);
         transition:0.5s ease-in-out all;
     }
 
     .information{
-        margin-left:20px;
+        margin:5px 20px 0px 20px;
         text-align: left;
         font-size:larger;
+        height:150%;
     }
 
     .formation{
-        width:70vw;
-        margin: 0 auto;
-        display:flex;
+        width:300px;
+
         justify-content: space-between; 
         border:2px solid white;
         border-radius:10px;
         margin: 20px;
+
+        display:flex;
+        flex-direction: column;
+    }
+
+    .annee{
+        bottom:0px;
+        position:relative;
+
     }
 
     .imgFormationContainer .imgFormation{
-
-        width:300px;
+        height:150px;
+        object-fit: cover;
+        width:100%;
+        position:relative;
+        bottom:-6px;
+        border-radius:0px 0px 10px 10px;
+        border-top:1px solid white;
     }
 
     div.imgFormationContainer{
-        float:right;
-        margin-bottom:-6px;
-        height:100%;
+        height:auto;
     }
     
 </style>

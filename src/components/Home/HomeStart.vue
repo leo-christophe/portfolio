@@ -1,35 +1,91 @@
 <script setup>
 import { onMounted } from 'vue';
+import Button from 'primevue/button';
+// onMounted(() => {
+//   const video = document.getElementById('video');
 
-onMounted(() => {
-  const video = document.getElementById('video');
+//   window.addEventListener('scroll', () => {
+//     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//     const maxScroll = window.innerHeight-300; // Change this value based on how quickly you want the video to disappear
+//     const opacity = Math.max(0, 1 - scrollTop / maxScroll);
+//     video.style.opacity = opacity;
+//   });
+// });
 
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const maxScroll = window.innerHeight-300; // Change this value based on how quickly you want the video to disappear
-    const opacity = Math.max(0, 1 - scrollTop / maxScroll);
-    video.style.opacity = opacity;
-  });
-});
+function ToCV(){
+    window.scrollTo({
+        top:950,
+        behavior:'smooth'
+    })
+}
 </script>
 
 <template>
     <div id="welcome">
-        <div id="text">
+        <div id="text" class="paragraphe">
             <h1 class="outlined-text" id="titre">Léo CHRISTOPHE</h1>
             <h2 class="outlined-text text_line" id="soustitre1">Etudiant en 3ème année de BUT Informatique</h2>
-            <h3 class="outlined-text text_line" id="soustitre2">Localisé à Annecy, France</h3>
+            <h3 class="outlined-text text_line" id="soustitre2">Localisé à Annecy, France</h3> 
+
+            <i id="flecheNext1" class="pi pi-arrow-down" @click="ToCV()"></i>
         </div>
+
+        <div id="partieDroite">
+            <div class="paragraphe">
+                <h2 id="titreAPropos">À propos de moi</h2>
+                <h4 id="paragrapheAPropos">
+                    Étudiant de BUT Informatique avec une passion idéniable pour la programmation depuis plus de 5 ans.
+                </h4>
+            </div>
+
+            <div id="CTA" class="paragraphe">
+                <Button>Curriculum Vitae <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
+                <Button>Me contacter <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i> </Button>
+            </div>
+        </div>
+
         <div id="video_container">
-            <video id="video" autoplay loop muted>
+            <!-- <video id="video" autoplay loop muted>
                 <source src="../../assets/videos/coding_background.mp4" type="video/mp4">
                 Votre navigateur ne supporte pas la balise vidéo.
-            </video>
+            </video> -->
         </div>
     </div>
 </template>
 
 <style scoped>
+    #CTA Button{
+        font-size:1rem;
+    }
+
+    i{
+        padding-left:20px;
+        justify-content: center;
+    }
+
+    #flecheNext1{
+        cursor:pointer;
+
+        width:max-content;
+        height:max-content;
+
+        padding:25px;
+        margin-top:30px;
+        
+        border-radius:500px;
+        background-color:black;
+        color: RGB(159, 229, 227); 
+        font-size: 2rem;
+        transition:0.7s ease-in-out all;
+    }
+
+    #flecheNext1:hover{
+        font-size: 2.2rem;
+        transition:0.7s ease-in-out all;
+        border:1px solid white;
+        color:white;
+    }
+
     #titre{
         font-size: 3em;
         color:white;
@@ -64,24 +120,51 @@ onMounted(() => {
     }
 
     #text {
-        --width:500px;
-        width:var(--width);
-        position: absolute;
-        z-index: 10;
-        padding:30px;
-        background-color:rgba(15, 13, 44, 0.7);
-        border-radius:40px;
-        
         display: flex;
         flex-direction: column;
-        
-        left:calc(50% - var(--width)/2);
         top:20vh;
+        float:left;
+        left:calc(50% - var(--width)/2);
+
         height: 40vh;
+        --width:500px;
+        width:var(--width);
+
+        z-index: 10;
+        
+        
+        border-radius:40px;
+    }
+
+    .paragraphe{
+        padding:30px;
+    }
+
+    #partieDroite{
+        float:right;
+    }
+
+    #titreAPropos{
+        font-size: 2em;
+        color:white;
+    }
+
+    #paragrapheAPropos{
+        font-size: 1em;
+        color:lightcyan;
+        width:500px;
     }
 
     .outlined-text {
         color: white; /* Ou la couleur de ton choix */
         text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+
+    .paragraphe{
+        padding:100px 100px 0px 100px;
+    }
+
+    #CTA button{
+        margin-right:20px;
     }
 </style>

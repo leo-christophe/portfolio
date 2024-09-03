@@ -9,6 +9,7 @@ import contact from '../views/contact.vue';
 
 import project_portfolio from '../views/projects/project_portfolio.vue';
 import project_sae101 from '../views/projects/project_sae101.vue';
+import project_sae104 from '../views/projects/project_sae104.vue';
 import project_sae301 from '../views/projects/project_sae301.vue';
 import project_sae401 from '../views/projects/project_sae401.vue';
 
@@ -34,6 +35,10 @@ const routes = [
     path: '/projects/skillupnow',
     name: 'skillupnow',
     component: project_sae301
+},{
+    path: '/projects/project_sae104',
+    name: 'amphibiens',
+    component: project_sae104
 },{
     path: '/projects/bmw',
     name: 'bmw',

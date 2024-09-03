@@ -18,9 +18,9 @@ onUnmounted(() => {
 
 <template>
 
-<HomeStart id="start"></HomeStart>
-<HomeSkills id="skills"></HomeSkills>
-<HomeContact id="contactSection" class="pageSection"></HomeContact>
+  <HomeStart id="start"></HomeStart>
+  <HomeContact id="contactSection" class="pageSection"></HomeContact>
+  <HomeSkills id="skills"></HomeSkills>
 
 </template>
 
@@ -63,13 +63,13 @@ h1 {
   margin-left: 30px;
 }
 
-#id {
+/* #id {
   background-color: rgb(213, 249, 255);
   border-radius: 10px;
   font-size: 2rem;
   color: #ff7300;
   font-weight: 800;
-}
+} */
 
 #text {
   display: inline;
