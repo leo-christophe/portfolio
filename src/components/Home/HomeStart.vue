@@ -14,14 +14,22 @@ import Button from 'primevue/button';
 
 function ToCV(){
     window.scrollTo({
-        top:950,
+        top:1050,
         behavior:'smooth'
     })
 }
 </script>
 
 <template>
+
     <div id="welcome">
+        <div id="backgroundshadow">
+        <img src="/images/app_identity/leochristophe2.png" alt="Léo Christophe"  />
+    </div>
+    <div id="background">
+        <img src="/images/app_identity/leochristophe1.png" alt="Léo Christophe" />
+    </div>
+
         <div id="text" class="paragraphe">
             <h1 class="outlined-text" id="titre">Léo CHRISTOPHE</h1>
             <h2 class="outlined-text text_line" id="soustitre1">Etudiant en 3ème année de BUT Informatique</h2>
@@ -35,6 +43,7 @@ function ToCV(){
                 <h2 id="titreAPropos">À propos de moi</h2>
                 <h4 id="paragrapheAPropos">
                     Étudiant de BUT Informatique avec une passion idéniable pour la programmation depuis plus de 5 ans.
+                    J'ai développé énormément mes compétences lors de la réalisation de projets personnels et professionnels
                 </h4>
             </div>
 
@@ -167,4 +176,22 @@ function ToCV(){
     #CTA button{
         margin-right:20px;
     }
+
+    #background, #backgroundshadow{
+        position:absolute;
+        left:30%;
+        top:15%;
+        height:90%
+    }
+
+    #backgroundshadow{
+        filter:blur(10px);
+        z-index:0;
+        left:28%;
+    }
+
+    #background img, #backgroundshadow img{
+        height:100%
+    }
+
 </style>

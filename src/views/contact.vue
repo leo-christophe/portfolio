@@ -1,22 +1,11 @@
 <script setup>
-  import { onMounted, onUnmounted, reactive } from 'vue';
+  import { reactive } from 'vue';
   import Button from 'primevue/button';
   import Textarea from 'primevue/textarea';
   import FloatLabel from 'primevue/floatlabel';
   import InputText from 'primevue/inputtext';
   import { useToast } from "primevue/usetoast";
   import Toast from 'primevue/toast';
-  import {COULEUR_MENU_SELECTIONNE, COULEUR_MENU_BASIC} from '../data/const'
-
-  onMounted(() => {
-      $('nav ul li:nth-child(6)').css('border-bottom', '2px solid '+COULEUR_MENU_SELECTIONNE);
-      $('nav ul li:nth-child(6) span').css('color', COULEUR_MENU_SELECTIONNE);
-  })
-
-  onUnmounted(() => {
-      $('nav ul li:nth-child(6)').css('border-bottom', '0px');
-      $('nav ul li:nth-child(6) span').css('color', COULEUR_MENU_BASIC);
-  })
 
   const toast = useToast();
 
@@ -29,16 +18,21 @@
   
   // Fonction pour envoyer l'email
   const sendEmail = () => {
+
     // Paramètres pour EmailJS
-    const serviceID = 'service_tcbnudx';
-    const templateID = 'template_1bp71gw';
-    const userID = 'LN83MbWIDCH_7gK9_';
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const userID = import.meta.env.VITE_EMAILJS_USER_ID;
   
+    console.log('Service ID:', serviceID);
+  console.log('Template ID:', templateID);
+  console.log('User ID:', userID);
     emailjs.send(serviceID, templateID, form, userID)
       .then((response) => {
         showSuccess();
       })
       .catch((error) => {
+        console.warn(error);
         showError();
         //console.error('Erreur lors de l\'envoi de l\'email:', error);
       });

@@ -5,7 +5,9 @@
  * @return {void}
  */
 function emailJsInitialize(emailJsObject){
-    emailJsObject.init({
+    
+    const initResult = emailJsObject.init({
       publicKey: process.env.VITE_EMAILJS_PUBLIC_KEY,
     });
+    console.log(initResult);
 }

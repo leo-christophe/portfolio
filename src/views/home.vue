@@ -1,26 +1,14 @@
 <script setup>
-import { onMounted, onUnmounted } from 'vue';
 import HomeContact from '../components/Home/HomeContact.vue';
 import HomeSkills from '../components/Home/HomeSkills.vue';
 import HomeStart from '../components/Home/HomeStart.vue';
-import { COULEUR_MENU_SELECTIONNE, COULEUR_MENU_BASIC } from '../data/const';
-
-onMounted(() => {
-  $('nav ul li:nth-child(1)').css('border-bottom', '2px solid ' + COULEUR_MENU_SELECTIONNE);
-  $('nav ul li:nth-child(1) span').css('color', COULEUR_MENU_SELECTIONNE);
-});
-
-onUnmounted(() => {
-  $('nav ul li:nth-child(1)').css('border-bottom', '0px');
-  $('nav ul li:nth-child(1) span').css('color', COULEUR_MENU_BASIC);
-});
 </script>
 
 <template>
 
-  <HomeStart id="start"></HomeStart>
+  <HomeStart id="start" class="pageSection"></HomeStart>
   <HomeContact id="contactSection" class="pageSection"></HomeContact>
-  <HomeSkills id="skills"></HomeSkills>
+  <HomeSkills id="skills" class="pageSection"></HomeSkills>
 
 </template>
 
@@ -43,8 +31,9 @@ onUnmounted(() => {
 
 .pageSection {
   padding-top:10vh;
-  height: 100vh;
+  height: 130vh;
   transition: opacity 2s;
+  z-index:5;
 }
 
 .fade-enter-active {

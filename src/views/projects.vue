@@ -1,10 +1,8 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import data from '../data/data.json'
 import Chips from 'primevue/chips'
-import Calendar from 'primevue/calendar'
 import Checkbox from 'primevue/checkbox'
-import { COULEUR_MENU_SELECTIONNE, COULEUR_MENU_BASIC } from '../data/const'
 import json from '../data/data';
 import { findClosestCompetence } from '../utils/levenshtein'
 
@@ -17,10 +15,6 @@ const endDate = ref(null)
 const checkType = ref([])
 
 onMounted(() => {
-  // Appliquer les styles
-  $('nav ul li:nth-child(4)').css('border-bottom', '2px solid ' + COULEUR_MENU_SELECTIONNE);
-  $('nav ul li:nth-child(4) span').css('color', COULEUR_MENU_SELECTIONNE);
-
   // Trouver les dates des projets
   if (data.projects && data.projects.length > 0) {
     const projectDates = data.projects.map(project => {
@@ -52,19 +46,10 @@ onMounted(() => {
 
     }, projectDates[0].end)
 
-    console.log(earliestStart, latestEnd)
-
     // Assigner les valeurs trouvées
     startDate.value = earliestStart.toISOString().split('T')[0]
     endDate.value = latestEnd.toISOString().split('T')[0]
-
-    
   }
-})
-
-onUnmounted(() => {
-  $('nav ul li:nth-child(4)').css('border-bottom', '0px');
-  $('nav ul li:nth-child(4) span').css('color', COULEUR_MENU_BASIC);
 })
 
 const filteredProjects = computed(() => {
@@ -99,7 +84,9 @@ const filteredProjects = computed(() => {
   if (Compvalue.value && Compvalue.value.length > 0) {
     const correctedCompetences = Compvalue.value.map(comp => findClosestCompetence(comp))
     filteredByDate = filteredByDate.filter(project => {
-      return project.competences && project.competences.some(competence => correctedCompetences.includes(competence))
+      return project.competences && Object.values(project.competences).some(category => 
+        category.some(competence => correctedCompetences.includes(competence))
+      )
     })
   }
 
@@ -112,14 +99,34 @@ const filteredProjects = computed(() => {
 
   return filteredByDate
 })
-</script>
 
+
+const filters = ref(null)
+const textFilter = ref(null)
+const iconFilter = ref(null)
+
+function switchFilter() {
+  const filterIcon = iconFilter.value; // Récupérer la référence correcte
+
+  if (filters.value.style.visibility === 'collapse') {
+    filters.value.style.visibility = 'visible';
+    filterIcon.classList.remove('pi-angle-down');  // Utiliser classList
+    filterIcon.classList.add('pi-angle-double-down');
+  } else {
+    filters.value.style.visibility = 'collapse';
+    filterIcon.classList.add('pi-angle-down');
+    filterIcon.classList.remove('pi-angle-double-down');
+  }
+}
+
+</script>
 
 <template>
   <div>
     <h1>Projects</h1>
     
-    <div id="dates" class="card flex flex-wrap gap-3 p-fluid">
+    <p id="textFilterHeader" ref="textFilter" @click="switchFilter()"><i ref="iconFilter" class="pi pi-angle-down" style="margin: 0 10px 0 0"></i> Filtres</p>
+    <div id="filters" ref="filters" class="card flex flex-wrap gap-3 p-fluid">
       <div class="datesIn" id="dateFilters">
         <h3>Dates</h3>
         <input class="dateInput" type="date" v-model="startDate" id="startDate">
@@ -169,6 +176,15 @@ const filteredProjects = computed(() => {
 </template>
 
 <style scoped>
+  #filters{
+    position:relative;
+    visibility:collapse;
+  }
+
+  #textFilterHeader{
+    margin-left:10px;
+  }
+
   div.projectCardIn{
     height:min-content;
   }
@@ -273,7 +289,7 @@ const filteredProjects = computed(() => {
     list-style: none;
   }
 
-  #dates {
+  #filters {
     display: flex;
     justify-content: center;
 

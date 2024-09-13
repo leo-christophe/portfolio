@@ -39,247 +39,229 @@
             "poste": "Développeur R&D (GTA)",
             "entreprise": "Groupe Alpha-3i",
             "dates": ["15/04/2024","05/07/2024"],
-            "competences": ["webdev","wlangage","javascript","ergonomie","rigueur","autonomie","travail en équipe", "ui/ux", "test", "optimisation"],
+            "competences": {
+              "Développement web": ["javascript", "webdev"],
+              "Développement logiciel": ["wlangage"],
+              "UI/UX & Expérience utilisateur": ["ergonomie", "ui/ux"],
+              "DevOps & Déploiement": ["optimisation"],
+              "Compétences interpersonnelles": ["rigueur", "autonomie", "travail en équipe"]
+            },
             "description": "Développement de nouvelles fonctionnalités dans le workflow des absences et congés des salariés",
-            "missions":[
-                "Analyse des besoins",
-                "Développement de nouvelles fonctionnalités",
-                "Rédaction de scénarios de tests",
-                "Correction d'erreurs et débogage",
-                "Rédaction de documentation",
-                "Amélioration de l'ergonomie",
-                "Amélioration du style"
+            "missions": [
+              "Analyse des besoins",
+              "Développement de nouvelles fonctionnalités",
+              "Rédaction de scénarios de tests",
+              "Correction d'erreurs et débogage",
+              "Rédaction de documentation",
+              "Amélioration de l'ergonomie",
+              "Amélioration du style"
             ],
-            "image":"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fres.cloudinary.com%2Fhttps-www-divalto-com%2Fimages%2Ff_auto%2Cq_auto%2Fw_1024%2Ch_370%2Cc_scale%2Fv1603120104%2Fdivalto_prod%2Flogo-aplha-3i%2Flogo-aplha-3i-1024x370.png&f=1&nofb=1&ipt=c9e729c41515372bf6b9d9a906c5fe37797798ffc50c88ff4e97f13498562774&ipo=images"
-        }
+            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fres.cloudinary.com%2Fhttps-www-divalto-com%2Fimages%2Ff_auto%2Cq_auto%2Fw_1024%2Ch_370%2Cc_scale%2Fv1603120104%2Fdivalto_prod%2Flogo-aplha-3i%2Flogo-aplha-3i-1024x370.png&f=1&nofb=1&ipt=c9e729c41515372bf6b9d9a906c5fe37797798ffc50c88ff4e97f13498562774&ipo=images"
+          }
+          
     ],
     "projects":[
         {
-            "id":"project_sae101",
+            "id": "project_sae101",
             "nom": "Mars Invaders",
             "dates": ["2023-01-01","2023-01-15"],
             "titre": "Développement d'un jeu vidéo sur le thème de l'espace",
             "description": "Programmation en C# avec le framework MonoGame en équipe de deux.",
-            "competences": ["C#", "monogame", "travail en équipe", "design", "montage vidéo", "travail en duo", 
-        "équipe", "conception", "brainstorming"],
-            "realisations":[
-                "Formation de quelques semaines sur le framework MonoGame",
-                "Recherche de l'idée de jeu à développer, brainstorming",
-                "Développement du jeu en C#",
-                "Création des assets",
-                "Présentation du jeu à la fin du projet en vidéo"
+            "competences": {
+              "Développement logiciel": ["C#", "monogame"],
+              "Tests & Qualité": ["test"],
+              "Compétences interpersonnelles": ["travail en équipe", "brainstorming"],
+              "UI/UX & Expérience utilisateur": ["design"],
+              "Autre": ["montage vidéo"]
+            },
+            "realisations": [
+              "Formation de quelques semaines sur le framework MonoGame",
+              "Recherche de l'idée de jeu à développer, brainstorming",
+              "Développement du jeu en C#",
+              "Création des assets",
+              "Présentation du jeu à la fin du projet en vidéo"
             ],
-            "type":"Universitaire",
-            "images":[
-                {
-                    "link":"project-marsinvaders-1.jfif",
-                    "description":"Capture d'écran du jeu pendant une partie.",
-                    "type": "image"
-                },{
-                    "link":"project-marsinvaders-2.jfif",
-                    "description":"Capture d'écran du menu du jeu.",
-                    "type": "image"
-                },{
-                    "link":"https://www.youtube-nocookie.com/embed/cXkS7AoTs98?si=_f9r0uaOs8Vvmosv&amp;controls=0",
-                    "description":"Vidéo de démonstration commentée du jeu.",
-                    "type": "video"
-                }
+            "type": "Universitaire",
+            "images": [
+              {
+                "link": "project-marsinvaders-1.jfif",
+                "description": "Capture d'écran du jeu pendant une partie.",
+                "type": "image"
+              },
+              {
+                "link": "project-marsinvaders-2.jfif",
+                "description": "Capture d'écran du menu du jeu.",
+                "type": "image"
+              },
+              {
+                "link": "https://www.youtube-nocookie.com/embed/cXkS7AoTs98?si=_f9r0uaOs8Vvmosv&amp;controls=0",
+                "description": "Vidéo de démonstration commentée du jeu.",
+                "type": "video"
+              }
             ],
             "url": null,
-            "github":"https://github.com/leoChris7/Mars-Invaders",
-            "download":null,
-            "route":"/projects/marsinvaders"
-        },{
-            "id":"project_sae301",
+            "github": "https://github.com/leoChris7/Mars-Invaders",
+            "download": null,
+            "route": "/projects/marsinvaders"
+          },{
+            "id": "project_sae301",
             "nom": "SkillUpNow",
-            "dates": ["2023-10-15","2024-01-15"] ,
+            "dates": ["2023-10-15","2024-01-15"],
             "titre": "Création d'un site web fictif de formations en PHP (Laravel)",
             "description": "Création d'un site web fictif en équipe de 4 personnes. Utilisation de Laravel pour la partie serveur et client.",
-            "competences": ["PostgreSQL", "PHP", "Laravel", "HTML", "CSS", "Github", "SCRUM", "Revues de sprints", "SQL", "Base de données", "MCD", "Azure DevOps", "Travail en équipe", "Comptes rendus de sprint", "Cryptographie", "Rédaction de rapport",
-        "BPMN", "Cas d'utilisations", "UML", "rédaction", 
-        "équipe", "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conceptions", "MLD", "PostgreSQL"],
-            "realisations":[
-                "Réalisation de documents de conception",
-                "Réalisation de la base de données",
-                "Développement du site en Laravel",
-                "Optimisation"
+            "competences": {
+              "Développement web": ["PHP", "Laravel", "HTML", "CSS", "Github"],
+              "Base de données": ["PostgreSQL", "SQL", "Base de données", "MCD", "MLD"],
+              "Gestion de projet": ["SCRUM", "Revues de sprints", "Organisation de réunion", "Rédaction de rapport"],
+              "Conception & Architecture": ["Cas d'utilisations", "Diagramme de classes", "BPMN", "UML"],
+              "Sécurité": ["Cryptographie"]
+            },
+            "realisations": [
+              "Réalisation de documents de conception",
+              "Réalisation de la base de données",
+              "Développement du site en Laravel",
+              "Optimisation"
             ],
-            "type":"Universitaire",
-            "images":[
-                {
-                    "link":"project-skillupnow-1.jfif",
-                    "description":"Capture d'écran de la page d'accueil du site.",
-                    "type": "image"
-                },{
-                    "link":"project-skillupnow-2.jfif",
-                    "description":"Capture d'écran d'une formation.",
-                    "type": "image"
-                }
-                ],
+            "type": "Universitaire",
+            "images": [
+              {
+                "link": "project-skillupnow-1.jfif",
+                "description": "Capture d'écran de la page d'accueil du site.",
+                "type": "image"
+              },
+              {
+                "link": "project-skillupnow-2.jfif",
+                "description": "Capture d'écran d'une formation.",
+                "type": "image"
+              }
+            ],
             "url": null,
-            "github":"https://github.com/leoChris7/Mars-Invaders",
-            "download":null,
-            "route":"/projects/skillupnow"
-        },
-        {
-            "id":"project_sae401",
+            "github": "https://github.com/leoChris7/Mars-Invaders",
+            "download": null,
+            "route": "/projects/skillupnow"
+          }
+          ,
+          {
+            "id": "project_sae401",
             "nom": "BMW",
             "dates": ["2024-03-01","2024-04-05"],
             "titre": "Création d'un site web fictif BMW en Javascript (Vue-JS) avec API Rest en C#",
             "description": "Création d'un site web fictif en équipe de 5 personnes. Communication avec API Rest réalisée en C#. Utilisation de Vue-JS pour la partie cliente.",
-            "competences": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Github", "Route-JS", "MCD", "PostgreSQL",
-            "C#", "API Rest", "SQL", "Base de données", "Visual Studio 2022", "PostgreSQL", "Azure DevOps", "Repository", "Injection de dépendances",
-        "Organisation de réunion", "compte rendu de réunion", "travail en équipe", "gestion de projet", "déploiement continu", "CI/CD", "UI/UX", "Experience Utilisateur",
-    "Vercel.app", "Prime Vue", "MLD", "Authentification", "Bases de données", "Cypress", "Documents techniques", "Cahier de recette", "rédaction", 
-        "équipe", "Vitest", "Tests unitaires", "rédaction"],
-            "realisations":[
-                "Réalisation de documents de conception",
-                "Réalisation de la base de données sous PostgreSQL",
-                "Développement de l'API Rest en C#",
-                "Développement du client en Vue-JS",
-                "Optimisation",
-                "Organisation d'une réunion hebdomadaire",
-                "Gestion du projet sur Azure DevOps"
+            "competences": {
+              "Développement web": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Route-JS", "Github"],
+              "Développement logiciel": ["C#", "API Rest", "Visual Studio 2022", "Repository", "Injection de dépendances"],
+              "Base de données": ["PostgreSQL", "SQL", "Base de données", "MLD", "MCD"],
+              "DevOps & Déploiement": ["Azure DevOps", "Vercel.app", "CI/CD", "déploiement continu"],
+              "Tests & Qualité": ["Vitest", "Cypress", "Tests unitaires"],
+              "Gestion de projet": ["Organisation de réunion", "compte rendu de réunion", "gestion de projet"],
+              "UI/UX & Expérience utilisateur": ["UI/UX", "Expérience Utilisateur"]
+            },
+            "realisations": [
+              "Réalisation de documents de conception",
+              "Réalisation de la base de données sous PostgreSQL",
+              "Développement de l'API Rest en C#",
+              "Développement du client en Vue-JS",
+              "Optimisation",
+              "Organisation d'une réunion hebdomadaire",
+              "Gestion du projet sur Azure DevOps"
             ],
-            "type":"Universitaire",
-            "images":[{
-                "link":"project-bmw-1.jfif",
-                "description":"Capture d'écran de la page d'accueil du site.",
+            "type": "Universitaire",
+            "images": [
+              {
+                "link": "project-bmw-1.jfif",
+                "description": "Capture d'écran de la page d'accueil du site.",
                 "type": "image"
-            }],
+              }
+            ],
             "url": "https://bmw-client.vercel.app/",
-            "github":null,
-            "download":null,
-            "route":"/projects/bmw"
-        },{
-            "id":"project_portfolio",
+            "github": null,
+            "download": null,
+            "route": "/projects/bmw"
+          }
+          ,{
+            "id": "project_portfolio",
             "nom": "Portfolio",
-            "dates": ["2024-05-23","En cours"] ,
+            "dates": ["2024-05-23","En cours"],
             "titre": "Développement d'un portfolio web en Vue-JS",
             "description": "Création d'un portfolio web en Vue-JS pour présenter mes compétences et mes projets",
-            "competences": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Github", "Route-JS", "JSON", "Responsive", "Ergonomie",
-            "NodeJS", "JQuery", "Git", "Autonomie", "Visual Studio Code", "Vercel.app", "Déploiement continu", "CI/CD", "UI/UX", "Experience Utilisateur"],
-            "realisations":[
-                "Création de la structure du site",
-                "Récupération des données par un fichier en format json",
-                "Création de composants Vue",
-                "Mise en forme avec CSS et PrimeVue",
-                "Lien avec Github pour le versionning",
-                "Déploiement sur serveur Vercel.app",
-                "Création du menu de navigations avec route-js"
+            "competences": {
+              "Développement web": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Route-JS", "Github", "Responsive", "Ergonomie"],
+              "Développement logiciel": ["JSON", "NodeJS", "JQuery"],
+              "DevOps & Déploiement": ["Vercel.app", "Déploiement continu", "CI/CD"],
+              "UI/UX & Expérience utilisateur": ["UI/UX", "Expérience Utilisateur"],
+              "Compétences interpersonnelles": ["Autonomie"]
+            },
+            "realisations": [
+              "Création de la structure du site",
+              "Récupération des données par un fichier en format json",
+              "Création de composants Vue",
+              "Mise en forme avec CSS et PrimeVue",
+              "Lien avec Github pour le versionning",
+              "Déploiement sur serveur Vercel.app",
+              "Création du menu de navigation avec route-js"
             ],
-            "type":"Personnel",
-            "images":[
-                {
-                    "link":"project-portfolio-1.jpg",
-                    "description":"Capture d'écran de la page d'accueil du site.",
-                    "type": "image"
-                }
+            "type": "Personnel",
+            "images": [
+              {
+                "link": "project-portfolio-1.jpg",
+                "description": "Capture d'écran de la page d'accueil du site.",
+                "type": "image"
+              }
             ],
             "url": "https://portfolio-wheat-six-32.vercel.app/",
-            "github":"https://github.com/leo-christophe/portfolio",
-            "download":null,
-            "route":"/projects/portfolio"
-        },{
-            "id":"project_sae104",
+            "github": "https://github.com/leo-christophe/portfolio",
+            "download": null,
+            "route": "/projects/portfolio"
+          }
+          ,{
+            "id": "project_sae104",
             "nom": "Amphibiens",
             "dates": ["2023-04-01","2023-06-15"],
             "titre": "Création d'une base de données d'amphibiens et visualisation des données",
             "description": "Création d'une base de données d'amphibiens en équipe de 3 personnes. Visualisation des données avec des requêtes SQL.",
-            "competences": ["PowerBI", "PowerAMC", "MCD", "MLD", "SQL", "PostgreSQL", "Excel", "Base de données", "Travail en équipe", "Anglais", "Présentation"],
-            "realisations":[
-                "Conception de la base de données grace à un diagramme MCD",
-                "Création de la base de données sous PostgreSQL",
-                "Création d'un jeu de données inséré dans la base à l'aide d'Excel",
-                "Réalisation de requêtes SQL simples",
-                "Visualisation des données avec PowerBI",
-                "Présentation orale des résultats devant un jury français et anglais"
+            "competences": {
+              "Base de données": ["SQL", "PostgreSQL", "Base de données", "MCD", "MLD"],
+              "Outils de visualisation": ["PowerBI", "Excel"],
+              "Compétences interpersonnelles": ["Travail en équipe", "Anglais"],
+              "Tests & Qualité": ["Présentation"]
+            },
+            "realisations": [
+              "Conception de la base de données grâce à un diagramme MCD",
+              "Création de la base de données sous PostgreSQL",
+              "Création d'un jeu de données inséré dans la base à l'aide d'Excel",
+              "Réalisation de requêtes SQL simples",
+              "Visualisation des données avec PowerBI",
+              "Présentation orale des résultats devant un jury français et anglais"
             ],
-            "type":"Universitaire",
-            "images":[
-                {
-                    "link":"project-amphibien-1.jpg",
-                    "description":"Page des caractéristiques d'amphibiens",
-                    "type":"image"
-                },{
-                    "link":"https://app.powerbi.com/view?r=eyJrIjoiN2E4MTQyNGUtNGRiZS00NWRlLTg5ZjUtNjUxYmRjZTdkNTZkIiwidCI6ImUyMWU5NzgzLWQwYTAtNDhmOC04NTBlLTBiMDgxYjQ2ZDc4OCIsImMiOjh9&pageName=ReportSection",
-                    "description":"Rapport PowerBI dynamique/interactif (Possibilité d'interaction)",
-                    "type":"powerbi"
-                },{
-                    "link":"project-amphibien-2.jpg",
-                    "description":"Page de statistiques de la population d'amphibiens",
-                    "type":"image"
-                },
-                {
-                    "link":"project-amphibien-3.jpg",
-                    "description":"Page de statistiques de comptage des amphibiens",
-                    "type":"image"
-                }
+            "type": "Universitaire",
+            "images": [
+              {
+                "link": "project-amphibien-1.jpg",
+                "description": "Page des caractéristiques d'amphibiens",
+                "type": "image"
+              },
+              {
+                "link": "https://app.powerbi.com/view?r=eyJrIjoiN2E4MTQyNGUtNGRiZS00NWRlLTg5ZjUtNjUxYmRjZTdkNTZkIiwidCI6ImUyMWU5NzgzLWQwYTAtNDhmOC04NTBlLTBiMDgxYjQ2ZDc4OCIsImMiOjh9&pageName=ReportSection",
+                "description": "Rapport PowerBI dynamique/interactif (Possibilité d'interaction)",
+                "type": "powerbi"
+              },
+              {
+                "link": "project-amphibien-2.jpg",
+                "description": "Page de statistiques de la population d'amphibiens",
+                "type": "image"
+              },
+              {
+                "link": "project-amphibien-3.jpg",
+                "description": "Page de statistiques de comptage des amphibiens",
+                "type": "image"
+              }
             ],
             "url": null,
-            "github":null,
-            "download":"/files/Rapport.pbix",
-            "route":"/projects/project_sae104"
-        }
-    ],
-    "hobbies": [
-        {
-            "id":"videogames",
-            "nom": "Jeux vidéo",
-            "description": "Passionné de jeux vidéo depuis tout petit, j'aime découvrir de nouveaux jeux et de nouvelles expériences vidéoludiques.",
-            "image": [
-            ],
-            "exemples":[
-                "Minecraft","Stardew Valley", "Terraria", "Super Mario"
-            ]
-        },{
-            "id":"animes",
-            "nom": "Animes",
-            "description": "Fan d'animes, je regarde régulièrement des séries animées japonaises.",
-            "image": [
-            ],
-            "exemples":[
-                "My Hero Academia", "Kimi no Nawae", "Demon Slayer", "Hunter x Hunter"
-            ]
-        },{
-            "id":"cuisine",
-            "nom": "Cuisine",
-            "description": "J'aime cuisiner et découvrir de nouvelles recettes. J'aime particulièrement la cuisine asiatique.",
-            "image": [
-            ],
-            "exemples":[
-                "Tiramisù", "Gateaux au chocolat", "Pizza", "Pâtes à la carbonara"
-            ]
-        },{
-            "id":"musique",
-            "nom": "Musique",
-            "description": "J'écoute de la musique régulièrement, j'aime particulièrement la pop japonaise.",
-            "image": [
-            ],
-            "exemples":{
-                "Artistes":["Machico", "Suzuki Konomi", "Miki Matsubara"],
-                "Musiques":["Redo", "Tomorrow", "Stay With Me"]
-            }
-        },{
-            "id": "jardinage",
-            "nom": "Jardinage",
-            "description": "J'aime m'occuper de mes plantes et de mon jardin. J'aime particulièrement les plantes grasses.",
-            "image": [
-            ],
-            "exemples":[
-                "Plantes aromatiques et légumes"
-            ]
-        },{
-            "id": "programmation",
-            "nom": "Programmation personnelle",
-            "description": "J'aime programmer en dehors de mes études, j'aime particulièrement les projets personnels.",
-            "image": [
-            ],
-            "exemples":{
-                "descriptions":["Développement de jeux vidéo", "Développement de sites web", "Développement d'outils"],
-                "liens":[]
-            }
-        }
+            "github": null,
+            "download": "/files/Rapport.pbix",
+            "route": "/projects/project_sae104"
+          }
+          
     ],
     "links": [
         {
@@ -331,31 +313,39 @@
     ],
     "sorted_valid_skills":[
         {
-            "Développement web":[
-                "Javascript","PHP","HTML","CSS","Laravel","Vue-JS","PrimeVue","Responsive","Ergonomie","NodeJS","JQuery","Git","Vercel.app","Déploiement continu","CI/CD","UI/UX","Experience Utilisateur"
+            "Développement web": [
+                "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue-JS", "PrimeVue", 
+                "Responsive", "Ergonomie", "NodeJS", "JQuery", "Git", "Vercel.app"
             ],
-            "Développement logiciel":[
-                "C#","Python", "Visual Studio 2022", "MonoGame"
+            "Développement logiciel": [
+                "C#", "Python", "MonoGame", "Visual Studio 2022", "Visual Studio Code"
             ],
-            "Développement":[
-                "Déploiement continu", "UI/UX", "Experience Utilisateur", "Authentification","Tests unitaires", "Github", "CI/CD", "Azure", "Visual Studio Code", "Visual Studio 2022"
+            "DevOps & Déploiement": [
+                "Déploiement continu", "CI/CD", "Vercel.app", "Azure", "Git"
             ],
-            "Tests":[
-                "Cypress","Vitest","Tests unitaires"
+            "Tests & Qualité": [
+                "Cypress", "Vitest", "Tests unitaires"
             ],
-            "Gestion de bases de données":[
-                "SQL","PostgreSQL","MLD","Authentification","Bases de données","Cypress","Vitest","Tests unitaires"
+            "Base de données": [
+                "SQL", "PostgreSQL", "MLD", "Gestion des bases de données", "Authentification"
             ],
-            "Gestion de projet":[
-                "Travail en équipe","Comptes rendus de sprint","Cryptographie","Rédaction de rapport","Organisation de réunion","compte rendu de réunion","gestion de projet","déploiement continu","CI/CD","UI/UX","Experience Utilisateur","Vercel.app","Prime Vue","MLD","Authentification","Bases de données","Cypress","Vitest","Tests unitaires"
+            "Gestion de projet": [
+                "Travail en équipe", "Comptes rendus de sprint", "Organisation de réunion", 
+                "Rédaction de rapport", "Gestion de projet"
             ],
-            "Conception":[
-                "Etats-Transitions","Diagramme de classes","Diagrammes","Conceptions","MLD","PostgreSQL","Documents techniques","Cahier de recette","rédaction"
+            "Conception & Architecture": [
+                "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conception", 
+                "Documents techniques", "Cahier de recette", "Rédaction"
             ],
-            "Compétences inter-personnelles":[
-                "Travail en équipe","Autonomie","Rigueur","Organisation","Créativité","Adaptabilité","Esprit critique","Force de proposition"
+            "UI/UX & Expérience utilisateur": [
+                "UI/UX", "Expérience Utilisateur", "Ergonomie", "Conception centrée utilisateur"
+            ],
+            "Compétences interpersonnelles": [
+                "Travail en équipe", "Autonomie", "Rigueur", "Organisation", "Créativité", 
+                "Adaptabilité", "Esprit critique", "Force de proposition"
             ]
         }
+        
     ],
     "valid_skills":[
         "équipe",

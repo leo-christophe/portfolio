@@ -27,6 +27,12 @@ function downloadFile(downloadlink){
 }
 
 
+    function getMaxRows() {
+        // Trouver la longueur maximale parmi toutes les listes de compétences
+        return Math.max(...Object.values(this.data.projects[this.props.id].competences).map(v => v.length));
+    }
+
+
 const ActualImage = ref(0)
 const switchImage = (way) => {
     const totalImages = data.projects[props.id].images.length;
@@ -39,6 +45,10 @@ const switchImage = (way) => {
 
 const hasImages = computed(() => data.projects[props.id].images[0] != null)
 const multipleImages = computed(() => data.projects[props.id].images.length > 1)
+const LineIndex = ref(0);
+function LineIndexIncrementation(){
+    LineIndex.value = LineIndex.value + 1;
+}
 </script>
 
 <template>
@@ -94,11 +104,25 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
         </div>
 
         <div id="lists">
-            <div id="competences" class="ListeDescendanteConteneur projectElement floatLeft">
-                <div class="ListeDescendante" v-for="competence in data.projects[props.id].competences" :key="competence">
-                    <strong>{{ competence }}</strong>
-                </div>
-            </div>
+            <table id="competences" class="ListeDescendanteConteneur projectElement floatLeft">
+    <thead>
+        <tr>
+            <!-- En-têtes de colonnes avec les noms des compétences -->
+            <th v-for="(value, key) in data.projects[props.id].competences" :key="'header-' + key">
+                {{ key }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Pour chaque indice de tableau de compétence -->
+        <tr v-for="index in data.projects[props.id].competences" :key="index">
+            {{index}}
+        </tr>
+    </tbody>
+</table>
+
+
+
 
             <div id="realisations" class="ListeDescendanteConteneur projectElement floatRight">
                 <div class="ListeDescendante" v-for="realisation in data.projects[props.id].realisations" :key="realisation">
