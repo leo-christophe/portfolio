@@ -23,12 +23,14 @@ function ToCV(){
 <template>
 
     <div id="welcome">
-        <div id="backgroundshadow">
-        <img src="/images/app_identity/leochristophe2.png" alt="Léo Christophe"  />
-    </div>
-    <div id="background">
-        <img src="/images/app_identity/leochristophe1.png" alt="Léo Christophe" />
-    </div>
+        <div id="imageLeo">
+            <div id="backgroundshadow">
+                <img src="/images/app_identity/leochristophe2.png" alt="Léo Christophe"  />
+            </div>
+            <div id="background">
+                <img src="/images/app_identity/leochristophe1.png" alt="Léo Christophe" />
+            </div>
+        </div>
 
         <div id="text" class="paragraphe">
             <h1 class="outlined-text" id="titre">Léo CHRISTOPHE</h1>
@@ -63,6 +65,14 @@ function ToCV(){
 </template>
 
 <style scoped>
+    @media screen and (max-width: 860px){
+            #imageLeo{
+                display:none;
+            }
+        
+    }
+    
+
     #CTA Button{
         font-size:1rem;
     }
