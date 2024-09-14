@@ -1,150 +1,176 @@
 <script setup>
-  import { reactive } from 'vue';
-  import Button from 'primevue/button';
-  import Textarea from 'primevue/textarea';
-  import FloatLabel from 'primevue/floatlabel';
-  import InputText from 'primevue/inputtext';
-  import { useToast } from "primevue/usetoast";
-  import Toast from 'primevue/toast';
+import { reactive } from 'vue'; 
+import { sendMail_asClient, callNumber_asClient, sendSMS_asClient } from '../utils/contact_client'; // Correct path to your mail.js
 
-  const toast = useToast();
+import Button from 'primevue/button';
+import Textarea from 'primevue/textarea';
+import FloatLabel from 'primevue/floatlabel';
+import InputText from 'primevue/inputtext';
+import { useToast } from 'primevue/usetoast';
+import Toast from 'primevue/toast';
 
-  // Initialiser le formulaire réactif
-  const form = reactive({
-    name: '',
-    email: '',
-    message: ''
-  });
-  
-  // Fonction pour envoyer l'email
-  const sendEmail = () => {
+const toast = useToast();
 
-    // Paramètres pour EmailJS
-    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const userID = import.meta.env.VITE_EMAILJS_USER_ID;
+const form = reactive({
+  name: '',
+  email: '',
+  message: ''
+});
 
-    emailjs.send(serviceID, templateID, form, userID)
-      .then((response) => {
-        showSuccess();
-      })
-      .catch((error) => {
-        console.warn(error);
-        showError();
-        //console.error('Erreur lors de l\'envoi de l\'email:', error);
-      });
-  };
+const sendEmail = () => {
+  const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const userID = import.meta.env.VITE_EMAILJS_USER_ID;
 
-  const showSuccess = () => {
-    toast.add({ severity: 'success', summary: 'Succès', detail: 'Message envoyé avec succès!', life: 3000 });
-  };
+  emailjs.send(serviceID, templateID, form, userID)
+    .then((response) => {
+      showSuccess();
+    })
+    .catch((error) => {
+      console.warn(error);
+      showError();
+    });
+};
 
-  const showError = () => {
-    toast.add({ severity: 'error', summary: 'Erreur', detail: 'Réessayez ou contactez moi.', life: 5000 });
-  };
+const showSuccess = () => {
+  toast.add({ severity: 'success', summary: 'Succès', detail: 'Message envoyé avec succès!', life: 3000 });
+};
+
+const showError = () => {
+  toast.add({ severity: 'error', summary: 'Erreur', detail: 'Réessayez ou contactez moi.', life: 5000 });
+};
 </script>
 
 <template>
-  <Toast/>
+  <Toast />
   <div id="content">
-    <div id="contactform">
+    <div id="contactform" class="ContactSquare">
       <h2>Contactez-moi</h2>
-      <br>
       <form @submit.prevent="sendEmail">
         <div class="flex flex-column gap-2">
-        <FloatLabel>
-          <InputText id="name" v-model="form.name" aria-required="true" />
-          <label for="name">Nom</label>
-        </FloatLabel></div>
+          <FloatLabel>
+            <InputText id="name" v-model="form.name" aria-required="true" />
+            <label for="name">Nom</label>
+          </FloatLabel>
+        </div>
         <div class="flex flex-column gap-2">
-        <FloatLabel id="email">
-          <InputText id="email" v-model="form.email" aria-required="true" aria-errormessage="Erreur"/>
-          <label for="email">Email</label>
-        </FloatLabel></div>
-
+          <FloatLabel id="email">
+            <InputText id="email" v-model="form.email" aria-required="true" aria-errormessage="Erreur" />
+            <label for="email">Email</label>
+          </FloatLabel>
+        </div>
         <div class="flex justify-content-center">
           <Textarea id="message" v-model="form.message" variant="filled" required autoResize rows="5" cols="30" aria-required="true" placeholder="Message"></Textarea>
         </div>
-
         <div>
           <Button type="submit">Envoyer</Button>
         </div>
-
       </form>
     </div>
-    <div id="informationsCard">
+    <div id="informationsCard" class="ContactSquare">
       <div id="socialLinks">
         <div id="Mails">
-          <h2>Mail personnel: </h2>
+          <!-- <h2>Mail personnel: </h2>
           <div class="maillink">
-            <p id="mail">leochristophe@outlook.fr</p>
-            <Button id="mail" @click="window.location='mailto:leochristophe@outlook.fr'">Me Contacter</Button>
+            <p class="e-mail_adress">leochristophe@outlook.fr</p>
+            <Button id="mail" @click="sendMail_asClient('leochristophe@outlook.fr')">Me Contacter</Button>
+          </div> -->
+          <h2>Adresse mail universitaire: </h2>
+          <div class="maillink">
+            <p class="e-mail_adress">leo.christophe@etu.univ-savoie.fr</p>
+            <Button @click="sendMail_asClient('leo.christophe@etu.univ-savoie.fr')">Me Contacter</Button>
           </div>
-          <h2>Mail universitaire: </h2>
-          <div class="maillink">
-            leo.christophe@etu.univ-savoie.fr
-            <Button>Me Contacter</Button>
+          <h2>Numéro de téléphone: </h2>
+          <small>Généralement disponible de 13h à 14h et de 19h à 20h tous les jours.</small>
+          <div class="numlink">
+            <p class="num"></p>
+            <Button @click="callNumber_asClient('+330782424496')">Appeler</Button><Button @click="sendSMS_asClient_asClient('+330782424496')">Envoyer un SMS</Button>
           </div>
         </div>
       </div>
-      <img id="carteLieu"></img>
+      <img id="carteLieu" />
     </div>
-  </div>
 
+  </div>
 </template>
   
 <style scoped>
-  div#content{
-    min-width:1540px;
+  Button {
+    margin: 5px 10px;
   }
 
-  #informationsCard{
-    margin-top:50px;
-    float:right;
-    margin-right:250px;
-    margin-bottom:5vh;
-    border:2px solid black;
-    border-radius:5px;
-    box-shadow: 2px 2px 5px black;
-    padding:30px;
-    background-color:rgb(61, 61, 61);
-    width:500px;
+  div#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    min-width: 1540px;
   }
 
-  #contactform{
-    margin-bottom:5vh;
-    border:2px solid black;
-    border-radius:5px;
+  .ContactSquare {
+    border: 2px solid black;
+    border-radius: 5px;
     box-shadow: 2px 2px 5px black;
-    padding:30px;
-    background-color:rgb(61, 61, 61);
-    width:50vw;
-    float:left;
-    margin-left:250px;
-    margin-top:50px;
-    width:500px;
+    background-color: rgb(61, 61, 61);
+    padding: 30px;
+    width: 100%; /* Full width for mobile */
+    max-width: 500px; /* Maximum width */
+    box-sizing: border-box; /* Ensure padding is included in width */
   }
+
+  #informationsCard {
+    margin: 50px 250px 5vh 0;
+    float: right;
+    width: calc(min-content + 20rem);
+    height: auto; /* Ensure height adjusts based on content */
+  }
+
+  @media screen and (max-width: 846px) {
+    div#content {
+      flex-direction: column;
+      align-items: center; /* Center items horizontally */
+    }
+
+    #informationsCard, #contactform {
+      margin: 50px 0 5vh 0;
+      width: 90%; /* Adjust width for mobile screens */
+      max-width: 600px; /* Maximum width for better readability */
+    }
+
+    #contactform {
+      float: none; /* Remove float for mobile view */
+    }
+  }
+
+  #contactform {
+    float: left;
+    margin: 50px 0 5vh 250px;
+    width: 30vw;
+    height: auto;
+  }
+
   /* Styles basiques pour le formulaire */
   div {
     margin-bottom: 15px;
   }
 
-  label{
-    text-align:center;
+  label {
+    text-align: center;
     vertical-align: center;
-    color:lightcoral;
-    font-size:15px;
+    color: black;
+    font-size: 18px;
+    margin-top: 6px;
   }
- 
+
   input, Textarea {
-    width:100%;
+    width: 100%;
     padding: 8px;
-    margin-top:20px;
+    margin-top: 30px;
     box-sizing: border-box;
   }
 
-  Textarea::placeholder{
-    color:lightcoral;
+  Textarea::placeholder {
+    color: black;
   }
 
   button {
@@ -154,8 +180,8 @@
     border: none;
     cursor: pointer;
   }
+
   button:hover {
     background-color: #45a049;
   }
 </style>
-  

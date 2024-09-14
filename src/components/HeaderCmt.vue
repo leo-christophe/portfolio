@@ -36,6 +36,8 @@ const items = [
   nav{
     text-align: center;
     background-color: #000000;
+    width:100%;
+    
   }
 
   .menuItem:hover{

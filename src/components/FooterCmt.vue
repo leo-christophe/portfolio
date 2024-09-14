@@ -19,9 +19,9 @@
 </template>
   
 <style scoped>
-p{
-    align-items:center;
-}
+    p{
+        align-items:center;
+    }
 
     #links{
         display:inline-flex;
@@ -29,7 +29,7 @@ p{
         padding:20px;
 
     }
-    
+
     .imgLink {
         height: 40px;
         margin: 10px;
@@ -42,6 +42,7 @@ p{
         overflow: hidden;
         color: white;
         text-align:center;
+        position:relative;
     }
 
 
