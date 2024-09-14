@@ -23,10 +23,7 @@
     const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const userID = import.meta.env.VITE_EMAILJS_USER_ID;
-  
-    console.log('Service ID:', serviceID);
-  console.log('Template ID:', templateID);
-  console.log('User ID:', userID);
+
     emailjs.send(serviceID, templateID, form, userID)
       .then((response) => {
         showSuccess();
@@ -77,20 +74,16 @@
     </div>
     <div id="informationsCard">
       <div id="socialLinks">
-        <div class="link">
-          Github
-        </div>
-        <div class="link">
-          LinkedIn
-        </div>
         <div id="Mails">
           <h2>Mail personnel: </h2>
           <div class="maillink">
-            leochristophe@outlook.fr
+            <p id="mail">leochristophe@outlook.fr</p>
+            <Button id="mail" @click="window.location='mailto:leochristophe@outlook.fr'">Me Contacter</Button>
           </div>
           <h2>Mail universitaire: </h2>
           <div class="maillink">
             leo.christophe@etu.univ-savoie.fr
+            <Button>Me Contacter</Button>
           </div>
         </div>
       </div>
