@@ -1,7 +1,6 @@
 <script setup>
-import { defineProps, ref, computed } from 'vue'
-import data from '../data/data.json'
-import { PowerBIEmbedModule } from 'powerbi-client-vue-js';
+import { defineProps, ref, computed } from 'vue';
+import data from '../data/data.json';
 
 // Définir les props
 const props = defineProps({
@@ -9,131 +8,143 @@ const props = defineProps({
     type: String,
     required: true
   }
-})
+});
 
+// Fonction pour télécharger un fichier
+function downloadFile(downloadlink) {
+  const fileUrl = downloadlink;
+  const fileName = downloadlink.substring(downloadlink.lastIndexOf('/') + 1);
 
-function downloadFile(downloadlink){
-    // Lien vers le fichier existant (URL absolue ou relative)
-    const fileUrl = downloadlink; // Remplacer avec l'URL réelle du fichier
-    const fileName = downloadlink.substring(downloadlink.lastIndexOf('/') + 1); // Nom du fichier téléchargé
+  const link = document.createElement('a');
+  link.href = fileUrl;
+  link.download = fileName;
 
-    // Créer un élément de lien
-    const link = document.createElement('a');
-    link.href = fileUrl;
-    link.download = fileName;
+  link.click();
+}
 
-    // Simuler un clic pour déclencher le téléchargement
-    link.click();
+// Fonction pour obtenir le nombre maximal de lignes à afficher (le tableau le plus long)
+function getMaxRows(competences) {
+  return Math.max(...Object.values(competences).map(v => v.length));
 }
 
 
-    function getMaxRows() {
-        // Trouver la longueur maximale parmi toutes les listes de compétences
-        return Math.max(...Object.values(this.data.projects[this.props.id].competences).map(v => v.length));
-    }
 
-
-const ActualImage = ref(0)
+// Gestion des images
+const ActualImage = ref(0);
 const switchImage = (way) => {
-    const totalImages = data.projects[props.id].images.length;
-    if (way === "back") {
-        ActualImage.value = (ActualImage.value - 1 + totalImages) % totalImages;
-    } else {
-        ActualImage.value = (ActualImage.value + 1) % totalImages;
-    }
-}
+  const totalImages = data.projects[props.id].images.length;
+  ActualImage.value = (way === "back") 
+    ? (ActualImage.value - 1 + totalImages) % totalImages 
+    : (ActualImage.value + 1) % totalImages;
+};
 
-const hasImages = computed(() => data.projects[props.id].images[0] != null)
-const multipleImages = computed(() => data.projects[props.id].images.length > 1)
-const LineIndex = ref(0);
-function LineIndexIncrementation(){
-    LineIndex.value = LineIndex.value + 1;
-}
+const hasImages = computed(() => data.projects[props.id].images[0] != null);
+const multipleImages = computed(() => data.projects[props.id].images.length > 1);
+
+
 </script>
 
 <template>
-    <div id="project">
-        <h1 class="projectElement">{{ data.projects[props.id].nom }}</h1>
-        
-        <div id="titre" class="projectElement">
-            {{ data.projects[props.id].titre }}
-        </div>
-        
-        <div id="images-container" class="projectElement">
+  <div id="project">
+    <h1 class="projectElement">{{ data.projects[props.id].nom }}</h1>
 
-            <div v-if="hasImages" id="images">
-                <button v-if="multipleImages" @click="switchImage('back')" id="leftButton" title="Voir la dernière image">&#8678;</button>
-                <a :v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
-                    <a :v-if="!(data.projects[props.id].url) && data.projects[props.id].github" :href="data.projects[props.id].github">   
-                        
-                        <div v-if="data.projects[props.id].images[ActualImage].type == 'image'">
-                            <img  :src="'/images/projects/'+data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
-                        </div>
+    <div id="titre" class="projectElement">{{ data.projects[props.id].titre }}</div>
 
-                        <div v-else-if="data.projects[props.id].images[ActualImage].type == 'video'">
-                            <iframe width="560" height="315" :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
+    <div id="images-container" class="projectElement">
 
-                        <div v-else-if="data.projects[props.id].images[ActualImage].type == 'powerbi'">
-                            <iframe width="660" height="415" :src="data.projects[props.id].images[ActualImage].link" frameborder="1" allowFullScreen="true" class="projectimage" :title="data.projects[props.id].images[ActualImage].description"></iframe>
-                        </div>
-
-                      
-                        <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
-                    </a> 
-                </a>
-                <button v-if="multipleImages" @click="switchImage('forward')" id="rightButton" title="Voir la prochaine image">&#8680;</button>
-            </div>
+<div v-if="hasImages" id="images">
+    <button v-if="multipleImages" @click="switchImage('back')" id="leftButton" title="Voir la dernière image">&#8678;</button>
+    <a :v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
+        <a :v-if="!(data.projects[props.id].url) && data.projects[props.id].github" :href="data.projects[props.id].github">   
             
-            <div id="Projectlinks">
-                <a v-if="data.projects[props.id].github" :href="data.projects[props.id].github">
-                    <i class="pi pi-github imgProjectLinks"  title="Lien vers le Github / Le code source"></i>
-                </a>
-                <a v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
-                    <i class="pi pi-globe imgProjectLinks" title="Lien vers le site web / Le téléchargement du projet"></i>
-                </a>
-                <a v-if="data.projects[props.id].download" @click="downloadFile(data.projects[props.id].download)">
-                    <i class="pi pi-download imgProjectLinks" title="Télécharger le fichier"></i>
-                </a>
+            <div v-if="data.projects[props.id].images[ActualImage].type == 'image'">
+                <img  :src="'/images/projects/'+data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
             </div>
 
-        </div>
-
-        <div id="desc" class="projectElement">
-            {{ data.projects[props.id].description }}
-        </div>
-
-        <div id="lists">
-            <table id="competences" class="ListeDescendanteConteneur projectElement floatLeft">
-    <thead>
-        <tr>
-            <!-- En-têtes de colonnes avec les noms des compétences -->
-            <th v-for="(value, key) in data.projects[props.id].competences" :key="'header-' + key">
-                {{ key }}
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Pour chaque indice de tableau de compétence -->
-        <tr v-for="index in data.projects[props.id].competences" :key="index">
-            {{index}}
-        </tr>
-    </tbody>
-</table>
-
-
-
-
-            <div id="realisations" class="ListeDescendanteConteneur projectElement floatRight">
-                <div class="ListeDescendante" v-for="realisation in data.projects[props.id].realisations" :key="realisation">
-                    <strong>{{ realisation }}</strong>
-                </div>
+            <div v-else-if="data.projects[props.id].images[ActualImage].type == 'video'">
+                <iframe width="560" height="315" :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-        </div>
+
+            <div v-else-if="data.projects[props.id].images[ActualImage].type == 'powerbi'">
+                <iframe width="660" height="415" :src="data.projects[props.id].images[ActualImage].link" frameborder="1" allowFullScreen="true" class="projectimage" :title="data.projects[props.id].images[ActualImage].description"></iframe>
+            </div>
+
+          
+            <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
+        </a> 
+    </a>
+    <button v-if="multipleImages" @click="switchImage('forward')" id="rightButton" title="Voir la prochaine image">&#8680;</button>
+</div>
+      
+      <div id="Projectlinks">
+        <a v-if="data.projects[props.id].github" :href="data.projects[props.id].github">
+          <i class="pi pi-github imgProjectLinks"></i>
+        </a>
+        <a v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
+          <i class="pi pi-globe imgProjectLinks"></i>
+        </a>
+        <a v-if="data.projects[props.id].download" @click="downloadFile(data.projects[props.id].download)">
+          <i class="pi pi-download imgProjectLinks"></i>
+        </a>
+      </div>
     </div>
+
+    <div id="descContainer" class="projectElement">
+      <div id="desc">
+        {{ data.projects[props.id].description }}
+      </div>
+    </div>
+
+    <h2>Réalisations/Missions</h2>
+    <div id="realisations" class="ListeDescendanteConteneur projectElement ">
+        <div class="ListeDescendante" v-for="realisation in data.projects[props.id].realisations" :key="realisation">
+          <strong>{{ realisation }}</strong>
+        </div>
+      </div>
+
+    <h2>Compétences mobilisées</h2>
+    <div id="lists ListeDescendanteConteneur">
+      <table id="competences" class=" projectElement">
+        <thead>
+          <tr>
+            <!-- En-têtes des colonnes pour chaque type de compétence -->
+            <th v-for="(value, key) in data.projects[props.id].competences" :key="'header-' + key">
+              {{ key }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- Affichage des compétences ligne par ligne -->
+        <tr v-for="rowIndex in getMaxRows(data.projects[props.id].competences)" :key="'row-' + rowIndex">
+            
+            <td v-for="(value, key) in data.projects[props.id].competences" :key="'data-' + key + '-' + rowIndex">
+
+                <!-- Si l'index existe dans la colonne, affiche la valeur, sinon un champ vide -->
+                <span v-if="value[rowIndex-1]">{{ value[rowIndex-1]  }}</span>
+                <span v-else>&nbsp;</span> <!-- Champ vide pour maintenir la structure du tableau -->
+            </td>
+        </tr>
+        </tbody>
+
+      </table>
+
+      
+    </div>
+  </div>
 </template>
 
 <style scoped>
+#descContainer{
+  width:50vw;
+  margin: 50px 0px 50px 0px;
+  position:relative;
+  align-self:center;
+}
+
+#desc{
+  text-align:justify;
+}
+
 .imageDescription{
     color:lightgray;
     font-size:0.9rem;
@@ -142,6 +153,7 @@ function LineIndexIncrementation(){
 #project {
     margin-left: 50px;
     margin-right: 50px;
+    display:contents;
 }
 
 .projectElement {
@@ -176,7 +188,11 @@ img.projectimage {
 }
 
 .ListeDescendanteConteneur {
-    width: 45%;
+    width: 50vw;
+    margin: 50px 0px 50px 0px;
+    position:relative;
+    display:grid;
+    align-self:center;
 }
 
 .ListeDescendante {
@@ -223,6 +239,25 @@ small{
     width: 50px;
     height: 50px;
     margin-bottom: 10px;
+}
+
+#competences table{
+    border-collapse:collapse;
+    width:100%;
+    border:1px solid black;
+}
+
+#competences td{
+    background-color:rgb(64, 64, 64);
+    padding:5px;
+    width:200px;
+}
+
+#competences  th{
+    background-color:rgb(57, 44, 44);
+    color:white;
+    padding:5px;
+    width:40vw;
 }
 
 </style>

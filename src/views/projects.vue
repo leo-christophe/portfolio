@@ -1,57 +1,101 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
-import data from '../data/data.json'
+import { ref, computed, onMounted, watch } from 'vue'
 import Chips from 'primevue/chips'
 import Checkbox from 'primevue/checkbox'
-import json from '../data/data';
+
+import data from '../data/data.json'
 import { findClosestCompetence } from '../utils/levenshtein'
 
-// Liste de compétences prédéfinies
-const predefinedCompetences = json.valid_skills
-
+// Références aux valeurs des filtres
 const Compvalue = ref([])
 const startDate = ref(null)
 const endDate = ref(null)
 const checkType = ref([])
 
+// Références aux éléments du DOM
+const filters = ref(null)
+const textFilter = ref(null)
+const iconFilter = ref(null)
+
+// Fonction générique pour sauvegarder une valeur dans le localStorage
+function saveToLocalStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value))
+}
+
+// Fonction générique pour restaurer une valeur depuis le localStorage
+function restoreFromLocalStorage(key, defaultValue = null) {
+  const savedValue = localStorage.getItem(key)
+  return savedValue ? JSON.parse(savedValue) : defaultValue
+}
+
+// Sauvegarde des filtres dans le stockage local
+function saveFiltersState() {
+  saveToLocalStorage('filter_competences', Compvalue.value)
+  saveToLocalStorage('filter_startDate', startDate.value)
+  saveToLocalStorage('filter_endDate', endDate.value)
+  saveToLocalStorage('filter_checkType', checkType.value)
+}
+
+// Restauration des filtres depuis le stockage local
+function restoreFiltersState() {
+  Compvalue.value = restoreFromLocalStorage('filter_competences', [])
+  startDate.value = restoreFromLocalStorage('filter_startDate', null)
+  endDate.value = restoreFromLocalStorage('filter_endDate', null)
+  checkType.value = restoreFromLocalStorage('filter_checkType', [])
+}
+
+// Sauvegarde l'état d'un élément de filtre à chaque changement
+watch([Compvalue, startDate, endDate, checkType], saveFiltersState, { deep: true })
+
 onMounted(() => {
-  // Trouver les dates des projets
+  // Restaure les filtres depuis le stockage local au démarrage
+  restoreFiltersState()
+
+  // Code existant pour calculer et assigner les dates par défaut
   if (data.projects && data.projects.length > 0) {
     const projectDates = data.projects.map(project => {
       const projectStart = new Date(project.dates[0])
       const projectEnd = project.dates[1] === "En cours" ? new Date() : new Date(project.dates[1])
       return { start: projectStart, end: projectEnd }
     })
-    
-    // Trouver la date du premier projet réalisé
+
     const earliestStart = projectDates.reduce((earliest, current) => {
       return current.start < earliest ? current.start : earliest
     }, projectDates[0].start)
 
-    // Trouver la date du dernier projet réalisé
     const latestEnd = projectDates.reduce((latest, current) => {
-      
-      // Create a new date for today + 1 day
-      const tomorrow = new Date();
-      tomorrow.setDate(tomorrow.getDate() + 1);
+      const tomorrow = new Date()
+      tomorrow.setDate(tomorrow.getDate() + 1)
 
       if (current.end.getDate() === new Date().getDate()) {
         current.end = tomorrow
       }
 
-      if (current.end > latest) {
-        return current.end
-      }
-      return latest
-
+      return current.end > latest ? current.end : latest
     }, projectDates[0].end)
 
-    // Assigner les valeurs trouvées
     startDate.value = earliestStart.toISOString().split('T')[0]
     endDate.value = latestEnd.toISOString().split('T')[0]
   }
+
+  // Restauration de l'état des filtres (actif/inactif)
+  const savedFilterState = localStorage.getItem('project_filterState')
+  if (savedFilterState) {
+    if (savedFilterState === 'activated') {
+      filters.value.classList.add('filterActivated')
+      filters.value.classList.remove('filterDeactivated')
+      iconFilter.value.classList.remove('pi-angle-down')
+      iconFilter.value.classList.add('pi-angle-double-down')
+    } else {
+      filters.value.classList.add('filterDeactivated')
+      filters.value.classList.remove('filterActivated')
+      iconFilter.value.classList.add('pi-angle-down')
+      iconFilter.value.classList.remove('pi-angle-double-down')
+    }
+  }
 })
 
+// Filtrer les projets selon les critères
 const filteredProjects = computed(() => {
   let filteredByDate = data.projects || []
 
@@ -83,8 +127,9 @@ const filteredProjects = computed(() => {
   // Filtrer par compétence
   if (Compvalue.value && Compvalue.value.length > 0) {
     const correctedCompetences = Compvalue.value.map(comp => findClosestCompetence(comp))
+
     filteredByDate = filteredByDate.filter(project => {
-      return project.competences && Object.values(project.competences).some(category => 
+      return project.competences && Object.values(project.competences).some(category =>
         category.some(competence => correctedCompetences.includes(competence))
       )
     })
@@ -100,33 +145,40 @@ const filteredProjects = computed(() => {
   return filteredByDate
 })
 
-
-const filters = ref(null)
-const textFilter = ref(null)
-const iconFilter = ref(null)
-
+/**
+ * Fonction pour activer/désactiver les filtres
+ */
 function switchFilter() {
-  const filterIcon = iconFilter.value; // Récupérer la référence correcte
+  const filterIcon = iconFilter.value
 
-  if (filters.value.style.visibility === 'collapse') {
-    filters.value.style.visibility = 'visible';
-    filterIcon.classList.remove('pi-angle-down');  // Utiliser classList
-    filterIcon.classList.add('pi-angle-double-down');
+  if (filters.value.classList.contains('filterDeactivated')) {
+    filters.value.classList.remove('filterDeactivated')
+    filters.value.classList.add('filterActivated')
+
+    filterIcon.classList.remove('pi-angle-down')
+    filterIcon.classList.add('pi-angle-double-down')
+
+    localStorage.setItem('project_filterState', 'activated')
   } else {
-    filters.value.style.visibility = 'collapse';
-    filterIcon.classList.add('pi-angle-down');
-    filterIcon.classList.remove('pi-angle-double-down');
+    filters.value.classList.add('filterDeactivated')
+    filters.value.classList.remove('filterActivated')
+
+    filterIcon.classList.add('pi-angle-down')
+    filterIcon.classList.remove('pi-angle-double-down')
+
+    localStorage.setItem('project_filterState', 'deactivated')
   }
 }
-
 </script>
+
+
 
 <template>
   <div>
-    <h1>Projects</h1>
+    <h1>Projets</h1>
     
     <p id="textFilterHeader" ref="textFilter" @click="switchFilter()"><i ref="iconFilter" class="pi pi-angle-down" style="margin: 0 10px 0 0"></i> Filtres</p>
-    <div id="filters" ref="filters" class="card flex flex-wrap gap-3 p-fluid">
+    <div id="filters" ref="filters" class="card gap-3 p-fluid filterDeactivated">
       <div class="datesIn" id="dateFilters">
         <h3>Dates</h3>
         <input class="dateInput" type="date" v-model="startDate" id="startDate">
@@ -176,9 +228,17 @@ function switchFilter() {
 </template>
 
 <style scoped>
+  .filterActivated{
+    display:flex;
+  }
+    
+  .filterDeactivated{
+    display:none;
+  }
+
   #filters{
     position:relative;
-    visibility:collapse;
+
   }
 
   #textFilterHeader{
@@ -250,7 +310,7 @@ function switchFilter() {
 
   .projectCard {
     min-width:300px;
-    margin: 20px;
+    margin: 20px 35px 20px 35px;
     border: 3px solid gray;
     color: white;
     box-shadow: 2px 2px 2px 2px black;
@@ -290,7 +350,6 @@ function switchFilter() {
   }
 
   #filters {
-    display: flex;
     justify-content: center;
 
     background-color:rgb(66, 79, 79);

@@ -66,19 +66,18 @@
             "nom": "Mars Invaders",
             "dates": ["2023-01-01","2023-01-15"],
             "titre": "Développement d'un jeu vidéo sur le thème de l'espace",
-            "description": "Programmation en C# avec le framework MonoGame en équipe de deux.",
+            "description": "Programmation en C# avec le framework Monogame en équipe de deux. Le but était de réaliser un jeu vidéo en quelques semaines en s'appuyant directement sur la documentation, en respectant les bonnes pratiques lors du développement (Nommage, Structure du code, Commentaires, etc.). Le jeu devait être jouable et présenter un menu, un écran de jeu et un écran de fin. Le jeu devait être présenté à la fin du projet en vidéo, puis devant un jury de professeur.", 
             "competences": {
-              "Développement logiciel": ["C#", "monogame"],
-              "Tests & Qualité": ["test"],
-              "Compétences interpersonnelles": ["travail en équipe", "brainstorming"],
-              "UI/UX & Expérience utilisateur": ["design"],
-              "Autre": ["montage vidéo"]
+              "Développement logiciel": ["C#", "Monogame", "Visual Studio 2022"],
+              "Tests & Qualité": ["Tests manuels"],
+              "Compétences interpersonnelles": ["Travail en équipe", "Brainstorming", "Présentation"],
+              "UI/UX & Expérience utilisateur": ["Tiled", "Game Design"],
+              "Autre": ["Sony Vegas", "Photoshop", "Github"]
             },
             "realisations": [
-              "Formation de quelques semaines sur le framework MonoGame",
               "Recherche de l'idée de jeu à développer, brainstorming",
-              "Développement du jeu en C#",
-              "Création des assets",
+              "Développement du jeu en C# avec le framework Monogame",
+              "Création et recherche de ressources libres de droit",
               "Présentation du jeu à la fin du projet en vidéo"
             ],
             "type": "Universitaire",
@@ -108,7 +107,7 @@
             "nom": "SkillUpNow",
             "dates": ["2023-10-15","2024-01-15"],
             "titre": "Création d'un site web fictif de formations en PHP (Laravel)",
-            "description": "Création d'un site web fictif en équipe de 4 personnes. Utilisation de Laravel pour la partie serveur et client.",
+            "description": "Création d'un site web fictif en équipe de 4 personnes. Utilisation de Laravel, framework php pour la partie serveur et client. Réalisation de la base de données sous PostgreSQL. Cryptage des données utilisateurs sensibles comme le mot de passe. Réalisation d'un test de robustesse et de performance. Optimisation de l'espace disque que prend le site sur le serveur en utilisant par exemple des images d'extension svg. Organisation du développement en méthode agile, avec la méthode SCRUM. Revues de sprints hebdomadaires, en français, dont une en anglais.",
             "competences": {
               "Développement web": ["PHP", "Laravel", "HTML", "CSS", "Github"],
               "Base de données": ["PostgreSQL", "SQL", "Base de données", "MCD", "MLD"],
@@ -146,12 +145,12 @@
             "nom": "BMW",
             "dates": ["2024-03-01","2024-04-05"],
             "titre": "Création d'un site web fictif BMW en Javascript (Vue-JS) avec API Rest en C#",
-            "description": "Création d'un site web fictif en équipe de 5 personnes. Communication avec API Rest réalisée en C#. Utilisation de Vue-JS pour la partie cliente.",
+            "description": "Création d'un site web fictif en équipe de 5 personnes en appliquant les bonnes pratiques en terme de programmation, de qualité, de sécurité et de performance. Communication du client Javascript avec l'API Rest réalisée en C#. La base de données a été réalisée en code first avec Entity Framework Core. Utilisation de Vue-JS pour la partie cliente avec les frameworks Vue-Router, Pinia, Prime Vue. La qualité de l'API a été vérifié en réalisant des tests unitaires et des tests mock et la qualité du client a été vérifié en réalisant des tests unitaires et 'End to End'. Présentation du site web et de l'API devant un jury de deux professeurs.",
             "competences": {
               "Développement web": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Route-JS", "Github"],
               "Développement logiciel": ["C#", "API Rest", "Visual Studio 2022", "Repository", "Injection de dépendances"],
               "Base de données": ["PostgreSQL", "SQL", "Base de données", "MLD", "MCD"],
-              "DevOps & Déploiement": ["Azure DevOps", "Vercel.app", "CI/CD", "déploiement continu"],
+              "DevOps & Déploiement": ["Azure DevOps", "Vercel.app", "CI/CD", "déploiement continu", "Github"],
               "Tests & Qualité": ["Vitest", "Cypress", "Tests unitaires"],
               "Gestion de projet": ["Organisation de réunion", "compte rendu de réunion", "gestion de projet"],
               "UI/UX & Expérience utilisateur": ["UI/UX", "Expérience Utilisateur"]
@@ -183,13 +182,13 @@
             "nom": "Portfolio",
             "dates": ["2024-05-23","En cours"],
             "titre": "Développement d'un portfolio web en Vue-JS",
-            "description": "Création d'un portfolio web en Vue-JS pour présenter mes compétences et mes projets",
+            "description": "Création d'un portfolio web en Vue-JS pour présenter mes compétences et mes projets. Utilisation des librairies nodeJS PrimeVue et Vue-Route. Déploiement continu sur Vercel.App à chaque push sur Github. Application des bonnes pratiques en terme de sécurité.", 
             "competences": {
-              "Développement web": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Route-JS", "Github", "Responsive", "Ergonomie"],
-              "Développement logiciel": ["JSON", "NodeJS", "JQuery"],
-              "DevOps & Déploiement": ["Vercel.app", "Déploiement continu", "CI/CD"],
+              "Développement web": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Route-JS", "Github", "Responsive", "Ergonomie", "NodeJS", "JQuery", "JSON"],
+              "DevOps & Déploiement": ["Vercel.app", "Déploiement continu", "CI/CD", "Github"],
               "UI/UX & Expérience utilisateur": ["UI/UX", "Expérience Utilisateur"],
-              "Compétences interpersonnelles": ["Autonomie"]
+              "Compétences interpersonnelles": ["Autonomie", "Polyvalence"],
+              "Sécurité": ["Variables d'environnements (Gestion des variables sensibles)", "Validation des entrées utilisateur (Eviter une attaque XSS)"]
             },
             "realisations": [
               "Création de la structure du site",
@@ -209,7 +208,7 @@
               }
             ],
             "url": "https://portfolio-wheat-six-32.vercel.app/",
-            "github": "https://github.com/leo-christophe/portfolio",
+            "github": null,
             "download": null,
             "route": "/projects/portfolio"
           }
@@ -217,13 +216,13 @@
             "id": "project_sae104",
             "nom": "Amphibiens",
             "dates": ["2023-04-01","2023-06-15"],
-            "titre": "Création d'une base de données d'amphibiens et visualisation des données",
-            "description": "Création d'une base de données d'amphibiens en équipe de 3 personnes. Visualisation des données avec des requêtes SQL.",
+            "titre": "Création d'une base de données permettant de repertorier des amphibiens comptabilisés dans la région Hauts de France et visualisation des données",
+            "description": "Création d'une base de données d'amphibiens en équipe de 3 personnes à partir d'un modèle conceptuel de données. Génération des données fictives à l'aide d'Excel, de requêtes SQL et de divers sites de génération de noms. Réalisation de diverses requêtes, visualisation des données avec PowerBI et présentation des résultats devant un jury de professeurs en s'appuyant sur le rapport réalisé.",
             "competences": {
-              "Base de données": ["SQL", "PostgreSQL", "Base de données", "MCD", "MLD"],
+              "Base de données": ["SQL", "PostgreSQL", "PowerAMC","MCD", "MLD"],
               "Outils de visualisation": ["PowerBI", "Excel"],
-              "Compétences interpersonnelles": ["Travail en équipe", "Anglais"],
-              "Tests & Qualité": ["Présentation"]
+              "Compétences interpersonnelles": ["Travail en équipe", "Anglais", "Analyse", "Présentation"],
+              "UI/UX & Expérience utilisateur": ["Design de dashboards attrayants et ergonomiques"]
             },
             "realisations": [
               "Conception de la base de données grâce à un diagramme MCD",
@@ -312,82 +311,71 @@
         "Force de proposition"
     ],
     "sorted_valid_skills":[
-        {
-            "Développement web": [
-                "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue-JS", "PrimeVue", 
-                "Responsive", "Ergonomie", "NodeJS", "JQuery", "Git", "Vercel.app"
-            ],
-            "Développement logiciel": [
-                "C#", "Python", "MonoGame", "Visual Studio 2022", "Visual Studio Code"
-            ],
-            "DevOps & Déploiement": [
-                "Déploiement continu", "CI/CD", "Vercel.app", "Azure", "Git"
-            ],
-            "Tests & Qualité": [
-                "Cypress", "Vitest", "Tests unitaires"
-            ],
-            "Base de données": [
-                "SQL", "PostgreSQL", "MLD", "Gestion des bases de données", "Authentification"
-            ],
-            "Gestion de projet": [
-                "Travail en équipe", "Comptes rendus de sprint", "Organisation de réunion", 
-                "Rédaction de rapport", "Gestion de projet"
-            ],
-            "Conception & Architecture": [
-                "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conception", 
-                "Documents techniques", "Cahier de recette", "Rédaction"
-            ],
-            "UI/UX & Expérience utilisateur": [
-                "UI/UX", "Expérience Utilisateur", "Ergonomie", "Conception centrée utilisateur"
-            ],
-            "Compétences interpersonnelles": [
-                "Travail en équipe", "Autonomie", "Rigueur", "Organisation", "Créativité", 
-                "Adaptabilité", "Esprit critique", "Force de proposition"
-            ]
-        }
-        
-    ],
-    "valid_skills":[
-        "équipe",
-        "Javascript",
-        "C#",
-        "HTML",
-        "CSS",
-        "PHP",
-        "Laravel",
-        "Github",
-        "SCRUM",
-        "Revues de sprints",
-        "SQL",
-        "Base de données",
-        "MCD",
-        "Diagramme des cas d'utilisations",
-        "Azure DevOps",
-        "Javascript",
-        "Vue-JS",
-        "PrimeVue",
-        "Responsive",
-        "Ergonomie",
-        "monogame",
-        "travail en équipe",
-        "design",
-        "montage vidéo",
-        "PostgreSQL",
-        "Visual Studio 2022",
-        "Route-JS",
-        "API Rest",
-        "Repository",
-        "Injection de dépendances"
-, "Travail en équipe", "Comptes rendus de sprint", "Cryptographie", "Rédaction de rapport",
-"NodeJS", "JQuery", "Git", "Autonomie", "Visual Studio Code", "Vercel.app", "Déploiement continu", "CI/CD", "UI/UX", "Experience Utilisateur",
-"MLD",
-"Authentification",
-"Bases de données",
-"Cypress",
-"Vitest",
-"Tests unitaires",
-"Organisation de réunion", "compte rendu de réunion", "travail en équipe", "gestion de projet", "déploiement continu", "CI/CD", "UI/UX", "Experience Utilisateur",
-"Vercel.app", "Prime Vue", "MLD", "Authentification", "Bases de données", "Cypress", "Vitest", "Tests unitaires",
-"Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conceptions", "MLD", "PostgreSQL", "Documents techniques", "Cahier de recette", "rédaction"
-]
+      {
+        "Développement web": [
+          "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue-JS", "PrimeVue", "Phaser",
+          "Responsive", "Ergonomie", "NodeJS", "JQuery", "Git", "Vercel.app", "Flask", "Python", "WebDev", "API Rest", "C#"
+        ]
+      },
+      {
+        "Développement logiciel": [
+          "C#", "Python", "MonoGame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "WPF", "WinUI","CodeFirst", "Repository", "Injection de dépendances"
+        ]
+      },
+      {
+        "Développement de jeux vidéo":[
+          "MonoGame", "PyGame", "Phaser", "Tiled"
+        ]
+      },
+      {
+        "DevOps & Déploiement": [
+          "Déploiement continu", "CI/CD", "Vercel.app", "Azure", "Git"
+        ]
+      },
+      {
+        "Tests & Qualité": [
+          "Cypress", "Vitest", "Tests unitaires", "Tests mock", "Tests d'intégration", "Tests fonctionnels", "Tests de performance", "Tests de sécurité", "Tests de charge", "Tests de non régression", "Tests de robustesse", 
+          "Tests de montée en charge", "Tests de régression", "Tests de validation", "Tests manuels"
+        ]
+      },
+      {
+        "Base de données": [
+          "SQL", "PostgreSQL", "MLD", "MCD", "noSQL", "plpgSQL", "plpSQL", "MongoDB", "Gestion des bases de données", "Authentification", "PowerBI", "PowerAMC", "SQLite", "Bases de données relationnelles"
+        ]
+      },
+      {
+        "Gestion de projet": [
+          "Travail en équipe", "Comptes rendus de sprint", "Organisation de réunion", 
+          "Rédaction de rapport", "Gestion de projet", "Démarche agile SCRUM", "Revues de sprint", "Méthode agile", "Azure DevOps"
+        ]
+      },
+      {
+        "Conception & Architecture": [
+          "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conception",
+          "Documents techniques", "Cahier de recette", "Rédaction", "MVC", "MVVM", "Repository", "Injection de dépendances"
+        ]
+      },
+      {
+        "UI/UX & Expérience utilisateur": [
+          "UI/UX", "Expérience Utilisateur", "Ergonomie", "Conception centrée utilisateur", "Tiled", "Game Design"
+        ]
+      },
+      {
+        "Compétences interpersonnelles": [
+          "Travail en équipe", "Autonomie", "Rigueur", "Organisation", "Créativité",
+          "Adaptabilité", "Esprit critique", "Force de proposition", "Polyvalence", "Communication", "Analyse", "Présentation",
+          "Anglais"
+        ]
+      },
+      {
+        "Outils de visualisation": [
+          "PowerBI", "Excel", "Tableau", "Data Studio", "Google Analytics"
+        ]
+      },
+      {
+        "Virtualisation":[
+          "VirtualBox", "Docker"
+        ]
+      }
+    ]
 }

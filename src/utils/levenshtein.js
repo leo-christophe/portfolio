@@ -1,11 +1,14 @@
+// Importing the JSON file with the sorted competencies
 import json from '../data/data.json';
-// Accéder aux compétences valides triées
+
+// Accessing the sorted valid skills from the JSON data
 const sortedCompetences = json.sorted_valid_skills;
 
-// Fonction pour calculer la distance de Levenshtein
+// Function to calculate Levenshtein distance
 function levenshtein(a, b) {
     const matrix = [];
 
+    // Initialize the matrix
     for (let i = 0; i <= b.length; i++) {
         matrix[i] = [i];
     }
@@ -14,6 +17,7 @@ function levenshtein(a, b) {
         matrix[0][j] = j;
     }
 
+    // Fill the matrix
     for (let i = 1; i <= b.length; i++) {
         for (let j = 1; j <= a.length; j++) {
             if (b.charAt(i - 1) === a.charAt(j - 1)) {
@@ -30,25 +34,29 @@ function levenshtein(a, b) {
     return matrix[b.length][a.length];
 }
 
-// Fonction pour trouver la compétence la plus proche
+// Function to find the closest competence
 function findClosestCompetence(input) {
     let closestCompetence = input;
     let minDistance = Infinity;
 
-    // Parcourir chaque catégorie de compétences
-    for (const category of sortedCompetences) {
-        const competencesInCategory = Object.values(category)[0];
-
-        // Parcourir chaque compétence dans la catégorie
-        for (const competence of competencesInCategory) {
-            const distance = levenshtein(input.toLowerCase(), competence.toLowerCase());
-
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestCompetence = competence;
+    // Iterate over each category of competencies
+    for (const categoryObject of sortedCompetences) {
+        for (const competencesInCategory of Object.values(categoryObject)) {
+            // Iterate over each competence in the category
+            for (const competence of competencesInCategory) {
+                const distance = levenshtein(input.toLowerCase(), competence.toLowerCase());
+                console.log(distance, closestCompetence, competence);
+                // Update if the distance is smaller
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestCompetence = competence;
+                } 
             }
+            
+            
         }
     }
+
 
     return closestCompetence;
 }

@@ -1,7 +1,7 @@
 <script setup>
 import 'primeicons/primeicons.css';
 import { onMounted } from 'vue';
-import { RouterLink } from 'vue-router';
+import { RouterLink  } from 'vue-router';
 
 const items = [
   { label: 'Home', route: '/', icon: 'pi pi-home' },

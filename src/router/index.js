@@ -1,4 +1,4 @@
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { createWebHistory, createRouter } from 'vue-router'
 
 import home from '../views/home.vue';
 import projects from '../views/projects.vue';
@@ -12,64 +12,83 @@ import project_sae104 from '../views/projects/project_sae104.vue';
 import project_sae301 from '../views/projects/project_sae301.vue';
 import project_sae401 from '../views/projects/project_sae401.vue';
 
+import NotFound from '../components/Error/NotFound.vue';
+
 import {COULEUR_MENU_BASIC, COULEUR_MENU_SELECTIONNE} from '../data/const.js';
 
 const routes = [
   { 
     path: '/',
-    name: 'home',
-    component: home 
+    name: 'Accueil',
+    component: home,
+    alias: '/home'
 },{ 
     path: '/projects',
-    name: 'projects',
-    component: projects 
+    name: 'Projets',
+    component: projects,
+    alias: '/projets'
 },{
     path: '/projects/portfolio',
-    name: 'portfolio',
-    component: project_portfolio
+    name: 'Portfolio',
+    component: project_portfolio,
+    alias: '/projets/portfolio'
 },{
     path: '/projects/marsinvaders',
-    name: 'marsinvaders',
-    component: project_sae101
+    name: 'Marsinvaders',
+    component: project_sae101,
+    alias: '/projets/marsinvaders'
 },{
     path: '/projects/skillupnow',
-    name: 'skillupnow',
-    component: project_sae301
+    name: 'Skillupnow',
+    component: project_sae301,
+    alias: '/projets/skillupnow'
 },{
     path: '/projects/project_sae104',
-    name: 'amphibiens',
-    component: project_sae104
+    name: 'Amphibiens',
+    component: project_sae104,
+    alias: '/projets/amphibiens'
 },{
     path: '/projects/bmw',
-    name: 'bmw',
-    component: project_sae401
+    name: 'BMW',
+    component: project_sae401,
+    alias: '/projets/bmw'
 },{ 
     path: '/formations',
-    name: 'formations',
-    component: formations 
+    name: 'Formations',
+    component: formations,
+    alias: '/etudes' 
 },{ 
     path: '/experience',
-    name: 'experience',
+    name: 'Experience',
     component: experience 
 },{ 
     path: '/contact',
-    name: 'contact',
+    name: 'Contact',
     component: contact 
-}
+},{
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound
+  }
 ]
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes,
 })
 
 const menuItems = {
-    home: "1",
-    formations: "2",
-    experience: "3",
-    projects: "4",
-    contact: "5"
-};
+    Accueil: "1",
+    Formations: "2",
+    Experience: "3",
+    Projets: "4",
+    Portfolio: "4",
+    MarsInvaders: "4",
+    Skillupnow: "4",
+    Amphibiens: "4",
+    BMW: "4",
+    Contact: "5"
+  };
 
 function updateMenuStyle(menuItem, borderBottom, color) {
     $('nav ul li:nth-child(' + menuItem + ')').css('border-bottom', borderBottom);
@@ -77,6 +96,7 @@ function updateMenuStyle(menuItem, borderBottom, color) {
 }
 
 router.beforeEach((to, from, next) => {
+    // Si menuItems est falsy (null ou false), 1 est utilisé par défaut
     const menuItem = menuItems[from.name] || "1";
     updateMenuStyle(menuItem, '0px', COULEUR_MENU_BASIC);
     next();
@@ -85,6 +105,7 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to) => {
     const menuItem = menuItems[to.name] || "1";
     updateMenuStyle(menuItem, '2px solid ' + COULEUR_MENU_SELECTIONNE, COULEUR_MENU_SELECTIONNE);
+    document.title = to.name;
 });
 
 
