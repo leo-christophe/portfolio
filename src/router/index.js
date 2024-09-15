@@ -13,6 +13,7 @@ import project_sae301 from '../views/projects/project_sae301.vue';
 import project_sae401 from '../views/projects/project_sae401.vue';
 
 import NotFound from '../components/Error/NotFound.vue';
+import dataPage from '../views/mesdonnees.vue';
 
 import {COULEUR_MENU_BASIC, COULEUR_MENU_SELECTIONNE} from '../data/const.js';
 
@@ -69,6 +70,10 @@ const routes = [
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: NotFound
+  },{
+    path: '/data',
+    name: 'Mes données',
+    component: dataPage
   }
 ]
 

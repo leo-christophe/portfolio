@@ -121,7 +121,9 @@ const filteredProjects = computed(() => {
 
         return (projectStartDate >= start && projectEndDate <= end)
       })
+
     }
+
   }
 
   // Filtrer par compétence
@@ -140,6 +142,12 @@ const filteredProjects = computed(() => {
     filteredByDate = filteredByDate.filter(project => {
       return project.type && checkType.value.includes(project.type)
     })
+  }
+
+  if (filteredByDate.length === 0) {
+    alert('Aucun projet ne correspond à vos critères de recherche.')
+    document.querySelector('li input').textContent = ''
+    return data.projects;
   }
 
   return filteredByDate
@@ -207,7 +215,7 @@ function switchFilter() {
       </div>
     </div>
 
-    <ul>
+    <ul id="projectList">
       <li v-for="project in filteredProjects" :key="project.id" :id="project.id" class="projectCard">
         <router-link :to="project.route" class="liensrouteur">
           <div class="projectCardIn">
@@ -247,6 +255,12 @@ function switchFilter() {
 
   div.projectCardIn{
     height:min-content;
+  }
+
+  ul#projectList{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
   }
 
   li.projectCard{

@@ -319,12 +319,12 @@
       },
       {
         "Développement logiciel": [
-          "C#", "Python", "MonoGame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "WPF", "WinUI","CodeFirst", "Repository", "Injection de dépendances"
+          "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "WPF", "WinUI","CodeFirst", "Repository", "Injection de dépendances"
         ]
       },
       {
         "Développement de jeux vidéo":[
-          "MonoGame", "PyGame", "Phaser", "Tiled"
+          "Monogame", "PyGame", "Phaser", "Tiled"
         ]
       },
       {
