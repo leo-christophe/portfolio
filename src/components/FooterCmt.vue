@@ -10,13 +10,13 @@
 
         <ul>
             <li>
-                <a href="/data">Données personnelles</a>
+                <a href="/mesdonnees">Données personnelles</a>
             </li>
             <li>
                 <a href="/contact">Informations de contact</a>
             </li>
             <li>
-                <a href="http://localhost:5173/documents/Web-2024-2025.pdf#page=1&zoom=70">CV</a>
+                <a href="/documents/Web-2024-2025.pdf#page=1&zoom=70">CV</a>
             </li>
         </ul>
 

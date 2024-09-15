@@ -16,6 +16,7 @@ import NotFound from '../components/Error/NotFound.vue';
 import dataPage from '../views/mesdonnees.vue';
 
 import {COULEUR_MENU_BASIC, COULEUR_MENU_SELECTIONNE} from '../data/const.js';
+import mesdonnees from '../views/mesdonnees.vue';
 
 const routes = [
   { 
@@ -71,9 +72,9 @@ const routes = [
     name: 'NotFound',
     component: NotFound
   },{
-    path: '/data',
+    path: '/mesdonnees',
     name: 'Mes données',
-    component: dataPage
+    component: mesdonnees
   }
 ]
 
