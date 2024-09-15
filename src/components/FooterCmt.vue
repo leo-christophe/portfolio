@@ -1,6 +1,8 @@
 <script setup>
     import { ref } from 'vue';
     import data from '../data/data.json';
+    import { RouterLink } from 'vue-router';
+
 
     const links = ref(data.links);
 </script>
@@ -10,13 +12,13 @@
 
         <ul>
             <li>
-                <a href="/mesdonnees">Données personnelles</a>
+                <RouterLink to="/mesdonnees">Données personnelles</RouterLink>
             </li>
             <li>
-                <a href="/contact">Informations de contact</a>
+                <RouterLink to="/contact">Informations de contact</RouterLink>
             </li>
             <li>
-                <a href="/documents/Web-2024-2025.pdf#page=1&zoom=70">CV</a>
+                <a href="/documents/Web-2024-2025.pdf#page=1&zoom=70">Consulter mon CV</a>
             </li>
         </ul>
 
