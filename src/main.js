@@ -15,11 +15,11 @@ import 'primeicons/primeicons.css'
 import ToastService from 'primevue/toastservice';
 
 // Directives
-import scrollDirective from './directives/scroll-directive.js';
+//import scrollDirective from './directives/scroll-directive.js';
 
 createApp(App)
   .use(router)
   .use(PrimeVue)
   .use(ToastService)
-  .directive('scroll', scrollDirective)
+  //.directive('scroll', scrollDirective)
   .mount('#app')

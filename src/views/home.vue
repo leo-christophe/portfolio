@@ -7,8 +7,8 @@ import HomeStart from '../components/Home/HomeStart.vue';
 <template>
 
   <HomeStart id="start" class="pageSection"></HomeStart>
-  <HomeContact id="contactSection" class="pageSection"></HomeContact>
   <HomeSkills id="skills" class="pageSection"></HomeSkills>
+  <HomeContact id="contactSection" class="pageSection"></HomeContact>
 
 </template>
 
@@ -18,6 +18,10 @@ import HomeStart from '../components/Home/HomeStart.vue';
   height:100vh;
   background-color:rgb(39, 39, 39);
   z-index:2;
+}
+
+#contactSection{
+  background-color:rgb(13, 13, 13);
 }
 
 #skills{

@@ -236,6 +236,18 @@ function switchFilter() {
 </template>
 
 <style scoped>
+  @media screen and (max-width: 860px){
+    .filterActivated{
+      display:flex;
+      flex-wrap:wrap;
+      flex-direction: column;
+      
+      .datesIn{
+        margin:10px
+      }
+    }
+  }
+
   .filterActivated{
     display:flex;
   }
@@ -246,11 +258,17 @@ function switchFilter() {
 
   #filters{
     position:relative;
+    width:100%;
 
   }
 
   #textFilterHeader{
     margin-left:10px;
+  }
+
+  #textFilterHeader:hover{
+    cursor:pointer;
+    font-weight: 500;
   }
 
   div.projectCardIn{
@@ -289,7 +307,7 @@ function switchFilter() {
  }
 
  .pjtImgContainer{
-  width: 300px;
+    width: 300px;
     height: 200px;
     overflow: hidden;
     position: relative;
@@ -406,11 +424,13 @@ function switchFilter() {
   }
 
   .dateInput {
-    width: 150px;
+
     height: 30px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 1em;
     border-radius: 10px;
   }
+
+  
 </style>

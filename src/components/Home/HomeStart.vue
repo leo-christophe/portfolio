@@ -1,6 +1,10 @@
 <script setup>
 import { onMounted } from 'vue';
 import Button from 'primevue/button';
+import {CV_NAME_WEB} from '../../data/const.js';
+
+const CVAdress = '/documents/'+CV_NAME_WEB+"#page=1"
+
 // onMounted(() => {
 //   const video = document.getElementById('video');
 
@@ -18,21 +22,16 @@ function ToCV(){
         behavior:'smooth'
     })
 }
+
+
 </script>
 
 <template>
 
     <div id="welcome">
-        <div id="imageLeo">
-            <div id="backgroundshadow">
-                <img src="/images/app_identity/leochristophe2.png" alt="Léo Christophe"  />
-            </div>
-            <div id="background">
-                <img src="/images/app_identity/leochristophe1.png" alt="Léo Christophe" />
-            </div>
-        </div>
+        
 
-        <div id="text" class="paragraphe">
+        <div id="text" class="paragraphe">  
             <h1 class="outlined-text" id="titre">Léo CHRISTOPHE</h1>
             <h2 class="outlined-text text_line" id="soustitre1">Etudiant en 3ème année de BUT Informatique</h2>
             <h3 class="outlined-text text_line" id="soustitre2">Localisé à Annecy, France</h3> 
@@ -41,17 +40,28 @@ function ToCV(){
         </div>
 
         <div id="partieDroite">
-            <div class="paragraphe">
-                <h2 id="titreAPropos">À propos de moi</h2>
-                <h4 id="paragrapheAPropos">
-                    Étudiant de BUT Informatique avec une passion idéniable pour la programmation depuis plus de 5 ans.
-                    J'ai développé énormément mes compétences lors de la réalisation de projets personnels et professionnels
-                </h4>
+            <div class="paragraphe" id="texteParagrapheDroiteContainer">
+                <div id="texteParagrapheDroite">
+                    <h2 id="titreAPropos">À propos de moi</h2>
+                    <h4 id="paragrapheAPropos">
+                        Étudiant de BUT Informatique avec une passion idéniable pour la programmation depuis plus de 5 ans.
+                        J'ai développé énormément mes compétences lors de la réalisation de projets personnels et professionnels
+                    </h4>
+                </div>
+
+                <!-- <div id="imageLeo">
+                    <div id="backgroundshadow">
+                        <img src="/images/app_identity/leochristophe2.png" alt="Léo Christophe"  />
+                    </div>
+                    <div id="background">
+                        <img src="/images/app_identity/leochristophe1.png" alt="Léo Christophe" />
+                    </div>
+                </div> -->
             </div>
 
             <div id="CTA" class="paragraphe">
-                <Button>Curriculum Vitae <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
-                <Button>Me contacter <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i> </Button>
+                <a :href=CVAdress target="blank"><Button>Curriculum Vitae<i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button></a>
+                <RouterLink to="/contact"><Button>Me contacter <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i> </Button></RouterLink>
             </div>
         </div>
 
@@ -69,9 +79,57 @@ function ToCV(){
             #imageLeo{
                 display:none;
             }
-        
+
+            #flecheNext1{
+                display:none;
+            }
     }
-    
+
+    @media screen and (max-width: 1219px){
+        #CTA button{
+            margin-bottom:10px;
+        }
+    }
+
+    #texteParagrapheDroiteContainer {
+        display:flex;
+        flex-direction:row-reverse;
+    }
+
+    #imageLeo {
+        display: grid;
+        position: relative;
+        grid-template-areas: "background"; /* Les deux images occuperont la même zone */
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%; /* Forme circulaire */
+        border: 1px solid black;
+        overflow: hidden; /* Empêche les images de déborder du cadre */
+        background-color:white;
+        margin-right:100px;
+    }
+
+    #backgroundshadow {
+        grid-area: background; /* Place l'ombre dans la même zone */
+        z-index: 1; /* Derrière l'image principale */
+        filter: blur(10px); /* Applique un flou à l'ombre */
+    }
+
+    #background {
+        grid-area: background; /* Place l'image de fond dans la même zone */
+        z-index: 2; /* Devant l'ombre */
+    }
+
+    #background img, #backgroundshadow img {
+        width: 95%;
+        height:95%;
+        object-fit: cover; /* Maintient l'aspect des images */
+        border-radius: 500px 0px 500px 500px; /* Applique un arrondi aux images */
+        margin:10px 20px 0px 5px;
+    }
+
 
     #CTA Button{
         font-size:1rem;
@@ -143,25 +201,25 @@ function ToCV(){
         flex-direction: column;
         top:20vh;
         float:left;
-        left:calc(50% - var(--width)/2);
 
-        height: 40vh;
-        --width:500px;
-        width:var(--width);
+        height: auto;
+        width:40vw;
 
         z-index: 10;
-        
-        
+     
         border-radius:40px;
     }
 
     .paragraphe{
         padding:30px;
+        
     }
 
     #partieDroite{
         float:right;
+        width:50vw;
     }
+    
 
     #titreAPropos{
         font-size: 2em;
@@ -171,7 +229,7 @@ function ToCV(){
     #paragrapheAPropos{
         font-size: 1em;
         color:lightcyan;
-        width:500px;
+        width:100%;
     }
 
     .outlined-text {
@@ -181,27 +239,10 @@ function ToCV(){
 
     .paragraphe{
         padding:100px 100px 0px 100px;
+
     }
 
     #CTA button{
         margin-right:20px;
     }
-
-    #background, #backgroundshadow{
-        position:absolute;
-        left:30%;
-        top:15%;
-        height:90%
-    }
-
-    #backgroundshadow{
-        filter:blur(10px);
-        z-index:0;
-        left:28%;
-    }
-
-    #background img, #backgroundshadow img{
-        height:100%
-    }
-
 </style>

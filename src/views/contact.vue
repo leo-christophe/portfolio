@@ -4,7 +4,6 @@ import { sendMail_asClient, callNumber_asClient, sendSMS_asClient } from '../uti
 
 import Button from 'primevue/button';
 import Textarea from 'primevue/textarea';
-import FloatLabel from 'primevue/floatlabel';
 import InputText from 'primevue/inputtext';
 import { useToast } from 'primevue/usetoast';
 import Toast from 'primevue/toast';
@@ -22,7 +21,14 @@ const sendEmail = () => {
   const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const userID = import.meta.env.VITE_EMAILJS_USER_ID;
 
-  emailjs.send(serviceID, templateID, form, userID)
+  const sentForm = {
+    name: form.name,
+    email: form.email,
+    message: form.message + '\nSigné: ' + form.email
+  }
+
+
+  emailjs.send(serviceID, templateID, sentForm, userID)
     .then((response) => {
       showSuccess();
     })
@@ -47,23 +53,22 @@ const showError = () => {
     <div id="contactform" class="ContactSquare">
       <h2>Contactez-moi</h2>
       <form @submit.prevent="sendEmail">
+        <br>
         <div class="flex flex-column gap-2">
-          <FloatLabel>
-            <InputText id="name" v-model="form.name" aria-required="true" />
-            <label for="name">Nom</label>
-          </FloatLabel>
+          <label for="name">Nom</label>
+          <InputText type="text" id="name" v-model="form.name" aria-required="true" placeholder="Prénom Nom"/>
         </div>
+        <br>
         <div class="flex flex-column gap-2">
-          <FloatLabel id="email">
-            <InputText id="email" v-model="form.email" aria-required="true" aria-errormessage="Erreur" />
-            <label for="email">Email</label>
-          </FloatLabel>
+          <label for="email">*Email</label>
+          <InputText v-model="form.email" type="email" id="email" placeholder="exemple@domaine.com" aria-required="true" required/>
+          <small>(Pour vous recontacter)</small>
         </div>
         <div class="flex justify-content-center">
           <Textarea id="message" v-model="form.message" variant="filled" required autoResize rows="5" cols="30" aria-required="true" placeholder="Message"></Textarea>
         </div>
         <div>
-          <Button type="submit">Envoyer</Button>
+          <Button type="submit" id="greenValid">Envoyer</Button>
         </div>
       </form>
     </div>
@@ -78,13 +83,15 @@ const showError = () => {
           <h2>Adresse mail universitaire: </h2>
           <div class="maillink">
             <p class="e-mail_adress">leo.christophe@etu.univ-savoie.fr</p>
-            <Button @click="sendMail_asClient('leo.christophe@etu.univ-savoie.fr')">Me Contacter</Button>
+            <Button id="greenValid" @click="sendMail_asClient('leo.christophe@etu.univ-savoie.fr')">Me Contacter</Button>
           </div>
           <h2>Numéro de téléphone: </h2>
+            <p class="e-mail_adress">+33 07 82 42 44 96</p>
           <small>Généralement disponible de 13h à 14h et de 19h à 20h tous les jours.</small>
           <div class="numlink">
             <p class="num"></p>
-            <Button @click="callNumber_asClient('+330782424496')">Appeler</Button><Button @click="sendSMS_asClient_asClient('+330782424496')">Envoyer un SMS</Button>
+            <Button id="greenValid" @click="callNumber_asClient('+330782424496')">Appeler</Button>
+            <Button id="greenValid" @click="sendSMS_asClient('+330782424496')">Envoyer un SMS</Button>
           </div>
         </div>
       </div>
@@ -125,7 +132,7 @@ const showError = () => {
     height: auto; /* Ensure height adjusts based on content */
   }
 
-  @media screen and (max-width: 846px) {
+  @media screen and (max-width: '846px') {
     div#content {
       flex-direction: column;
       align-items: center; /* Center items horizontally */
@@ -157,31 +164,55 @@ const showError = () => {
   label {
     text-align: center;
     vertical-align: center;
-    color: black;
-    font-size: 18px;
-    margin-top: 6px;
+    color: white;
   }
 
-  input, Textarea {
+  input {
+    height:2rem;
+}
+
+  .p-float-label input:focus ~ label {
+      color: white;
+  }
+
+  .p-float-label input:invalid ~ input {
+      border-color:red;
+  }
+
+  input, textarea {
+    margin: 5px;
     width: 100%;
-    padding: 8px;
-    margin-top: 30px;
-    box-sizing: border-box;
   }
 
-  Textarea::placeholder {
-    color: black;
-  }
-
-  button {
+  button#greenValid {
     padding: 10px 15px;
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
+    border:1px solid transparent;
   }
 
-  button:hover {
+  button#greenValid:hover {
     background-color: #45a049;
+    border:1px solid white;
+    outline:white;
   }
+
+  .p-float-label input:invalid, 
+  .p-float-label textarea:invalid {
+      border-color: red;
+  }
+
+  .p-invalid {
+      border-color: red !important; /* Enforces red border for invalid inputs */
+  }
+
+  input:focus, textarea:focus {
+      outline: none;
+      border-color: #3a833d; /* Change border color on focus */
+  }
+
+
+
 </style>

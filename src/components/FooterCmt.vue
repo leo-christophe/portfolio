@@ -1,60 +1,62 @@
 <script setup>
-    import { ref } from 'vue';
+    import { ref, onMounted } from 'vue';
     import data from '../data/data.json';
     import { RouterLink } from 'vue-router';
+    import { CV_NAME_WEB, COULEUR_MENU_SELECTIONNE } from '../data/const.js';
 
-
+    const CVAdress = '/documents/'+CV_NAME_WEB+"#page=1&zoom=70";
     const links = ref(data.links);
 </script>
 
 <template>
     <footer>
-
         <ul>
-            <li>
-                <RouterLink to="/mesdonnees">Données personnelles</RouterLink>
+            <li class="footerURLLink">
+                <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/mesdonnees">Données personnelles</RouterLink>
             </li>
             <li>
-                <RouterLink to="/contact">Informations de contact</RouterLink>
+                <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/contact">Informations de contact</RouterLink>
             </li>
-            <li>
-                <a href="/documents/Web-2024-2025.pdf#page=1&zoom=70">Consulter mon CV</a>
+            <li class="footerURLLink">
+                <a :href="CVAdress" class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }">Consulter mon CV</a>
             </li>
         </ul>
 
-
-        <p id="watermark"><strong>© {{new Date().getFullYear()}} Léo CHRISTOPHE</strong></p>
+        <p id="watermark"><strong>© {{ new Date().getFullYear() }} Léo CHRISTOPHE</strong></p>
 
         <div id="links">
             <div v-for="link in links" :key="link.name" :id="link.name" class="link">
-                <a :href="link.url" target="_blank"  v-if="link.url">
-                    <img :src="link.image" :id="link.name+'_img'" class="imgLink"/>
+                <a :href="link.url" target="_blank" v-if="link.url">
+                    <img :src="link.image" :id="link.name+'_img'" class="imgLink" />
                 </a>
             </div>
         </div>
-
     </footer>
 </template>
-  
+
 <style scoped>
-    ul{
-        margin-top:10px;
+    .footerURLLink:hover{
+        text-decoration:underline;
+    }
+
+    ul {
+        margin-top: 10px;
     }
 
     #watermark {
-        float:left;
-        bottom:0px;
+        float: left;
+        bottom: 0px;
     }
 
-    p{
-        align-items:center;
+    p {
+        align-items: center;
     }
 
-    #links{
-        display:inline-flex;
-        float:right;
-        padding:20px;
-        margin-bottom:20px;
+    #links {
+        display: inline-flex;
+        float: right;
+        padding: 20px;
+        margin-bottom: 20px;
     }
 
     .imgLink {
@@ -66,13 +68,10 @@
         background-color: rgb(0, 0, 0);
         height: 150px;
         width: 100vw;
-        max-width:100%;
+        max-width: 100%;
         overflow: hidden;
         color: white;
-        text-align:center;
-        position:relative;
+        text-align: center;
+        position: relative;
     }
-
-
 </style>
-  
