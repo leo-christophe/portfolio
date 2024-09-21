@@ -37,7 +37,7 @@ const loadRecaptcha = async () => {
     const token = await window.grecaptcha.execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, { action: 'submit' });
     recaptchaToken.value = token;
   } catch (error) {
-    showError("Erreur lors du chargement de la vérification CAPTCHA, rechargez la page.");
+    showError("Erreur lors du chargement de la vérification CAPTCHA, rechargez la page."+error);
   }
 };
 
