@@ -18,7 +18,7 @@ const CVAdress = '/documents/'+CV_NAME_WEB+"#page=1"
 
 function ToCV(){
     window.scrollTo({
-        top:1050,
+        top:window.innerHeight*2+80,
         behavior:'smooth'
     })
 }
@@ -29,7 +29,6 @@ function ToCV(){
 <template>
 
     <div id="welcome">
-        
 
         <div id="text" class="paragraphe">  
             <h1 class="outlined-text" id="titre">Léo CHRISTOPHE</h1>
@@ -60,8 +59,8 @@ function ToCV(){
             </div>
 
             <div id="CTA" class="paragraphe">
-                <a :href=CVAdress target="blank"><Button>Curriculum Vitae<i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button></a>
-                <RouterLink to="/contact"><Button>Me contacter <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i> </Button></RouterLink>
+                <a :href=CVAdress target="blank"><Button id="blackVariant">Curriculum Vitae<i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button></a>
+                <RouterLink to="/contact"><Button id="blackVariant">Me contacter <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i> </Button></RouterLink>
             </div>
         </div>
 
@@ -76,13 +75,33 @@ function ToCV(){
 
 <style scoped>
     @media screen and (max-width: 860px){
-            #imageLeo{
-                display:none;
-            }
+        #imageLeo{
+            display:none;
+        }
 
-            #flecheNext1{
-                display:none;
-            }
+        #flecheNext1{
+            display:none;
+        }
+
+        #CTA button{
+            right:1vw;
+        }
+        
+        div#CTA.paragraphe{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+        }
+
+        .paragraphe{
+            padding:5px;
+        }
+
+        div#text.paragraphe{
+            width:50vw;
+            margin-right:0px;
+            padding-right:100px;
+        }
     }
 
     @media screen and (max-width: 1219px){
@@ -199,13 +218,15 @@ function ToCV(){
     #text {
         display: flex;
         flex-direction: column;
-        top:20vh;
         float:left;
 
         height: auto;
         width:40vw;
 
+        position:relative;
         z-index: 10;
+        
+
      
         border-radius:40px;
     }

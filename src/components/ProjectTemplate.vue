@@ -134,6 +134,22 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
 </template>
 
 <style scoped>
+
+@media (max-width: 860px) {
+  div#desc{
+
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+
+    position:relative;
+    width:100%;
+  }
+
+  div#descContainer{
+    width:85vw;
+  }
+}
 #descContainer{
   width:50vw;
   margin: 50px 0px 50px 0px;
@@ -226,11 +242,12 @@ small{
     position: relative; /* Assurer que #Projectlinks se positionne correctement */
     background-color: gray;
     border-radius: 10px;
-    width: 900px;
+
     height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
+    
     padding: 10px;
     box-shadow: 2px 2px 2px 2px black;
 }

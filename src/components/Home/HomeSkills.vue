@@ -1,6 +1,22 @@
+<script setup>
+  import { ref, onMounted } from 'vue';
+  import data from '../../data/data.json';
+
+  const main_hard_skills = ref(data.main_hard_skills);
+  const main_soft_skills = ref(data.main_soft_skills);
+
+  onMounted(() => {
+    const skillBars = document.querySelectorAll('.skill-percentage');
+    skillBars.forEach((bar) => {
+      const width = bar.getAttribute('data-skill'); // Get the percentage from a data attribute
+      bar.style.width = width;
+    });
+  });
+</script>
+
 <template>
   <div class="skills-display">
-    <h2>Compétences</h2>
+    <h2 id="competencesTitre">Compétences</h2>
     <div class="hard-skills">
       <div v-for="(category, index) in main_hard_skills" :key="index" class="compType">
         <h4>{{ Object.keys(category)[0] }}</h4>
@@ -20,29 +36,15 @@
   </div>
 </template>
 
-  
-  <script setup>
-  import { ref, onMounted } from 'vue';
-  import data from '../../data/data.json';
+<style scoped>
+  #competencesTitre {
+    margin-left:20px;
+  }
 
-  const main_hard_skills = ref(data.main_hard_skills);
-  const main_soft_skills = ref(data.main_soft_skills);
-
-  onMounted(() => {
-    const skillBars = document.querySelectorAll('.skill-percentage');
-    skillBars.forEach((bar) => {
-      const width = bar.getAttribute('data-skill'); // Get the percentage from a data attribute
-      bar.style.width = width;
-    });
-  });
-</script>
-
-  
-  <style scoped>
-    .compType{
-        display:inline-block;
-        margin-left:20vw;
-    }
+  .compType{
+      display:inline-block;
+      margin-left:20vw;
+  }
 
   .skills-display {
     font-family: Arial, sans-serif;
@@ -113,5 +115,5 @@
     transition: width 1.5s ease-in-out; /* Smooth transition for the width */
 }
 
-  </style>
+</style>
   

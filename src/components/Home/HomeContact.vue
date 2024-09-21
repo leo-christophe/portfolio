@@ -19,7 +19,7 @@ const CVAdress = RACINE+CV_NAME_WEB+"#page=1&zoom="+ZOOM;
         </div>
     </div>
 
-    <div class="CVsection">
+    <div id="finalText" class="CVsection">
         <h4>Convaincu ? <RouterLink to="/contact">Contactez moi</RouterLink> dès maintenant!</h4>
     </div>
 </template>
@@ -31,6 +31,11 @@ const CVAdress = RACINE+CV_NAME_WEB+"#page=1&zoom="+ZOOM;
         margin:100px 0px 100px 0px;
     }
 
+#finalText h4{
+    position:relative;
+    padding:5vh 0px 50px 0px;
+}
+
 #CVTitre {
     margin: 0px 0px 10px 25px;
 }
@@ -39,5 +44,10 @@ const CVAdress = RACINE+CV_NAME_WEB+"#page=1&zoom="+ZOOM;
     display: flex;
     justify-content: center;
     height: 100vh;
+    position:relative;
+}
+
+iframe{
+    position:relative;
 }
 </style>

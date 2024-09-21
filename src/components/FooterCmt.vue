@@ -45,7 +45,8 @@
 
     #watermark {
         float: left;
-        bottom: 0px;
+        position:relative;
+        left:20px;
     }
 
     p {
@@ -54,9 +55,9 @@
 
     #links {
         display: inline-flex;
+        position:relative;
         float: right;
-        padding: 20px;
-        margin-bottom: 20px;
+        margin:0px 20px 20px 0px;
     }
 
     .imgLink {
@@ -67,8 +68,8 @@
     footer {
         background-color: rgb(0, 0, 0);
         height: 150px;
-        width: 100vw;
-        max-width: 100%;
+        width: 100%;
+        min-width:100vw;
         overflow: hidden;
         color: white;
         text-align: center;

@@ -1,107 +1,233 @@
 <script setup>
-import { reactive } from 'vue'; 
-import { sendMail_asClient, callNumber_asClient, sendSMS_asClient } from '../utils/contact_client'; // Correct path to your mail.js
+// Vue
+import { reactive, ref, onMounted } from 'vue';
 
+// Components
+import { sendMail_asClient, callNumber_asClient, sendSMS_asClient } from '../utils/contact_client'; 
+import { MOBILE, EMAIL } from '../data/const.js';
+
+// Libs
 import Button from 'primevue/button';
 import Textarea from 'primevue/textarea';
 import InputText from 'primevue/inputtext';
 import { useToast } from 'primevue/usetoast';
-import Toast from 'primevue/toast';
 
+import { useVibrate } from '@vueuse/core';
+
+// Using toast for notifications
 const toast = useToast();
+const { vibrate, stop, isSupported } = useVibrate({ pattern: [300] })
 
+// Reactive form state
 const form = reactive({
   name: '',
   email: '',
   message: ''
 });
 
-const sendEmail = () => {
-  const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  const userID = import.meta.env.VITE_EMAILJS_USER_ID;
+const recaptchaToken = ref('');
 
-  const sentForm = {
-    name: form.name,
-    email: form.email,
-    message: form.message + '\nSigné: ' + form.email
+// Load reCAPTCHA when the component is mounted
+onMounted(() => {
+  loadRecaptcha();
+});
+
+const loadRecaptcha = async () => {
+  try {
+    const token = await window.grecaptcha.execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, { action: 'submit' });
+    recaptchaToken.value = token;
+  } catch (error) {
+    showError("Erreur lors du chargement de la vérification CAPTCHA, rechargez la page.");
   }
-
-
-  emailjs.send(serviceID, templateID, sentForm, userID)
-    .then((response) => {
-      showSuccess();
-    })
-    .catch((error) => {
-      console.warn(error);
-      showError();
-    });
 };
 
+
+// Handles form submission
+const handleSubmit = async () => {
+  if (!recaptchaToken.value) {
+    showError("La validation du CAPTCHA a échoué, veuillez réessayer.");
+    return;
+  }
+
+  await sendEmail(form); // Proceed with form submission
+  loadRecaptcha();  // Reset reCAPTCHA for the next submission
+};
+
+// Function to send email using EmailJS
+const sendEmail = async (form) => {
+  try {
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const userID = import.meta.env.VITE_EMAILJS_USER_ID;
+
+    const sentForm = {
+      name: form.name,
+      email: form.email,
+      message: form.message + '\nSigné: ' + form.email
+    };
+
+    await emailjs.send(serviceID, templateID, sentForm, userID);
+    
+    showSuccess();
+
+    form.name = '';
+    form.email = '';
+    form.message = '';
+    
+  } catch (error) {
+    console.warn(error);
+    showError();
+  }
+};
+
+// Success toast notification
 const showSuccess = () => {
+  if (isSupported.value) {
+    vibrate();
+  }
+
   toast.add({ severity: 'success', summary: 'Succès', detail: 'Message envoyé avec succès!', life: 3000 });
 };
 
-const showError = () => {
-  toast.add({ severity: 'error', summary: 'Erreur', detail: 'Réessayez ou contactez moi.', life: 5000 });
+// Error toast notification
+const showError = (message = 'Réessayez ou contactez-moi.') => {
+  toast.add({ severity: 'error', summary: 'Erreur', detail: message, life: 5000 });
+};
+
+// Copy to clipboard functionality
+const copyToClipboard = async (text) => {
+  try {
+    await navigator.clipboard.writeText(text);
+    toast.add({ 
+      severity: 'info', 
+      summary: 'Copié', 
+      detail: 'Texte copié dans le presse-papier.', 
+      life: 2500 
+    });
+  } catch (error) {
+    toast.add({ 
+      severity: 'error', 
+      summary: 'Erreur', 
+      detail: 'Impossible de copier le texte.', 
+      life: 2500 
+    });
+  }
 };
 </script>
 
 <template>
-  <Toast />
   <div id="content">
+    <!-- Contact form -->
     <div id="contactform" class="ContactSquare">
       <h2>Contactez-moi</h2>
-      <form @submit.prevent="sendEmail">
+      <form id="demo-form" @submit.prevent="handleSubmit">
         <br>
+        <!-- Name input -->
         <div class="flex flex-column gap-2">
           <label for="name">Nom</label>
-          <InputText type="text" id="name" v-model="form.name" aria-required="true" placeholder="Prénom Nom"/>
+          <InputText type="text" id="name" v-model="form.name" aria-required="true" placeholder="Prénom Nom" />
         </div>
         <br>
+        <!-- Email input -->
         <div class="flex flex-column gap-2">
           <label for="email">*Email</label>
-          <InputText v-model="form.email" type="email" id="email" placeholder="exemple@domaine.com" aria-required="true" required/>
+          <InputText v-model="form.email" type="email" id="email" placeholder="exemple@domaine.com" aria-required="true" required />
           <small>(Pour vous recontacter)</small>
         </div>
+        <br>
+        <!-- Message input -->
         <div class="flex justify-content-center">
           <Textarea id="message" v-model="form.message" variant="filled" required autoResize rows="5" cols="30" aria-required="true" placeholder="Message"></Textarea>
         </div>
+        <!-- Submit button -->
         <div>
-          <Button type="submit" id="greenValid">Envoyer</Button>
+          <Button 
+          type="submit" 
+          id="greenValid" 
+          class="g-recaptcha" 
+          :disabled="!recaptchaToken">Envoyer</Button>
         </div>
       </form>
     </div>
+
+    <!-- Additional information (email, phone) -->
     <div id="informationsCard" class="ContactSquare">
       <div id="socialLinks">
         <div id="Mails">
-          <!-- <h2>Mail personnel: </h2>
-          <div class="maillink">
-            <p class="e-mail_adress">leochristophe@outlook.fr</p>
-            <Button id="mail" @click="sendMail_asClient('leochristophe@outlook.fr')">Me Contacter</Button>
-          </div> -->
-          <h2>Adresse mail universitaire: </h2>
-          <div class="maillink">
-            <p class="e-mail_adress">leo.christophe@etu.univ-savoie.fr</p>
-            <Button id="greenValid" @click="sendMail_asClient('leo.christophe@etu.univ-savoie.fr')">Me Contacter</Button>
+          <div id="mailInfoContainer">
+            <h2>Adresse mail universitaire: </h2>
+            <div class="maillink">
+              <div id="mailEtCopy">
+                <p class="e-mail_adress">{{ EMAIL }}</p>
+                <i class="pi pi-clone" @click="copyToClipboard(EMAIL)" title="Copier l'adresse mail"></i>
+              </div>
+              <Button id="greenValid" @click="sendMail_asClient(EMAIL)">Me Contacter</Button>
+            </div>
           </div>
-          <h2>Numéro de téléphone: </h2>
-            <p class="e-mail_adress">+33 07 82 42 44 96</p>
-          <small>Généralement disponible de 13h à 14h et de 19h à 20h tous les jours.</small>
-          <div class="numlink">
-            <p class="num"></p>
-            <Button id="greenValid" @click="callNumber_asClient('+330782424496')">Appeler</Button>
-            <Button id="greenValid" @click="sendSMS_asClient('+330782424496')">Envoyer un SMS</Button>
+
+          <div id="mobileInfoContainer">
+            <h2>Numéro de téléphone:</h2>
+            <div id="mobileEtCopy">
+              <p class="e-mail_adress">{{ MOBILE }}</p>
+              <i class="pi pi-clone" @click="copyToClipboard(MOBILE)" title="Copier le numéro de téléphone"></i>
+            </div>
+            <small>Disponible de 13h à 14h et de 19h à 20h.</small>
+            <div class="numlink">
+              <Button id="greenValid" @click="callNumber_asClient(MOBILE.replace(' ',''))">Appeler</Button>
+              <Button id="greenValid" @click="sendSMS_asClient(MOBILE.replace(' ',''))">Envoyer un SMS</Button>
+            </div>
           </div>
         </div>
       </div>
-      <img id="carteLieu" />
     </div>
-
   </div>
 </template>
-  
+
 <style scoped>
+@media screen and (max-width: 846px) {
+  div#content{
+    display: flex;
+    flex-direction: column;
+    max-width:100vw;
+  }
+
+
+
+  #contactform, #informationsCard {
+    position:relative;
+    float:none;
+  }
+
+  #informationsCard {
+    position:relative;
+    margin-left:500px;
+  }
+}
+
+  #mobileInfoContainer{
+      position: relative;
+      margin-top:4vh;
+    }
+
+  #mailEtCopy, #mobileEtCopy {
+    display: flex;
+    flex-direction: row;
+    padding:3px;
+  }
+
+  .pi-clone,.pi-clone:not(:hover){
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    padding:5px;
+    transition:0.2s ease background-color;
+  }
+
+  .pi-clone:hover{
+    background-color:rgb(34, 34, 34);
+    transition:0.6s ease background-color;
+  }
+
   Button {
     margin: 5px 10px;
   }
@@ -111,7 +237,7 @@ const showError = () => {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    min-width: 1540px;
+    align-items: baseline;
   }
 
   .ContactSquare {
@@ -128,37 +254,19 @@ const showError = () => {
   #informationsCard {
     margin: 50px 250px 5vh 0;
     float: right;
-    width: calc(min-content + 20rem);
+    width: max-content;
+    min-width:405px;
     height: auto; /* Ensure height adjusts based on content */
   }
 
-  @media screen and (max-width: '846px') {
-    div#content {
-      flex-direction: column;
-      align-items: center; /* Center items horizontally */
-    }
 
-    #informationsCard, #contactform {
-      margin: 50px 0 5vh 0;
-      width: 90%; /* Adjust width for mobile screens */
-      max-width: 600px; /* Maximum width for better readability */
-    }
-
-    #contactform {
-      float: none; /* Remove float for mobile view */
-    }
-  }
 
   #contactform {
     float: left;
     margin: 50px 0 5vh 250px;
-    width: 30vw;
+    width:max-content;
+    min-width:480px;
     height: auto;
-  }
-
-  /* Styles basiques pour le formulaire */
-  div {
-    margin-bottom: 15px;
   }
 
   label {
@@ -169,7 +277,7 @@ const showError = () => {
 
   input {
     height:2rem;
-}
+  } 
 
   .p-float-label input:focus ~ label {
       color: white;
@@ -184,20 +292,6 @@ const showError = () => {
     width: 100%;
   }
 
-  button#greenValid {
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border:1px solid transparent;
-  }
-
-  button#greenValid:hover {
-    background-color: #45a049;
-    border:1px solid white;
-    outline:white;
-  }
 
   .p-float-label input:invalid, 
   .p-float-label textarea:invalid {

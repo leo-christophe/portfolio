@@ -1,12 +1,20 @@
-const COULEUR_MENU_SELECTIONNE = 'RGB(159, 229, 227)'
-const COULEUR_MENU_BASIC = 'white'
-const MOBILE_WIDTH = '480px'
+/**
+ *  COULEURS ET DIMENSIONS
+ */
+export const COULEUR_MENU_SELECTIONNE = 'RGB(159, 229, 227)'
+export const COULEUR_MENU_BASIC = 'white'
+export const MOBILE_WIDTH = '480px'
 
-const GITHUB_ICON = ''
-const LINKEDIN_ICON = ''
-const INTERNET_ICON = ''
+/**
+ *  LIENS ET CHEMINS
+ */
+export const GITHUB_ICON = ''
+export const LINKEDIN_ICON = ''
+export const INTERNET_ICON = ''
+export const CV_NAME_WEB = 'LEO-CHRISTOPHE-CV-2025.pdf'
 
-const CV_NAME_WEB = 'LEO-CHRISTOPHE-CV-2025.pdf'
-
-
-export { COULEUR_MENU_SELECTIONNE, COULEUR_MENU_BASIC, GITHUB_ICON, LINKEDIN_ICON, INTERNET_ICON, CV_NAME_WEB }
+/**
+ *  DONNEES PERSONNELLES DYNAMIQUES
+ */
+export const EMAIL = 'leo.christophe@etu.univ-savoie.fr'
+export const MOBILE = '+33 07 82 42 44 96'

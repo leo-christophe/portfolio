@@ -18,6 +18,11 @@ import dataPage from '../views/mesdonnees.vue';
 import {COULEUR_MENU_BASIC, COULEUR_MENU_SELECTIONNE} from '../data/const.js';
 import mesdonnees from '../views/mesdonnees.vue';
 
+import { useTitle } from '@vueuse/core'
+
+const title = useTitle()
+
+// Définition des routes
 const routes = [
   { 
     path: '/',
@@ -78,29 +83,34 @@ const routes = [
   }
 ]
 
+// Création du router
 const router = createRouter({
   history: createWebHistory(),
   routes,
 })
 
+// Définition des items du menu
 const menuItems = {
     Accueil: "1",
     Formations: "2",
     Experience: "3",
     Projets: "4",
     Portfolio: "4",
-    MarsInvaders: "4",
+    Marsinvaders: "4",
     Skillupnow: "4",
     Amphibiens: "4",
     BMW: "4",
+    'Mes données': "0",
     Contact: "5"
   };
 
+// Mis à jour du style du menu
 function updateMenuStyle(menuItem, borderBottom, color) {
     $('nav ul li:nth-child(' + menuItem + ')').css('border-bottom', borderBottom);
     $('nav ul li:nth-child(' + menuItem + ') span').css('color', color);
 }
 
+// Avant chaque changement de route
 router.beforeEach((to, from, next) => {
     // Si menuItems est falsy (null ou false), 1 est utilisé par défaut
     const menuItem = menuItems[from.name] || "1";
@@ -108,10 +118,11 @@ router.beforeEach((to, from, next) => {
     next();
 });
 
+// Après chaque changement de route
 router.afterEach((to) => {
     const menuItem = menuItems[to.name] || "1";
     updateMenuStyle(menuItem, '2px solid ' + COULEUR_MENU_SELECTIONNE, COULEUR_MENU_SELECTIONNE);
-    document.title = to.name;
+    title.value = to.name;
 });
 
 

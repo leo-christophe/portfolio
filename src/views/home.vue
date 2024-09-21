@@ -16,26 +16,25 @@ import HomeStart from '../components/Home/HomeStart.vue';
 
 #start{
   height:100vh;
-  background-color:rgb(39, 39, 39);
+  background-color:var(--home-background-color1);
   z-index:2;
-}
-
-#contactSection{
-  background-color:rgb(13, 13, 13);
 }
 
 #skills{
   z-index:3;
   height:100vh;
+  min-width:100vw;
+  margin-left:0px !important;
+  background-color: var(--home-background-color2);
 }
 
-#home2{
-  background-color:rgb(33, 33, 33);
+#contactSection{
+  background-color: var(--home-background-color3);
 }
 
 .pageSection {
   padding-top:10vh;
-  height: 130vh;
+  min-height:min-content;
   transition: opacity 2s;
   z-index:5;
 }

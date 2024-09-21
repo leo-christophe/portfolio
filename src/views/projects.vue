@@ -2,9 +2,13 @@
 import { ref, computed, onMounted, watch } from 'vue'
 import Chips from 'primevue/chips'
 import Checkbox from 'primevue/checkbox'
+import Toast from 'primevue/toast';
+import { useToast } from 'primevue/usetoast';
 
 import data from '../data/data.json'
 import { findClosestCompetence } from '../utils/levenshtein'
+
+const toast = useToast();
 
 // Références aux valeurs des filtres
 const Compvalue = ref([])
@@ -182,26 +186,27 @@ function switchFilter() {
 
 
 <template>
+  
   <div>
     <h1>Projets</h1>
     
     <p id="textFilterHeader" ref="textFilter" @click="switchFilter()"><i ref="iconFilter" class="pi pi-angle-down" style="margin: 0 10px 0 0"></i> Filtres</p>
     <div id="filters" ref="filters" class="card gap-3 p-fluid filterDeactivated">
       <div class="datesIn" id="dateFilters">
-        <h3>Dates</h3>
+        <h3 id="datesTitle">Dates</h3>
         <input class="dateInput" type="date" v-model="startDate" id="startDate">
         <input class="dateInput" type="date" v-model="endDate" id="endDate">
       </div>
       
-      <div class="datesIn">
-        <h3>Mots clés</h3>
+      <div class="datesIn" id="motClesContainer">
+        <h3 id="motclesTitle">Mots clés</h3>
         <div id="competenceFilter" class="p-fluid chip">
           <Chips v-model="Compvalue" separator="," title="Mots clés pour trier les projets utilisant l'algorithme de Levenshtein"/>
         </div>
       </div>
 
-      <div class="datesIn">
-        <h3>Type de projet:</h3>
+      <div class="datesIn" id="typeProjetContainer">
+        <h3 id="typProjetTitle">Type de projet:</h3>
         <div class="flex flex-wrap gap-3">
             <div class="flex align-items-center">
                 <Checkbox v-model="checkType" inputId="universitaire" name="checkType" value="Universitaire" title="Projets réalisés dans le cadre de mes études."/>
@@ -258,8 +263,9 @@ function switchFilter() {
 
   #filters{
     position:relative;
-    width:100%;
-
+    width:100%;    
+    justify-content: center;
+    background-color:rgb(66, 79, 79);
   }
 
   #textFilterHeader{
@@ -291,7 +297,7 @@ function switchFilter() {
       color:white;
       background-color:gray;
       text-align:center;
-      padding: 5px 0px 50px 0px;
+      padding: 5px 0px 5px 0px;
       border:2px solid darkslategray;
   }
 
@@ -336,9 +342,6 @@ function switchFilter() {
     position:relative;
   }
 
-  h3{
-    height:30px;
-  }
 
   .projectCard {
     min-width:300px;
@@ -361,10 +364,12 @@ function switchFilter() {
     margin-left: 20px;
     margin-right: 20px;
   }
+
   h1 {
     text-align: center;
     margin-bottom:30px;
   }
+
 
   .chip {
     width: 500px;
@@ -379,13 +384,6 @@ function switchFilter() {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-  }
-
-  #filters {
-    justify-content: center;
-
-    background-color:rgb(66, 79, 79);
-    min-width:1050px;
   }
 
   ul {
