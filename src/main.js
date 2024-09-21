@@ -19,12 +19,16 @@ import ConfirmationService from 'primevue/confirmationservice';
 // Directives
 //import scrollDirective from './directives/scroll-directive.js';
 
+const apiKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+console.log(apiKey)
+
 createApp(App)
   // Vue-Router
   .use(router)
   // Vue-recaptcha
-  .use(VueRecaptchaPlugin, {
-      v3SiteKey: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
+  .use(VueRecaptchaPlugin, {   
+      v2SiteKey: apiKey, // Your v2 Site Key
+      v3SiteKey: apiKey, // Your v3 Site Key 
     })
   // PrimeVue
   .use(PrimeVue)
