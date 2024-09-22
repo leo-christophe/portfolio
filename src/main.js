@@ -20,7 +20,6 @@ import ConfirmationService from 'primevue/confirmationservice';
 //import scrollDirective from './directives/scroll-directive.js';
 
 const apiKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
-console.log(apiKey)
 
 createApp(App)
   // Vue-Router

@@ -37,7 +37,7 @@ const loadRecaptcha = async () => {
     const token = await window.grecaptcha.execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, { action: 'submit' });
     recaptchaToken.value = token;
   } catch (error) {
-    showError("Erreur lors du chargement de la vérification CAPTCHA, rechargez la page."+error);
+    showError("Erreur lors du chargement de la vérification CAPTCHA, rechargez la page.");
   }
 };
 
@@ -50,7 +50,7 @@ const handleSubmit = async () => {
   }
 
   await sendEmail(form); // Proceed with form submission
-  loadRecaptcha();  // Reset reCAPTCHA for the next submission
+  await loadRecaptcha();  // Reset reCAPTCHA for the next submission
 };
 
 // Function to send email using EmailJS
@@ -177,32 +177,107 @@ const copyToClipboard = async (text) => {
               <Button id="greenValid" @click="sendSMS_asClient(MOBILE.replace(' ',''))">Envoyer un SMS</Button>
             </div>
           </div>
+
+  
         </div>
       </div>
     </div>
+    <span id="localisationSquare" class="ContactSquare">
+      <div id="carteContainer">
+        <iframe width="100%" height="100%" src="https://www.openstreetmap.org/export/embed.html?bbox=5.901374816894532%2C45.7957758736992%2C6.354560852050782%2C46.002208482091724&amp;layer=mapnik&amp;marker=45.899088112583115%2C6.127967834472656" ></iframe>
+      </div>
+      <div id="localisationSquareText">
+        <h2>Localisation</h2>
+        <br>
+        <p>
+          <strong>74000 ANNECY</strong>
+          <br>
+          <strong>Haute-Savoie, France</strong>
+        </p>
+      </div>
+    </span>
   </div>
+
 </template>
 
 <style scoped>
-@media screen and (max-width: 846px) {
+@media screen and (max-width: 860px) {
   div#content{
     display: flex;
     flex-direction: column;
-    max-width:100vw;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    min-height: 100vh; /* Prendre toute la hauteur */
   }
 
-
+  #footer {
+    margin-top: auto; /* Pousse le footer vers le bas */
+    background-color: #ccc; /* Juste pour visualiser le footer */
+    padding: 10px;
+    text-align: center;
+  }
 
   #contactform, #informationsCard {
     position:relative;
     float:none;
   }
 
-  #informationsCard {
+  div#informationsCard {
     position:relative;
-    margin-left:500px;
+    align-self:center;
+    margin-left:30%;
+  }
+
+  div#carteContainer{
+    width:50vw;
+    height:30vh;
+    
+  }
+
+  div#localisationSquare{
+    margin-left:30%;
+}
+}
+
+#localisationSquare{
+  display: flex;
+  flex-direction: row;
+
+  #localisationSquareText{
+    margin-left:10px;
   }
 }
+
+#carteContainer {
+    width:40vw;
+    height:50vh;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid black;
+    transition: transform 0.3s ease; /* Transition du conteneur */
+}
+
+#carteContainer span {
+    width: auto;
+    height: 10vh;
+    box-shadow: 2px 2px 5px black;
+    transform: scale(1);
+    transform-origin: center;
+    transition: transform 0.3s ease; /* Transition de l'image */
+    
+    background: url("/images/contact/carte.png") no-repeat center center;
+    background-size: cover; /* Couvre toute la surface */
+    
+    position: relative;
+    display: block;
+}
+
+#carteContainer span:hover {
+    transform: scale(3); /* Zoom à 300% */
+    transform-origin: center right; /* Zoom vers le milieu droit */
+}
+
+
 
   #mobileInfoContainer{
       position: relative;
@@ -237,8 +312,14 @@ const copyToClipboard = async (text) => {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-items: baseline;
-  }
+    align-items: center; /* Test avec center */
+    min-height: 100vh;
+    
+    max-width:100%;
+    width: 100%;
+    position: relative;
+}
+
 
   .ContactSquare {
     border: 2px solid black;
@@ -247,7 +328,7 @@ const copyToClipboard = async (text) => {
     background-color: rgb(61, 61, 61);
     padding: 30px;
     width: 100%; /* Full width for mobile */
-    max-width: 500px; /* Maximum width */
+    max-width: min-content; /* Maximum width */
     box-sizing: border-box; /* Ensure padding is included in width */
   }
 
