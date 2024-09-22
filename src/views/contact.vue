@@ -117,6 +117,7 @@ const copyToClipboard = async (text) => {
 
 <template>
   <div id="content">
+    <h1 id="contentText">Vous avez une offre d'emploi ? Vous voulez me faire part de vos remarques ? </h1>
     <!-- Contact form -->
     <div id="contactform" class="ContactSquare">
       <h2>Contactez-moi</h2>
@@ -147,6 +148,7 @@ const copyToClipboard = async (text) => {
           class="g-recaptcha" 
           :disabled="!recaptchaToken">Envoyer</Button>
         </div>
+        <small>Formulaire utilisant <a href="https://www.emailjs.com/" target="blank">EmailJS</a>. Le prénom sert uniquement à des fins d'authentifications de la personne (facultatif) et l'adresse-mail sert à des fins de contact. Chaque mail est confidentiel entre moi et la personne qui l'envoie et sont directement archivés puis supprimés après lecture.</small>
       </form>
     </div>
 
@@ -189,8 +191,18 @@ const copyToClipboard = async (text) => {
       <div id="localisationSquareText">
         <h2>Localisation</h2>
         <br>
+        <p id="localisationSquareDescription">Localisé entre montagnes et lacs, dans le magnifique département de la Haute-Savoie.</p>
+        <br>
+        <h3>Adresse actuelle:</h3>
         <p>
           <strong>74000 ANNECY</strong>
+          <br>
+          <strong>Haute-Savoie, France</strong>
+        </p>
+        <br>
+        <h3>Adresse fixe:</h3>
+        <p>
+          <strong>74970 MARIGNIER</strong>
           <br>
           <strong>Haute-Savoie, France</strong>
         </p>
@@ -201,88 +213,118 @@ const copyToClipboard = async (text) => {
 </template>
 
 <style scoped>
-@media screen and (max-width: 860px) {
-  div#content{
+  @media screen and (max-width: 860px) {
+    div#content{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      min-height: 100vh; /* Prendre toute la hauteur */
+      max-width:860px;
+    }
+
+    .ContactSquare{
+      max-width: min-content; 
+    }
+
+    #footer {
+      margin-top: auto; /* Pousse le footer vers le bas */
+      background-color: #ccc; /* Juste pour visualiser le footer */
+      padding: 10px;
+      text-align: center;
+    }
+
+    div#contactform, div#informationsCard, span#localisationSquare {
+      position:relative;
+      float:none;
+      min-width:100%;
+      max-width:100%;
+      width:100%;
+      margin:1vh 0  1vh 0 !important;
+    }
+
+    div#informationsCard {
+      position:relative;
+      align-self:center;
+    }
+
+    div#carteContainer{
+      width:50vw;
+      height:30vh;
+    }
+
+    h1#contentText{
+      padding:0 !important;
+      margin:0 0 20px 0 !important;
+      min-width:100vw;
+    }
+  }
+
+  h1#contentText{
+    padding:1vh 15vw 1vh 15vw;
+    min-width:70vw;
+    text-align:justify;
+  }
+
+  span#localisationSquare{
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    min-height: 100vh; /* Prendre toute la hauteur */
+    flex-direction: row;
+    width:auto;
+
+    #localisationSquareText{
+      margin-left:30px;
+      max-width:275px;
+    }
   }
 
-  #footer {
-    margin-top: auto; /* Pousse le footer vers le bas */
-    background-color: #ccc; /* Juste pour visualiser le footer */
-    padding: 10px;
-    text-align: center;
+  #informationsCard {
+    min-width:370px;
+    width:20vw;
   }
 
-  #contactform, #informationsCard {
-    position:relative;
-    float:none;
+  #contactform {
+    min-width:400px;
+    width:30vw
   }
 
-  div#informationsCard {
-    position:relative;
-    align-self:center;
-    margin-left:30%;
+
+  #carteContainer {
+      width:30vw;
+      height:40vh;
+      position:relative;
+      min-width:200px;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 2px solid black;
+      transition: transform 0.3s ease; /* Transition du conteneur */
   }
 
-  div#carteContainer{
-    width:50vw;
-    height:30vh;
-    
+
+  #carteContainer span {
+      width: auto;
+      height: 10vh;
+      
+      box-shadow: 2px 2px 5px black;
+      transform: scale(1);
+      transform-origin: center;
+      transition: transform 0.3s ease; /* Transition de l'image */
+      
+      background: url("/images/contact/carte.png") no-repeat center center;
+      background-size: cover; /* Couvre toute la surface */
+      
+      position: relative;
+      display: block;
   }
 
-  div#localisationSquare{
-    margin-left:30%;
-}
-}
-
-#localisationSquare{
-  display: flex;
-  flex-direction: row;
-
-  #localisationSquareText{
-    margin-left:10px;
+  #carteContainer span:hover {
+      transform: scale(3); /* Zoom à 300% */
+      transform-origin: center right; /* Zoom vers le milieu droit */
   }
-}
-
-#carteContainer {
-    width:40vw;
-    height:50vh;
-    overflow: hidden;
-    border-radius: 10px;
-    border: 2px solid black;
-    transition: transform 0.3s ease; /* Transition du conteneur */
-}
-
-#carteContainer span {
-    width: auto;
-    height: 10vh;
-    box-shadow: 2px 2px 5px black;
-    transform: scale(1);
-    transform-origin: center;
-    transition: transform 0.3s ease; /* Transition de l'image */
-    
-    background: url("/images/contact/carte.png") no-repeat center center;
-    background-size: cover; /* Couvre toute la surface */
-    
-    position: relative;
-    display: block;
-}
-
-#carteContainer span:hover {
-    transform: scale(3); /* Zoom à 300% */
-    transform-origin: center right; /* Zoom vers le milieu droit */
-}
-
-
 
   #mobileInfoContainer{
       position: relative;
       margin-top:4vh;
-    }
+  }
 
   #mailEtCopy, #mobileEtCopy {
     display: flex;
@@ -310,16 +352,12 @@ const copyToClipboard = async (text) => {
   div#content {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: wrap;
-    align-items: center; /* Test avec center */
-    min-height: 100vh;
-    
-    max-width:100%;
-    width: 100%;
-    position: relative;
-}
+    justify-content:space-evenly;
 
+    position: relative;
+    margin:5%;
+  }
 
   .ContactSquare {
     border: 2px solid black;
@@ -327,28 +365,12 @@ const copyToClipboard = async (text) => {
     box-shadow: 2px 2px 5px black;
     background-color: rgb(61, 61, 61);
     padding: 30px;
-    width: 100%; /* Full width for mobile */
-    max-width: min-content; /* Maximum width */
-    box-sizing: border-box; /* Ensure padding is included in width */
-  }
-
-  #informationsCard {
-    margin: 50px 250px 5vh 0;
-    float: right;
-    width: max-content;
-    min-width:405px;
-    height: auto; /* Ensure height adjusts based on content */
+    box-sizing: border-box;
+    
+    margin:20px 45px 50px 0px;
   }
 
 
-
-  #contactform {
-    float: left;
-    margin: 50px 0 5vh 250px;
-    width:max-content;
-    min-width:480px;
-    height: auto;
-  }
 
   label {
     text-align: center;
@@ -373,7 +395,6 @@ const copyToClipboard = async (text) => {
     width: 100%;
   }
 
-
   .p-float-label input:invalid, 
   .p-float-label textarea:invalid {
       border-color: red;
@@ -387,7 +408,4 @@ const copyToClipboard = async (text) => {
       outline: none;
       border-color: #3a833d; /* Change border color on focus */
   }
-
-
-
 </style>
