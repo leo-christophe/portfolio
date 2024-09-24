@@ -11,7 +11,7 @@
     <div id="experiences">
         
         <div v-for="experience in experiencesData" :key="experience.id" :id="experience.id" class="experience">
-            <div class="experience">
+            <div>
                                 
                 <div class="mainInformations">
 
@@ -25,7 +25,7 @@
                             <p>{{ experience.entreprise }}</p>
 
                             <p v-if="new Date(experience.dates[1]) <= new Date()">{{ experience.dates.join(" - ") }}</p>
-                            <p v-else="new Date(experience.dates[1]) > new Date()">{{ experience.dates[0] + " - " + "En cours" }}</p>
+                            <p v-else>{{ experience.dates[0] + " - " + "En cours" }}</p>
 
                             <p class="expDesc">{{ experience.description }}</p>
                         </div>
@@ -57,10 +57,14 @@
             </div>
         </div>
     </div>
-  </template>
+</template>
   
   
 <style scoped>
+    .texteFormation{
+        margin-left:50px;
+    }
+
     .imgExperienceContainer {
         background-color: var(--cyan-50);
         border: 1px solid gray;
@@ -136,6 +140,7 @@
         background-color:black;
         display:flex;
         border-radius: 20px;
+        border: 1px solid gray;
     }
 
     span#missionsContainer{
@@ -150,7 +155,7 @@
         gap: 10px; /* Space between list items */
         width: 100%; /* Full width */
         list-style-type:decimal; /* Keep bullet points */
-        padding: 10px; /* Padding for the mission list */
+        padding: 20px; /* Padding for the mission list */
         background-color: var(--experience_mission_background);
         border-radius: 10px;
     }
@@ -189,9 +194,5 @@
 
     .experience {
         margin-bottom: 20px;
-    }
-
-    .imgExperience {
-        height: 100px;
     }
 </style>

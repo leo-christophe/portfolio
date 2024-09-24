@@ -11,6 +11,8 @@ import project_sae101 from '../views/projects/project_sae101.vue';
 import project_sae104 from '../views/projects/project_sae104.vue';
 import project_sae301 from '../views/projects/project_sae301.vue';
 import project_sae401 from '../views/projects/project_sae401.vue';
+import project_video from '../views/projects/project_video.vue';
+
 
 import NotFound from '../components/Error/NotFound.vue';
 import dataPage from '../views/mesdonnees.vue';
@@ -59,6 +61,10 @@ const routes = [
     name: 'BMW',
     component: project_sae401,
     alias: '/projets/bmw'
+},{
+    path: '/projects/video_silkensweets',
+    name: 'Vidéo Silken Sweets',
+    component: project_video
 },{ 
     path: '/formations',
     name: 'Formations',
@@ -100,6 +106,7 @@ const menuItems = {
     Skillupnow: "4",
     Amphibiens: "4",
     BMW: "4",
+    project_video: '4',
     'Mes données': "0",
     Contact: "5"
   };

@@ -259,6 +259,40 @@
             "github": null,
             "download": "/files/Rapport.pbix",
             "route": "/projects/project_sae104"
+          },{
+            "id": "video_silken_sweets",
+            "nom": "Silken Sweets",
+            "dates": ["01-01-2024","01-02-2024"],
+            "titre": "Silken Sweets",
+            "description": "Création d'une pub visant à plaire à une clientèle italienne.",
+            "competences": {
+              "Vidéo-montage": ["Premiere Pro"],
+              "Outils de collaboration": ["Trello", "Discord"],
+              "Compétences interpersonnelles": ["Travail en équipe", "Anglais", "Présentation"]
+            },
+            "realisations": [
+              "Recherche de l'idée en brainstorming",
+              "Création de l'identité de la marque, du logo et du slogan",
+              "Réalisation de la vidéo à l'aide de Premiere Pro",
+              "Présentation et justification des choix"
+            ],
+            "type": "Universitaire",
+            "images": [
+              {
+                "link":"project-silkensweets.webp",
+                "description":"Image d'affichage du projet",
+                "type":"image"
+              },
+              {
+                "link": "https://www.youtube.com/embed/cTXY3vAbVYY?si=3vxR0cpsp_PUxDPX",
+                "description": "Vidéo publicitaire de Silken Sweets",
+                "type": "video"
+              }
+            ],
+            "url": "https://www.youtube.com/embed/cTXY3vAbVYY?si=3vxR0cpsp_PUxDPX",
+            "github": null,
+            "download": null,
+            "route": "/projects/video_silkensweets"
           }
           
     ],
@@ -311,6 +345,13 @@
         "Force de proposition"
     ],
     "sorted_valid_skills":[
+      {
+        "Vidéo-montage": [
+          "Premiere Pro"
+          ]
+        },{
+          "Outils de collaboration": ["Trello", "Discord"]
+        },
       {
         "Développement web": [
           "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue-JS", "PrimeVue", "Phaser",

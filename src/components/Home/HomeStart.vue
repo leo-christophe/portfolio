@@ -44,7 +44,8 @@ function ToCV(){
                     <h2 id="titreAPropos">À propos de moi</h2>
                     <h4 id="paragrapheAPropos">
                         Étudiant de BUT Informatique avec une passion idéniable pour la programmation depuis plus de 5 ans.
-                        J'ai développé énormément mes compétences lors de la réalisation de projets personnels et professionnels
+                        J'ai développé énormément mes compétences lors de la réalisation de projets personnels et professionnels.
+                        Je suis passionné par les animés, les jeux-vidéo et la cuisine. 
                     </h4>
                 </div>
 

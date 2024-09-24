@@ -253,6 +253,10 @@ function switchFilter() {
     }
   }
 
+  #startDate, #endDate{
+    color:black;
+  }
+
   .filterActivated{
     display:flex;
   }

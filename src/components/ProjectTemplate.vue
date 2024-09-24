@@ -191,6 +191,7 @@ button#leftButton, button#rightButton {
 img.projectimage {
     width: 500px;
     height: auto;
+    max-height:500px;
     border-radius: 10px;
     border: 1px solid black;
     box-shadow: 3px 3px 3px 3px darkslategray;
@@ -243,7 +244,8 @@ small{
     background-color: gray;
     border-radius: 10px;
 
-    height: 500px;
+    height:600px !important;
+    width:800px;
     display: flex;
     justify-content: center;
     align-items: center;
