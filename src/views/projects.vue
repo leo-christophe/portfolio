@@ -255,6 +255,7 @@ function switchFilter() {
 
   #startDate, #endDate{
     color:black;
+    background-color:white;
   }
 
   .filterActivated{

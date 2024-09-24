@@ -159,10 +159,7 @@ button[autofocus] {
   button {
     outline:none
   }
-  label,
-  input {
-      color: inherit
-  }    
+ 
 }
 
 /* Order */
