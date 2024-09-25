@@ -53,7 +53,7 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
     <div id="images-container" class="projectElement">
 
 <div v-if="hasImages" id="images">
-    <button v-if="multipleImages" @click="switchImage('back')" id="leftButton" title="Voir la dernière image">&#8678;</button>
+    <button id="leftButton" v-if="multipleImages" @click="switchImage('back')" title="Voir la dernière image"><i class="pi pi-arrow-circle-left"></i></button>
     <a :v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
         <a :v-if="!(data.projects[props.id].url) && data.projects[props.id].github" :href="data.projects[props.id].github">   
             
@@ -73,7 +73,7 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
             <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
         </a> 
     </a>
-    <button v-if="multipleImages" @click="switchImage('forward')" id="rightButton" title="Voir la prochaine image">&#8680;</button>
+    <button id="rightButton" v-if="multipleImages" @click="switchImage('forward')" title="Voir la prochaine image"><i class="pi pi-arrow-circle-right"></i></button>
 </div>
       
       <div id="Projectlinks">
@@ -95,14 +95,14 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
       </div>
     </div>
 
-    <h2>Réalisations/Missions</h2>
+    <h2 class="project_title">Réalisations/Missions</h2>
     <div id="realisations" class="ListeDescendanteConteneur projectElement ">
         <div class="ListeDescendante" v-for="realisation in data.projects[props.id].realisations" :key="realisation">
           <strong>{{ realisation }}</strong>
         </div>
       </div>
 
-    <h2>Compétences mobilisées</h2>
+    <h2 class="project_title">Compétences mobilisées</h2>
     <div id="lists ListeDescendanteConteneur">
       <table id="competences" class=" projectElement">
         <thead>
@@ -150,6 +150,11 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
     width:85vw;
   }
 }
+
+.project_title{
+    margin: 0px 0px 0px 65px;
+}
+
 #descContainer{
   width:50vw;
   margin: 50px 0px 50px 0px;
@@ -178,14 +183,28 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
 }
 
 button#leftButton, button#rightButton {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    background-color: rgb(0, 0, 0);
-    border-radius: 30px;
-    font-weight: 900;
-    margin: 0 20px;
+    color:white;
+    background-color: black;
+    border-radius:200px;
+    cursor:pointer;
+
+    i{
+        font-size:2rem;
+    }
+}
+
+button#leftButton {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+button#rightButton {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 img.projectimage {

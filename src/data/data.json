@@ -264,9 +264,9 @@
             "nom": "Silken Sweets",
             "dates": ["01-01-2024","01-02-2024"],
             "titre": "Silken Sweets",
-            "description": "Création d'une pub visant à plaire à une clientèle italienne.",
+            "description": "Création d'une pub visant à plaire à une clientèle italienne dans le cadre d'un cours d'Anglais. En équipe de 4 personnes, le but était de trouver une culture, un produit qui serait adapté et de réaliser une publicité pour promouvoir ce produit dans le style du pays travaillé.",
             "competences": {
-              "Vidéo-montage": ["Premiere Pro"],
+              "Vidéo-montage": ["Montage vidéo (Premiere Pro)", "Montage Photo"],
               "Outils de collaboration": ["Trello", "Discord"],
               "Compétences interpersonnelles": ["Travail en équipe", "Anglais", "Présentation"]
             },
@@ -280,7 +280,12 @@
             "images": [
               {
                 "link":"project-silkensweets.webp",
-                "description":"Image d'affichage du projet",
+                "description":"Logo de la marque",
+                "type":"image"
+              },
+              {
+                "link":"project-silkensweets_poster.png",
+                "description":"Affiche publicitaire de Silken Sweets. La tour de gateau est censé représenté la tour de Pise.",
                 "type":"image"
               },
               {
@@ -347,7 +352,7 @@
     "sorted_valid_skills":[
       {
         "Vidéo-montage": [
-          "Premiere Pro"
+          "Montage vidéo (Premiere Pro)", "Montage Photo"
           ]
         },{
           "Outils de collaboration": ["Trello", "Discord"]

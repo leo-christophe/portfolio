@@ -1,39 +1,25 @@
 <script setup>
 import { onMounted } from 'vue';
 import Button from 'primevue/button';
-import {CV_NAME_WEB} from '../../data/const.js';
+import { CV_NAME_WEB } from '../../data/const.js';
+import { useI18n } from 'vue-i18n'; // Importer useI18n pour changer de langue si nécessaire
 
-const CVAdress = '/documents/'+CV_NAME_WEB+"#page=1"
+const CVAdress = '/documents/' + CV_NAME_WEB + "#page=1";
 
-// onMounted(() => {
-//   const video = document.getElementById('video');
-
-//   window.addEventListener('scroll', () => {
-//     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-//     const maxScroll = window.innerHeight-300; // Change this value based on how quickly you want the video to disappear
-//     const opacity = Math.max(0, 1 - scrollTop / maxScroll);
-//     video.style.opacity = opacity;
-//   });
-// });
-
-function ToCV(){
+function ToCV() {
     window.scrollTo({
-        top:window.innerHeight*2+80,
-        behavior:'smooth'
-    })
+        top: window.innerHeight * 2 + 80,
+        behavior: 'smooth'
+    });
 }
-
-
 </script>
 
 <template>
-
     <div id="welcome">
-
         <div id="text" class="paragraphe">  
-            <h1 class="outlined-text" id="titre">Léo CHRISTOPHE</h1>
-            <h2 class="outlined-text text_line" id="soustitre1">Etudiant en 3ème année de BUT Informatique</h2>
-            <h3 class="outlined-text text_line" id="soustitre2">Localisé à Annecy, France</h3> 
+            <h1 class="outlined-text" id="titre">{{ $t('message.title') }}</h1>
+            <h2 class="outlined-text text_line" id="soustitre1">{{ $t('message.subtitle1') }}</h2>
+            <h3 class="outlined-text text_line" id="soustitre2">{{ $t('message.subtitle2') }}</h3>
 
             <i id="flecheNext1" class="pi pi-arrow-down" @click="ToCV()"></i>
         </div>
@@ -41,35 +27,23 @@ function ToCV(){
         <div id="partieDroite">
             <div class="paragraphe" id="texteParagrapheDroiteContainer">
                 <div id="texteParagrapheDroite">
-                    <h2 id="titreAPropos">À propos de moi</h2>
-                    <h4 id="paragrapheAPropos">
-                        Étudiant de BUT Informatique avec une passion idéniable pour la programmation depuis plus de 5 ans.
-                        J'ai développé énormément mes compétences lors de la réalisation de projets personnels et professionnels.
-                        Je suis passionné par les animés, les jeux-vidéo et la cuisine. 
-                    </h4>
+                    <h2 id="titreAPropos">{{ $t('message.aboutTitle') }}</h2>
+                    <h4 id="paragrapheAPropos">{{ $t('message.aboutText') }}</h4>
                 </div>
-
-                <!-- <div id="imageLeo">
-                    <div id="backgroundshadow">
-                        <img src="/images/app_identity/leochristophe2.png" alt="Léo Christophe"  />
-                    </div>
-                    <div id="background">
-                        <img src="/images/app_identity/leochristophe1.png" alt="Léo Christophe" />
-                    </div>
-                </div> -->
             </div>
 
             <div id="CTA" class="paragraphe">
-                <a :href=CVAdress target="blank"><Button id="blackVariant">Curriculum Vitae<i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button></a>
-                <RouterLink to="/contact"><Button id="blackVariant">Me contacter <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i> </Button></RouterLink>
+                <a :href="CVAdress" target="_blank">
+                    <Button id="blackVariant">{{ $t('message.viewCV') }}<i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
+                </a>
+                <RouterLink to="/contact">
+                    <Button id="blackVariant">{{ $t('message.contact') }} <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
+                </RouterLink>
             </div>
         </div>
 
         <div id="video_container">
-            <!-- <video id="video" autoplay loop muted>
-                <source src="../../assets/videos/coding_background.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la balise vidéo.
-            </video> -->
+            <!-- Vidéo background -->
         </div>
     </div>
 </template>

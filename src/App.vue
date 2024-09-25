@@ -1,6 +1,6 @@
 <script setup>
   // Vue
-  import { onMounted } from 'vue';
+  import { onMounted, ref } from 'vue';
 
   // Components
   //import DarkMode from './components/DarkMode.vue';
@@ -11,11 +11,19 @@
   import Toast from 'primevue/toast';
   import { useFavicon } from '@vueuse/core';
 
-  const icon = useFavicon();
+  // Functions
+  import { traductionSetup } from '../src/utils/traduction.js';
 
+  const icon = useFavicon();
   onMounted(() => {
+    // Gestion du style général du site
     document.body.style.overflowX = 'hidden';
+
+    // Gestion des images de l'accueil / du site
     icon.value = '/images/app_identity/icon.jpg';
+
+    // Gestion de la langue
+    traductionSetup()
   });
 </script>
 

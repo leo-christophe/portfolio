@@ -6,6 +6,7 @@ import App from './App.vue'
 // Librairies externes
 import router from './router/index'
 import PrimeVue from 'primevue/config'
+import i18n from './i18n'
 import { VueRecaptchaPlugin } from 'vue-recaptcha/head'
 
 // Prime vue Themes et icones
@@ -25,8 +26,7 @@ createApp(App)
   // Vue-Router
   .use(router)
   // Vue-recaptcha
-  .use(VueRecaptchaPlugin, {   
-      v2SiteKey: apiKey, // Your v2 Site Key
+  .use(VueRecaptchaPlugin, {
       v3SiteKey: apiKey, // Your v3 Site Key 
     })
   // PrimeVue
@@ -35,5 +35,6 @@ createApp(App)
   .use(ConfirmationService)
   // Directives
   //.directive('scroll', scrollDirective)
-
+  // i18n
+  .use(i18n)
   .mount('#app')

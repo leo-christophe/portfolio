@@ -3,9 +3,18 @@
     import data from '../data/data.json';
     import { RouterLink } from 'vue-router';
     import { CV_NAME_WEB, COULEUR_MENU_SELECTIONNE } from '../data/const.js';
+    import { changeLang } from '../utils/traduction.js';
+    import { useI18n } from 'vue-i18n';  // Importer l'API i18n
 
     const CVAdress = '/documents/'+CV_NAME_WEB+"#page=1&zoom=70";
     const links = ref(data.links);
+
+    const { locale } = useI18n();
+    
+    const switchLanguage = (lang) => {
+        locale.value = lang;
+        changeLang(lang);  // Appeler la fonction pour changer la langue
+}
 </script>
 
 <template>
@@ -19,6 +28,14 @@
             </li>
             <li class="footerURLLink">
                 <a :href="CVAdress" class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }">Consulter mon CV</a>
+            </li>
+            <li class="footerURLLink">
+                <div>
+                    <h5>{{ $t('message.hello') }}</h5>
+                    <!-- Boutons pour changer de langue -->
+                    <button @click="switchLanguage('en')">English</button>
+                    <button @click="switchLanguage('fr')">Français</button>
+                </div>
             </li>
         </ul>
 
