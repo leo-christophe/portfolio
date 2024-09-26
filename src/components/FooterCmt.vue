@@ -3,20 +3,25 @@
     import data from '../data/data.json';
     import { RouterLink } from 'vue-router';
     import { CV_NAME_WEB, COULEUR_MENU_SELECTIONNE } from '../data/const.js';
-    import { changeLang } from '../utils/traduction.js';
+    import { changeLang, getLangFromUrl } from '../utils/traduction.js';
     import { useI18n } from 'vue-i18n';  // Importer l'API i18n
 
     const CVAdress = '/documents/'+CV_NAME_WEB+"#page=1&zoom=70";
     const links = ref(data.links);
 
     const { locale } = useI18n();
-    
+    const boolLang = ref(localStorage.getItem('lang')=='en')
+    console.log(boolLang.value)
     const switchLanguage = (lang) => {
-        locale.value = lang;
-        changeLang(lang);  // Appeler la fonction pour changer la langue
-}
-</script>
+    console.log(boolLang.value);  // Debugging: Check current value before switching
+    boolLang.value = lang === 'en';  // Set boolLang based on the target language
+    locale.value = lang;  // Update the locale in the i18n system
+    changeLang(lang);  // Update language in localStorage and URL
+    console.log("Switched language to:", lang);  // Debugging: Check new language
+};
 
+
+</script>
 <template>
     <footer>
         <ul>
@@ -31,10 +36,9 @@
             </li>
             <li class="footerURLLink">
                 <div>
-                    <h5>{{ $t('message.hello') }}</h5>
-                    <!-- Boutons pour changer de langue -->
-                    <button @click="switchLanguage('en')">English</button>
-                    <button @click="switchLanguage('fr')">Français</button>
+                    <!-- Language switch button -->
+                    <button v-if="boolLang" @click="switchLanguage('fr')">Changer en Français</button>
+                    <button v-else @click="switchLanguage('en')">Switch to English</button>
                 </div>
             </li>
         </ul>
@@ -50,6 +54,7 @@
         </div>
     </footer>
 </template>
+
 
 <style scoped>
     .footerURLLink:hover{

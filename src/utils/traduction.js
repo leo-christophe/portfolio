@@ -1,17 +1,22 @@
 
 import { useNavigatorLanguage } from '@vueuse/core'
+import { useI18n } from 'vue-i18n';  // Importer l'API i18n
 
 export function traductionSetup(){
-    // Gestion des langues
-    const lang = localStorage.getItem('lang');
-    const { language } = useNavigatorLanguage()
+    const storedLang = localStorage.getItem('lang');
+    const { language } = useNavigatorLanguage();
+    const { locale } = useI18n();
 
-    if (lang === null) {
-      localStorage.setItem('lang', language.value);
+    if (storedLang) {
+        locale.value = storedLang;  // Initialize locale with stored language
+    } else {
+        localStorage.setItem('lang', language.value);  // Set browser language if no stored lang
+        locale.value = language.value;
     }
 
-    changeLang(language.value)
+    changeLang(locale.value);  // Update the language globally
 }
+
 
 export function getLangFromUrl() {
     const params = new URLSearchParams(window.location.search);

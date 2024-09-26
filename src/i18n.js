@@ -4,7 +4,6 @@ import { getLangFromUrl } from '../src/utils/traduction';
 const messages = {
   en: {
     message: {
-      hello: 'Hello world',
       title: 'Léo CHRISTOPHE',
       subtitle1: '3rd year computer science student',
       subtitle2: 'Based in Annecy, France',
@@ -18,7 +17,6 @@ const messages = {
   },
   fr: {
     message: {
-      hello: 'Bonjour le monde',
       title: 'Léo CHRISTOPHE',
       subtitle1: 'Étudiant en 3ème année de BUT Informatique',
       subtitle2: 'Localisé à Annecy, France',
@@ -33,10 +31,11 @@ const messages = {
 };
 
 const i18n = createI18n({
-  locale: getLangFromUrl(), // Utilise la langue de l'URL
-  globalInjection: true,
-  fallbackLocale: 'fr', // Définit une langue de repli
-  messages // Définit les messages de traduction
+  locale: getLangFromUrl(), // Use language from URL
+  fallbackLocale: 'fr', // Default fallback language
+  globalInjection: true, // Inject globally so all components can access the locale
+  messages
 });
+
 
 export default i18n;

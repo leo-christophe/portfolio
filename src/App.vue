@@ -15,6 +15,7 @@
   import { traductionSetup } from '../src/utils/traduction.js';
 
   const icon = useFavicon();
+
   onMounted(() => {
     // Gestion du style général du site
     document.body.style.overflowX = 'hidden';
