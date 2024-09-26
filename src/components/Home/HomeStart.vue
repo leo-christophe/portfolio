@@ -17,7 +17,7 @@ function ToCV() {
 <template>
     <div id="welcome">
         <div id="text" class="paragraphe">  
-            <h1 class="outlined-text" id="titre">{{ $t('message.title') }}</h1>
+            <h1 class="outlined-text" id="titre">{{ $t('message.homeTitle') }}</h1>
             <h2 class="outlined-text text_line" id="soustitre1">{{ $t('message.subtitle1') }}</h2>
             <h3 class="outlined-text text_line" id="soustitre2">{{ $t('message.subtitle2') }}</h3>
 

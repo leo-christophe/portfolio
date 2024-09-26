@@ -6,7 +6,7 @@ const messages = {
   en: {
     message: {
       hello: 'Hello world',
-      title: 'Léo CHRISTOPHE',
+      homeTitle: 'Léo CHRISTOPHE',
       subtitle1: '3rd year computer science student',
       subtitle2: 'Based in Annecy, France',
       aboutTitle: 'About Me',
@@ -15,7 +15,9 @@ const messages = {
                   I am passionate about anime, video games, and cooking.`,
       viewCV: 'Curriculum Vitae',
       contact: 'Contact me',
-      title: 'Contact Me',
+
+      // Contact
+      contactTitle: 'Contact Me',
       subtitle: 'Got a job offer? Want to share your thoughts?',
       contactTitle: 'Contact Me',
       nameLabel: 'Name',
@@ -47,19 +49,17 @@ const messages = {
     message: {
       // Home
       hello: 'Bonjour le monde',
-      title: 'Léo CHRISTOPHE',
+      homeTitle: 'Léo CHRISTOPHE',
       subtitle1: 'Étudiant en 3ème année de BUT Informatique',
       subtitle2: 'Localisé à Annecy, France',
       aboutTitle: 'À propos de moi',
-      aboutText: `Étudiant de BUT Informatique avec une passion idéniable pour la programmation depuis plus de 5 ans.
-                  J'ai développé énormément mes compétences lors de la réalisation de projets personnels et professionnels.
-                  Je suis passionné par les animés, les jeux-vidéo et la cuisine.`,
+      aboutText: `Étudiant de BUT Informatique avec une passion idéniable pour la programmation depuis plus de 5 ans. J'ai développé énormément mes compétences lors de la réalisation de projets personnels et professionnels. Je suis passionné par les animés, les jeux-vidéo et la cuisine.`,
       viewCV: 'Curriculum Vitae',
       contact: 'Me contacter',
 
       // Contact
-      title: 'Contactez-moi',
-      subtitle: 'Vous avez une offre d\'emploi ? Vous voulez me faire part de vos remarques ?',
+      contactTitle: 'Contactez-moi',
+      subtitle: "Vous avez une offre d\'emploi ? Vous voulez me faire part de vos remarques ?",
       contactTitle: 'Contactez-moi',
       nameLabel: 'Nom',
       emailLabel: '*Email',
