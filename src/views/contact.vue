@@ -11,12 +11,15 @@ import Button from 'primevue/button';
 import Textarea from 'primevue/textarea';
 import InputText from 'primevue/inputtext';
 import { useToast } from 'primevue/usetoast';
-
+import { useI18n } from 'vue-i18n'; // Import Vue I18n
 import { useVibrate } from '@vueuse/core';
+
+// Accès aux traductions
+const { t } = useI18n(); // Accès à la fonction de traduction
 
 // Using toast for notifications
 const toast = useToast();
-const { vibrate, stop, isSupported } = useVibrate({ pattern: [300] })
+const { vibrate, stop, isSupported } = useVibrate({ pattern: [300] });
 
 // Reactive form state
 const form = reactive({
@@ -37,15 +40,14 @@ const loadRecaptcha = async () => {
     const token = await window.grecaptcha.execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, { action: 'submit' });
     recaptchaToken.value = token;
   } catch (error) {
-    showError("Erreur lors du chargement de la vérification CAPTCHA, rechargez la page.");
+    showError(t('message.errorMessage')); // Utilise 't' au lieu de $t
   }
 };
-
 
 // Handles form submission
 const handleSubmit = async () => {
   if (!recaptchaToken.value) {
-    showError("La validation du CAPTCHA a échoué, veuillez réessayer.");
+    showError(t('message.errorMessage')); // Utilise 't' au lieu de $t
     return;
   }
 
@@ -86,12 +88,12 @@ const showSuccess = () => {
     vibrate();
   }
 
-  toast.add({ severity: 'success', summary: 'Succès', detail: 'Message envoyé avec succès!', life: 3000 });
+  toast.add({ severity: 'success', summary: t('message.success'), detail: t('message.successMessage'), life: 3000 });
 };
 
 // Error toast notification
-const showError = (message = 'Réessayez ou contactez-moi.') => {
-  toast.add({ severity: 'error', summary: 'Erreur', detail: message, life: 5000 });
+const showError = (Emessage = t('message.errorMessage')) => {
+  toast.add({ severity: 'error', summary: t('message.error'), detail: Emessage, life: 5000 });
 };
 
 // Copy to clipboard functionality
@@ -100,45 +102,46 @@ const copyToClipboard = async (text) => {
     await navigator.clipboard.writeText(text);
     toast.add({ 
       severity: 'info', 
-      summary: 'Copié', 
-      detail: 'Texte copié dans le presse-papier.', 
+      summary: t('message.copySummary'), 
+      detail: t('message.copyMessage'), 
       life: 2500 
     });
   } catch (error) {
     toast.add({ 
       severity: 'error', 
       summary: 'Erreur', 
-      detail: 'Impossible de copier le texte.', 
+      detail: t('message.errorMessage'), 
       life: 2500 
     });
   }
 };
 </script>
 
+
 <template>
   <div id="content">
-    <h1 id="contentText">Vous avez une offre d'emploi ? Vous voulez me faire part de vos remarques ? </h1>
+    <h1 id="contentText">{{ $t('message.subtitle') }}</h1>
     <!-- Contact form -->
     <div id="contactform" class="ContactSquare">
-      <h2>Contactez-moi</h2>
+      <h2>{{ $t('message.contactTitle') }}</h2>
       <form id="demo-form" @submit.prevent="handleSubmit">
         <br>
         <!-- Name input -->
         <div class="flex flex-column gap-2">
-          <label for="name">Nom</label>
-          <InputText type="text" id="name" v-model="form.name" aria-required="true" placeholder="Prénom Nom" />
+          <label for="name">{{ $t('message.nameLabel') }}</label>
+          <InputText type="text" id="name" v-model="form.name" aria-required="true" :placeholder="$t('message.nameLabel')" />
         </div>
         <br>
         <!-- Email input -->
         <div class="flex flex-column gap-2">
-          <label for="email">*Email</label>
-          <InputText v-model="form.email" type="email" id="email" placeholder="exemple@domaine.com" aria-required="true" required />
-          <small>(Pour vous recontacter)</small>
+          <label for="email">{{ $t('message.emailLabel') }}</label>
+          <InputText v-model="form.email" type="email" id="email" :placeholder="$t('message.emailPlaceholder')" aria-required="true" required />
+          <small>({{ $t('message.availability') }})</small>
         </div>
         <br>
         <!-- Message input -->
         <div class="flex justify-content-center">
-          <Textarea id="message" v-model="form.message" variant="filled" required autoResize rows="5" cols="30" aria-required="true" placeholder="Message"></Textarea>
+          <Textarea id="message" v-model="form.message" variant="filled" required autoResize rows="5" cols="30" aria-required="true" :placeholder="$t('message.messageLabel')"></Textarea>
         </div>
         <!-- Submit button -->
         <div>
@@ -146,9 +149,8 @@ const copyToClipboard = async (text) => {
           type="submit" 
           id="greenValid" 
           class="g-recaptcha" 
-          :disabled="!recaptchaToken">Envoyer</Button>
+          :disabled="!recaptchaToken">{{ $t('message.submitButton') }}</Button>
         </div>
-        <small>Formulaire utilisant <a href="https://www.emailjs.com/" target="blank">EmailJS</a>. Le prénom sert uniquement à des fins d'authentifications de la personne (facultatif) et l'adresse-mail sert à des fins de contact. Chaque mail est confidentiel entre moi et la personne qui l'envoie et sont directement archivés puis supprimés après lecture.</small>
       </form>
     </div>
 
@@ -157,60 +159,59 @@ const copyToClipboard = async (text) => {
       <div id="socialLinks">
         <div id="Mails">
           <div id="mailInfoContainer">
-            <h2>Adresse mail universitaire: </h2>
+            <h2>{{ $t('message.emailSectionTitle') }}</h2>
             <div class="maillink">
               <div id="mailEtCopy">
                 <p class="e-mail_adress">{{ EMAIL }}</p>
-                <i class="pi pi-clone" @click="copyToClipboard(EMAIL)" title="Copier l'adresse mail"></i>
+                <i class="pi pi-clone" @click="copyToClipboard(EMAIL)" :title="$t('message.copyTitle')"></i>
               </div>
-              <Button id="greenValid" @click="sendMail_asClient(EMAIL)">Me Contacter</Button>
+              <Button id="greenValid" @click="sendMail_asClient(EMAIL)">{{ $t('message.contactButton') }}</Button>
             </div>
           </div>
 
           <div id="mobileInfoContainer">
-            <h2>Numéro de téléphone:</h2>
+            <h2>{{ $t('message.phoneSectionTitle') }}</h2>
             <div id="mobileEtCopy">
               <p class="e-mail_adress">{{ MOBILE }}</p>
-              <i class="pi pi-clone" @click="copyToClipboard(MOBILE)" title="Copier le numéro de téléphone"></i>
+              <i class="pi pi-clone" @click="copyToClipboard(MOBILE)" :title="$t('message.copyTitle')"></i>
             </div>
-            <small>Disponible de 13h à 14h et de 19h à 20h.</small>
+            <small>{{ $t('message.availability') }}</small>
             <div class="numlink">
-              <Button id="greenValid" @click="callNumber_asClient(MOBILE.replace(' ',''))">Appeler</Button>
-              <Button id="greenValid" @click="sendSMS_asClient(MOBILE.replace(' ',''))">Envoyer un SMS</Button>
+              <Button id="greenValid" @click="callNumber_asClient(MOBILE.replace(' ',''))">{{ $t('message.callButton') }}</Button>
+              <Button id="greenValid" @click="sendSMS_asClient(MOBILE.replace(' ',''))">{{ $t('message.smsButton') }}</Button>
             </div>
           </div>
-
-  
         </div>
       </div>
     </div>
+
     <span id="localisationSquare" class="ContactSquare">
       <div id="carteContainer">
         <iframe width="100%" height="100%" src="https://www.openstreetmap.org/export/embed.html?bbox=5.901374816894532%2C45.7957758736992%2C6.354560852050782%2C46.002208482091724&amp;layer=mapnik&amp;marker=45.899088112583115%2C6.127967834472656" ></iframe>
       </div>
       <div id="localisationSquareText">
-        <h2>Localisation</h2>
+        <h2>{{ $t('message.locationTitle') }}</h2>
         <br>
-        <p id="localisationSquareDescription">Localisé entre montagnes et lacs, dans le magnifique département de la Haute-Savoie.</p>
+        <p id="localisationSquareDescription">{{ $t('message.localisationDescription') }}</p>
         <br>
-        <h3>Adresse actuelle:</h3>
+        <h3>{{ $t('message.currentAddress') }}</h3>
         <p>
           <strong>74000 ANNECY</strong>
           <br>
-          <strong>Haute-Savoie, France</strong>
+          <strong>{{ $t('message.region') }}</strong>
         </p>
         <br>
-        <h3>Adresse fixe:</h3>
+        <h3>{{ $t('message.permanentAddress') }}</h3>
         <p>
           <strong>74970 MARIGNIER</strong>
           <br>
-          <strong>Haute-Savoie, France</strong>
+          <strong>{{ $t('message.region') }}</strong>
         </p>
       </div>
     </span>
   </div>
-
 </template>
+
 
 <style scoped>
   @media screen and (max-width: 860px) {

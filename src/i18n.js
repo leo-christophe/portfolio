@@ -1,9 +1,11 @@
 import { createI18n } from 'vue-i18n';
 import { getLangFromUrl } from '../src/utils/traduction';
 
+// contact.js
 const messages = {
   en: {
     message: {
+      hello: 'Hello world',
       title: 'Léo CHRISTOPHE',
       subtitle1: '3rd year computer science student',
       subtitle2: 'Based in Annecy, France',
@@ -13,10 +15,38 @@ const messages = {
                   I am passionate about anime, video games, and cooking.`,
       viewCV: 'Curriculum Vitae',
       contact: 'Contact me',
+      title: 'Contact Me',
+      subtitle: 'Got a job offer? Want to share your thoughts?',
+      contactTitle: 'Contact Me',
+      nameLabel: 'Name',
+      emailLabel: '*Email',
+      emailPlaceholder: 'example@domain.com',
+      messageLabel: 'Message',
+      submitButton: 'Send',
+      successMessage: 'Message sent successfully!',
+      errorMessage: 'Try again or contact me directly.',
+      emailSectionTitle: 'University Email Address:',
+      phoneSectionTitle: 'Phone Number:',
+      availability: 'Available from 1 PM to 2 PM and from 7 PM to 8 PM.',
+      contactButton: 'Contact Me',
+      callButton: 'Call',
+      smsButton: 'Send SMS',
+      copyMessage: 'Text copied to clipboard.',
+      copySummary: 'Copied',
+      copyTitle: 'Copy text to clipboard',
+      success: 'Success',
+      error:'Error',
+      locationTitle: 'Location',
+      localisationDescription: 'Located between mountains and lakes, in the beautiful department of Haute-Savoie.',
+      currentAddress: 'Current Address:',
+      permanentAddress: 'Permanent Address:',
+      region: 'Haute-Savoie, France',
     }
   },
   fr: {
     message: {
+      // Home
+      hello: 'Bonjour le monde',
       title: 'Léo CHRISTOPHE',
       subtitle1: 'Étudiant en 3ème année de BUT Informatique',
       subtitle2: 'Localisé à Annecy, France',
@@ -26,9 +56,38 @@ const messages = {
                   Je suis passionné par les animés, les jeux-vidéo et la cuisine.`,
       viewCV: 'Curriculum Vitae',
       contact: 'Me contacter',
+
+      // Contact
+      title: 'Contactez-moi',
+      subtitle: 'Vous avez une offre d\'emploi ? Vous voulez me faire part de vos remarques ?',
+      contactTitle: 'Contactez-moi',
+      nameLabel: 'Nom',
+      emailLabel: '*Email',
+      emailPlaceholder: 'exemple@domaine.com',
+      messageLabel: 'Message',
+      submitButton: 'Envoyer',
+      successMessage: 'Message envoyé avec succès!',
+      errorMessage: 'Réessayez ou contactez-moi directement.',
+      emailSectionTitle: 'Adresse mail universitaire:',
+      phoneSectionTitle: 'Numéro de téléphone:',
+      availability: 'Disponible de 13h à 14h et de 19h à 20h.',
+      contactButton: 'Me Contacter',
+      callButton: 'Appeler',
+      smsButton: 'Envoyer un SMS',
+      copyMessage: 'Texte copié dans le presse-papier.',
+      copyTitle: 'Copier le texte dans le presse-papier',
+      copySummary: 'Copié',
+      success: 'Succès',
+      error:'Erreur',
+      locationTitle: 'Localisation',
+      localisationDescription: 'Localisé entre montagnes et lacs, dans le magnifique département de la Haute-Savoie.',
+      currentAddress: 'Adresse actuelle:',
+      permanentAddress: 'Adresse fixe:',
+      region: 'Haute-Savoie, France',
     }
   }
 };
+
 
 const i18n = createI18n({
   locale: getLangFromUrl(), // Use language from URL

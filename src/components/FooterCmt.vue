@@ -37,8 +37,8 @@
             <li class="footerURLLink">
                 <div>
                     <!-- Language switch button -->
-                    <button v-if="boolLang" @click="switchLanguage('fr')">Changer en Français</button>
-                    <button v-else @click="switchLanguage('en')">Switch to English</button>
+                    <a v-if="boolLang" @click="switchLanguage('fr')">Change to french</a>
+                    <a v-else @click="switchLanguage('en')">Changer en Anglais</a>
                 </div>
             </li>
         </ul>
