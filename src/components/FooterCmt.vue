@@ -9,15 +9,14 @@
     const CVAdress = '/documents/'+CV_NAME_WEB+"#page=1&zoom=70";
     const links = ref(data.links);
 
-    const { locale } = useI18n();
+    const { locale, t } = useI18n();
     const boolLang = ref(localStorage.getItem('lang')=='en')
-    console.log(boolLang.value)
+    
     const switchLanguage = (lang) => {
-    console.log(boolLang.value);  // Debugging: Check current value before switching
     boolLang.value = lang === 'en';  // Set boolLang based on the target language
     locale.value = lang;  // Update the locale in the i18n system
     changeLang(lang);  // Update language in localStorage and URL
-    console.log("Switched language to:", lang);  // Debugging: Check new language
+    location.reload();
 };
 
 

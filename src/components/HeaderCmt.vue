@@ -2,13 +2,16 @@
 import 'primeicons/primeicons.css';
 import { onMounted } from 'vue';
 import { RouterLink  } from 'vue-router';
+import { useI18n } from 'vue-i18n'; // Import Vue I18n
+
+const { t } = useI18n(); // Accès à la fonction de traduction
 
 const items = [
-  { label: 'Home', route: '/', icon: 'pi pi-home' },
-  { label: 'Formations', route: '/formations', icon: 'pi pi-book' },
-  { label: 'Experience', route: '/experience', icon: 'pi pi-briefcase' },
-  { label: 'Projects', route: '/projects', icon: 'pi pi-folder' },
-  { label: 'Contact', route: '/contact', icon: 'pi pi-envelope' }
+  { label: t('message.home'), route: '/', icon: 'pi pi-home' },
+  { label: t('message.education'), route: '/formations', icon: 'pi pi-book' },
+  { label: t('message.experience'), route: '/experience', icon: 'pi pi-briefcase' },
+  { label: t('message.projects'), route: '/projects', icon: 'pi pi-folder' },
+  { label: t('message.contact'), route: '/contact', icon: 'pi pi-envelope' }
 ];
 
 </script>

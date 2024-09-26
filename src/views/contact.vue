@@ -109,7 +109,7 @@ const copyToClipboard = async (text) => {
   } catch (error) {
     toast.add({ 
       severity: 'error', 
-      summary: 'Erreur', 
+      summary: t('message.error'), 
       detail: t('message.errorMessage'), 
       life: 2500 
     });
@@ -135,8 +135,8 @@ const copyToClipboard = async (text) => {
         <!-- Email input -->
         <div class="flex flex-column gap-2">
           <label for="email">{{ $t('message.emailLabel') }}</label>
-          <InputText v-model="form.email" type="email" id="email" :placeholder="$t('message.emailPlaceholder')" aria-required="true" required />
-          <small>({{ $t('message.availability') }})</small>
+          <InputText v-model="form.email" type="email" id="email" :placeholder="'ex@domn.com'" aria-required="true" required />
+          <small>({{ $t('message.emailDisclaimer') }})</small>
         </div>
         <br>
         <!-- Message input -->
@@ -151,6 +151,9 @@ const copyToClipboard = async (text) => {
           class="g-recaptcha" 
           :disabled="!recaptchaToken">{{ $t('message.submitButton') }}</Button>
         </div>
+        <small>
+          {{ $t('message.formDisclaimer') }}
+        </small>
       </form>
     </div>
 

@@ -22,7 +22,10 @@ const messages = {
       contactTitle: 'Contact Me',
       nameLabel: 'Name',
       emailLabel: '*Email',
-      emailPlaceholder: 'example@domain.com',
+      example: "example",
+      domain: "domain.com",
+      emailDisclaimer: "Your email will only be used to recontact you.",
+      formDisclaimer: "The first name is used solely for authentication purposes of the person (optional), and the email address is used for contact purposes. Each email is confidential between me and the person sending it and is directly archived and then deleted after reading.",
       messageLabel: 'Message',
       submitButton: 'Send',
       successMessage: 'Message sent successfully!',
@@ -43,6 +46,14 @@ const messages = {
       currentAddress: 'Current Address:',
       permanentAddress: 'Permanent Address:',
       region: 'Haute-Savoie, France',
+
+      // Navigation
+      home: 'Home',
+      contact: 'Contact',
+      projects: 'Projects',
+      experience: 'Experience',
+      education: 'Education',
+      hobbies: 'Hobbies',
     }
   },
   fr: {
@@ -63,7 +74,10 @@ const messages = {
       contactTitle: 'Contactez-moi',
       nameLabel: 'Nom',
       emailLabel: '*Email',
-      emailPlaceholder: 'exemple@domaine.com',
+      example: "exemple",
+      domain: "domaine.com",
+      emailDisclaimer: "Votre e-mail ne sera utiliser que pour vous recontacter.",
+      formDisclaimer: "Le prénom sert uniquement à des fins d'authentifications de la personne (facultatif) et l'adresse-mail sert à des fins de contact. Chaque mail est confidentiel entre moi et la personne qui l'envoie et sont directement archivés puis supprimés après lecture.",
       messageLabel: 'Message',
       submitButton: 'Envoyer',
       successMessage: 'Message envoyé avec succès!',
@@ -84,6 +98,16 @@ const messages = {
       currentAddress: 'Adresse actuelle:',
       permanentAddress: 'Adresse fixe:',
       region: 'Haute-Savoie, France',
+
+      // Navigation
+      home: 'Accueil',
+      contact: 'Contact',
+      projects: 'Projets',
+      experience: 'Experience',
+      education: 'Formations',
+      hobbies: 'Hobbies',
+
+      // Footer
     }
   }
 };
