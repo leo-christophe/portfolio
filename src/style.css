@@ -147,9 +147,9 @@ button[autofocus] {
 }
 
 :root{
-  --home-background-color1:rgb(39, 39, 39);
+  --home-background-color1:rgb(33, 33, 33);
   --home-background-color2:rgb(30, 30, 30);
-  --home-background-color3:rgb(2, 2, 2);
+  --home-background-color3:rgb(21, 21, 21);
 
   --experience_mission_background: #1a1a1a;
 }

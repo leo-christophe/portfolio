@@ -1,6 +1,7 @@
 <script setup>
 import Button from 'primevue/button';
 import {CV_NAME_WEB} from '../../data/const.js';
+import { ref } from 'vue';
 
 
 const WIDTH = "90%";
@@ -8,19 +9,21 @@ const HEIGHT = "900px";
 const ZOOM = "70";
 const RACINE = "/documents/";
 
-const CVAdress = RACINE+CV_NAME_WEB+"#page=1&zoom="+ZOOM;
+const CVAdress = ref(RACINE+CV_NAME_WEB+"#page=1&zoom="+ZOOM);
 </script>
 
 <template>
-    <div class="CVsection">
-        <h2 id="CVTitre">{{ $t('message.homeContactTitle') }}</h2>
-        <div id="CV">
-            <embed :src="CVAdress" type="application/pdf" :width="WIDTH" :height="HEIGHT" />
+    <div>
+        <div class="CVsection">
+            <h2 id="CVTitre">{{ $t('message.homeContactTitle') }}</h2>
+            <div id="CV">
+                <embed :src="CVAdress" type="application/pdf" :width="WIDTH" :height="HEIGHT" />
+            </div>
         </div>
-    </div>
 
-    <div id="finalText" class="CVsection">
-        <h4>{{ $t('message.CTA1') }}<RouterLink to="/contact">{{ $t('message.CTA2') }}</RouterLink>{{ $t('message.CTA3')}}</h4>
+        <div id="finalText" class="CVsection">
+            <h4>{{ $t('message.CTA1') }}<RouterLink to="/contact">{{ $t('message.CTA2') }}</RouterLink>{{ $t('message.CTA3')}}</h4>
+        </div>
     </div>
 </template>
 

@@ -17,7 +17,8 @@ const messages = {
       contact: 'Contact me',
 
       // HomeSkills
-
+      skillsTitle: 'Skills',
+      
       // HomeContact
       homeContactTitle: 'Curriculum Vitae',
       CTA1: 'Convinced ?',
@@ -118,6 +119,7 @@ const messages = {
       contact: 'Me contacter',
 
       // HomeSkills
+      skillsTitle: 'Compétences',
 
       // HomeContact
       homeContactTitle: 'Curriculum Vitae',

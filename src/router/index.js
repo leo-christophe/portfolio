@@ -117,6 +117,12 @@ function updateMenuStyle(menuItem, borderBottom, color) {
     $('nav ul a:nth-child(' + menuItem + ') span').css('color', color);
 }
 
+function updateURI(){
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', 'fr');
+    window.history.pushState({}, '', url);
+}
+
 // Avant chaque changement de route
 router.beforeEach((to, from, next) => {
     // Si menuItems est falsy (null ou false), 1 est utilisé par défaut
@@ -127,6 +133,7 @@ router.beforeEach((to, from, next) => {
 
 // Après chaque changement de route
 router.afterEach((to) => {
+    updateURI();
     const menuItem = menuItems[to.name] || "1";
     updateMenuStyle(menuItem, '2px solid ' + COULEUR_MENU_SELECTIONNE, COULEUR_MENU_SELECTIONNE);
     title.value = to.name;

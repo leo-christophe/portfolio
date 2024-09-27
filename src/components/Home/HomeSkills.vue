@@ -1,7 +1,7 @@
 <script setup>
   import { ref, onMounted, getCurrentInstance } from 'vue';
   import { useI18n } from 'vue-i18n';
-  
+
   const { t } = useI18n();
 
   // Accéder à l'instance actuelle
@@ -22,7 +22,7 @@
 
 <template>
   <div class="skills-display">
-    <h2 id="competencesTitre">Compétences</h2>
+    <h2 id="competencesTitre">{{ $t('message.skillsTitle') }}</h2>
     <div class="hard-skills">
       <div v-for="(category, index) in main_hard_skills" :key="index" class="compType">
         <h4>{{ Object.keys(category)[0] }}</h4>
