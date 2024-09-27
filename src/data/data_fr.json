@@ -38,7 +38,7 @@
             "contrat": "Stagiaire",
             "poste": "Développeur R&D (GTA)",
             "entreprise": "Groupe Alpha-3i",
-            "dates": ["15/04/2024","05/07/2024"],
+            "dates": ["2024-04-15", "2024-07-05"],
             "competences": {
               "Développement web": ["javascript", "webdev"],
               "Développement logiciel": ["wlangage"],

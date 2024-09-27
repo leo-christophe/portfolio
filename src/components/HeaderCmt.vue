@@ -13,25 +13,33 @@ const items = [
   { label: t('message.projects'), route: '/projects', icon: 'pi pi-folder' },
   { label: t('message.contact'), route: '/contact', icon: 'pi pi-envelope' }
 ];
-
 </script>
 
 <template>
   <nav>
       <ul>
-          <li v-for="(item, index) in items" :key="index" class="menuItem" >
-            <RouterLink :to="item.route">
+          <RouterLink v-for="(item, index) in items" :key="index" class="menuItem" :to="item.route">
               <span :ref="'menu_'+index">
                 <i :class="item.icon"></i> 
                 {{ item.label }}
               </span>
-            </RouterLink>
-          </li>
+          </RouterLink>
       </ul>
   </nav>
 </template>
 
 <style scoped>
+  .rlR{
+    width:100%;
+    height:100%;
+  }
+
+  ul{
+    display:flex;
+    justify-content: center;
+
+  }
+
   i{
     margin-right: 10px;
   }
@@ -48,30 +56,22 @@ const items = [
   }
 
   .menuItem{
+    width:200px;
+    min-width:100px;
+    height:50px;
     transition:1s ease-out all;
     align-items: center;
     padding-bottom:10px;
-    margin-right:10px;
-  }
-
-  li:hover{
-    transition:0.5s all;
-  }
-
-  li {
     background-color: black;
     text-decoration: none;
     list-style: none;
     display: inline;
     padding: 1rem 2rem 0rem 2rem;
-    margin:1px;
     transition:0.5s ease-out all;
   }
 
   ul{
     top:0px;
-    padding:10px;
-    
   }
 
   a{
@@ -81,7 +81,7 @@ const items = [
 
 
   @media (max-width: 860px){
-    li{
+    .menuItem{
       display:block;
     }
   }

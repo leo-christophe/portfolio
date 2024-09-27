@@ -1,6 +1,8 @@
 <script setup>
-import { defineProps, ref, computed } from 'vue';
-import data from '../data/data.json';
+import { defineProps, ref, computed, getCurrentInstance } from 'vue';
+
+const instance = getCurrentInstance();
+const data = instance.appContext.config.globalProperties.$JSONData;
 
 // Définir les props
 const props = defineProps({
@@ -27,8 +29,6 @@ function getMaxRows(competences) {
   return Math.max(...Object.values(competences).map(v => v.length));
 }
 
-
-
 // Gestion des images
 const ActualImage = ref(0);
 const switchImage = (way) => {
@@ -53,7 +53,7 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
     <div id="images-container" class="projectElement">
 
 <div v-if="hasImages" id="images">
-    <button id="leftButton" v-if="multipleImages" @click="switchImage('back')" title="Voir la dernière image"><i class="pi pi-arrow-circle-left"></i></button>
+    <button id="leftButton" v-if="multipleImages" @click="switchImage('back')" :title="$t('message.projectLastImage')"><i class="pi pi-arrow-circle-left"></i></button>
     <a :v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
         <a :v-if="!(data.projects[props.id].url) && data.projects[props.id].github" :href="data.projects[props.id].github">   
             
@@ -73,7 +73,7 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
             <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
         </a> 
     </a>
-    <button id="rightButton" v-if="multipleImages" @click="switchImage('forward')" title="Voir la prochaine image"><i class="pi pi-arrow-circle-right"></i></button>
+    <button id="rightButton" v-if="multipleImages" @click="switchImage('forward')" :title="$t('message.projectNextImage')"><i class="pi pi-arrow-circle-right"></i></button>
 </div>
       
       <div id="Projectlinks">
@@ -95,14 +95,14 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
       </div>
     </div>
 
-    <h2 class="project_title">Réalisations/Missions</h2>
+    <h2 class="project_title">{{$t('message.projectRealisationsMissionsTitle')}}</h2>
     <div id="realisations" class="ListeDescendanteConteneur projectElement ">
         <div class="ListeDescendante" v-for="realisation in data.projects[props.id].realisations" :key="realisation">
           <strong>{{ realisation }}</strong>
         </div>
       </div>
 
-    <h2 class="project_title">Compétences mobilisées</h2>
+    <h2 class="project_title">{{$t('message.mobilizedSkills')}}</h2>
     <div id="lists ListeDescendanteConteneur">
       <table id="competences" class=" projectElement">
         <thead>

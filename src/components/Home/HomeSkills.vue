@@ -1,6 +1,12 @@
 <script setup>
-  import { ref, onMounted } from 'vue';
-  import data from '../../data/data.json';
+  import { ref, onMounted, getCurrentInstance } from 'vue';
+  import { useI18n } from 'vue-i18n';
+  
+  const { t } = useI18n();
+
+  // Accéder à l'instance actuelle
+  const instance = getCurrentInstance();
+  const data = instance.appContext.config.globalProperties.$JSONData; // Accéder aux données globales
 
   const main_hard_skills = ref(data.main_hard_skills);
   const main_soft_skills = ref(data.main_soft_skills);

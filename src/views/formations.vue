@@ -1,14 +1,16 @@
 <script setup>
-    // données
-    import {formations} from '../data/data.json';
+    import { getCurrentInstance } from 'vue';
 
+    // Accéder à l'instance actuelle
+    const instance = getCurrentInstance();
+    const {formations} = instance.appContext.config.globalProperties.$JSONData; // Accéder aux données globales
 </script>
 
 
 <template>
-    <h1 id="titreFormations">Formations</h1>
-    
-    
+    <h1 id="titreFormations" class="formationTitres">{{ $t('message.educationTitle' )}}</h1>
+    <h4 id="sousTitreFormations" class="formationTitres">{{ $t('message.educationSubtitle') }}</h4>
+
     <div id="conteneurFormations">
         <div v-for="formation in formations" :key="formation.titre" :id="formation.id" class="formation">
           
@@ -27,13 +29,18 @@
 </template>
 
 <style scoped>
-    
-
-    #titreFormations{
+    .formationTitres{
         text-align: center;
-        font-size: 3em;
         color:white;
         padding: 10px 0px 10px 0px;
+    }
+
+    #titreFormations{
+        font-size: 3em;
+    }
+
+    #sousTitreFormations{
+        font-size: 1em;
     }
 
     #conteneurFormations{

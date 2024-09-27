@@ -1,10 +1,13 @@
 <script setup>
-    import { ref, onMounted } from 'vue';
-    import data from '../data/data.json';
+    import { ref, onMounted, getCurrentInstance } from 'vue';
     import { RouterLink } from 'vue-router';
     import { CV_NAME_WEB, COULEUR_MENU_SELECTIONNE } from '../data/const.js';
     import { changeLang, getLangFromUrl } from '../utils/traduction.js';
     import { useI18n } from 'vue-i18n';  // Importer l'API i18n
+
+    // Accéder à l'instance actuelle
+    const instance = getCurrentInstance();
+    const data = instance.appContext.config.globalProperties.$JSONData; // Accéder aux données globales
 
     const CVAdress = '/documents/'+CV_NAME_WEB+"#page=1&zoom=70";
     const links = ref(data.links);
@@ -16,6 +19,10 @@
     boolLang.value = lang === 'en';  // Set boolLang based on the target language
     locale.value = lang;  // Update the locale in the i18n system
     changeLang(lang);  // Update language in localStorage and URL
+
+    localStorage.setItem('filter_competences', [])
+    localStorage.setItem('filter_checkType', [])
+
     location.reload();
 };
 
@@ -25,24 +32,24 @@
     <footer>
         <ul>
             <li class="footerURLLink">
-                <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/mesdonnees">Données personnelles</RouterLink>
+                <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/mesdonnees">{{ $t('message.personalData') }}</RouterLink>
             </li>
             <li>
-                <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/contact">Informations de contact</RouterLink>
+                <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/contact">{{ $t('message.contactInfo') }}</RouterLink>
             </li>
             <li class="footerURLLink">
-                <a :href="CVAdress" class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }">Consulter mon CV</a>
+                <a :href="CVAdress" class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }">{{ $t('message.readCV') }}</a>
             </li>
             <li class="footerURLLink">
                 <div>
                     <!-- Language switch button -->
-                    <a v-if="boolLang" @click="switchLanguage('fr')">Change to french</a>
-                    <a v-else @click="switchLanguage('en')">Changer en Anglais</a>
+                    <a v-if="boolLang" @click="switchLanguage('fr')" :style="{ color: COULEUR_MENU_SELECTIONNE }"> {{ $t('message.changeLang') }} </a>
+                    <a v-else @click="switchLanguage('en')" :style="{ color: COULEUR_MENU_SELECTIONNE }"> {{ $t('message.changeLang') }} </a>
                 </div>
             </li>
         </ul>
 
-        <p id="watermark"><strong>© {{ new Date().getFullYear() }} Léo CHRISTOPHE</strong></p>
+        <p id="watermark"><strong>© {{ new Date().getFullYear() }} {{  $t('message.name')  }}</strong></p>
 
         <div id="links">
             <div v-for="link in links" :key="link.name" :id="link.name" class="link">

@@ -13,14 +13,14 @@ const CVAdress = RACINE+CV_NAME_WEB+"#page=1&zoom="+ZOOM;
 
 <template>
     <div class="CVsection">
-        <h2 id="CVTitre">Curriculum Vitae</h2>
+        <h2 id="CVTitre">{{ $t('message.homeContactTitle') }}</h2>
         <div id="CV">
             <embed :src="CVAdress" type="application/pdf" :width="WIDTH" :height="HEIGHT" />
         </div>
     </div>
 
     <div id="finalText" class="CVsection">
-        <h4>Convaincu ? <RouterLink to="/contact">Contactez moi</RouterLink> dès maintenant!</h4>
+        <h4>{{ $t('message.CTA1') }}<RouterLink to="/contact">{{ $t('message.CTA2') }}</RouterLink>{{ $t('message.CTA3')}}</h4>
     </div>
 </template>
 

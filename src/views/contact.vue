@@ -135,7 +135,7 @@ const copyToClipboard = async (text) => {
         <!-- Email input -->
         <div class="flex flex-column gap-2">
           <label for="email">{{ $t('message.emailLabel') }}</label>
-          <InputText v-model="form.email" type="email" id="email" :placeholder="'ex@domn.com'" aria-required="true" required />
+          <InputText v-model="form.email" type="email" id="email" :placeholder="$t('message.example')+'@'+$t('message.domain')" aria-required="true" required />
           <small>({{ $t('message.emailDisclaimer') }})</small>
         </div>
         <br>

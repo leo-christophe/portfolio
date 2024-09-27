@@ -16,6 +16,14 @@ const messages = {
       viewCV: 'Curriculum Vitae',
       contact: 'Contact me',
 
+      // HomeSkills
+
+      // HomeContact
+      homeContactTitle: 'Curriculum Vitae',
+      CTA1: 'Convinced ?',
+      CTA2: ' Contact me',
+      CTA3: ' now!',
+
       // Contact
       contactTitle: 'Contact Me',
       subtitle: 'Got a job offer? Want to share your thoughts?',
@@ -47,6 +55,40 @@ const messages = {
       permanentAddress: 'Permanent Address:',
       region: 'Haute-Savoie, France',
 
+      // Formations
+      educationTitle: 'Education',
+      educationSubtitle: 'My academic background',
+
+      // Experience
+      experienceTitle: 'Experience',
+      experienceSubtitle: 'My professional experiences',
+      experienceCompetenceTitle: 'Mobilized skills',
+      experienceMissionsTitle: 'Missions',
+      experienceOngoing: 'Ongoing',    
+
+      // Projects
+      projectsTitle: 'Projects',
+      projectsDateLabel: 'Date',
+      projectsKeywordsLabel: 'Keywords',
+      projectsFiltersKeyword: 'Filter',
+      projectsFiltersKeywordTitle: 'Keywords to sort projects using the Levenshtein algorithm',
+      projectsTypeLabel: 'Project type',
+      projectsTypePersonal: 'Personal',
+      projectsTypePersonalTitle: 'Personal projects are projects that I have developed on my own.',
+      projectsTypeUniversity: 'University',
+      projectsTypeUniversityTitle: 'Academic projects are projects that I have developed as part of my studies.',
+      projectsOnGoing: 'Ongoing',
+
+      projectsInvalidDate: 'Please, enter valid dates.',
+      projectsDateError: 'The end date must be greater than the start date.',
+      projectsNotFound: 'No project was found corresponding to your search.',
+
+      // Project Template
+      projectLastImage: 'Last image',
+      projectNextImage: 'Next image',
+      projectRealisationsMissionsTitle: 'Realizations and missions',
+      mobilizedSkills: 'Mobilized skills',
+
       // Navigation
       home: 'Home',
       contact: 'Contact',
@@ -54,6 +96,13 @@ const messages = {
       experience: 'Experience',
       education: 'Education',
       hobbies: 'Hobbies',
+
+      // Footer
+      personalData: 'Personal Data',
+      contactInfo: 'Contact Information',
+      readCV: 'Consult my CV',
+      changeLang: 'Switch to french',
+      name: 'Leo CHRISTOPHE',
     }
   },
   fr: {
@@ -67,6 +116,14 @@ const messages = {
       aboutText: `Étudiant de BUT Informatique avec une passion idéniable pour la programmation depuis plus de 5 ans. J'ai développé énormément mes compétences lors de la réalisation de projets personnels et professionnels. Je suis passionné par les animés, les jeux-vidéo et la cuisine.`,
       viewCV: 'Curriculum Vitae',
       contact: 'Me contacter',
+
+      // HomeSkills
+
+      // HomeContact
+      homeContactTitle: 'Curriculum Vitae',
+      CTA1: 'Convaincu ?',
+      CTA2: ' Contactez-moi',
+      CTA3: ' dès-maintenant !',
 
       // Contact
       contactTitle: 'Contactez-moi',
@@ -99,6 +156,39 @@ const messages = {
       permanentAddress: 'Adresse fixe:',
       region: 'Haute-Savoie, France',
 
+      // Formations
+      educationTitle: 'Formations',
+      educationSubtitle: 'Mon parcours académique',
+
+      // Experience
+      experienceTitle: 'Expériences',
+      experienceSubtitle: 'Mes expériences professionnelles',
+      experienceCompetenceTitle: 'Compétences mobilisées',
+      experienceMissionsTitle: 'Missions',
+
+      // Projects
+      projectsTitle: 'Projets',
+      projectsDateLabel: 'Date',
+      projectsKeywordsLabel: 'Mots-clés',
+      projectsFiltersKeyword: 'Filtrer',
+      projectsFiltersKeywordTitle: 'Mots-clés pour trier les projets en utilisant l\'algorithme de Levenshtein',
+      projectsTypeLabel: 'Type de projet',
+      projectsTypePersonal: 'Personnel',
+      projectsTypePersonalTitle: 'Les projets personnels sont des projets que j\'ai développés moi-même.',
+      projectsTypeUniversity: 'Universitaire',
+      projectsTypeUniversityTitle: 'Les projets académiques sont des projets que j\'ai développés dans le cadre de mes études.',
+      projectsOnGoing: 'En cours',
+
+      projectsInvalidDate: 'Veuillez entrer des dates valides.',
+      projectsDateError: 'La date de fin doit être supérieure à la date de début.',
+      projectsNotFound: 'Aucun projet correspondant à votre recherche n\'a été trouvé.',
+
+      // Project Template
+      projectLastImage: 'Dernière image',
+      projectNextImage: 'Image suivante',
+      projectRealisationsMissionsTitle: 'Réalisations et missions',
+      mobilizedSkills: 'Compétences mobilisées',
+
       // Navigation
       home: 'Accueil',
       contact: 'Contact',
@@ -108,6 +198,11 @@ const messages = {
       hobbies: 'Hobbies',
 
       // Footer
+      personalData: 'Données personnelles',
+      contactInfo: 'Informations de contact',
+      readCV: 'Consulter mon CV',
+      changeLang: 'Changer en anglais',
+      name: 'Léo CHRISTOPHE',
     }
   }
 };

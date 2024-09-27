@@ -113,15 +113,15 @@ const menuItems = {
 
 // Mis à jour du style du menu
 function updateMenuStyle(menuItem, borderBottom, color) {
-    $('nav ul li:nth-child(' + menuItem + ')').css('border-bottom', borderBottom);
-    $('nav ul li:nth-child(' + menuItem + ') span').css('color', color);
+    $('nav ul a:nth-child(' + menuItem + ')').css('border-bottom', borderBottom);
+    $('nav ul a:nth-child(' + menuItem + ') span').css('color', color);
 }
 
 // Avant chaque changement de route
 router.beforeEach((to, from, next) => {
     // Si menuItems est falsy (null ou false), 1 est utilisé par défaut
     const menuItem = menuItems[from.name] || "1";
-    updateMenuStyle(menuItem, '0px', COULEUR_MENU_BASIC);
+    updateMenuStyle(menuItem, '2px', COULEUR_MENU_BASIC);
     next();
 });
 

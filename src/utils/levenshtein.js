@@ -1,5 +1,18 @@
 // Importing the JSON file with the sorted competencies
-import json from '../data/data.json';
+import dataPlugin from "./dataPlugin.js";
+import { getLangFromUrl } from "./traduction.js";
+
+const lang = getLangFromUrl();
+
+import dataEN from "../data/data_en.json";
+import dataFR from "../data/data_fr.json";
+
+let json = null;
+if (lang === "en") {
+    json = dataEN;
+} else if (lang === "fr") {
+    json = dataFR;
+}
 
 // Accessing the sorted valid skills from the JSON data
 const sortedCompetences = json.sorted_valid_skills;
@@ -45,7 +58,7 @@ function findClosestCompetence(input) {
             // Iterate over each competence in the category
             for (const competence of competencesInCategory) {
                 const distance = levenshtein(input.toLowerCase(), competence.toLowerCase());
-                console.log(distance, closestCompetence, competence);
+
                 // Update if the distance is smaller
                 if (distance < minDistance) {
                     minDistance = distance;
@@ -56,7 +69,6 @@ function findClosestCompetence(input) {
             
         }
     }
-
 
     return closestCompetence;
 }

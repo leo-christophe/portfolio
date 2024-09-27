@@ -20,6 +20,9 @@ import ConfirmationService from 'primevue/confirmationservice';
 // Directives
 //import scrollDirective from './directives/scroll-directive.js';
 
+// Données
+import dataPlugin from './utils/dataPlugin'
+
 const apiKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 createApp(App)
@@ -37,4 +40,6 @@ createApp(App)
   //.directive('scroll', scrollDirective)
   // i18n
   .use(i18n)
+  // Données
+  .use(dataPlugin)
   .mount('#app')

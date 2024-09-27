@@ -1,16 +1,19 @@
 <script setup>
     import { ref } from 'vue';
-    import experiences from '../data/data.json';
+    import { getCurrentInstance } from 'vue';
+    import DateUtils from '../utils/date_utils.js';
 
-    const experiencesData = ref(experiences.experiences);
+    // Accéder à l'instance actuelle
+    const instance = getCurrentInstance();
+    const experiences = instance.appContext.config.globalProperties.$JSONData; // Accéder aux données globales
     const show = ref(false);
 </script>
 
 <template>
-    <h1 id="titreExperience">Expériences</h1>
+    <h1 id="titreExperience">{{ $t('message.experienceTitle') }} </h1>
     <div id="experiences">
         
-        <div v-for="experience in experiencesData" :key="experience.id" :id="experience.id" class="experience">
+        <div v-for="experience in experiences.experiences" :key="experience.id" :id="experience.id" class="experience">
             <div>
                                 
                 <div class="mainInformations">
@@ -24,8 +27,12 @@
                             <h3>{{ experience.contrat + " " + experience.poste }}</h3>
                             <p>{{ experience.entreprise }}</p>
 
-                            <p v-if="new Date(experience.dates[1]) <= new Date()">{{ experience.dates.join(" - ") }}</p>
-                            <p v-else>{{ experience.dates[0] + " - " + "En cours" }}</p>
+                            <p v-if="DateUtils.isPastDate(experience.dates[1])">
+                                {{ DateUtils.formatDateRange(experience.dates[0],experience.dates[1], $i18n.locale) }}
+                            </p>
+                            <p v-else>
+                                {{ DateUtils.formatDate(experience.dates[0]) + " - " + $t('message.experienceOngoing') }}
+                            </p>
 
                             <p class="expDesc">{{ experience.description }}</p>
                         </div>
@@ -36,7 +43,7 @@
 
                     <div v-if="show" class="competencesAndMissions">
                         <span id="competenceContainer">
-                            <h4>Compétences</h4>
+                            <h4>{{$t('message.experienceCompetenceTitle')}}</h4>
                             <div class="competencesListe">
                                 <span v-for="competence in experience.competences" :key="competence" class="competence">
                                     <div class="competence" v-for="competenceUnique in competence">
@@ -47,7 +54,7 @@
                             </div>
                         </span>
                         <span id="missionsContainer">
-                            <h4>Missions</h4>
+                            <h4>{{ $t('message.experienceMissionsTitle') }}</h4>
                             <ul class="missions">
                                 <li v-for="mission in experience.missions" :key="mission">{{ mission }}</li>
                             </ul>
