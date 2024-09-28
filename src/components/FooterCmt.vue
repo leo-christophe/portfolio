@@ -4,6 +4,7 @@
     import { CV_NAME_WEB, COULEUR_MENU_SELECTIONNE } from '../data/const.js';
     import { changeLang, getLangFromUrl } from '../utils/traduction.js';
     import { useI18n } from 'vue-i18n';  // Importer l'API i18n
+import router from '../router/index.js';
 
     // Accéder à l'instance actuelle
     const instance = getCurrentInstance();
@@ -23,7 +24,12 @@
     localStorage.setItem('filter_competences', [])
     localStorage.setItem('filter_checkType', [])
 
+    // Update the language of the page
+    document.documentElement.lang = lang;
+
+
     location.reload();
+
 };
 
 

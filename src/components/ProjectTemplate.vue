@@ -273,7 +273,6 @@ small{
 }
 
 .imgProjectLinks {
-
     color: white;
     background-color: black;
     border-radius: 50%;
