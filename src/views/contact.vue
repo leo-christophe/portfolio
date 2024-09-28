@@ -186,8 +186,8 @@ function isMobile() {
             </div>
             <small>{{ $t('message.availability') }}</small>
             <div class="numlink">
-              <Button v-if="isMobile()" id="greenValid" @click="callNumber_asClient(MOBILE.replace(' ',''))">{{ $t('message.callButton') }}</Button>
-              <Button v-if="isMobile()" id="greenValid" @click="sendSMS_asClient(MOBILE.replace(' ',''))">{{ $t('message.smsButton') }}</Button>
+              <Button v-if="isMobile()" id="greenValid" @click="callNumber_asClient(MOBILE.replace(/\s/g, ''))">{{ $t('message.callButton') }}</Button>
+              <Button v-if="isMobile()" id="greenValid" @click="sendSMS_asClient(MOBILE.replace(/\s/g, ''))">{{ $t('message.smsButton') }}</Button>
             </div>
           </div>
         </div>
