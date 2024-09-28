@@ -4,6 +4,7 @@ import { reactive, ref, onMounted } from 'vue';
 
 // Components
 import { sendMail_asClient, callNumber_asClient, sendSMS_asClient } from '../utils/contact_client'; 
+import { isMobile } from '../utils/userdata.js'
 import { MOBILE, EMAIL } from '../data/const.js';
 
 // Libs
@@ -116,10 +117,7 @@ const copyToClipboard = async (text) => {
   }
 };
 
-function isMobile() {
-  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-  return regex.test(navigator.userAgent);
-}
+
 
 </script>
 
@@ -186,7 +184,7 @@ function isMobile() {
             </div>
             <small>{{ $t('message.availability') }}</small>
             <div class="numlink">
-              <Button v-if="isMobile()" id="greenValid" @click="callNumber_asClient(MOBILE.replace(/\s/g, ''))">{{ $t('message.callButton') }}</Button>
+              <Button id="greenValid" @click="callNumber_asClient(MOBILE.replace(/\s/g, ''))">{{ $t('message.callButton') }}</Button>
               <Button v-if="isMobile()" id="greenValid" @click="sendSMS_asClient(MOBILE.replace(/\s/g, ''))">{{ $t('message.smsButton') }}</Button>
             </div>
           </div>
