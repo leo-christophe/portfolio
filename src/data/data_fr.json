@@ -320,6 +320,26 @@
         }
         
     ],
+    "references":[
+      [
+        {
+          "name": "Mme Vibrac",
+          "occupation": "Professeure d'Anglais",
+          "enterprise": "IUT Annecy",
+          "location": "Annecy-le-Vieux, France",
+          "email": "stephanie.vibrac@etu.univ-smb.fr",
+          "phone": "+33 6 33 22 07 98"
+        },
+        {
+          "name": "M. Damas",
+          "occupation": "Professeur associé",
+          "enterprise": "IUT Annecy",
+          "location": "Annecy-le-Vieux, France",
+          "email": "luc.damas@etu.univ-smb.fr",
+          "phone": null
+        }
+      ]      
+    ],
     "main_hard_skills":[
         {
             "Développement informatique":
