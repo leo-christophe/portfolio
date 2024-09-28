@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref, computed, getCurrentInstance } from 'vue';
+import { ref, computed, getCurrentInstance } from 'vue';
 
 const instance = getCurrentInstance();
 const data = instance.appContext.config.globalProperties.$JSONData;
@@ -40,7 +40,8 @@ const switchImage = (way) => {
 
 const hasImages = computed(() => data.projects[props.id].images[0] != null);
 const multipleImages = computed(() => data.projects[props.id].images.length > 1);
-
+const projectURL = ref("")
+projectURL.value = data.projects[props.id].url || data.projects[props.id].github || "";
 
 </script>
 
@@ -54,24 +55,22 @@ const multipleImages = computed(() => data.projects[props.id].images.length > 1)
 
 <div v-if="hasImages" id="images">
     <button id="leftButton" v-if="multipleImages" @click="switchImage('back')" :title="$t('message.projectLastImage')"><i class="pi pi-arrow-circle-left"></i></button>
-    <a :v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
-        <a :v-if="!(data.projects[props.id].url) && data.projects[props.id].github" :href="data.projects[props.id].github">   
+    <a :href="projectURL">
             
-            <div v-if="data.projects[props.id].images[ActualImage].type == 'image'">
-                <img  :src="'/images/projects/'+data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
-            </div>
+      <div v-if="data.projects[props.id].images[ActualImage].type == 'image'">
+          <img  :src="'/images/projects/'+data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
+      </div>
 
-            <div v-else-if="data.projects[props.id].images[ActualImage].type == 'video'">
-                <iframe width="560" height="315" :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+      <div v-else-if="data.projects[props.id].images[ActualImage].type == 'video'">
+          <iframe width="560" height="315" :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
 
-            <div v-else-if="data.projects[props.id].images[ActualImage].type == 'powerbi'">
-                <iframe width="660" height="415" :src="data.projects[props.id].images[ActualImage].link" frameborder="1" allowFullScreen="true" class="projectimage" :title="data.projects[props.id].images[ActualImage].description"></iframe>
-            </div>
+      <div v-else-if="data.projects[props.id].images[ActualImage].type == 'powerbi'">
+          <iframe width="660" height="415" :src="data.projects[props.id].images[ActualImage].link" frameborder="1" allowFullScreen="true" class="projectimage" :title="data.projects[props.id].images[ActualImage].description"></iframe>
+      </div>
 
-          
-            <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
-        </a> 
+      <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
+
     </a>
     <button id="rightButton" v-if="multipleImages" @click="switchImage('forward')" :title="$t('message.projectNextImage')"><i class="pi pi-arrow-circle-right"></i></button>
 </div>
@@ -274,9 +273,20 @@ small{
 }
 
 .imgProjectLinks {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
+
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    padding:10px;
+    cursor:pointer;
+    transition:0.5s ease all;
+    border: 1px solid gray;
+}
+
+.imgProjectLinks:hover {
+    background-color: white;
+    color: black;
+    transition:0.5s ease all;
 }
 
 #competences table{

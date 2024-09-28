@@ -19,7 +19,7 @@ const { t } = useI18n(); // Accès à la fonction de traduction
 
 // Using toast for notifications
 const toast = useToast();
-const { vibrate, stop, isSupported } = useVibrate({ pattern: [300] });
+const { vibrate, isSupported } = useVibrate({ pattern: [300] });
 
 // Reactive form state
 const form = reactive({
@@ -115,6 +115,12 @@ const copyToClipboard = async (text) => {
     });
   }
 };
+
+function isMobile() {
+  const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  return regex.test(navigator.userAgent);
+}
+
 </script>
 
 
@@ -180,8 +186,8 @@ const copyToClipboard = async (text) => {
             </div>
             <small>{{ $t('message.availability') }}</small>
             <div class="numlink">
-              <Button id="greenValid" @click="callNumber_asClient(MOBILE.replace(' ',''))">{{ $t('message.callButton') }}</Button>
-              <Button id="greenValid" @click="sendSMS_asClient(MOBILE.replace(' ',''))">{{ $t('message.smsButton') }}</Button>
+              <Button v-if="isMobile()" id="greenValid" @click="callNumber_asClient(MOBILE.replace(' ',''))">{{ $t('message.callButton') }}</Button>
+              <Button v-if="isMobile()" id="greenValid" @click="sendSMS_asClient(MOBILE.replace(' ',''))">{{ $t('message.smsButton') }}</Button>
             </div>
           </div>
         </div>
@@ -255,6 +261,13 @@ const copyToClipboard = async (text) => {
     div#carteContainer{
       width:50vw;
       height:30vh;
+
+      position:relative;
+      min-width:200px;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 2px solid black;
+      transition: transform 0.3s ease; /* Transition du conteneur */
     }
 
     h1#contentText{
@@ -291,40 +304,6 @@ const copyToClipboard = async (text) => {
     width:30vw
   }
 
-
-  #carteContainer {
-      width:30vw;
-      height:40vh;
-      position:relative;
-      min-width:200px;
-      overflow: hidden;
-      border-radius: 10px;
-      border: 2px solid black;
-      transition: transform 0.3s ease; /* Transition du conteneur */
-  }
-
-
-  #carteContainer span {
-      width: auto;
-      height: 10vh;
-      
-      box-shadow: 2px 2px 5px black;
-      transform: scale(1);
-      transform-origin: center;
-      transition: transform 0.3s ease; /* Transition de l'image */
-      
-      background: url("/images/contact/carte.png") no-repeat center center;
-      background-size: cover; /* Couvre toute la surface */
-      
-      position: relative;
-      display: block;
-  }
-
-  #carteContainer span:hover {
-      transform: scale(3); /* Zoom à 300% */
-      transform-origin: center right; /* Zoom vers le milieu droit */
-  }
-
   #mobileInfoContainer{
       position: relative;
       margin-top:4vh;
@@ -345,7 +324,7 @@ const copyToClipboard = async (text) => {
   }
 
   .pi-clone:hover{
-    background-color:rgb(34, 34, 34);
+    background-color:var(--buttonShadow);
     transition:0.6s ease background-color;
   }
 
@@ -374,38 +353,19 @@ const copyToClipboard = async (text) => {
     margin:20px 45px 50px 0px;
   }
 
-
-
   label {
     text-align: center;
     vertical-align: center;
-    color: white;
+    color: var(--textBasicColor);
   }
 
   input {
     height:2rem;
   } 
 
-  .p-float-label input:focus ~ label {
-      color: white;
-  }
-
-  .p-float-label input:invalid ~ input {
-      border-color:red;
-  }
-
   input, textarea {
     margin: 5px;
     width: 100%;
-  }
-
-  .p-float-label input:invalid, 
-  .p-float-label textarea:invalid {
-      border-color: red;
-  }
-
-  .p-invalid {
-      border-color: red !important; /* Enforces red border for invalid inputs */
   }
 
   input:focus, textarea:focus {

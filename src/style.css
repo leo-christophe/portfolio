@@ -147,11 +147,23 @@ button[autofocus] {
 }
 
 :root{
+  --basicBackground-color: #242424;
+  --darkBackground-color:black;
+
   --home-background-color1:rgb(33, 33, 33);
   --home-background-color2:rgb(30, 30, 30);
   --home-background-color3:rgb(21, 21, 21);
 
   --experience_mission_background: #1a1a1a;
+
+  --textBasicColor: white;
+  --textSecondaryColor: var(--cyan-50);
+  --textTertiaryColor: var(--cyan-100);
+  --textQuaternaryColor: #cfcfcf;
+  --textImportant: #ff4040;
+  --textImportantHover: #f21d1d;
+  
+  --buttonShadow: rgb(34, 34, 34);
 }
 
 /* Reset CSS */

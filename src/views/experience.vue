@@ -20,7 +20,7 @@
 
                     <span id="mainPresentationImage">
                         <div v-if="experience.image" class="imgExperienceContainer">
-                            <img :src="experience.image" :id="experience.id+'_img'" class="imgExperience">
+                            <img :src="experience.image" :id="experience.id+'_img'" class="imgExperience" @click="window.open(experience.website, '_blank');">
                         </div>
 
                         <div class="texteFormation">
@@ -38,8 +38,8 @@
                         </div>
                     </span>
 
-                    <i v-if="show" class="pi pi-chevron-down" @click="show = !show"></i>
-                    <i v-else  class="pi pi-chevron-up" @click="show = !show"></i>
+                    <i v-if="show" class="pi pi-chevron-down expBtnDown expBtnDU" @click="show = !show"></i>
+                    <i v-else  class="pi pi-chevron-up expBtnUp expBtnDU" @click="show = !show"></i>
 
                     <div v-if="show" class="competencesAndMissions">
                         <span id="competenceContainer">
@@ -68,6 +68,30 @@
   
   
 <style scoped>
+    .expBtnDU{
+        background-color:var(--cyan-50);
+        color:black;
+        padding:8px;
+        border-radius:20px;
+        margin-bottom:10px;
+        border:1px solid gray;
+        transition:0.5s ease all;
+    }
+
+    .expBtnDU:hover{
+        border:1px solid black;
+        box-shadow:1px 1px 1px 1px rgb(59, 59, 59); 
+        transition:0.5s ease all;
+        cursor:pointer;
+        transform:scale(1.1);
+        transition:0.5s ease all;
+    }
+
+    .expBtnDU:active{
+        color:blue;
+        transition:0.1s ease all;
+    }
+
     .texteFormation{
         margin-left:50px;
     }
@@ -90,8 +114,16 @@
         max-width: 100%; /* Make sure image scales within container */
         max-height: 100%; /* Ensure image doesn't overflow vertically */
         border-radius: 10px;
+        transition:0.5s ease all;
     }
 
+    .imgExperienceContainer:hover  {
+        cursor:pointer;
+        img{
+            transform:scale(1.1);
+            transition:0.5s ease all;
+        }
+    }
 
     h1#titreExperience{
         text-align:center;
