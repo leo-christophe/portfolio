@@ -17,7 +17,10 @@ const messages = {
       contact: 'Contact me',
 
       // HomeSkills
-      skillsTitle: 'Skills',
+      skillsTitle: 'Hard skills',
+      softskillsTitle: 'Soft skills',
+      softskillsDescription: 'My interpersonal skills reflect my ability to interact well with others and adapt to situations. This includes communication, teamwork, time management, and adaptability.',
+      hardskillsDescription: "My technical skills are specific abilities I've gained through studies and professional experience. This includes, for example, proficiency in programming languages, database management, and network administration.",
       
       // HomeContact
       homeContactTitle: 'Curriculum Vitae',
@@ -119,7 +122,11 @@ const messages = {
       contact: 'Me contacter',
 
       // HomeSkills
-      skillsTitle: 'Compétences',
+      skillsTitle: 'Compétences techniques',
+      softskillsTitle: 'Compétences interpersonnelles',
+      softskillsDescription: "Mes compétences comportementales reflètent ma capacité à bien interagir avec les autres et à m'adapter aux situations. Cela comprend la communication, le travail en équipe, la gestion du temps et l'adaptabilité.",
+      hardskillsDescription: "Mes compétences techniques sont des aptitudes précises que j'ai acquises grâce à mes études et expériences professionnelles. Cela inclut, par exemple, la maîtrise des langages de programmation, la gestion de bases de données et l'administration de réseaux.",
+      
 
       // HomeContact
       homeContactTitle: 'Curriculum Vitae',
