@@ -4,20 +4,36 @@
 
   const { t } = useI18n();
 
-  // Accéder à l'instance actuelle
+  // Accéder aux données globales
   const instance = getCurrentInstance();
   const data = instance.appContext.config.globalProperties.$JSONData; // Accéder aux données globales
 
   const main_hard_skills = ref(data.main_hard_skills);
   const main_soft_skills = ref(data.main_soft_skills);
 
-  onMounted(() => {
-    const skillBars = document.querySelectorAll('.skill-percentage');
-    skillBars.forEach((bar) => {
-      const width = bar.getAttribute('data-skill'); // Get the percentage from a data attribute
-      bar.style.width = width;
-    });
-  });
+  // Définir une directive personnalisée pour observer les barres de compétences
+  const vSkillBar = {
+    mounted(el) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const bar = entry.target;
+          if (entry.isIntersecting) {
+            const width = bar.getAttribute('data-skill'); // Récupérer la compétence
+            bar.style.width = width; // Remplir la barre
+          } else {
+            bar.style.width = '0%'; // Vider la barre
+          }
+        });
+      }, { threshold: 0.5 }); // Déclenchement à 50% de visibilité
+
+      // Observer l'élément (la barre de compétences)
+      observer.observe(el);
+    },
+    unmounted(el) {
+      // Nettoyage de l'observation quand l'élément est supprimé
+      observer.unobserve(el);
+    }
+  };
 </script>
 
 <template>
@@ -29,7 +45,8 @@
         <div v-for="(skill, skillIndex) in category[Object.keys(category)[0]]" :key="skillIndex" class="skill-bar">
           <div class="skill-name">{{ Object.keys(skill)[0] }}</div>
           <div class="skill-level">
-            <div class="skill-percentage" :data-skill="skill[Object.keys(skill)[0]]" :style="{ height: '10px' }"></div>
+            <!-- Appliquer la directive v-skill-bar -->
+            <div class="skill-percentage" v-skill-bar :data-skill="skill[Object.keys(skill)[0]]" :style="{ height: '10px' }"></div>
           </div>
         </div>
       </div>
@@ -44,32 +61,33 @@
 
 <style scoped>
   #competencesTitre {
-    margin-left:20px;
+    margin-left: 20px;
   }
 
-  .compType{
-      display:inline-block;
-      margin-left:20vw;
+  .compType {
+    display: inline-block;
+    margin-left: 20vw;
   }
 
   .skills-display {
     font-family: Arial, sans-serif;
     margin: 20px;
-    padding-top:100px;
+    padding-top: 100px;
   }
-  
-  .hard-skills, .soft-skills {
+
+  .hard-skills,
+  .soft-skills {
     margin-bottom: 20px;
   }
-  
+
   .skill-bar {
     margin-bottom: 10px;
   }
-  
+
   .skill-name {
     font-weight: bold;
   }
-  
+
   .skill-level {
     background: #eee;
     border-radius: 5px;
@@ -77,28 +95,30 @@
     height: 10px;
     width: 200px;
   }
-  
+
   .skill-percentage {
     background: #3498db;
     height: 10px;
     border-radius: 5px 0 0 5px;
+    width: 0%; /* Initial width set to 0 */
+    transition: width 1.5s ease-in-out; /* Smooth transition for the width */
   }
-  
+
   .soft-skills {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top:100px;
+    margin-top: 100px;
   }
-  
+
   .cloud {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .soft-skill {
     background: #3498db;
     color: white;
@@ -108,18 +128,8 @@
     font-size: 14px;
     transition: transform 0.3s;
   }
-  
+
   .soft-skill:hover {
     transform: scale(1.1);
   }
-
-  .skill-percentage {
-    background: #3498db;
-    height: 10px;
-    border-radius: 5px 0 0 5px;
-    width: 0%; /* Initial width set to 0 */
-    transition: width 1.5s ease-in-out; /* Smooth transition for the width */
-}
-
 </style>
-  

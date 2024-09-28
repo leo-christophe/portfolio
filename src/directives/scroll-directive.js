@@ -19,7 +19,7 @@ export default {
         $el.removeClass('fade-enter-active');
       }
     };
-
+    
     watch(y, (newY) => {
       const deltaY = newY - prevY.value;
       const scrollHeight = document.documentElement.scrollHeight;

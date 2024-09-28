@@ -53,6 +53,7 @@
       // You can now call any reCAPTCHA-related functions here, if needed
     };
   });
+
 </script>
 
 <template>
