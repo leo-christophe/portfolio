@@ -3,7 +3,7 @@ import Amphibiens from '../../components/ProjectTemplate.vue'
 </script>
 
 <template>
-    <Amphibiens id="4"/>
+    <Amphibiens id="5"/>
 </template>
 
 <style scoped>

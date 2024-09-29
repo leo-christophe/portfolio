@@ -33,7 +33,8 @@ const recaptchaToken = ref('');
 
 // Load reCAPTCHA when the component is mounted
 onMounted(() => {
-  loadRecaptcha();
+  if (!recaptchaToken.value){
+    loadRecaptcha();}
 });
 
 const loadRecaptcha = async () => {

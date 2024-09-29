@@ -3,7 +3,7 @@ import Video from '../../components/ProjectTemplate.vue'
 </script>
 
 <template>
-    <Video id="5"/>
+    <Video id="6"/>
 </template>
 
 <style scoped>

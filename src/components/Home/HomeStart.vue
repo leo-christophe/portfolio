@@ -1,10 +1,7 @@
 <script setup>
-import { onMounted } from 'vue';
 import Button from 'primevue/button';
-import { CV_NAME_WEB } from '../../data/const.js';
-import { useI18n } from 'vue-i18n'; // Importer useI18n pour changer de langue si nécessaire
 
-const CVAdress = '/documents/' + CV_NAME_WEB + "#page=1";
+const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child(3) > a').href;
 
 function ToCV() {
     window.scrollTo({

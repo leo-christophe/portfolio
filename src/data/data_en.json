@@ -102,8 +102,35 @@
         "github": "https://github.com/leoChris7/Mars-Invaders",
         "download": null,
         "route": "/projects/marsinvaders"
-      },
-      {
+      },{
+        "id": "project_chrisconverter",
+        "nom": "Chris Converter",
+        "dates": ["2024-02-22", "Ongoing"],
+        "titre": "Creation of a WPF application to convert music into various formats (MP3, WAV, FLAC, OGG, etc.)",
+        "description": "The need is as follows: Often, when I do video editing, listen to music, or try to add sounds to a game, I face a problem: the audio file format. Some applications only accept MP3, some OGG. So, I used to look for online sites to perform a conversion. The goal of this project is to be able to convert one or more files at once directly from software.",
+        "competences": {
+          "Software Development": ["C#", "Visual Studio 2022", "FFMPEG", "WPF"],
+          "DevOps & Deployment": ["Github"],
+          "UI/UX & User Experience": ["Ergonomics"]
+        },
+        "realisations": [
+          "Creating a C# WPF application",
+          "Using the FFMPEG library for conversion",
+          "Applying best practices in terms of refactoring, naming, and code structure"
+        ],
+        "type": "Personal",
+        "images": [
+          {
+            "link": "project-chrisconverter-application.jpg",
+            "description": "Screenshot of the application at startup.",
+            "type": "image"
+          }
+        ],
+        "url": null,
+        "github": "https://github.com/leo-christophe/ChrisConverter",
+        "download": null,
+        "route": "/projects/chrisconverter"
+      },{
         "id": "project_sae301",
         "nom": "SkillUpNow",
         "dates": ["2023-10-15", "2024-01-15"],
@@ -169,6 +196,14 @@
           {
             "link": "project-bmw-1.jfif",
             "description": "Screenshot of the site's homepage.",
+            "type": "image"
+          },{
+            "link": "project_bmw_crypt.png",
+            "description": "Implementation of a hashing function to secure passwords.",
+            "type": "image"
+          },{
+            "link": "project_bmw_crypt_singleton.png",
+            "description": "Using the singleton design pattern to ensure memory optimization during encryption.",
             "type": "image"
           }
         ],
@@ -383,7 +418,7 @@
       },
       {
           "Software Development": [
-              "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "WPF", "WinUI", "CodeFirst", "Repository", "Dependency Injection"
+              "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "WPF", "FFMPEG","WinUI", "CodeFirst", "Repository", "Dependency Injection"
           ]
       },
       {

@@ -140,7 +140,35 @@
             "download": null,
             "route": "/projects/skillupnow"
           }
-          ,
+          ,{
+            "id": "project_chrisconverter",
+            "nom": "Chris Converter",
+            "dates": ["2024-02-22","En cours"],
+            "titre": "Création d'une application WPF permettant de convertir des musiques en divers formats (MP3, WAV, FLAC, OGG, etc.)",
+            "description": "Le besoin est le suivant: Souvent, quand j'ai l'habitude de faire du montage vidéo, quand j'écoute de la musique ou quand j'essaye de rajouter des sons à un jeu, je me retrouve face à un problème: le format du fichier audio. Certaines applications n'acceptent que MP3, certaines OGG. Ainsi, j'avais l'habitude de chercher des sites en lignes pour réaliser une conversion. Le but de ce projet est donc de pouvoir convertir un ou plusieurs fichiers à la fois directement depuis un logiciel.",
+            "competences": {
+              "Développement logiciel": ["C#", "Visual Studio 2022", "FFMPEG", "WPF"],
+              "DevOps & Déploiement": ["Github"],
+              "UI/UX & Expérience utilisateur": ["Ergonomie"]
+            },
+            "realisations": [
+              "Création d'une application C# WPF",
+              "Utilisation de la librairie FFMPEG pour la conversion",
+              "Application des bonnes pratiques en terme de factorisation, de nommage, de structure du code"
+            ],
+            "type": "Personnel",
+            "images": [
+              {
+                "link": "project-chrisconverter-application.jpg",
+                "description": "Capture d'écran de l'application au démarrage.",
+                "type": "image"
+              }
+            ],
+            "url": null,
+            "github": "https://github.com/leo-christophe/ChrisConverter",
+            "download": null,
+            "route": "/projects/chrisconverter"
+          },
           {
             "id": "project_sae401",
             "nom": "BMW",
@@ -170,6 +198,14 @@
               {
                 "link": "project-bmw-1.jfif",
                 "description": "Capture d'écran de la page d'accueil du site.",
+                "type": "image"
+              },              {
+                "link": "project_bmw_crypt.png",
+                "description": "Implémentation d'une fonction de hashage pour sécuriser les mots de passe.",
+                "type": "image"
+              },              {
+                "link": "project_bmw_crypt_singleton.png",
+                "description": "Utilisation de la bonne pratique du singleton pour assurer une optimisation de la mémoire lors du cryptage.",
                 "type": "image"
               }
             ],
@@ -386,7 +422,7 @@
       },
       {
         "Développement logiciel": [
-          "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "WPF", "WinUI","CodeFirst", "Repository", "Injection de dépendances"
+          "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "FFMPEG","WPF", "WinUI","CodeFirst", "Repository", "Injection de dépendances"
         ]
       },
       {

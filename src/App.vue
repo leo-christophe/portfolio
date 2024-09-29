@@ -49,7 +49,7 @@
     document.head.appendChild(script);
 
     script.onload = () => {
-      console.log("reCAPTCHA script loaded successfully");
+      // console.log("reCAPTCHA script loaded successfully");
       // You can now call any reCAPTCHA-related functions here, if needed
     };
   });

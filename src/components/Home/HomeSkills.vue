@@ -9,9 +9,10 @@
   const main_soft_skills = ref(data.main_soft_skills);
 
   // Définir une directive personnalisée pour observer les barres de compétences
+  const observer = ref(null);
   const vSkillBar = {
     mounted(el) {
-      const observer = new IntersectionObserver((entries) => {
+      observer.value = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           const bar = entry.target;
           if (entry.isIntersecting) {
@@ -24,11 +25,13 @@
       }, { threshold: 0.5 }); // Déclenchement à 50% de visibilité
 
       // Observer l'élément (la barre de compétences)
-      observer.observe(el);
+      observer.value.observe(el);
     },
     unmounted(el) {
       // Nettoyage de l'observation quand l'élément est supprimé
-      observer.unobserve(el);
+      if (observer.value){
+        observer.value.unobserve(el);
+      }
     }
   };
 
@@ -117,10 +120,11 @@ a[href^="mailto:"] {
   height:120px;
   object-fit:cover;
   margin-top:20px;
+  border-radius:5px;
 }
 
-.banniereSkills:nth-child(2){
-  height:150px;
+#softSkillsDescription > img{
+  height:175px;
 }
 
 .skill-name{
@@ -157,7 +161,7 @@ span#contactRef{
   padding: 20px; /* Add padding for better spacing */
   border: 1px solid black;
   border-radius: 20px;
-  width:60vw;
+  width:80vw;
   min-width: 850px; /* Adjust minimum width for mobile */
   max-width: 85%; /* Limit maximum width */
   height: fit-content; /* Set a fixed height for equal sizing */

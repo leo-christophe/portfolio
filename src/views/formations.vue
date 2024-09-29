@@ -1,130 +1,148 @@
 <script setup>
     import { getCurrentInstance } from 'vue';
-
-    // Accéder à l'instance actuelle
+    import DateUtils from '../utils/date_utils.js';
     const instance = getCurrentInstance();
-    const {formations} = instance.appContext.config.globalProperties.$JSONData; // Accéder aux données globales
+    const { formations } = instance.appContext.config.globalProperties.$JSONData;
+    const experiences = instance.appContext.config.globalProperties.$JSONData
 </script>
 
-
 <template>
-    <h1 id="titreFormations" class="formationTitres">{{ $t('message.educationTitle' )}}</h1>
-    <h4 id="sousTitreFormations" class="formationTitres">{{ $t('message.educationSubtitle') }}</h4>
+    <div id="formationExperienceContainer">
+        <!-- Section Formations -->
+        <span class="column education">
+            <h1 id="titreFormations" class="formationTitres">{{ $t('message.educationTitle') }}</h1>
+            <h4 id="sousTitreFormations" class="formationTitres">{{ $t('message.educationSubtitle') }}</h4>
 
-    <div id="conteneurFormations">
-        <div v-for="formation in formations" :key="formation.titre" :id="formation.id" class="formation">
-          
-                <div class="information">
-                    <h4 class="titreFormation">{{ formation.titre }} au <strong>{{ formation.lieu }}</strong>, {{ formation.ville }} ({{ formation.departement }})</h4>
-                    <h5 class="obtention">{{ formation.obtention }}</h5>
-                    <h5 class="annees">{{ formation.annees }}</h5>
+            <div id="conteneurFormations">
+                <div v-for="formation in formations" :key="formation.titre" class="formation">
+                    <div class="timeline-dot"></div> <!-- Point de la timeline -->
+                    <div class="information">
+                        <h5 class="annees">{{ formation.annees }}</h5>
+                        <h4 class="titreFormation">{{ formation.titre }} au <strong>{{ formation.lieu }}</strong>, {{ formation.ville }} ({{ formation.departement }})</h4>
+                        <h5 class="obtention">{{ formation.obtention }}</h5>
+                    </div>
                 </div>
-                <div v-if="formation.image" class="imgFormationContainer" @click="window.open(formation.siteFormation, '_blank').focus();">
-                    <img :src="formation.image" :id="formation.id+'_img'" class="imgFormation">
+            </div>
+        </span>
+
+        <!-- Section Expériences -->
+        <span class="column experience">
+        <h1 id="titreExperience" class="formationTitres">{{ $t('message.experienceTitle') }}</h1>
+
+        <span >
+            
+                <div id="conteneurExperiences">
+                    <div v-for="experience in experiences.experiences" :key="experience.id" class="experience">
+                        <div class="timeline-dot"></div> <!-- Point de la timeline -->
+                        <div class="information">
+                            <h5 class="annees">
+                                <span v-if="DateUtils.isPastDate(experience.dates[1])">
+                                    {{ DateUtils.formatDateRange(experience.dates[0], experience.dates[1], $i18n.locale) }}
+                                </span>
+                                <span v-else>
+                                    {{ DateUtils.formatDate(experience.dates[0]) + " - " + $t('message.experienceOngoing') }}
+                                </span>
+                            </h5>
+                            <h4 class="titreExperience">{{ experience.contrat + " " + experience.poste }} chez {{ experience.entreprise }}</h4>
+                            <p class="expDesc">{{ experience.description }}</p>
+                        </div>
+                        <div v-if="experience.image" class="imgExperienceContainer">
+                            <img :src="experience.image" class="imgExperience" @click="window.open(experience.website, '_blank');">
+                        </div>
+                    </div>
                 </div>
-       
-        </div>
+            </span>
+        </span>
     </div>
-    
 </template>
 
+
 <style scoped>
-    .formationTitres{
+    /* Conteneur principal pour aligner les colonnes */
+    #formationExperienceContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: auto;
+        align-items: flex-start;
+    }
+
+    /* Colonnes */
+    .column {
+        width: 45%;
+        position: relative;
+    }
+
+    /* Titres */
+    .formationTitres {
         text-align: center;
-        color:white;
-        padding: 10px 0px 10px 0px;
+        color: white;
+        padding: 10px 0;
     }
 
-    #titreFormations{
-        font-size: 3em;
+    #titreFormations, #titreExperience {
+        font-size: 2.5em;
     }
 
-    #sousTitreFormations{
+    #sousTitreFormations {
         font-size: 1em;
     }
 
-    #conteneurFormations{
-        margin:0px 0px 50px 10vw;
-        border:2px solid black;
-        border:2px solid gray;
+    /* Conteneurs */
+    #conteneurFormations, #conteneurExperiences {
+        padding: 10px;
+        position: relative;
+    }
+
+    /* Formation */
+    .formation, .experience {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        padding: 20px 0;
+        position: relative;
         box-shadow: 2px 2px 5px black;
-        padding:10px;
-        background-color:rgb(66, 79, 79);;
-        width:80vw;
-        height:auto;
-        display:inline-flex;
-        flex-wrap:wrap;
-        justify-content: space-around;
-
     }
 
-    #butinfo{
-        background-color: rgb(41, 35, 76);
-        transition:0.5s ease-in-out all;
+    /* Alignement des informations */
+    .information {
+        padding-left: 20px;
     }
 
-    #butinfo:hover{
-        background-color: rgb(59, 51, 102);
-        transition:0.5s ease-in-out all;
+    /* Styles des points de timeline */
+    .timeline-dot {
+        width: 10px;
+        height: 10px;
+        background-color: black;
+        border-radius: 50%;
+        margin-right: 20px;
     }
 
-    #bac{
-        background-color: rgb(35, 42, 76);
-        transition:0.5s ease-in-out all;
+    /* Image Formation */
+    .imgFormationContainer, .imgExperienceContainer {
+        width: 150px;
+        height: auto;
+        margin-left: 10px;
     }
 
-    #bac:hover{
-        background-color: rgb(52, 62, 114);
-        transition:0.5s ease-in-out all;
+    .imgFormation, .imgExperience {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        transition: transform 0.5s;
     }
 
-    #brevet{
-        background-color: rgb(35, 53, 76);
-        transition:0.5s ease-in-out all;
+    .imgFormation:hover, .imgExperience:hover {
+        transform: scale(1.1);
     }
 
-    #brevet:hover{
-        background-color: rgb(50, 74, 125);
-        transition:0.5s ease-in-out all;
+    /* Description d'expérience */
+    .expDesc {
+        max-width: 400px;
     }
 
-    .information{
-        margin:5px 20px 0px 20px;
-        text-align: left;
-        font-size:larger;
-        height:150%;
+    /* Marges similaires */
+    .experience .information, .formation .information {
+        padding-left: 20px;
     }
-
-    .formation{
-        width:300px;
-
-        justify-content: space-between; 
-        border:2px solid white;
-        border-radius:10px;
-        margin: 20px;
-
-        display:flex;
-        flex-direction: column;
-    }
-
-    .annee{
-        bottom:0px;
-        position:relative;
-
-    }
-
-    .imgFormationContainer .imgFormation{
-        height:150px;
-        object-fit: cover;
-        width:100%;
-        position:relative;
-        bottom:-6px;
-        border-radius:0px 0px 10px 10px;
-        border-top:1px solid white;
-    }
-
-    div.imgFormationContainer{
-        height:auto;
-    }
-    
 </style>

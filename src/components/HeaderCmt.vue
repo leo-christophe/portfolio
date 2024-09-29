@@ -9,7 +9,7 @@ const { t } = useI18n(); // Accès à la fonction de traduction
 const items = [
   { label: t('message.home'), route: '/', icon: 'pi pi-home' },
   { label: t('message.education'), route: '/formations', icon: 'pi pi-book' },
-  { label: t('message.experience'), route: '/experience', icon: 'pi pi-briefcase' },
+  //{ label: t('message.experience'), route: '/experience', icon: 'pi pi-briefcase' },
   { label: t('message.projects'), route: '/projects', icon: 'pi pi-folder' },
   { label: t('message.contact'), route: '/contact', icon: 'pi pi-envelope' }
 ];
@@ -57,7 +57,7 @@ const items = [
 
   .menuItem{
     width:200px;
-    min-width:100px;
+    min-width:fit-content;
     height:50px;
     transition:1s ease-out all;
     align-items: center;

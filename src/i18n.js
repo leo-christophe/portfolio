@@ -10,10 +10,8 @@ const messages = {
       subtitle1: '3rd year computer science student',
       subtitle2: 'Based in Annecy, France',
       aboutTitle: 'About Me',
-      aboutText: `BUT Computer Science student with an undeniable passion for programming for over 5 years.
-                  I have significantly developed my skills through personal and professional projects.
-                  I am passionate about anime, video games, and cooking.`,
-      viewCV: 'Curriculum Vitae',
+      aboutText: `A passionate Computer Science student at BUT with over 5 years of programming experience. I’ve honed my skills through various personal and professional projects. Enthusiastic about anime, video games, and cooking, I bring creativity and dedication to everything I do.`,
+      viewCV: 'Resume',
       contact: 'Contact me',
 
       // HomeSkills
@@ -27,9 +25,11 @@ const messages = {
 
       // HomeContact
       homeContactTitle: 'Resume',
-      CTA1: 'Convinced ?',
-      CTA2: ' Contact me',
-      CTA3: ' now!',
+      homeContactDesc: 'I am currently looking for an end-of-study internship in web development, C# development, or video game development. The internship would take place between January 20, 2025, and May 1, 2025, for a maximum duration of 14 weeks.',
+
+      CTA1: 'Do you have an internship offer or information to share with me? Feel free to',
+      CTA2: ' contact me',
+      CTA3: ' to discuss further!',
 
       // Contact
       contactTitle: 'Contact Me',
@@ -101,7 +101,7 @@ const messages = {
       contact: 'Contact',
       projects: 'Projects',
       experience: 'Experience',
-      education: 'Education',
+      education: 'Career Path',
       hobbies: 'Hobbies',
 
       // Footer
@@ -120,7 +120,7 @@ const messages = {
       subtitle1: 'Étudiant en 3ème année de BUT Informatique',
       subtitle2: 'Localisé à Annecy, France',
       aboutTitle: 'À propos de moi',
-      aboutText: `Étudiant de BUT Informatique avec une passion idéniable pour la programmation depuis plus de 5 ans. J'ai développé énormément mes compétences lors de la réalisation de projets personnels et professionnels. Je suis passionné par les animés, les jeux-vidéo et la cuisine.`,
+      aboutText: `Étudiant en informatique à BUT, passionné de programmation depuis plus de 5 ans. J'ai affiné mes compétences à travers divers projets personnels et professionnels. Fan d'animés, de jeux vidéo et de cuisine, je mets ma créativité au service de chaque projet.`,
       viewCV: 'Curriculum Vitae',
       contact: 'Me contacter',
 
@@ -135,9 +135,10 @@ const messages = {
       
       // HomeContact
       homeContactTitle: 'Curriculum Vitae',
-      CTA1: 'Convaincu ?',
-      CTA2: ' Contactez-moi',
-      CTA3: ' dès-maintenant !',
+      homeContactDesc: 'Je suis actuellement à la recherche d\'un stage de fin d\'études en développement web, développement C# ou développement de jeux-vidéos. Le stage se déroulerait entre le 20 Janvier 2025 et le 1er Mai 2025 pour une durée de 14 semaines maximum.',
+      CTA1: 'Vous avez une offre de stage ou des informations à me communiquer ? N\'hésitez pas à ',
+      CTA2: ' me contacter',
+      CTA3: ' pour en discuter !',
 
       // Contact
       contactTitle: 'Contactez-moi',
@@ -208,7 +209,7 @@ const messages = {
       contact: 'Contact',
       projects: 'Projets',
       experience: 'Experience',
-      education: 'Formations',
+      education: 'Parcours',
       hobbies: 'Hobbies',
 
       // Footer

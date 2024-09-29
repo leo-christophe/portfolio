@@ -12,6 +12,7 @@ export const GITHUB_ICON = ''
 export const LINKEDIN_ICON = ''
 export const INTERNET_ICON = ''
 export const CV_NAME_WEB = 'LEO-CHRISTOPHE-CV-2025.pdf'
+export const CV_NAME_WEB_EN = 'LEO-CHRISTOPHE-CV-2025_ENGLISH.pdf'
 
 /**
  *  DONNEES PERSONNELLES DYNAMIQUES

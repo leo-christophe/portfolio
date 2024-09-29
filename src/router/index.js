@@ -12,7 +12,7 @@ import project_sae104 from '../views/projects/project_sae104.vue';
 import project_sae301 from '../views/projects/project_sae301.vue';
 import project_sae401 from '../views/projects/project_sae401.vue';
 import project_video from '../views/projects/project_video.vue';
-
+import project_converter from '../views/projects/project_chrisconverter.vue';
 
 import NotFound from '../components/Error/NotFound.vue';
 import dataPage from '../views/mesdonnees.vue';
@@ -65,6 +65,10 @@ const routes = [
     path: '/projects/video_silkensweets',
     name: 'Vidéo Silken Sweets',
     component: project_video
+},{
+    path: '/projects/chrisconverter',
+    name: 'ChrisConverter',
+    component: project_converter
 },{ 
     path: '/formations',
     name: 'Formations',
@@ -99,16 +103,17 @@ const router = createRouter({
 const menuItems = {
     Accueil: "1",
     Formations: "2",
-    Experience: "3",
-    Projets: "4",
-    Portfolio: "4",
-    Marsinvaders: "4",
-    Skillupnow: "4",
-    Amphibiens: "4",
-    BMW: "4",
-    project_video: '4',
+    Experience: "2",
+    Projets: "3",
+    Portfolio: "3",
+    Marsinvaders: "3",
+    Skillupnow: "3",
+    Amphibiens: "3",
+    ChrisConverter: "3",
+    BMW: "3",
+    project_video: '3',
     'Mes données': "0",
-    Contact: "5"
+    Contact: "4"
   };
 
 // Mis à jour du style du menu
@@ -117,9 +122,9 @@ function updateMenuStyle(menuItem, borderBottom, color) {
     $('nav ul a:nth-child(' + menuItem + ') span').css('color', color);
 }
 
-function updateURI(){
+function updateURI(lang){
     const url = new URL(window.location.href);
-    url.searchParams.set('lang', 'fr');
+    url.searchParams.set('lang', lang);
     window.history.pushState({}, '', url);
 }
 
@@ -133,7 +138,8 @@ router.beforeEach((to, from, next) => {
 
 // Après chaque changement de route
 router.afterEach((to) => {
-    updateURI();
+    const lang = localStorage.getItem('lang');
+    updateURI(lang);
     const menuItem = menuItems[to.name] || "1";
     updateMenuStyle(menuItem, '2px solid ' + COULEUR_MENU_SELECTIONNE, COULEUR_MENU_SELECTIONNE);
     title.value = to.name;

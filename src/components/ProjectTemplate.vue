@@ -1,6 +1,8 @@
 <script setup>
 import { ref, computed, getCurrentInstance } from 'vue';
 
+import Lightbox from './Lightbox.vue'
+
 const instance = getCurrentInstance();
 const data = instance.appContext.config.globalProperties.$JSONData;
 
@@ -11,6 +13,18 @@ const props = defineProps({
     required: true
   }
 });
+
+// State for lightbox
+const isLightboxOpen = ref(false);
+
+// Function to open/close lightbox
+const openLightbox = () => {
+  isLightboxOpen.value = true;
+};
+const closeLightbox = () => {
+  isLightboxOpen.value = false;
+};
+
 
 // Fonction pour télécharger un fichier
 function downloadFile(downloadlink) {
@@ -53,27 +67,36 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
 
     <div id="images-container" class="projectElement">
 
-<div v-if="hasImages" id="images">
-    <button id="leftButton" v-if="multipleImages" @click="switchImage('back')" :title="$t('message.projectLastImage')"><i class="pi pi-arrow-circle-left"></i></button>
-    <a :href="projectURL">
-            
-      <div v-if="data.projects[props.id].images[ActualImage].type == 'image'">
-          <img  :src="'/images/projects/'+data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
-      </div>
+    <div v-if="hasImages" id="images">
+        <button id="leftButton" v-if="multipleImages" @click="switchImage('back')" :title="$t('message.projectLastImage')"><i class="pi pi-arrow-circle-left"></i></button>
+        <a :href="projectURL">
+                
+          <div v-if="data.projects[props.id].images[ActualImage].type == 'image'">
+              <img  :src="'/images/projects/'+data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
+          </div>
 
-      <div v-else-if="data.projects[props.id].images[ActualImage].type == 'video'">
-          <iframe width="560" height="315" :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
+          <div v-else-if="data.projects[props.id].images[ActualImage].type == 'video'">
+              <iframe width="560" height="315" :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
 
-      <div v-else-if="data.projects[props.id].images[ActualImage].type == 'powerbi'">
-          <iframe width="660" height="415" :src="data.projects[props.id].images[ActualImage].link" frameborder="1" allowFullScreen="true" class="projectimage" :title="data.projects[props.id].images[ActualImage].description"></iframe>
-      </div>
+          <div v-else-if="data.projects[props.id].images[ActualImage].type == 'powerbi'">
+              <iframe width="660" height="415" :src="data.projects[props.id].images[ActualImage].link" frameborder="1" allowFullScreen="true" class="projectimage" :title="data.projects[props.id].images[ActualImage].description"></iframe>
+          </div>
 
-      <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
+          <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
 
-    </a>
-    <button id="rightButton" v-if="multipleImages" @click="switchImage('forward')" :title="$t('message.projectNextImage')"><i class="pi pi-arrow-circle-right"></i></button>
-</div>
+        </a>
+        <button id="rightButton" v-if="multipleImages" @click="switchImage('forward')" :title="$t('message.projectNextImage')"><i class="pi pi-arrow-circle-right"></i></button>
+        <i class="pi pi-search-plus" v-if="data.projects[props.id].images[ActualImage].type == 'image'" @click="openLightbox()"></i>
+    </div>
+
+    <Lightbox 
+            :isOpen="isLightboxOpen" 
+            :content="'/images/projects/' + data.projects[props.id].images[ActualImage].link" 
+            :type="data.projects[props.id].images[ActualImage].type" 
+            :description="data.projects[props.id].images[ActualImage].description"
+            @close="closeLightbox"
+          />
       
       <div id="Projectlinks">
         <a v-if="data.projects[props.id].github" :href="data.projects[props.id].github">
@@ -148,6 +171,20 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
   div#descContainer{
     width:85vw;
   }
+}
+
+.pi-search-plus{
+  z-index:0;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+  border:4px solid white;
+  background-color: black;
+  
+  padding: 7px;
 }
 
 .project_title{

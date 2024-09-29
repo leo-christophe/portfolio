@@ -1,16 +1,20 @@
 <script setup>
     import { ref, onMounted, getCurrentInstance } from 'vue';
     import { RouterLink } from 'vue-router';
-    import { CV_NAME_WEB, COULEUR_MENU_SELECTIONNE } from '../data/const.js';
+    import { CV_NAME_WEB, CV_NAME_WEB_EN, COULEUR_MENU_SELECTIONNE } from '../data/const.js';
     import { changeLang, getLangFromUrl } from '../utils/traduction.js';
     import { useI18n } from 'vue-i18n';  // Importer l'API i18n
-import router from '../router/index.js';
 
     // Accéder à l'instance actuelle
     const instance = getCurrentInstance();
     const data = instance.appContext.config.globalProperties.$JSONData; // Accéder aux données globales
 
-    const CVAdress = '/documents/'+CV_NAME_WEB+"#page=1&zoom=70";
+    const CVAdress = ref('/documents/'+CV_NAME_WEB+"#page=1&zoom=70");
+    
+    if (getLangFromUrl() === 'en') {
+        CVAdress.value = '/documents/'+CV_NAME_WEB_EN+"#page=1&zoom=70";
+    }
+    
     const links = ref(data.links);
 
     const { locale, t } = useI18n();

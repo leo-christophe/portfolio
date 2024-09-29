@@ -1,6 +1,8 @@
 
 import { useNavigatorLanguage } from '@vueuse/core'
 import { useI18n } from 'vue-i18n';  // Importer l'API i18n
+import data_fr from '../data/data_fr.json'
+import data_en from '../data/data_en.json'
 
 export function traductionSetup() {
     const storedLang = localStorage.getItem('lang');
@@ -50,4 +52,3 @@ export function changeLang(lang) {
     document.documentElement.lang = lang;
     updateUrlLang(lang);
 }
-
