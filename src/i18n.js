@@ -21,6 +21,7 @@ const messages = {
       hardskillsDescription: "My technical skills are specific abilities I've gained through studies and professional experience. This includes, for example, proficiency in programming languages, database management, and network administration.",
       references: 'References',
       at: "at ",
+      at_au: "at ",
       mobile: "Mob",
 
       // HomeContact
@@ -131,6 +132,7 @@ const messages = {
       hardskillsDescription: "Mes compétences techniques sont des aptitudes précises que j'ai acquises grâce à mes études et expériences professionnelles. Cela inclut, par exemple, la maîtrise des langages de programmation, la gestion de bases de données et l'administration de réseaux.",
       references: 'Références',
       at: "à l'",
+      at_au: "au",
       mobile: "Tel",
       
       // HomeContact

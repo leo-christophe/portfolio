@@ -149,6 +149,7 @@ button[autofocus] {
 :root{
   --basicBackground-color: #242424;
   --darkBackground-color:black;
+  --secondColor: rgb(159, 229, 227);
 
   --home-background-color1:rgb(33, 33, 33);
   --home-background-color2:rgb(30, 30, 30);
