@@ -3,7 +3,7 @@ import SkillUpNow from '../../components/ProjectTemplate.vue'
 </script>
 
 <template>
-    <SkillUpNow id="1"/>
+    <SkillUpNow id="2"/>
 </template>
 
 <style scoped>

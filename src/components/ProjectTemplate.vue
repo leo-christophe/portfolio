@@ -173,6 +173,21 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
   }
 }
 
+#realisations{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  width:100vw;
+
+  .ListeDescendante{
+    padding:20px;
+    width:50vw;
+    font-size:1rem;
+  }
+}
+
 .pi-search-plus{
   z-index:0;
   position: absolute;
@@ -192,7 +207,7 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
 }
 
 #descContainer{
-  width:50vw;
+  width: 100vw;
   margin: 50px 0px 50px 0px;
   position:relative;
   align-self:center;
@@ -200,6 +215,8 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
 
 #desc{
   text-align:justify;
+  margin:5vh 10vw 5vh 10vw;
+  padding: 20px;
 }
 
 .imageDescription{

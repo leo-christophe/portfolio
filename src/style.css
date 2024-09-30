@@ -165,6 +165,28 @@ button[autofocus] {
   --textImportantHover: #f21d1d;
   
   --buttonShadow: rgb(34, 34, 34);
+
+  
+}
+
+.p-timeline-event {
+    min-height: var(--p-timeline-event-min-height); /* Apply design token */
+}
+
+.p-timeline-event-content {
+    padding: var(--p-timeline-horizontal-event-content-padding); /* Apply design token for horizontal padding */
+}
+
+.p-timeline-event-connector {
+    background-color: var(--p-timeline-event-connector-color); /* Use design token for connector color */
+    width: var(--p-timeline-event-connector-size); /* Use design token for connector size */
+}
+
+.p-timeline-event-marker {
+    width: var(--p-timeline-event-marker-size); /* Use design token for marker size */
+    height: var(--p-timeline-event-marker-size); /* Use design token for marker size */
+    background-color: var(--p-timeline-event-marker-background); /* Use design token for marker background */
+    border-radius: var(--p-timeline-event-marker-border-radius); /* Use design token for marker border radius */
 }
 
 /* Reset CSS */

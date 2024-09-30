@@ -124,6 +124,11 @@ const messages = {
       aboutText: `Étudiant en informatique à BUT, passionné de programmation depuis plus de 5 ans. J'ai affiné mes compétences à travers divers projets personnels et professionnels. Fan d'animés, de jeux vidéo et de cuisine, je mets ma créativité au service de chaque projet.`,
       viewCV: 'Curriculum Vitae',
       contact: 'Me contacter',
+      interestsTitle: 'Mes intérêts',
+      interestsDescription: 'Ce que j\'aime faire en dehors de l\'informatique',
+
+      animes: 'Animés',
+      animesDescription: 'Je suis un grand fan d\'animés et de mangas. Mon préféré est Hunter x Hunter.',
 
       // HomeSkills
       skillsTitle: 'Compétences techniques',

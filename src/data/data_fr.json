@@ -57,7 +57,7 @@
               "Amélioration du style"
             ],
             "website": "https://www.alpha-3i.com/",
-            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fres.cloudinary.com%2Fhttps-www-divalto-com%2Fimages%2Ff_auto%2Cq_auto%2Fw_1024%2Ch_370%2Cc_scale%2Fv1603120104%2Fdivalto_prod%2Flogo-aplha-3i%2Flogo-aplha-3i-1024x370.png&f=1&nofb=1&ipt=c9e729c41515372bf6b9d9a906c5fe37797798ffc50c88ff4e97f13498562774&ipo=images"
+            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F836977038980485120%2FVS6Fwc8u.jpg&f=1&nofb=1&ipt=ab5caa425bc72d6c13fcdb43e73249b0871abe13599f6ffcd14b5ea9bcbe2b17&ipo=images"
           }
           
     ],
@@ -104,6 +104,34 @@
             "download": null,
             "route": "/projects/marsinvaders"
           },{
+            "id": "project_chrisconverter",
+            "nom": "Chris Converter",
+            "dates": ["2024-02-22","En cours"],
+            "titre": "Création d'une application WPF permettant de convertir des musiques en divers formats (MP3, WAV, FLAC, OGG, etc.)",
+            "description": "Le besoin est le suivant: Souvent, quand j'ai l'habitude de faire du montage vidéo, quand j'écoute de la musique ou quand j'essaye de rajouter des sons à un jeu, je me retrouve face à un problème: le format du fichier audio. Certaines applications n'acceptent que MP3, certaines OGG. Ainsi, j'avais l'habitude de chercher des sites en lignes pour réaliser une conversion. Le but de ce projet est donc de pouvoir convertir un ou plusieurs fichiers à la fois directement depuis un logiciel.",
+            "competences": {
+              "Développement logiciel": ["C#", "Visual Studio 2022", "FFMPEG", "WPF"],
+              "DevOps & Déploiement": ["Github"],
+              "UI/UX & Expérience utilisateur": ["Ergonomie"]
+            },
+            "realisations": [
+              "Création d'une application C# WPF",
+              "Utilisation de la librairie FFMPEG pour la conversion",
+              "Application des bonnes pratiques en terme de factorisation, de nommage, de structure du code"
+            ],
+            "type": "Personnel",
+            "images": [
+              {
+                "link": "project-chrisconverter-application.jpg",
+                "description": "Capture d'écran de l'application au démarrage.",
+                "type": "image"
+              }
+            ],
+            "url": null,
+            "github": "https://github.com/leo-christophe/ChrisConverter",
+            "download": null,
+            "route": "/projects/chrisconverter"
+          },{
             "id": "project_sae301",
             "nom": "SkillUpNow",
             "dates": ["2023-10-15","2024-01-15"],
@@ -140,35 +168,7 @@
             "download": null,
             "route": "/projects/skillupnow"
           }
-          ,{
-            "id": "project_chrisconverter",
-            "nom": "Chris Converter",
-            "dates": ["2024-02-22","En cours"],
-            "titre": "Création d'une application WPF permettant de convertir des musiques en divers formats (MP3, WAV, FLAC, OGG, etc.)",
-            "description": "Le besoin est le suivant: Souvent, quand j'ai l'habitude de faire du montage vidéo, quand j'écoute de la musique ou quand j'essaye de rajouter des sons à un jeu, je me retrouve face à un problème: le format du fichier audio. Certaines applications n'acceptent que MP3, certaines OGG. Ainsi, j'avais l'habitude de chercher des sites en lignes pour réaliser une conversion. Le but de ce projet est donc de pouvoir convertir un ou plusieurs fichiers à la fois directement depuis un logiciel.",
-            "competences": {
-              "Développement logiciel": ["C#", "Visual Studio 2022", "FFMPEG", "WPF"],
-              "DevOps & Déploiement": ["Github"],
-              "UI/UX & Expérience utilisateur": ["Ergonomie"]
-            },
-            "realisations": [
-              "Création d'une application C# WPF",
-              "Utilisation de la librairie FFMPEG pour la conversion",
-              "Application des bonnes pratiques en terme de factorisation, de nommage, de structure du code"
-            ],
-            "type": "Personnel",
-            "images": [
-              {
-                "link": "project-chrisconverter-application.jpg",
-                "description": "Capture d'écran de l'application au démarrage.",
-                "type": "image"
-              }
-            ],
-            "url": null,
-            "github": "https://github.com/leo-christophe/ChrisConverter",
-            "download": null,
-            "route": "/projects/chrisconverter"
-          },
+          ,
           {
             "id": "project_sae401",
             "nom": "BMW",

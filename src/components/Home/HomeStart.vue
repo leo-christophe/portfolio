@@ -37,8 +37,39 @@ function ToCV() {
                     <Button id="blackVariant">{{ $t('message.contact') }} <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
                 </RouterLink>
             </div>
-        </div>
 
+            
+        </div>
+        <div class="paragraphe" id="interets" style="display:flex;">
+                <div>
+                    <h2 id="titreAPropos">{{ $t('message.interestsTitle') }}</h2>
+                    <h4 id="paragrapheAPropos">{{ $t('message.interestsDescription') }}</h4>
+
+                    <span id="conteneurInterets">
+                        <div class="textContainer">
+                            <i class="pi pi-star"></i>
+                            <h3>Animes</h3>
+                            <div>
+                                J'aime beaucoup les oeuvres d'animations japonaises. J'ai commencé à regarder des animes en 2016 et depuis, je suis devenu un grand fan de ce genre de contenu. Surtout les animes de type isekai ou comique comme Re:Zero.
+                            </div>
+                        </div>
+                        <div class="textContainer">
+                            <i class="pi pi-shield"></i>
+                            <h3>Jeux-Vidéo</h3>
+                            <div>
+                                J'aime beaucoup les jeux créatifs comme Minecraft. Jouant depuis près de 10 ans, le genre me plaît toujours autant en m'inspirant toujours autant.
+                            </div>
+                        </div>
+                        <div class="textContainer">
+                            <i class="pi pi-apple"></i>
+                            <h3>Cuisine</h3>
+                            <div>
+                                J'adore cuisiner. Depuis mon plus jeune âge, j'ai toujours aimé la nourriture, alors pouvoir la confectionner avec mes propres touches est un vrai plaisir.
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            </div>
         <div id="video_container">
             <!-- Vidéo background -->
         </div>
@@ -81,6 +112,40 @@ function ToCV() {
             margin-bottom:10px;
         }
     }
+
+    #interets {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center the child elements horizontally */
+    margin: 0 auto; /* Center the entire interets section */
+    padding: 100px 0px; /* Adjust padding if necessary */
+    width:100vw;
+}
+
+#conteneurInterets {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Space between the items */
+    gap: 20px; /* Space between individual interest items */
+}
+
+#conteneurInterets div.textContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center text inside the containers */
+    margin: 20px;
+    border: 2px solid var(--secondColor);
+    border-radius: 10%;
+    padding: 20px;
+    max-width: 200px;
+}
+
+#conteneurInterets div div {
+    font-size: 0.8rem;
+    text-align: center; /* Center the text inside the description */
+}
+
+
 
     #texteParagrapheDroiteContainer {
         display:flex;

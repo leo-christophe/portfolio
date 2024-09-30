@@ -9,13 +9,29 @@
 
     const instance = getCurrentInstance();
     const { formations } = instance.appContext.config.globalProperties.$JSONData;
-    const experiences = instance.appContext.config.globalProperties.$JSONData
+    const  experiences = instance.appContext.config.globalProperties.$JSONData.experiences;
 
-    const events = ref([
-        formations[0],
-        formations[1],
-        formations[2]
-    ]);
+    const formationTimeline = ref([...formations.slice(0, formations.length), ""]);
+
+    const experienceTimeline = ref([...experiences.slice(0, experiences.length), ""]);
+    
+    function showHideMissionDetails(){
+        let elements = document.querySelector(".partieCachee");
+
+        if (elements.style.display === "none") {
+            elements.style.display = "flex";
+            const icon = ref(document.querySelector('.pi-arrow-circle-up'));
+            icon.value.classList.add('pi-arrow-circle-down');
+            icon.value.classList.remove('pi-arrow-circle-up');
+        } else {
+            elements.style.display = "none";
+            const icon = ref(document.querySelector('.pi-arrow-circle-down'));
+            icon.value.classList.remove('pi-arrow-circle-down');
+            icon.value.classList.add('pi-arrow-circle-up');
+        }
+        
+    }
+
 </script>
 
 <template>
@@ -28,54 +44,150 @@
 
             <span id="conteneurTimelineFormations">
                 <div class="card flex flex-wrap gap-12">
-                    <Timeline :value="events" align="right" class="customized-timeline">
-                        <template #marker="slotProps">
-                            <span class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm">
-                                <i class="pi pi-circle"></i>
-                            </span>
+                    <Timeline 
+                            :value="formationTimeline" 
+                            align="left" 
+                            class="customized-timeline"
+                            :style="{ 
+                                '--p-timeline-event-min-height': '10vh', 
+                                '--p-timeline-horizontal-event-content-padding': '10px', 
+                                '--p-timeline-vertical-event-content-padding': '5px', 
+                                '--p-timeline-event-marker-size': '24px', 
+                                '--p-timeline-event-marker-border-radius': '50%', 
+                                '--p-timeline-event-marker-border-width': '3px', 
+                                '--p-timeline-event-marker-background': 'black', 
+                                '--p-timeline-event-marker-border-color': 'white', 
+                                '--p-timeline-event-marker-content-border-radius': '4px', 
+                                '--p-timeline-event-marker-content-size': '16px', 
+                                '--p-timeline-event-marker-content-background': 'white', 
+                                '--p-timeline-event-marker-content-inset-shadow': 'none', 
+                                '--p-timeline-event-connector-color': 'black', 
+                                '--p-timeline-event-connector-size': '2px' 
+                            }"
+                        >
+                        <template #marker="formationTimeline">
+                            <div class="anneeCercle">
+                                <span class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm">
+                                    <i class="pi pi-circle-fill" v-if="formationTimeline.item"></i>
+                                </span>
+                            </div>
+                        </template>
+                        <template #content="formationTimeline">
+                            <div id="conteneurFormations" v-if="formationTimeline.item">
+                                <div class="conteneurBox">
+                                    <div class="information">
+                                        <h5 class="annees">{{ formationTimeline.item.annees }}</h5>
+                                        <br>
+                                        <h4 class="titreFormation">{{ formationTimeline.item.titre }} <br> <strong>{{ formationTimeline.item.lieu }}</strong>, {{ formationTimeline.item.ville }} ({{ formationTimeline.item.departement }})</h4>
+                                        <h5 class="obtention">{{ formationTimeline.item.obtention }}</h5>
+                                    </div>
+                                    <div id="imageFormation">
+                                        <img :src="formationTimeline.item.image" class="imgFormation" @click="window.open(formationTimeline.item.website, '_blank');">
+                                    </div>
+                                </div>
+                            </div>
                         </template>
                     </Timeline>
                 </div>
 
-                <div id="conteneurFormations">
-                    <div v-for="formation in formations" :key="formation.titre" class="conteneurBox">
-                        <div class="information">
-                            <h5 class="annees">{{ formation.annees }}</h5>
-                            <br>
-                            <h4 class="titreFormation">{{ formation.titre }} <br> <strong>{{ formation.lieu }}</strong>, {{ formation.ville }} ({{ formation.departement }})</h4>
-                            <h5 class="obtention">{{ formation.obtention }}</h5>
-                        </div>
-                    </div>
-                    <br>
-                </div>
+                
             </span>
         </span>
 
         <!-- Section Expériences -->
         <span class="column experience">
-        <h1 id="titreExperience" class="formationTitres">{{ $t('message.experienceTitle') }}</h1>
-        <h4 class="sousTitreFormations formationTitres">{{ $t('message.experienceSubtitle') }}</h4>
-        <span id="conteneurColonneExperiences">
-                <div id="conteneurExperiences">
-                    <div v-for="experience in experiences.experiences" :key="experience.id" class="conteneurBox">
-                        <div class="information">
-                            <h5 class="annees">
-                                <span v-if="DateUtils.isPastDate(experience.dates[1])">
-                                    {{ DateUtils.formatDateRange(experience.dates[0], experience.dates[1], $i18n.locale) }}
-                                </span>
-                                <span v-else>
-                                    {{ DateUtils.formatDate(experience.dates[0]) + " - " + $t('message.experienceOngoing') }}
-                                </span>
-                            </h5>
-                            <br>
-                            <h4 class="titreExperience">{{ experience.contrat + " " + experience.poste }} {{$t('message.at_au')}} {{ experience.entreprise }}</h4>
-                            <p class="expDesc">{{ experience.description }}</p>
-                        </div>
-                        <div v-if="experience.image" class="imgExperienceContainer">
-                            <img :src="experience.image" class="imgExperience" @click="window.open(experience.website, '_blank');">
-                        </div>
+            <h1 id="titreExperience" class="formationTitres">{{ $t('message.experienceTitle') }}</h1>
+            <h4 class="sousTitreFormations formationTitres">{{ $t('message.experienceSubtitle') }}</h4>
+            <span id="conteneurColonneExperiences">
+
+                    <span id="conteneurTimelineFormations">
+                    <div class="card flex flex-wrap gap-12">
+                        <Timeline 
+                                :value="experienceTimeline" 
+                                align="left" 
+                                class="customized-timeline"
+                                :style="{ 
+                                    '--p-timeline-event-min-height': '10vh', 
+                                    '--p-timeline-horizontal-event-content-padding': '10px', 
+                                    '--p-timeline-vertical-event-content-padding': '5px', 
+                                    '--p-timeline-event-marker-size': '24px', 
+                                    '--p-timeline-event-marker-border-radius': '50%', 
+                                    '--p-timeline-event-marker-border-width': '3px', 
+                                    '--p-timeline-event-marker-background': 'black', 
+                                    '--p-timeline-event-marker-border-color': 'white', 
+                                    '--p-timeline-event-marker-content-border-radius': '4px', 
+                                    '--p-timeline-event-marker-content-size': '16px', 
+                                    '--p-timeline-event-marker-content-background': 'white', 
+                                    '--p-timeline-event-marker-content-inset-shadow': 'none', 
+                                    '--p-timeline-event-connector-color': 'black', 
+                                    '--p-timeline-event-connector-size': '2px' 
+                                }"
+                            >
+                            <template #marker="experienceTimeline">
+                                <div class="anneeCercle">
+                                    <span class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm">
+                                        <i class="pi pi-circle-fill" v-if="experienceTimeline.item"></i>
+                                    </span>
+                                </div>
+                            </template>
+                            <template #content="experienceTimeline">
+                                <div class="conteneurBox experienceBox" v-if="experienceTimeline.item">
+                                        <div class="information experienceInf">
+                                            <h5 class="annees">
+                                                <span v-if="DateUtils.isPastDate(experienceTimeline.item.dates[1])">
+                                                    {{ DateUtils.formatDateRange(experienceTimeline.item.dates[0], experienceTimeline.item.dates[1], $i18n.locale) }}
+                                                </span>
+                                                <span v-else>
+                                                    {{ DateUtils.formatDate(experienceTimeline.item.dates[0]) + " - " + $t('message.experienceOngoing') }}
+                                                </span>
+                                            </h5>
+                                            <br>
+                                            <h4 class="titreExperience">{{ experienceTimeline.item.contrat + " " + experienceTimeline.item.poste }} {{$t('message.at_au')}} {{ experienceTimeline.item.entreprise }}</h4>
+                                            <p class="expDesc">{{ experienceTimeline.item.description }}</p>
+                                        </div>
+                                        <div class="downArrowExperienceContainer">
+                                            <i class="pi pi-arrow-circle-down arrowDownExp" style="cursor:pointer;" @click="showHideMissionDetails()"></i>
+                                        </div>
+                                        <div v-if="experienceTimeline.item.image" class="imgExperienceContainer">
+                                            <img :src="experienceTimeline.item.image" class="imgExperience">
+                                        </div>
+
+                                </div>
+                                <div class="partieCachee conteneurBox experienceBox" v-if="experienceTimeline.item" style="display:none;">
+                                    <span class="expCacheContainerSkills">
+                                        <h4 class="expSkillsTitle">{{ $t('message.experienceCompetenceTitle') }}</h4>
+                                        <ul class="skillsListExp">
+                                            <li v-for="(competence, key) in experienceTimeline.item.competences" :key="key">
+                                                <span>
+                                                    <p><strong>{{ key }}:</strong></p>
+                                                    <span v-for="(competenceElt, indexY) in competence" :key="indexY">
+                                                        {{ competenceElt.charAt(0).toUpperCase() + competenceElt.slice(1) }}
+                                                        <span v-if="indexY < competence.length - 1">, </span>
+                                                    </span>
+                                                    <br> 
+                                                    <br> 
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </span>
+                                    <span class="expCacheContainerMissions">
+                                        <h4 class="expMissionsTitle">{{ $t('message.experienceMissionsTitle') }}</h4>
+                                        <ul class="missionsListExp">
+                                            <li v-for="(mission, index) in experienceTimeline.item.missions" :key="index">
+                                                {{ mission }}
+                                            </li>
+                                        </ul>
+                                    </span>
+                                </div>
+
+                            </template>
+
+                    
+                        </Timeline>
                     </div>
-                </div>
+
+                    
+                </span>
             </span>
         </span>
     </div>
@@ -83,30 +195,133 @@
 
 
 <style scoped>
+.expSkillsTitle, .expMissionsTitle{
+    font-size: 1.2rem;
+    font-weight:500;
+    color: var(--secondColor);
+}
 
-    div.p-timeline-event-separator{
-        min-height: 20vh;
+.partieCachee.conteneurBox.experienceBox{
+    height:fit-content;
+    align-items: start;
+}
+
+#conteneurTimelineFormations > div > div > div > div.p-timeline-event-content > div.partieCachee.conteneurBox.experienceBox > span.expCacheContainerMissions{
+    height:min-content;
+    top:0px;
+}
+
+ul.missionsListExp li{
+    margin:0rem 0 1rem 0;
+}
+
+.expCacheContainerSkills, .expCacheContainerMissions{
+    position: relative !important;
+    height:100%;
+    top:0px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:20px 5px 0px 20px;
+    width:40%;
+}
+
+.skillsListExp{
+    list-style-type: "- ";
+    margin-left:10px;
+}
+
+.missionsListExp{
+    list-style-type:  decimal;
+    margin-left:10px;
+}
+    .customized-timeline{
+        i.pi-circle-fill{
+            padding:10px;
+            margin:5px 5px 5px 5px;
+            background-color: white;
+            font-size: 0.5rem;
+            border-radius: 100%;
+            border:2px solid black;
+            color:var(--secondColor);
+        }
+
+    }
+
+
+    .pi-arrow-circle-down,.pi-arrow-circle-up{
+        font-size: 2rem;
+        color: var(--secondColor);
+        transition:0.4s ease-out all;
+    }
+
+    .pi-arrow-circle-down:hover,.pi-arrow-circle-up:hover{
+        font-size: 2rem;
+        color: white;
+        transition:0.4s ease-in all;
+    }
+
+    .downArrowExperienceContainer{
+        display:flex;
+        flex-direction: column-reverse;
+        height:100%;
+        padding-left: 100px;
+    }
+
+    div.information.experienceInf{
+        max-width:20vw;
+    }
+
+    #conteneurColonneExperience{
+        margin-right:5vw;
+    }
+
+    h5.annees{
+        margin-top:1rem;
+        font-size: 1.5rem;
+        font-weight:500;
+        color: var(--secondColor);
+    }
+
+    h5.obtention{
+        font-size: 1.2rem;
+        font-weight:500;
+        color: var(--secondColor);
     }
 
     span#conteneurTimelineFormations{
         display:flex;
         flex-direction: row;
-        align-items: center;
+        justify-content: left;
     }
 
     div.conteneurBox{
-        margin:5rem 3rem 5rem 7rem;
-        padding:10px 5px 10px 5px;
+
         background-color:rgb(36, 36, 36);
         color: white;
         max-width:45rem;
+        width:60vw;
+        height:20vh;
+        min-height:fit-content;
+        justify-content: left;
+        position: relative;
+        margin: 5px;
         box-shadow: 5px 5px 5px 5px black;
         border:1px solid black;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+
+        img{
+            width:200px;
+            height:200px;
+            object-fit: cover;
+            border-radius:8px;
+        }
     }
 
-    #conteneurColonneExperiences{
-        padding:10px;
-    }
 
     #formationExperienceContainer > span.column.experience{
         flex-direction:column;
@@ -240,7 +455,7 @@
 
 
     .imgFormation:hover, .imgExperience:hover {
-        transform: scale(1.1);
+        transform: scale(1.01);
     }
 
     /* Description d'expérience */

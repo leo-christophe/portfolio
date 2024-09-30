@@ -60,17 +60,21 @@ onMounted(() => {
       return { start: projectStart, end: projectEnd }
     })
 
-    startDate.value = getEarliestDate(projectDates).toISOString().split('T')[0]
-    endDate.value = getLatestDate(projectDates, t).toISOString().split('T')[0]
+    if (!startDate.value) {
+    startDate.value = getEarliestDate(projectDates).toISOString().split('T')[0]}
+    if (!endDate.value) {
+    endDate.value = getLatestDate(projectDates, t).toISOString().split('T')[0]}
   }
 
   const savedFilterState = localStorage.getItem('project_filterState')
+
   if (savedFilterState) {
-    const filterClass = savedFilterState === 'activated' ? 'filterActivated' : 'filterDeactivated'
-    const antiFilterClass = savedFilterState != 'activated' ? 'filterDeactivated' : 'filterActivated'
+    const filterClass = savedFilterState == 'activated' ? 'filterActivated' : 'filterDeactivated'
+    const antiFilterClass = savedFilterState != 'activated' ? 'filterActivated' : 'filterDeactivated'
     filters.value.classList.add(filterClass)
     filters.value.classList.remove(antiFilterClass)
-    iconFilter.value.classList.add(savedFilterState === 'activated' ? 'pi-angle-double-down' : 'pi-angle-down')
+    iconFilter.value.classList.add(savedFilterState == 'activated' ? 'pi-angle-double-down' : 'pi-angle-down')
+    iconFilter.value.classList.remove(savedFilterState == 'activated' ? 'pi-angle-down' : 'pi-angle-double-down')
   }
 })
 
@@ -135,7 +139,6 @@ const filteredProjects = computed(() => {
     return label ? label.toLowerCase() : '';
   }).filter(Boolean);
 
-    console.log("--------------", "CHECKBOXES: ",normalizedCheckTypes, "PROJECTS: ",normalizedProjectType, "(1)", checkTypeLabels[locale.value], locale.value)
 
   // Check if the project type exists in checkType
   const isTypeIncluded = normalizedCheckTypes.includes(normalizedProjectType);
@@ -144,12 +147,6 @@ const filteredProjects = computed(() => {
   // Retourner le résultat final de la condition de filtrage
   return hasProjectType && isTypeIncluded;
 });
-
-
-
-
-
-  console.log("4", filteredByDate)
 
   if (filteredByDate.length === 0) {
     alert(t('message.projectsNotFound'))

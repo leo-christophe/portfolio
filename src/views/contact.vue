@@ -29,22 +29,33 @@ const form = reactive({
   message: ''
 });
 
+// Token pour reCAPTCHA
 const recaptchaToken = ref('');
 
-// Load reCAPTCHA when the component is mounted
-onMounted(() => {
-  if (!recaptchaToken.value){
-    loadRecaptcha();}
-});
-
+// Fonction pour charger reCAPTCHA
 const loadRecaptcha = async () => {
   try {
-    const token = await window.grecaptcha.execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, { action: 'submit' });
-    recaptchaToken.value = token;
+    // Assurer que grecaptcha est disponible
+    if (window.grecaptcha) {
+      const token = await window.grecaptcha.execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, { action: 'submit' });
+      recaptchaToken.value = token;
+    } else {
+      console.error('reCAPTCHA not loaded');
+    }
   } catch (error) {
     showError(t('message.errorMessage')); // Utilise 't' au lieu de $t
   }
 };
+
+// Charger reCAPTCHA quand le composant est monté
+onMounted(() => {
+  const interval = setInterval(() => {
+    if (window.grecaptcha) {
+      clearInterval(interval);
+      loadRecaptcha(); // Appelle la fonction une fois que grecaptcha est prêt
+    }
+  }, 400); // Vérifie toutes les 500ms si grecaptcha est chargé
+});
 
 // Handles form submission
 const handleSubmit = async () => {
@@ -277,7 +288,7 @@ const copyToClipboard = async (text) => {
   }
 
   h1#contentText{
-    padding:1vh 15vw 1vh 15vw;
+    padding:0vh 15vw 1vh 15vw;
     min-width:70vw;
     text-align:justify;
   }
@@ -338,7 +349,7 @@ const copyToClipboard = async (text) => {
     justify-content:space-evenly;
 
     position: relative;
-    margin:5%;
+    margin:1% 5% 5vh 5%;
   }
 
   .ContactSquare {
