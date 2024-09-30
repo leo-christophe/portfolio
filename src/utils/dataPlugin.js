@@ -7,7 +7,7 @@ let data = null;
 export default {
     install(app) {
         // Utilise l'importation dynamique ici si nécessaire
-        const lang = getLangFromUrl(); // Assume cette fonction est définie
+        const lang = localStorage.getItem('lang'); // Assume cette fonction est définie
         if (lang === 'en') {
             data = dataEN;
         } else if (lang === 'fr') {

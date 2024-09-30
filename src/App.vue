@@ -34,7 +34,7 @@
     icon.value = '/images/app_identity/icon.jpg';
 
     // Gestion de la langue
-    traductionSetup()
+    const lang = traductionSetup()
 
     // Gestion du zoom sur mobile
     if ( isMobile() ) {
@@ -54,6 +54,7 @@
     };
   });
 
+  // verif langue
 </script>
 
 <template>

@@ -25,6 +25,10 @@ export function traductionSetup() {
 
         // Ensure the language is changed globally
         changeLang(currentLang);
+
+       
+
+        return currentLang;
     }, 0);  // Run after the rest of the setup has completed
 }
 
