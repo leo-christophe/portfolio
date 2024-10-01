@@ -2,8 +2,8 @@
     "formations": [
       {
         "id": "butinfo",
-        "titre": "BUT Computer Science",
-        "lieu": "IUT Annecy",
+        "titre": "BUT Informatique (Technical Bachelor's Degree in Computer Science)",
+        "lieu": "USMB (University Savoie Mont-Blanc)",
         "ville": "Annecy",
         "departement": "74",
         "obtention": "Ongoing",
@@ -13,7 +13,7 @@
       },
       {
         "id": "bac",
-        "titre": "General Baccalaureate (NSI, Math specialties)",
+        "titre": "French General Baccalaureate (High School diploma specialized in digital technology, computer science and mathematics)",
         "lieu": "Lycée Charles Poncet",
         "ville": "Cluses",
         "departement": "74",
@@ -23,7 +23,7 @@
       },
       {
         "id": "brevet",
-        "titre": "Brevet",
+        "titre": "Brevet (Middle school diploma)",
         "lieu": "Collège Camille Claudel",
         "ville": "Marignier",
         "departement": "74",
@@ -37,24 +37,24 @@
         "id": "alpha3i",
         "contrat": "Intern",
         "poste": "R&D Developer (GTA)",
-        "entreprise": "Groupe Alpha-3i",
+        "entreprise": "Groupe Alpha-3i (Software Developing SME)",
         "dates": ["2024-04-15", "2024-07-05"],
         "competences": {
           "Web Development": ["javascript", "webdev"],
           "Software Development": ["wlangage"],
-          "UI/UX & User Experience": ["ergonomics", "ui/ux"],
-          "DevOps & Deployment": ["optimization"],
+          "UI/UX & User Experience": ["ergonomics", "ui/ux", "CSS"],
+          "Testing & Quality": ["Squash", "Manual Testing"],
           "Interpersonal Skills": ["rigor", "autonomy", "teamwork"]
         },
-        "description": "Development of new features in the workflow of employee absences.",
+        "description": "Developping new features in the workflow of employee absences.",
         "missions": [
-          "Needs analysis",
-          "Development of new features",
-          "Writing test scenarios",
-          "Bug fixing and debugging",
-          "Documentation writing",
-          "Ergonomics improvement",
-          "Style enhancement"
+          "Getting to know the application and its needs",
+          "Development of the new features in WLangage and Javascript on WebDev, adding 15k lines of code to the whole project",
+          "Writing test scenarios in Squash to ensure the quality of the new features",
+          "Fixing bugs and debugging, to make sure the application is stable",
+          "Writing the documentation to make my code more understandable",
+          "Participating in discussions about the ergonomy and improving it",
+          "Enhancing the style of the application, increasing the user experience"
         ],
         "website": "https://www.alpha-3i.com/",
         "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F836977038980485120%2FVS6Fwc8u.jpg&f=1&nofb=1&ipt=ab5caa425bc72d6c13fcdb43e73249b0871abe13599f6ffcd14b5ea9bcbe2b17&ipo=images"
@@ -450,7 +450,7 @@
       },
       {
           "Design & Architecture": [
-              "State-Transition", "Class Diagram", "Diagrams", "Design",
+              "State-Transition", "Class Diagram", "Diagrams", "Design", "BPMN", "UML",
               "Technical Documents", "Acceptance Criteria", "Documentation", "MVC", "MVVM", "Repository", "Dependency Injection"
           ]
       },

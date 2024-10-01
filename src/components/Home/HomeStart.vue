@@ -47,21 +47,21 @@ function ToCV() {
 
                     <span id="conteneurInterets">
                         <div class="textContainer">
-                            <i class="pi pi-star"></i>
+                            <img src="/images/icons/manga.png">
                             <h3>{{$t('message.animes')}}</h3>
                             <div>
                                 {{ $t('message.animesDescription') }}
                             </div>
                         </div>
                         <div class="textContainer">
-                            <i class="pi pi-shield"></i>
+                            <img src="/images/icons/game-controller.png">
                             <h3>{{$t('message.videogames')}}</h3>
                             <div>
                                 {{ $t('message.videogamesDescription') }}    
                             </div>
                         </div>
                         <div class="textContainer">
-                            <i class="pi pi-apple"></i>
+                            <img src="/images/icons/cooking-equipment.png">
                             <h3>{{$t('message.cooking')}}</h3>
                             <div>
                                 {{ $t('message.cookingDescription') }}
@@ -105,6 +105,10 @@ function ToCV() {
             margin-right:0px;
             padding-right:100px;
         }
+
+        span#conteneurInterets{
+            flex-direction: column;
+        }
     }
 
     @media screen and (max-width: 1219px){
@@ -128,7 +132,7 @@ function ToCV() {
         justify-content: space-between; /* Space between the items */
         gap: 30px; /* Space between individual interest items */
         width:35vw;
-        min-width:25%;
+        min-width:500px;
         
     }
 
@@ -141,14 +145,14 @@ function ToCV() {
         border: 2px solid var(--secondColor);
         border-radius: 10%;
         padding: 20px;
-        max-width: 200px;
-        min-width:150px;
+        max-width: 30vw;
+        min-width:12rem;
         text-align:center;
 
-        i{
+        img{
             text-align: center;
             margin-bottom:50px;
-            font-size:5rem;
+            width:80%;
         }
     }
 

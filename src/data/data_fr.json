@@ -43,17 +43,17 @@
               "Développement web": ["javascript", "webdev"],
               "Développement logiciel": ["wlangage"],
               "UI/UX & Expérience utilisateur": ["ergonomie", "ui/ux"],
-              "DevOps & Déploiement": ["optimisation"],
+              "Tests & Qualité": ["Squash", "Tests manuels"],
               "Compétences interpersonnelles": ["rigueur", "autonomie", "travail en équipe"]
             },
             "description": "Développement de nouvelles fonctionnalités dans le workflow des absences et congés des salariés",
             "missions": [
               "Analyse des besoins",
-              "Développement de nouvelles fonctionnalités",
-              "Rédaction de scénarios de tests",
+              "Développement de nouvelles fonctionnalités en WLangage et Javascript sur Webdev",
+              "Rédaction de scénarios de tests sur Squash",
               "Correction d'erreurs et débogage",
               "Rédaction de documentation",
-              "Amélioration de l'ergonomie",
+              "Amélioration de l'ergonomie, augmentant efficacement la satisfaction globale des utilisateurs",
               "Amélioration du style"
             ],
             "website": "https://www.alpha-3i.com/",
@@ -176,22 +176,23 @@
             "titre": "Création d'un site web fictif BMW en Javascript (Vue-JS) avec API Rest en C#",
             "description": "Création d'un site web fictif en équipe de 5 personnes en appliquant les bonnes pratiques en terme de programmation, de qualité, de sécurité et de performance. Communication du client Javascript avec l'API Rest réalisée en C#. La base de données a été réalisée en code first avec Entity Framework Core. Utilisation de Vue-JS pour la partie cliente avec les frameworks Vue-Router, Pinia, Prime Vue. La qualité de l'API a été vérifié en réalisant des tests unitaires et des tests mock et la qualité du client a été vérifié en réalisant des tests unitaires et 'End to End'. Présentation du site web et de l'API devant un jury de deux professeurs.",
             "competences": {
-              "Développement web": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Route-JS", "Github"],
+              "Développement web": ["Javascript", "Vue-JS", "HTML", "CSS", "Github"],
               "Développement logiciel": ["C#", "API Rest", "Visual Studio 2022", "Repository", "Injection de dépendances"],
               "Base de données": ["PostgreSQL", "SQL", "Base de données", "MLD", "MCD"],
-              "DevOps & Déploiement": ["Azure DevOps", "Vercel.app", "CI/CD", "déploiement continu", "Github"],
+              "DevOps & Déploiement": ["Azure DevOps", "Vercel.app", "CI/CD", "Github"],
               "Tests & Qualité": ["Vitest", "Cypress", "Tests unitaires"],
               "Gestion de projet": ["Organisation de réunion", "compte rendu de réunion", "gestion de projet"],
-              "UI/UX & Expérience utilisateur": ["UI/UX", "Expérience Utilisateur"]
+              "Conception & Architecture": ["MCD","MLD","UML","BPMN"]
             },
             "realisations": [
-              "Réalisation de documents de conception",
+              "Réalisation de documents de conception (UML, MCD, BPMN)",
               "Réalisation de la base de données sous PostgreSQL",
               "Développement de l'API Rest en C#",
-              "Développement du client en Vue-JS",
-              "Optimisation",
+              "Développement du client en Vue-JS avec les librairies Vue-Router, Pinia et Prime Vue",
+              "Optimisation de la mémoire (Utilisation de singleton), de la sécurité (Cryptage des mots de passe) et de la performance (Utilisation de l'API Rest)",
               "Organisation d'une réunion hebdomadaire",
-              "Gestion du projet sur Azure DevOps"
+              "Gestion du projet sur Azure DevOps",
+              "Réalisation de tests sur l'API Rest (Tests unitaires) et sur le client (Tests unitaires et End2End avec Cypress et Vitest)"
             ],
             "type": "Universitaire",
             "images": [
@@ -432,7 +433,7 @@
       },
       {
         "DevOps & Déploiement": [
-          "Déploiement continu", "CI/CD", "Vercel.app", "Azure", "Git"
+          "CI/CD", "Vercel.app", "Azure", "Git", "Gitlab", "Github"
         ]
       },
       {
@@ -454,7 +455,7 @@
       },
       {
         "Conception & Architecture": [
-          "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conception",
+          "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conception", "UML", "BPMN",
           "Documents techniques", "Cahier de recette", "Rédaction", "MVC", "MVVM", "Repository", "Injection de dépendances"
         ]
       },

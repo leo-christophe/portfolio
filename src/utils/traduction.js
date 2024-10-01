@@ -56,5 +56,3 @@ export function changeLang(lang) {
     document.documentElement.lang = lang;
     updateUrlLang(lang);
 }
-
-//

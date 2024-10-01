@@ -1,20 +1,25 @@
 <script setup>
-    import { getCurrentInstance } from 'vue';
-    import DateUtils from '../utils/date_utils.js';
-    import { COULEUR_MENU_SELECTIONNE } from '../data/const.js'
-    import Timeline from 'primevue/timeline';
-    import Button from 'primevue/button';
-    import Card from 'primevue/card';
-    import { ref } from "vue";
+    import { getCurrentInstance, ref } from 'vue';
 
+    import Timeline from 'primevue/timeline';
+    import { useI18n } from 'vue-i18n';
+
+    import DateUtils from '../utils/date_utils.js';
+    import { TIMELINE_STYLE } from '../data/const.js'
+
+    const {locale} = useI18n();
     const instance = getCurrentInstance();
+    
     const { formations } = instance.appContext.config.globalProperties.$JSONData;
     const  experiences = instance.appContext.config.globalProperties.$JSONData.experiences;
-
     const formationTimeline = ref([...formations.slice(0, formations.length), ""]);
-
     const experienceTimeline = ref([...experiences.slice(0, experiences.length), ""]);
     
+    /**
+     *  @function showHideMissionDetails
+     *  @description Affiche ou cache les détails de la mission
+     *  @returns {void}
+     */
     function showHideMissionDetails(){
         let elements = document.querySelector(".partieCachee");
 
@@ -48,22 +53,7 @@
                             :value="formationTimeline" 
                             align="left" 
                             class="customized-timeline"
-                            :style="{ 
-                                '--p-timeline-event-min-height': '10vh', 
-                                '--p-timeline-horizontal-event-content-padding': '10px', 
-                                '--p-timeline-vertical-event-content-padding': '5px', 
-                                '--p-timeline-event-marker-size': '24px', 
-                                '--p-timeline-event-marker-border-radius': '50%', 
-                                '--p-timeline-event-marker-border-width': '3px', 
-                                '--p-timeline-event-marker-background': 'black', 
-                                '--p-timeline-event-marker-border-color': 'white', 
-                                '--p-timeline-event-marker-content-border-radius': '4px', 
-                                '--p-timeline-event-marker-content-size': '16px', 
-                                '--p-timeline-event-marker-content-background': 'white', 
-                                '--p-timeline-event-marker-content-inset-shadow': 'none', 
-                                '--p-timeline-event-connector-color': 'black', 
-                                '--p-timeline-event-connector-size': '2px' 
-                            }"
+                            :style="TIMELINE_STYLE"
                         >
                         <template #marker="formationTimeline">
                             <div class="anneeCercle">
@@ -106,22 +96,7 @@
                                 :value="experienceTimeline" 
                                 align="left" 
                                 class="customized-timeline"
-                                :style="{ 
-                                    '--p-timeline-event-min-height': '10vh', 
-                                    '--p-timeline-horizontal-event-content-padding': '10px', 
-                                    '--p-timeline-vertical-event-content-padding': '5px', 
-                                    '--p-timeline-event-marker-size': '24px', 
-                                    '--p-timeline-event-marker-border-radius': '50%', 
-                                    '--p-timeline-event-marker-border-width': '3px', 
-                                    '--p-timeline-event-marker-background': 'black', 
-                                    '--p-timeline-event-marker-border-color': 'white', 
-                                    '--p-timeline-event-marker-content-border-radius': '4px', 
-                                    '--p-timeline-event-marker-content-size': '16px', 
-                                    '--p-timeline-event-marker-content-background': 'white', 
-                                    '--p-timeline-event-marker-content-inset-shadow': 'none', 
-                                    '--p-timeline-event-connector-color': 'black', 
-                                    '--p-timeline-event-connector-size': '2px' 
-                                }"
+                                :style="TIMELINE_STYLE"
                             >
                             <template #marker="experienceTimeline">
                                 <div class="anneeCercle">
@@ -142,11 +117,13 @@
                                                 </span>
                                             </h5>
                                             <br>
-                                            <h4 class="titreExperience">{{ experienceTimeline.item.contrat + " " + experienceTimeline.item.poste }} {{$t('message.at_au')}} {{ experienceTimeline.item.entreprise }}</h4>
+                                            {{ console.log(locale) }}
+                                            <h4 class="titreExperience" v-if="locale == 'fr'">{{ experienceTimeline.item.contrat + " " + experienceTimeline.item.poste }} {{$t('message.at_au')}} {{ experienceTimeline.item.entreprise }}</h4>
+                                            <h4 class="titreExperience" v-else>{{ experienceTimeline.item.entreprise }}</h4>
                                             <p class="expDesc">{{ experienceTimeline.item.description }}</p>
                                         </div>
                                         <div class="downArrowExperienceContainer">
-                                            <i class="pi pi-arrow-circle-down arrowDownExp" style="cursor:pointer;" @click="showHideMissionDetails()"></i>
+                                            <i class="pi pi-arrow-circle-up arrowDownExp" @click="showHideMissionDetails()"></i>
                                         </div>
                                         <div v-if="experienceTimeline.item.image" class="imgExperienceContainer">
                                             <img :src="experienceTimeline.item.image" class="imgExperience">
@@ -196,7 +173,7 @@
 
 <style scoped>
 /* Media query for mobile devices */
-@media (max-width: 768px) {
+@media (max-width: 860px) {
     #formationExperienceContainer {
         flex-direction: column; /* Stack sections vertically */
     }
@@ -236,6 +213,33 @@
 
     .downArrowExperienceContainer {
         padding-left: 0; /* Align arrow correctly on mobile */
+    }
+
+    div#formationExperienceContainer{
+        display:flex;
+        flex-direction:column;
+    }
+
+    .conteneurBox.experienceBox{
+        width:100%;
+    }
+
+    div.conteneurBox.experienceBox, div.partieCachee.conteneurBox.experienceBox, div.conteneurBox{
+        width:100vw;
+    }
+
+    div.conteneurBox.experienceBox img{
+        height:auto;
+    }
+
+    #conteneurTimelineFormations > div > div > div:nth-child(1) > div.p-timeline-event-content > div:nth-child(1) > div.downArrowExperienceContainer > i{
+        transform:scale(2);
+        margin-right:50px;
+        margin-bottom:50px;
+    }
+
+    div.information.experienceInf{
+        max-width:80%;
     }
 }
 
@@ -294,10 +298,11 @@ ul.missionsListExp li{
     }
 
 
-    .pi-arrow-circle-down,.pi-arrow-circle-up{
+    .pi-arrow-circle-down,.pi-arrow-circle-up, .arrowDownExp{
         font-size: 2rem;
         color: var(--secondColor);
         transition:0.4s ease-out all;
+        cursor:pointer;
     }
 
     .pi-arrow-circle-down:hover,.pi-arrow-circle-up:hover{
@@ -313,7 +318,7 @@ ul.missionsListExp li{
         padding-left: 100px;
     }
 
-    div.information.experienceInf{
+    .information.experienceInf{
         max-width:20vw;
     }
 
@@ -340,7 +345,7 @@ ul.missionsListExp li{
         justify-content: left;
     }
 
-    div.conteneurBox{
+    .conteneurBox{
 
         background-color:rgb(36, 36, 36);
         color: white;
