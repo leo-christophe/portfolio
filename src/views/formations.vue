@@ -195,6 +195,51 @@
 
 
 <style scoped>
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    #formationExperienceContainer {
+        flex-direction: column; /* Stack sections vertically */
+    }
+
+    .column {
+        width: 100%; /* Make the columns take full width on mobile */
+    }
+
+    .experience, .education {
+        margin-bottom: 20px; /* Add space between sections */
+    }
+
+    .conteneurBox {
+        width: 100%; /* Adjust the box width to fit the screen */
+    }
+
+    .information {
+        max-width: 100%; /* Ensure content fits on smaller screens */
+    }
+
+    div.information.experienceInf {
+        max-width: 100%; /* Same for experience content */
+    }
+
+    .imgExperienceContainer {
+        width: auto; /* Adjust image container on mobile */
+        margin: 0 auto; /* Center images on mobile */
+    }
+
+    .imgExperience {
+        width: 100%; /* Ensure the images resize correctly */
+    }
+
+    .expDesc {
+        max-width: 100%; /* Ensure experience description fits screen */
+    }
+
+    .downArrowExperienceContainer {
+        padding-left: 0; /* Align arrow correctly on mobile */
+    }
+}
+
+
 .expSkillsTitle, .expMissionsTitle{
     font-size: 1.2rem;
     font-weight:500;

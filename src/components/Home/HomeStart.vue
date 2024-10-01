@@ -31,10 +31,10 @@ function ToCV() {
 
             <div id="CTA" class="paragraphe">
                 <a :href="CVAdress" target="_blank">
-                    <Button id="blackVariant">{{ $t('message.viewCV') }}<i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
+                    <Button id="blackVariant">{{ $t('message.viewCV')+" " }} <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
                 </a>
                 <RouterLink to="/contact">
-                    <Button id="blackVariant">{{ $t('message.contact') }} <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
+                    <Button id="blackVariant">{{ $t('message.contact')+" " }} <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
                 </RouterLink>
             </div>
 
@@ -48,23 +48,23 @@ function ToCV() {
                     <span id="conteneurInterets">
                         <div class="textContainer">
                             <i class="pi pi-star"></i>
-                            <h3>Animes</h3>
+                            <h3>{{$t('message.animes')}}</h3>
                             <div>
-                                J'aime beaucoup les oeuvres d'animations japonaises. J'ai commencé à regarder des animes en 2016 et depuis, je suis devenu un grand fan de ce genre de contenu. Surtout les animes de type isekai ou comique comme Re:Zero.
+                                {{ $t('message.animesDescription') }}
                             </div>
                         </div>
                         <div class="textContainer">
                             <i class="pi pi-shield"></i>
-                            <h3>Jeux-Vidéo</h3>
+                            <h3>{{$t('message.videogames')}}</h3>
                             <div>
-                                J'aime beaucoup les jeux créatifs comme Minecraft. Jouant depuis près de 10 ans, le genre me plaît toujours autant en m'inspirant toujours autant.
+                                {{ $t('message.videogamesDescription') }}    
                             </div>
                         </div>
                         <div class="textContainer">
                             <i class="pi pi-apple"></i>
-                            <h3>Cuisine</h3>
+                            <h3>{{$t('message.cooking')}}</h3>
                             <div>
-                                J'adore cuisiner. Depuis mon plus jeune âge, j'ai toujours aimé la nourriture, alors pouvoir la confectionner avec mes propres touches est un vrai plaisir.
+                                {{ $t('message.cookingDescription') }}
                             </div>
                         </div>
                     </span>
@@ -114,36 +114,48 @@ function ToCV() {
     }
 
     #interets {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; /* Center the child elements horizontally */
-    margin: 0 auto; /* Center the entire interets section */
-    padding: 100px 0px; /* Adjust padding if necessary */
-    width:100vw;
-}
+        display: flex;
+        flex-wrap:wrap;
+        flex-direction: row;
+        justify-content: center; /* Center the child elements horizontally */
+        width:100%;
+        
+    }
 
-#conteneurInterets {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; /* Space between the items */
-    gap: 20px; /* Space between individual interest items */
-}
+    #conteneurInterets {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; /* Space between the items */
+        gap: 30px; /* Space between individual interest items */
+        width:35vw;
+        min-width:25%;
+        
+    }
 
-#conteneurInterets div.textContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center text inside the containers */
-    margin: 20px;
-    border: 2px solid var(--secondColor);
-    border-radius: 10%;
-    padding: 20px;
-    max-width: 200px;
-}
+    #conteneurInterets div.textContainer {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center; /* Center text inside the containers */
+        margin: 20px 0px 20px 0px;
+        border: 2px solid var(--secondColor);
+        border-radius: 10%;
+        padding: 20px;
+        max-width: 200px;
+        min-width:150px;
+        text-align:center;
 
-#conteneurInterets div div {
-    font-size: 0.8rem;
-    text-align: center; /* Center the text inside the description */
-}
+        i{
+            text-align: center;
+            margin-bottom:50px;
+            font-size:5rem;
+        }
+    }
+
+    #conteneurInterets div div {
+        font-size: 0.8rem;
+        text-align: justify; /* Center the text inside the description */
+    }
 
 
 
@@ -192,7 +204,6 @@ function ToCV() {
     }
 
     i{
-        padding-left:20px;
         justify-content: center;
     }
 

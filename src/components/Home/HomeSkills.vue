@@ -189,7 +189,8 @@ span#contactRef{
 /* Descriptions des sections */
 div#softSkillsDescription, div#hardSkillsDescription {
   max-width: 500px; /* Ensure descriptions fit within the container */
-  min-width:400px;
+  width:45vw;
+  min-width:250px;
 }
 
 
@@ -197,6 +198,7 @@ div#softSkillsDescription, div#hardSkillsDescription {
 
 #referencesContainer {
   margin-top: 20px; /* Space between soft skills and references */
+  min-width:fit-content;
 }
 
 .references-title {

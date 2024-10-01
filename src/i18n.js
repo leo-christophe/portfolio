@@ -11,8 +11,18 @@ const messages = {
       subtitle2: 'Based in Annecy, France',
       aboutTitle: 'About Me',
       aboutText: `A passionate Computer Science student at BUT with over 5 years of programming experience. I’ve honed my skills through various personal and professional projects. Enthusiastic about anime, video games, and cooking, I bring creativity and dedication to everything I do.`,
-      viewCV: 'Resume',
-      contact: 'Contact me',
+      viewCV: 'Resume ',
+      contact: 'Contact me ',
+      interestsTitle: 'My Interests',
+      interestsDescription: 'What I enjoy doing outside of programming',
+      
+      animes: 'Anime',
+      animesDescription: "I really enjoy Japanese animated works. I started watching anime in 2016, and since then, I’ve become a big fan of this type of content, especially isekai or comedic anime like Re:Zero.",
+      videogames: 'Video Games',
+      videogamesDescription: "I really like creative games like Minecraft. I've been playing for nearly 10 years, and I still enjoy the genre as it continues to inspire me.",
+      cooking: 'Cooking',
+      cookingDescription: "I love cooking. From a young age, I've always enjoyed food, so being able to prepare it with my own personal touches is a real pleasure.",
+
 
       // HomeSkills
       skillsTitle: 'Hard skills',
@@ -35,7 +45,6 @@ const messages = {
       // Contact
       contactTitle: 'Contact Me',
       subtitle: 'Got a job offer? Want to share your thoughts?',
-      contactTitle: 'Contact Me',
       nameLabel: 'Name',
       emailLabel: '*Email',
       example: "example",
@@ -128,7 +137,11 @@ const messages = {
       interestsDescription: 'Ce que j\'aime faire en dehors de l\'informatique',
 
       animes: 'Animés',
-      animesDescription: 'Je suis un grand fan d\'animés et de mangas. Mon préféré est Hunter x Hunter.',
+      animesDescription: "J\'aime beaucoup les oeuvres d'animations japonaises. J\'ai commencé à regarder des animes en 2016 et depuis, je suis devenu un grand fan de ce genre de contenu. Surtout les animes de type isekai ou comique comme Re:Zero.",
+      videogames: 'Jeux-Vidéo',
+      videogamesDescription: "J'aime beaucoup les jeux créatifs comme Minecraft. Jouant depuis près de 10 ans, le genre me plaît toujours autant en m'inspirant toujours.",
+      cooking: 'Cuisine',
+      cookingDescription:"J'adore cuisiner. Depuis mon plus jeune âge, j'ai toujours aimé la nourriture, alors pouvoir la confectionner avec mes propres touches est un vrai plaisir.",
 
       // HomeSkills
       skillsTitle: 'Compétences techniques',
@@ -150,7 +163,6 @@ const messages = {
       // Contact
       contactTitle: 'Contactez-moi',
       subtitle: "Vous avez une offre d\'emploi ? Vous voulez me faire part de vos remarques ?",
-      contactTitle: 'Contactez-moi',
       nameLabel: 'Nom',
       emailLabel: '*Email',
       example: "exemple",

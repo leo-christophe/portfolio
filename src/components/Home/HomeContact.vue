@@ -37,6 +37,15 @@ onMounted(() => {
 </template>
 
 <style scoped>
+embed{
+    max-width:40%;
+}
+
+div#CV{
+    max-width:40%;
+}
+
+
 #textCV{
     max-width:500px;
 }
