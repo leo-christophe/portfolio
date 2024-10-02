@@ -48,22 +48,25 @@ function ToCV() {
                     <span id="conteneurInterets">
                         <div class="textContainer">
                             <img src="/images/icons/manga.png">
-                            <h3>{{$t('message.animes')}}</h3>
+                            
                             <div>
+                                <h3>{{$t('message.animes')}}</h3>
                                 {{ $t('message.animesDescription') }}
                             </div>
                         </div>
                         <div class="textContainer">
                             <img src="/images/icons/game-controller.png">
-                            <h3>{{$t('message.videogames')}}</h3>
+                            
                             <div>
+                                <h3>{{$t('message.videogames')}}</h3>
                                 {{ $t('message.videogamesDescription') }}    
                             </div>
                         </div>
                         <div class="textContainer">
                             <img src="/images/icons/cooking-equipment.png">
-                            <h3>{{$t('message.cooking')}}</h3>
+                            
                             <div>
+                                <h3>{{$t('message.cooking')}}</h3>
                                 {{ $t('message.cookingDescription') }}
                             </div>
                         </div>
@@ -101,13 +104,36 @@ function ToCV() {
         }
 
         div#text.paragraphe{
-            width:50vw;
+            width:100vw;
             margin-right:0px;
             padding-right:100px;
         }
 
         span#conteneurInterets{
             flex-direction: column;
+            padding:0;
+            margin:0;
+        }
+
+        div#interets.paragraphe{
+            margin:0;
+            padding:0;
+        }
+
+        span#conteneurInterets div.textContainer{
+            flex-direction: row;
+            max-width:80vw;
+            min-width:50%;
+            width:80vw;
+
+            img{
+                width:50px;
+            }
+        }
+
+        div#textCV{
+            max-width:none;
+            min-width:auto;
         }
     }
 
@@ -159,6 +185,10 @@ function ToCV() {
     #conteneurInterets div div {
         font-size: 0.8rem;
         text-align: justify; /* Center the text inside the description */
+
+        h3{
+            text-align: center;
+        }
     }
 
 

@@ -37,6 +37,19 @@ onMounted(() => {
 </template>
 
 <style scoped>
+@media (max-width:860px) {
+    div#contactSection div#CV{
+        margin:0;
+        padding:0;
+        max-width:100vw;
+        min-width:auto;
+    }
+
+    #contactSection{
+        flex-direction: column;
+    }
+}
+
 embed{
     max-width:40%;
 }

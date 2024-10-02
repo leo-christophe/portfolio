@@ -41,14 +41,14 @@
       zoomOutMobile();
     }
 
-    const apiKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
-    const script = document.createElement('script');
-    script.src = `https://www.google.com/recaptcha/api.js?render=${apiKey}`;
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
-
-    script.onload = () => {
+    const apiKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;                                         
+    const script = document.createElement('script');                                         
+    script.src = `https://www.google.com/recaptcha/api.js?render=${apiKey}`;                                         
+    script.async = true;                                 
+    script.defer = true;                              
+    document.head.appendChild(script);                                         
+                                         
+    script.onload = () => {                                         
       // console.log("reCAPTCHA script loaded successfully");
       // You can now call any reCAPTCHA-related functions here, if needed
     };

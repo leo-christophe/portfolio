@@ -12,6 +12,8 @@ export default {
             data = dataEN;
         } else if (lang === 'fr') {
             data = dataFR;
+        } else {
+            data = dataFR;
         }
 
         // Ajouter les données à l'instance globale

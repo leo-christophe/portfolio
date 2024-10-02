@@ -1,11 +1,9 @@
 
 import { useNavigatorLanguage } from '@vueuse/core'
 import { useI18n } from 'vue-i18n';  // Importer l'API i18n
-import data_fr from '../data/data_fr.json'
-import data_en from '../data/data_en.json'
 
 export function traductionSetup() {
-    const storedLang = localStorage.getItem('lang');
+    let storedLang = localStorage.getItem('lang');
     const { language } = useNavigatorLanguage();
     const { locale } = useI18n();
 
@@ -13,9 +11,16 @@ export function traductionSetup() {
     setTimeout(() => {
         const urlLang = getLangFromUrl();  // Get lang from URL if present
         
+        if (storedLang == null){
+            storedLang = 'en'
+        }
+
         // Priority order: 1. URL lang, 2. stored lang, 3. browser lang
         const currentLang = storedLang  || language.value || urlLang;
 
+        if (currentLang == null){
+            currentLang = locale
+        }
         // Set the locale based on the prioritized language
         locale.value = currentLang;
 
