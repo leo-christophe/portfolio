@@ -1,3 +1,34 @@
+:root{
+  --mobileWidth:860px;
+  --laptopWidth:1470px;
+  --desktopWidth:1920px;
+
+  --basicBackground-color: #242424;
+  --darkBackground-color:black;
+  --secondColor: rgb(159, 229, 227);
+
+  --home-background-color1:rgb(33, 33, 33);
+  --home-background-color2:rgb(30, 30, 30);
+  --home-background-color3:rgb(21, 21, 21);
+
+  --experience_mission_background: #1a1a1a;
+
+  --textBasicColor: white;
+  --textSecondaryColor: lightgray;
+  --textTertiaryColor: var(--cyan-50);
+  --textQuaternaryColor: #cfcfcf;
+  --textImportant: #ff4040;
+  --textImportantHover: #f21d1d;
+  
+  --buttonShadow: rgb(34, 34, 34);
+
+  --skillDevColor: rgb(10, 106, 116);
+  --skillOtherColor: rgb(74, 189, 185);
+
+  --IconSize: 1.5rem;
+  --HeaderSize: 2.5rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -21,11 +52,7 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media screen and (max-width:846px) {
-  .p-toast{
-    width: 40vw !important;
-  }
-}
+
 
 a {
   font-weight: 500;
@@ -82,6 +109,11 @@ button#blackVariant, button#greenValid {
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
+
+  i{
+    margin:2px 0 0 15px;
+    
+  }
 }
 
 
@@ -152,29 +184,6 @@ button[autofocus] {
   visibility: collapse;
 }
 
-:root{
-  --basicBackground-color: #242424;
-  --darkBackground-color:black;
-  --secondColor: rgb(159, 229, 227);
-
-  --home-background-color1:rgb(33, 33, 33);
-  --home-background-color2:rgb(30, 30, 30);
-  --home-background-color3:rgb(21, 21, 21);
-
-  --experience_mission_background: #1a1a1a;
-
-  --textBasicColor: white;
-  --textSecondaryColor: lightgray;
-  --textTertiaryColor: var(--cyan-50);
-  --textQuaternaryColor: #cfcfcf;
-  --textImportant: #ff4040;
-  --textImportantHover: #f21d1d;
-  
-  --buttonShadow: rgb(34, 34, 34);
-
-  
-}
-
 .p-timeline-event {
     min-height: var(--p-timeline-event-min-height); /* Apply design token */
 }
@@ -203,7 +212,7 @@ button[autofocus] {
   }
   
   h2 {
-    font-size: 3.5rem !important;
+    font-size: 3rem !important;
     line-height: 1.1 !important;
   }
   
@@ -221,6 +230,23 @@ button[autofocus] {
     font-size: 1.7rem !important;
     line-height: 1.1 !important;
     font-weight:bold !important;
+  }
+
+  .p-toast{
+    width: 40vw !important;
+  }
+
+  Button,button{
+    font-size: 2rem !important;
+
+    i{
+      font-size: 2rem !important;
+    }
+  }
+  
+  :root{
+    --IconSize: 2rem;
+    --HeaderSize: 3rem !important;
   }
 }
 

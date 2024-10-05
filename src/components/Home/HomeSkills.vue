@@ -58,9 +58,7 @@
     <span id="hardSkillsContainer">
       <div id="hardSkillsDescription">
         <h2 id="competencesTitre" class="typeCompetenceTitre">{{ $t('message.skillsTitle') }}</h2>
-        <span>
-          <p class="skillSectionDescription">{{ $t('message.hardskillsDescription') }}</p>
-        </span>
+        <p class="skillSectionDescription">{{ $t('message.hardskillsDescription') }}</p>
         <img class="banniereSkills" src="/images/home/hardskills_banniere.jpg"></img>
       </div>
       <div class="hard-skills">
@@ -69,7 +67,7 @@
           <div v-for="(skill, skillIndex) in category[Object.keys(category)[0]]" :key="skillIndex" class="skill-bar">
             <div class="skill-name">{{ Object.keys(skill)[0] }}</div>
             <div class="skill-level">
-              <div class="skill-percentage" v-skill-bar :data-skill="skill[Object.keys(skill)[0]]" :style="{ height: '10px' }"></div>
+              <div class="skill-percentage" :id="'skill-percentage-'+index" v-skill-bar :data-skill="skill[Object.keys(skill)[0]]" :style="{ height: '10px' }"></div>
             </div>
           </div>
         </div>
@@ -110,6 +108,67 @@
 </template>
 
 <style scoped>
+
+/* Media Queries for Responsiveness */
+@media (max-width: 860px) {
+  p.skillSectionDescription, div#hardSkillsDescription , div#softSkillsDescription  {
+    width:auto !important;
+    display:block !important;
+    max-width:100% !important;
+    min-width:auto !important;
+  }
+
+  div.hard-skills{
+    flex-direction: row;
+  }
+
+
+  span#softSkillsContainer, span#hardSkillsContainer {
+    flex-direction: column; /* Stack containers vertically */
+    min-width: auto !important;
+    width:100vw;
+  }
+
+  .hard-skills {
+    flex-direction: column; /* Stack skills vertically */
+  }
+
+  div.references-row {
+    flex-direction: row;
+    justify-content: space-between;
+    gap:10%;
+    min-width:100% !important;
+  }
+
+  div.reference{
+    width:40%;
+    min-width:40%;
+    max-width:50%;
+  }
+
+  .skill-level {
+    width: 100%; /* Full width for skill levels */
+  }
+
+  div.soft-skills{
+    max-width:100% !important;
+  }
+}
+
+@media (max-width:1470px) and (min-width: 860px) {
+  span#softSkillsContainer, span#hardSkillsContainer {
+    min-width:1200px;
+  }
+}
+
+#skill-percentage-0{
+  background-color: var(--skillDevColor);
+}
+
+#skill-percentage-1{
+  background-color: var(--skillOtherColor);
+}
+
 a[href^="mailto:"] {
   color: inherit;
   text-decoration: underline;
@@ -279,32 +338,5 @@ div#softSkillsDescription, div#hardSkillsDescription {
 
 .soft-skill:hover {
   transform: scale(1.1);
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 860px) {
-  #softSkillsContainer, #hardSkillsContainer {
-    flex-direction: column; /* Stack containers vertically */
-    margin: 20px; /* Adjust margin for smaller screens */
-    padding: 10px; /* Adjust padding for smaller screens */
-  }
-
-  .hard-skills {
-    flex-direction: column; /* Stack skills vertically */
-  }
-
-  .references-row {
-    flex-direction: column; /* Stack references vertically */
-  }
-
-  .reference {
-    margin-right: 0; /* Remove right margin */
-    margin-bottom: 10px; /* Add bottom margin for spacing */
-    min-width: 100%; /* Take full width on mobile */
-  }
-
-  .skill-level {
-    width: 100%; /* Full width for skill levels */
-  }
 }
 </style>

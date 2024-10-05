@@ -2,6 +2,7 @@
 import { CV_NAME_WEB, CV_NAME_WEB_EN } from '../../data/const.js';
 import { onMounted, ref } from 'vue';
 import { getLangFromUrl } from '../../utils/traduction.js';
+import Button from 'primevue/button';
 
 const WIDTH = "90%";
 const HEIGHT = "900px";
@@ -10,7 +11,7 @@ const RACINE = "/documents/";
 
 // Reactive reference for the CV address
 const CVAdress = ref(RACINE + CV_NAME_WEB + "#page=1&zoom=" + ZOOM);
-
+const windowWidth = ref(window.innerWidth);
 onMounted(() => {
     // Check language and set the appropriate CV address
     if (getLangFromUrl() != 'fr') {
@@ -24,30 +25,94 @@ onMounted(() => {
     <div class="CVsection">
         <div id="textCV">
             <h2 id="CVTitre">{{ $t('message.homeContactTitle') }}</h2>
-            <h3 id="SousTitre">{{ $t('message.homeContactDesc') }}</h3>
-            <div id="finalText" class="CVsection">
+            <h5 id="SousTitre">{{ $t('message.homeContactDesc') }}</h5>
+            <div id="finalText" class="CVsection computer">
                 <h4>{{ $t('message.CTA1') }}<RouterLink to="/contact">{{ $t('message.CTA2') }}</RouterLink>{{ $t('message.CTA3')}}</h4>
             </div>
+
+            <!-- <span id="buttons">
+                <Button id="blackVariant">Télécharger le CV</Button>
+                <Button id="blackVariant">Consulter le CV</Button>
+            </span> -->
         </div>
 
         <div id="CV">
             <embed :src="CVAdress" type="application/pdf" :width="WIDTH" :height="HEIGHT" />
         </div>
+
+        <div id="finalText" class="CVsection mobile">
+            <h4>{{ $t('message.CTA1') }}<RouterLink to="/contact">{{ $t('message.CTA2') }}</RouterLink>{{ $t('message.CTA3')}}</h4>
+        </div>
     </div>
 </template>
 
 <style scoped>
+
+@media (max-width:1470px) and (min-width: 860px) {
+  span#softSkillsContainer, span#hardSkillsContainer {
+    min-width:1200px;
+  }
+}
+
 @media (max-width:860px) {
+    .computer{
+        display: none !important;
+    }
+
+    .mobile{
+        display: block !important;
+    }
+
     div#contactSection div#CV{
-        margin:0;
+        min-width: auto;
+        max-width: 100%;
+        width:100vw;
+        margin: 0;
         padding:0;
-        max-width:100vw;
-        min-width:auto;
+
+        embed{
+            width:100%;
+            height: 100%;
+            max-width:none;
+            zoom:120%;
+        }
     }
 
     #contactSection{
         flex-direction: column;
     }
+
+    .CVsection #SousTitre {
+        width:90vw;
+    }
+    div div#finalText.CVsection{
+        width:80vw;
+        margin:0 10vw 0 10vw;
+    
+    }   
+
+    #buttons{
+        flex-direction: column;
+        justify-content: center;
+        gap:20px;
+        width:100vw;
+    }
+}
+
+#buttons{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 50px 0;
+}
+
+.computer{
+        display: block !important;
+    }
+
+.mobile{
+    display: none !important;
 }
 
 embed{
@@ -72,13 +137,12 @@ div#CV{
 
 .CVsection #SousTitre {
     margin: 0 25px 50px 25px;
-    font-size: 1.2em;
-    font-weight: 400;
+
 }
 
 .CVsection h4 {
     text-align: center;
-    margin: 100px 0;
+    margin: 100px 25px;
 }
 
 #CVTitre {
@@ -89,13 +153,11 @@ div#CV{
     display: flex;
     justify-content: center;
     height: 100vh;
-    min-width:1000px;
-}
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.4);
 
-/* Adjust iframe styling */
-iframe {
-    border: none; /* Removes iframe border */
-    max-width: 100%; /* Ensures the iframe doesn't exceed its container */
-    height: 100%; /* Makes sure it scales properly */
+    embed{
+        width:100vw;
+        max-width: 50vw;
+    }
 }
 </style>

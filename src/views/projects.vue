@@ -149,7 +149,7 @@ const filteredProjects = computed(() => {
 });
 
   if (filteredByDate.length === 0) {
-    alert(t('message.projectsNotFound'))
+    //alert(t('message.projectsNotFound'))
     return data.projects
   }
 

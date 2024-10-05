@@ -53,8 +53,8 @@
             <li class="footerURLLink">
                 <div>
                     <!-- Language switch button -->
-                    <a v-if="boolLang" @click="switchLanguage('fr')" :style="{ color: COULEUR_MENU_SELECTIONNE }"> {{ $t('message.changeLang') }} </a>
-                    <a v-else @click="switchLanguage('en')" :style="{ color: COULEUR_MENU_SELECTIONNE }"> {{ $t('message.changeLang') }} </a>
+                    <a v-if="boolLang" id="switchLanguageFooter" @click="switchLanguage('fr')" :style="{ color: COULEUR_MENU_SELECTIONNE }"> {{ $t('message.changeLang') }} </a>
+                    <a v-else id="switchLanguageFooter"  @click="switchLanguage('en')" :style="{ color: COULEUR_MENU_SELECTIONNE }"> {{ $t('message.changeLang') }} </a>
                 </div>
             </li>
         </ul>

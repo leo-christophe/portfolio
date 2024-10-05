@@ -113,6 +113,7 @@ const messages = {
       experience: 'Experience',
       education: 'Career Path',
       hobbies: 'Hobbies',
+      translateHeaderDesc: "Switch to French",
 
       // Footer
       personalData: 'Personal Data',
@@ -120,6 +121,18 @@ const messages = {
       readCV: 'Consult my CV',
       changeLang: 'Switch to french',
       name: 'Leo CHRISTOPHE',
+
+      // Donnees
+      etesVousSur: "Are you sure you want to delete all your data?",
+      infoData: "No data",
+      deletedData: "Deleted data",
+      succesToast: "Your data has been successfully deleted.",
+      infoToast: "You have no data to delete.",
+
+      donneesTitle: "Your data",
+      donneesDisclaimer: "Your data stored on the browser is purely for ergonomic or translation purposes. They are not used for commercial or tracking purposes.",
+      donneesDisclaimer2: "You can delete optional (ergonomic) data at any time by clicking the button below.",
+      donneesBtnSupp: "Delete my data",
     }
   },
   fr: {
@@ -230,6 +243,7 @@ const messages = {
       experience: 'Experience',
       education: 'Parcours',
       hobbies: 'Hobbies',
+      translateHeaderDesc: "Passer en anglais",
 
       // Footer
       personalData: 'Données personnelles',
@@ -237,6 +251,18 @@ const messages = {
       readCV: 'Consulter mon CV',
       changeLang: 'Changer en anglais',
       name: 'Léo CHRISTOPHE',
+
+      // Donnees
+      etesVousSur: "Êtes-vous sûr de vouloir supprimer toutes vos données ?",
+      infoData: "Aucune donnée",
+      deletedData: "Données supprimées",
+      succesToast: "Vos données ont été supprimé avec succès.",
+      infoToast: "Vous n\'avez aucune donnée à supprimer.",
+
+      donneesTitle: "Vos données",
+      donneesDisclaimer: "Vos données stockées sur le navigateur ont un but purement ergonomique ou de traduction. Elles ne sont pas utilisées à des fins commerciales ou de tracking.",
+      donneesDisclaimer2: "Vous pouvez effacer les données facultatives (ergonomiques) à tous moments en cliquant sur le bouton ci-dessous.",
+      donneesBtnSupp:  "Supprimer mes données",
     }
   }
 };

@@ -40,10 +40,14 @@ function ToCV() {
 
             
         </div>
+
+        <div id="interetsSection">
+
+        <h2 id="titreAProposI">{{ $t('message.interestsTitle') }}</h2>
+        <h5 id="paragrapheAProposI">{{ $t('message.interestsDescription') }}</h5>
+
         <div class="paragraphe" id="interets" style="display:flex;">
                 <div>
-                    <h2 id="titreAProposI">{{ $t('message.interestsTitle') }}</h2>
-                    <h5 id="paragrapheAProposI">{{ $t('message.interestsDescription') }}</h5>
 
                     <span id="conteneurInterets">
                         <div class="textContainer">
@@ -73,6 +77,7 @@ function ToCV() {
                     </span>
                 </div>
             </div>
+        </div>
         <div id="video_container">
             <!-- Vidéo background -->
         </div>
@@ -106,6 +111,16 @@ function ToCV() {
             padding: 0 100px 0 100px;
         }
 
+        div#interetsSection{
+            justify-content: left;
+            margin:120vh 0 0 0;
+        }
+
+        div#interets{
+            justify-content: center;
+            align-items: center;
+        }
+
         span#conteneurInterets{
             flex-direction: column;
             padding:0;
@@ -119,11 +134,18 @@ function ToCV() {
             
         }
 
-        span#conteneurInterets div.textContainer{
+        span#conteneurInterets {
+            margin-top:30px;
+            gap:20px;
+
+            div.textContainer{
             display:block;
             max-width:80vw;
             min-width:50%;
-            width:80vw;
+            min-height: min-content;
+            max-height:20vh;
+            
+            width:auto;
             justify-content:center;
             margin: 0 auto;
             text-align: center;
@@ -132,11 +154,7 @@ function ToCV() {
                 width:100px;
             }
         }
-
-        h2#titreAProposI, h4#paragrapheAProposI{
-            margin-left:100px;
-            
-        }
+    }
 
         div#CTA.paragraphe {
             flex-direction: row;
@@ -162,6 +180,31 @@ function ToCV() {
         }
     }
 
+    #conteneurInterets img {
+        width: 10em; /* Taille des icônes */
+        margin-bottom: 15px; /* Space between icon and text */
+        align-self: center; /* Align icons to the top */
+    }
+
+    #interetsSection{
+        border:1px solid black;
+        background-color:var(--home-background-color3);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.4);
+        border-radius: 20px;
+
+        display:flex;
+        flex-direction:column;
+        justify-content:left;
+        margin-top:60vh;
+        position:relative;
+        z-index: 10;
+        width:90vw;
+        margin-left:5vw;
+        min-width:min-content;
+    }
+
+    
+
     #interets {
         display: flex;
         flex-wrap:wrap;
@@ -169,47 +212,43 @@ function ToCV() {
         justify-content: center; /* Center the child elements horizontally */
         width:100%;
         
+        
     }
 
     #conteneurInterets {
         display: flex;
         flex-direction: row;
-        justify-content: space-between; /* Space between the items */
-        gap: 30px; /* Space between individual interest items */
-        width:35vw;
-        min-width:500px;
-        
+        justify-content:center;
+        gap: 5%; /* Space between individual interest items */
+        width: 100%;
     }
 
     #conteneurInterets div.textContainer {
         display: flex;
-        justify-content: center;
         flex-direction: column;
-        align-items: center; /* Center text inside the containers */
-        margin: 20px 0px 20px 0px;
+        justify-content: flex-start; /* Align content to the top */
+        align-items: center;
+        margin: 20px 0;
         border: 2px solid var(--secondColor);
         border-radius: 10%;
         padding: 20px;
-        max-width: 30vw;
-        min-width:12rem;
-        text-align:center;
-
-        img{
-            text-align: center;
-            margin-bottom:50px;
-            width:80%;
-        }
+        max-width: 20%;
+        min-width: 15rem;
+        min-height: 350px; /* Ensure a minimum height for consistent size */
+        text-align: center;
     }
+
+
 
     #conteneurInterets div div {
         font-size: 0.8rem;
-        text-align: justify; /* Center the text inside the description */
-
-        h3{
-            text-align: center;
-        }
+        text-align: justify; /* Align text inside the description */
     }
 
+    #conteneurInterets h3 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
 
 
     #texteParagrapheDroiteContainer {
@@ -342,10 +381,8 @@ function ToCV() {
         width:50vw;
     }
     
-
-    #titreAPropos{
-        font-size: 2em;
-        color:white;
+    #titreAProposI, #paragrapheAProposI{
+        margin-left:30px;
     }
 
     #paragrapheAPropos{

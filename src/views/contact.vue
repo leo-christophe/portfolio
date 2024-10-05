@@ -234,6 +234,23 @@ const copyToClipboard = async (text) => {
 
 <style scoped>
   @media screen and (max-width: 860px) {
+    #carteContainer {
+      width: 100%;
+      height:auto !important;
+    }
+
+    p.e-mail_adress{
+      font-size: 2rem !important;
+    }
+
+    p,label,::placeholder,input{
+      font-size: 1.5rem !important;
+    }
+
+    small{
+      font-size: 1rem !important;
+    }
+
     div#content{
       display: flex;
       flex-direction: column;
@@ -241,6 +258,11 @@ const copyToClipboard = async (text) => {
       flex-wrap: wrap;
       min-height: 100vh; /* Prendre toute la hauteur */
       max-width:860px;
+    }
+
+    .pi-clone{
+      transform:scale(1.5);
+      height:min-content;
     }
 
     .ContactSquare{

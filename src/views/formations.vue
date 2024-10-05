@@ -244,6 +244,12 @@
 }
 
 
+@media (max-width:1450px) and (min-width:860px){
+    #formationExperienceContainer{
+        flex-direction:column !important;
+    }
+}
+
 .expSkillsTitle, .expMissionsTitle{
     font-size: 1.2rem;
     font-weight:500;

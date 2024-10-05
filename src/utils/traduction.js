@@ -1,7 +1,13 @@
 import { useNavigatorLanguage } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';  // Importer l'API i18n
 
+/**
+ * @function traductionSetup
+ * @description Configure la traduction de la page en fonction de la langue de l'utilisateur
+ * @returns {string} Le langage actuel de la page
+ */
 export function traductionSetup() {
+    
     let storedLang = localStorage.getItem('lang');
     const { language } = useNavigatorLanguage();
     const { locale } = useI18n();
@@ -20,8 +26,6 @@ export function traductionSetup() {
         // Set the locale based on the prioritized language
         locale.value = currentLang;
 
-        console.log("Localstorage: ", storedLang, "Navigator: ", language.value, "URL: ", urlLang, "Current: ", currentLang);
-
         // Update stored language and URL accordingly
         localStorage.setItem('lang', currentLang);
         updateUrlLang(currentLang);  // Make sure URL reflects the current language
@@ -33,6 +37,11 @@ export function traductionSetup() {
     }, 0);  // Run after the rest of the setup has completed
 }
 
+/**
+ * @function getLangFromUrl
+ * @description Extrait le langage de l'URL de la page actuelle (si présent)
+ * @returns {string} Le langage extrait de l'URL
+ */
 export function getLangFromUrl() {
     try {
         const params = new URLSearchParams(window.location.search);
@@ -44,12 +53,22 @@ export function getLangFromUrl() {
     }
 }
 
+/**
+ * @function updateUrlLang
+ * @description Met à jour le paramètre "lang" de l'URL actuelle sans recharger la page
+ * @param {string} lang 
+ */
 export function updateUrlLang(lang) {
     const url = new URL(window.location.href);  // Get the current URL
     url.searchParams.set('lang', lang);  // Set the "lang" parameter
     window.history.pushState({}, '', url);  // Update the URL without reloading the page
 }
 
+/**
+ * @function changeLang
+ * @description Change le langage de la page actuelle et met à jour le stockage local
+ * @param {string} lang Les deux premières lettres du langage à mettre à jour 
+ */
 export function changeLang(lang) {
     localStorage.setItem('lang', lang);
     document.documentElement.lang = lang;

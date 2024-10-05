@@ -163,7 +163,7 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
     justify-content: center;
     align-self: center;
     align-items: center;
-
+    margin:0;
     position:relative;
     width:100%;
   }
@@ -171,6 +171,21 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
   div#descContainer{
     width:85vw;
   }
+
+  #realisations{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  width:100vw;
+
+  .ListeDescendante{
+    padding:20px;
+    width:80vw !important;
+    font-size:1rem !important;
+  }
+}
 }
 
 #realisations{
