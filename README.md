@@ -10,4 +10,4 @@ Concepts clés
 - Contacts: Formulaire de contact connecté à EmailJS + vérification recaptcha V3 (en fond). Possibilité de copier coller les informations de contact ou d'identifier la ville
 - Optimisation du code.
 
-Dernière MAJ: 30/09/2024
+Dernière MAJ: 05/10/2024
