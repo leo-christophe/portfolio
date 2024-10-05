@@ -15,8 +15,8 @@ function ToCV() {
     <div id="welcome">
         <div id="text" class="paragraphe">  
             <h1 class="outlined-text" id="titre">{{ $t('message.homeTitle') }}</h1>
-            <h2 class="outlined-text text_line" id="soustitre1">{{ $t('message.subtitle1') }}</h2>
-            <h3 class="outlined-text text_line" id="soustitre2">{{ $t('message.subtitle2') }}</h3>
+            <h3 class="outlined-text text_line" id="soustitre1">{{ $t('message.subtitle1') }}</h3>
+            <h4 class="outlined-text text_line" id="soustitre2">{{ $t('message.subtitle2') }}</h4>
 
             <i id="flecheNext1" class="pi pi-arrow-down" @click="ToCV()"></i>
         </div>
@@ -42,8 +42,8 @@ function ToCV() {
         </div>
         <div class="paragraphe" id="interets" style="display:flex;">
                 <div>
-                    <h2 id="titreAPropos">{{ $t('message.interestsTitle') }}</h2>
-                    <h4 id="paragrapheAPropos">{{ $t('message.interestsDescription') }}</h4>
+                    <h2 id="titreAProposI">{{ $t('message.interestsTitle') }}</h2>
+                    <h5 id="paragrapheAProposI">{{ $t('message.interestsDescription') }}</h5>
 
                     <span id="conteneurInterets">
                         <div class="textContainer">
@@ -89,9 +89,6 @@ function ToCV() {
             display:none;
         }
 
-        #CTA button{
-            right:1vw;
-        }
         
         div#CTA.paragraphe{
             display:flex;
@@ -105,35 +102,57 @@ function ToCV() {
 
         div#text.paragraphe{
             width:100vw;
-            margin-right:0px;
-            padding-right:100px;
+            margin:0;
+            padding: 0 100px 0 100px;
         }
 
         span#conteneurInterets{
             flex-direction: column;
             padding:0;
             margin:0;
+            width:100vw;
         }
 
         div#interets.paragraphe{
             margin:0;
             padding:0;
+            
         }
 
         span#conteneurInterets div.textContainer{
-            flex-direction: row;
+            display:block;
             max-width:80vw;
             min-width:50%;
             width:80vw;
+            justify-content:center;
+            margin: 0 auto;
+            text-align: center;
 
             img{
-                width:50px;
+                width:100px;
             }
         }
+
+        h2#titreAProposI, h4#paragrapheAProposI{
+            margin-left:100px;
+            
+        }
+
+        div#CTA.paragraphe {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        
 
         div#textCV{
             max-width:none;
             min-width:auto;
+        }
+
+        div#partieDroite{
+            width:100vw;
+            margin-right:0px;
+            padding-right:0px;
         }
     }
 

@@ -1,5 +1,4 @@
-
-import { useNavigatorLanguage } from '@vueuse/core'
+import { useNavigatorLanguage } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';  // Importer l'API i18n
 
 export function traductionSetup() {
@@ -11,18 +10,17 @@ export function traductionSetup() {
     setTimeout(() => {
         const urlLang = getLangFromUrl();  // Get lang from URL if present
         
-        if (storedLang == null){
-            storedLang = 'en'
+        if (!storedLang) {
+            storedLang = 'en';
         }
 
-        // Priority order: 1. URL lang, 2. stored lang, 3. browser lang
-        const currentLang = storedLang  || language.value || urlLang;
+        // Get only the two-letter language code (fr instead of fr-FR)
+        const currentLang = (urlLang || storedLang || language.value).substring(0, 2);
 
-        if (currentLang == null){
-            currentLang = locale
-        }
         // Set the locale based on the prioritized language
         locale.value = currentLang;
+
+        console.log("Localstorage: ", storedLang, "Navigator: ", language.value, "URL: ", urlLang, "Current: ", currentLang);
 
         // Update stored language and URL accordingly
         localStorage.setItem('lang', currentLang);
@@ -31,29 +29,25 @@ export function traductionSetup() {
         // Ensure the language is changed globally
         changeLang(currentLang);
 
-       
-
         return currentLang;
     }, 0);  // Run after the rest of the setup has completed
 }
 
-
-
 export function getLangFromUrl() {
     try {
         const params = new URLSearchParams(window.location.search);
-        return params.get('lang') || 'fr';  // Return null if no lang parameter
+        const lang = params.get('lang');
+        return lang ? lang.substring(0, 2) : 'fr';  // Extract base lang (e.g., "fr" from "fr-FR")
     } catch (error) {
         console.error('Error parsing URL parameters:', error);
         return null;  // Fallback to null if there's any error
     }
 }
 
-
 export function updateUrlLang(lang) {
-    const url = new URL(window.location.href); // Récupérer l'URL actuelle
-    url.searchParams.set('lang', lang); // Modifier le paramètre "lang"
-    window.history.pushState({}, '', url); // Mettre à jour l'URL sans recharger la page
+    const url = new URL(window.location.href);  // Get the current URL
+    url.searchParams.set('lang', lang);  // Set the "lang" parameter
+    window.history.pushState({}, '', url);  // Update the URL without reloading the page
 }
 
 export function changeLang(lang) {
