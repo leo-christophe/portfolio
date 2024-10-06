@@ -7,14 +7,18 @@ import { changeLang } from '../utils/traduction.js';
 
 const { t, locale } = useI18n(); // Accès à la fonction de traduction
 
-const items = [
+const items = ref([
   { label: t('message.home'), route: '/', icon: 'pi pi-home' },
   { label: t('message.education'), route: '/formations', icon: 'pi pi-book' },
   //{ label: t('message.experience'), route: '/experience', icon: 'pi pi-briefcase' },
   { label: t('message.projects'), route: '/projects', icon: 'pi pi-folder' },
   { label: t('message.contact'), route: '/contact', icon: 'pi pi-envelope' }
-];
+]);
 
+onMounted(() => {
+  // Update the language of the page
+   changeLang(localstorage.getItem('lang') || 'en');
+});
 
 function switchPageLang() {
     const lang = locale.value === 'en' ? 'fr' : 'en'

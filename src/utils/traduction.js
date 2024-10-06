@@ -4,38 +4,39 @@ import { useI18n } from 'vue-i18n';  // Importer l'API i18n
 /**
  * @function traductionSetup
  * @description Configure la traduction de la page en fonction de la langue de l'utilisateur
- * @returns {string} Le langage actuel de la page
+ * @resolve {string} La langue actuelle de la page
  */
 export function traductionSetup() {
-    
-    let storedLang = localStorage.getItem('lang');
-    const { language } = useNavigatorLanguage();
-    const { locale } = useI18n();
+    return new Promise((resolve, reject) => {
+        let storedLang = localStorage.getItem('lang');
+        const { language } = useNavigatorLanguage();
+        const { locale } = useI18n();
 
-    // Wait for URL lang to be available (for safety) by using setTimeout
-    setTimeout(() => {
-        const urlLang = getLangFromUrl();  // Get lang from URL if present
-        
-        if (!storedLang) {
-            storedLang = 'en';
-        }
+        // Get lang from URL if present
+        const urlLang = getLangFromUrl();  
 
         // Get only the two-letter language code (fr instead of fr-FR)
-        const currentLang = (urlLang || storedLang || language.value).substring(0, 2);
+        const currentLang = (storedLang || urlLang || language.value).substring(0, 2);
+
+        if (currentLang != undefined || currentLang != null) {
+            // Update stored language and URL accordingly
+            localStorage.setItem('lang', currentLang);
+            updateUrlLang(currentLang);  // Ensure URL reflects the current language
+        } else {
+            reject('Erreur lors de la configuration de la langue dans le localStorage');
+        }
 
         // Set the locale based on the prioritized language
         locale.value = currentLang;
-
-        // Update stored language and URL accordingly
-        localStorage.setItem('lang', currentLang);
-        updateUrlLang(currentLang);  // Make sure URL reflects the current language
-
+        
         // Ensure the language is changed globally
         changeLang(currentLang);
 
-        return currentLang;
-    }, 0);  // Run after the rest of the setup has completed
+        // Resolve the promise with the current language
+        resolve(currentLang); 
+    });
 }
+
 
 /**
  * @function getLangFromUrl
@@ -61,7 +62,7 @@ export function getLangFromUrl() {
 export function updateUrlLang(lang) {
     const url = new URL(window.location.href);  // Get the current URL
     url.searchParams.set('lang', lang);  // Set the "lang" parameter
-    window.history.pushState({}, '', url);  // Update the URL without reloading the page
+    window.history.pushState({}, '', url.href);  // Update the URL without reloading the page
 }
 
 /**
