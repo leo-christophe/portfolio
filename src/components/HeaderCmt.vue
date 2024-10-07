@@ -13,11 +13,11 @@ const items = ref([
   //{ label: t('message.experience'), route: '/experience', icon: 'pi pi-briefcase' },
   { label: t('message.projects'), route: '/projects', icon: 'pi pi-folder' },
   { label: t('message.contact'), route: '/contact', icon: 'pi pi-envelope' }
-]);
+]);  
 
 onMounted(() => {
   // Update the language of the page
-   changeLang(localstorage.getItem('lang') || 'en');
+   changeLang(localStorage.getItem('lang') || 'en');
 });
 
 function switchPageLang() {

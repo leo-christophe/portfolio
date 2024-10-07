@@ -130,7 +130,7 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
         <thead>
           <tr>
             <!-- En-têtes des colonnes pour chaque type de compétence -->
-            <th v-for="(value, key) in data.projects[props.id].competences" :key="'header-' + key">
+            <th v-for="(value, key) in data.projects[props.id].competences" :key="'header-' + key" class="ligneHeader">
               {{ key }}
             </th>
           </tr>
@@ -139,7 +139,7 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
         <!-- Affichage des compétences ligne par ligne -->
         <tr v-for="rowIndex in getMaxRows(data.projects[props.id].competences)" :key="'row-' + rowIndex">
             
-            <td v-for="(value, key) in data.projects[props.id].competences" :key="'data-' + key + '-' + rowIndex">
+            <td v-for="(value, key) in data.projects[props.id].competences" :key="'data-' + key + '-' + rowIndex" :class="rowIndex%2==0?'lignePaire':'ligneImpaire'">
 
                 <!-- Si l'index existe dans la colonne, affiche la valeur, sinon un champ vide -->
                 <span v-if="value[rowIndex-1]">{{ value[rowIndex-1]  }}</span>
@@ -186,6 +186,19 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
     font-size:1rem !important;
   }
 }
+}
+
+.lignePaire{
+  background-color:var(--listPaire) !important;
+}
+
+.ligneImpaire{
+  background-color:var(--listImpaire) !important;
+}
+
+.ligneHeader{
+  background-color:var(--listHeader) !important;
+  line-height: 3;
 }
 
 #realisations{

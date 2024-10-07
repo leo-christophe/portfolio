@@ -7,7 +7,7 @@ const messages = {
     message: {
       hello: 'Hello world',
       homeTitle: 'Léo CHRISTOPHE',
-      subtitle1: '3rd year computer science student',
+      subtitle1: '3rd year bachelor computer science student',
       subtitle2: 'Based in Annecy, France',
       aboutTitle: 'About Me',
       aboutText: `A passionate Computer Science student at BUT with over 5 years of programming experience. I’ve honed my skills through various personal and professional projects. Enthusiastic about anime, video games, and cooking, I bring creativity and dedication to everything I do.`,
@@ -143,7 +143,7 @@ const messages = {
       subtitle1: 'Étudiant en 3ème année de BUT Informatique',
       subtitle2: 'Localisé à Annecy, France',
       aboutTitle: 'À propos de moi',
-      aboutText: `Étudiant en informatique à BUT, passionné de programmation depuis plus de 5 ans. J'ai affiné mes compétences à travers divers projets personnels et professionnels. Fan d'animés, de jeux vidéo et de cuisine, je mets ma créativité au service de chaque projet.`,
+      aboutText: `Étudiant de BUT Informatique, passionné de programmation depuis plus de 5 ans. J'ai affiné mes compétences à travers divers projets personnels et professionnels. Fan d'animés, de jeux vidéo et de cuisine, je mets ma créativité au service de chaque projet.`,
       viewCV: 'Curriculum Vitae',
       contact: 'Me contacter',
       interestsTitle: 'Mes intérêts',

@@ -25,6 +25,10 @@
   --skillDevColor: rgb(10, 106, 116);
   --skillOtherColor: rgb(74, 189, 185);
 
+  --listPaire: var(--gray-500);
+  --listImpaire: var(--gray-700);
+  --listHeader: var(--gray-950);
+
   --IconSize: 1.5rem;
   --HeaderSize: 2.5rem;
 }

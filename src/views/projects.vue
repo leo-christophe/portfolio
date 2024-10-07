@@ -1,183 +1,134 @@
 <script setup>
-import { ref, computed, onMounted, watch, getCurrentInstance, onBeforeMount } from 'vue'
-import Chips from 'primevue/chips'
-import Checkbox from 'primevue/checkbox'
-import { findClosestCompetence } from '../utils/levenshtein'
-import { useI18n } from 'vue-i18n'
-import { saveToLocalStorage, restoreFromLocalStorage, getEarliestDate, getLatestDate } from '../utils/project_list'
+  import { ref, computed, onMounted, watch, getCurrentInstance } from 'vue'
+  import Chips from 'primevue/chips'
+  import Checkbox from 'primevue/checkbox'
+  import { useI18n } from 'vue-i18n'
+  import { findClosestCompetence } from '../utils/levenshtein'
+  import { saveToLocalStorage, restoreFromLocalStorage, getEarliestDate, getLatestDate, saveFiltersState, restoreFiltersState, applyFilterStateClasses } from '../utils/project_list'
 
-const instance = getCurrentInstance();
-const data = instance.appContext.config.globalProperties.$JSONData;
+  const instance = getCurrentInstance();
+  const data = instance.appContext.config.globalProperties.$JSONData;
 
-const { t, locale } = useI18n()
+  const { t, locale } = useI18n()
 
-const Compvalue = ref([])
-const startDate = ref(null)
-const endDate = ref(null)
-const checkType = ref(['University', 'Personal'])
+  const Compvalue = ref([])
+  const startDate = ref(null)
+  const endDate = ref(null)
+  const checkType = ref(['University', 'Personal'])
 
-const filters = ref(null)
-const textFilter = ref(null)
-const iconFilter = ref(null)
+  const filters = ref(null)
+  const textFilter = ref(null)
+  const iconFilter = ref(null)
 
-watch(checkType, (newValue) => {
-  // Vérifie si les deux cases sont décochées
-  if (newValue.length === 0) {
-    // Réinitialise checkType avec les deux types
-    checkType.value.push(
-      'University', 
-      'Personal'
-    );
-  }
-});
+  // Sauvegarde l'état des filtres
+  watch([Compvalue, startDate, endDate, checkType], () => {
+    saveFiltersState(Compvalue.value, startDate.value, endDate.value, checkType.value)
+  }, { deep: true })
 
-// Sauvegarde les filtres dans le localStorage
-function saveFiltersState() {
-  saveToLocalStorage('filter_competences', Compvalue.value)
-  saveToLocalStorage('filter_startDate', startDate.value)
-  saveToLocalStorage('filter_endDate', endDate.value)
-  saveToLocalStorage('filter_checkType', checkType.value)
-}
+  onMounted(() => {
+    restoreFiltersState(Compvalue, startDate, endDate, checkType)
 
-// Restaure les filtres depuis le localStorage
-function restoreFiltersState() {
-  Compvalue.value = restoreFromLocalStorage('filter_competences', [])
-  startDate.value = restoreFromLocalStorage('filter_startDate', null)
-  endDate.value = restoreFromLocalStorage('filter_endDate', null)
-  checkType.value = restoreFromLocalStorage('filter_checkType', [])
-}
+    if (data.projects && data.projects.length > 0) {
+      const projectDates = data.projects.map(project => {
+        const projectStart = new Date(project.dates[0])
+        const projectEnd = project.dates[1] === t('message.projectsOnGoing') ? new Date() : new Date(project.dates[1])
+        return { start: projectStart, end: projectEnd }
+      })
 
-// Watcher pour sauvegarder l'état des filtres
-watch([Compvalue, startDate, endDate, checkType], saveFiltersState, { deep: true })
-
-onMounted(() => {
-  restoreFiltersState()
-
-  if (data.projects && data.projects.length > 0) {
-    const projectDates = data.projects.map(project => {
-      const projectStart = new Date(project.dates[0])
-      const projectEnd = project.dates[1] === t('message.projectsOnGoing') ? new Date() : new Date(project.dates[1])
-      return { start: projectStart, end: projectEnd }
-    })
-
-    if (!startDate.value) {
-    startDate.value = getEarliestDate(projectDates).toISOString().split('T')[0]}
-    if (!endDate.value) {
-    endDate.value = getLatestDate(projectDates, t).toISOString().split('T')[0]}
-  }
-
-  const savedFilterState = localStorage.getItem('project_filterState')
-
-  if (savedFilterState) {
-    const filterClass = savedFilterState == 'activated' ? 'filterActivated' : 'filterDeactivated'
-    const antiFilterClass = savedFilterState != 'activated' ? 'filterActivated' : 'filterDeactivated'
-    filters.value.classList.add(filterClass)
-    filters.value.classList.remove(antiFilterClass)
-    iconFilter.value.classList.add(savedFilterState == 'activated' ? 'pi-angle-double-down' : 'pi-angle-down')
-    iconFilter.value.classList.remove(savedFilterState == 'activated' ? 'pi-angle-down' : 'pi-angle-double-down')
-  }
-})
-
-const filteredProjects = computed(() => {
-  let filteredByDate = data.projects || []
-  console.log(filteredByDate)
-
-  if (startDate.value || endDate.value) {
-    const end = endDate.value ? new Date(endDate.value) : new Date("2100-01-01")
-    const start = startDate.value ? new Date(startDate.value) : new Date("1970-01-01")
-
-    if (isNaN(start.getTime()) || isNaN(end.getTime())) {
-      alert(t('message.projectsInvalidDate'))
-      return []
+      startDate.value = getEarliestDate(projectDates).toISOString().split('T')[0]
+      endDate.value = getLatestDate(projectDates, t).toISOString().split('T')[0]
     }
 
-    if (start > end) {
-      alert(t('message.projectsDateError'))
-      return []
-    } else {
+    const savedFilterState = localStorage.getItem('project_filterState')
+    if (savedFilterState) applyFilterStateClasses(filters.value, iconFilter.value, savedFilterState)
+  })
+
+  /**
+   * @function filteredProjects
+   * @description Filtre les projets en fonction des critères de recherche
+   * @returns {Array} Liste des projets filtrés
+   */
+  const filteredProjects = computed(() => {
+    let filteredByDate = data.projects || []
+
+    if (startDate.value || endDate.value) {
+      const end = endDate.value ? new Date(endDate.value) : new Date("2100-01-01")
+      const start = startDate.value ? new Date(startDate.value) : new Date("1970-01-01")
+
+      if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+        alert(t('message.projectsInvalidDate'))
+        return []
+      }
+
+      if (start > end) {
+        alert(t('message.projectsDateError'))
+        return []
+      } else {
+        filteredByDate = filteredByDate.filter(project => {
+          const projectStartDate = new Date(project.dates[0])
+          const projectEndDate = project.dates[1] === t('message.projectsOnGoing') ? new Date() : new Date(project.dates[1])
+          return (projectStartDate >= start && projectEndDate <= end)
+        })
+      }
+    }
+
+    if (Compvalue.value && Compvalue.value.length > 0) {
+      const correctedCompetences = Compvalue.value.map(comp => findClosestCompetence(comp))
+
       filteredByDate = filteredByDate.filter(project => {
-        if (!project.dates || project.dates.length < 2) return false
-
-        const projectStartDate = new Date(project.dates[0])
-        const projectEndDate = project.dates[1] === t('message.projectsOnGoing') ? new Date() : new Date(project.dates[1])
-
-        return (projectStartDate >= start && projectEndDate <= end)
+        return project.competences && Object.values(project.competences).some(category =>
+          category.some(competence => correctedCompetences.includes(competence))
+        )
       })
     }
-  }
 
-  if (Compvalue.value && Compvalue.value.length > 0) {
-    
-    const correctedCompetences = Compvalue.value.map(comp => findClosestCompetence(comp))
-
-    filteredByDate = filteredByDate.filter(project => {
-      return project.competences && Object.values(project.competences).some(category =>
-        category.some(competence => correctedCompetences.includes(competence))
-      )
+    // Filtrage par type de projet
+    return filteredByDate.filter(project => {
+      const hasProjectType = project.type !== undefined && project.type !== null
+      const normalizedProjectType = hasProjectType ? project.type.toLowerCase() : ''
+      
+      const checkTypeLabels = {
+        'fr': { University: 'Universitaire', Personal: 'Personnel' },
+        'en': { University: 'University', Personal: 'Personal' }
+      }
+      const currentLang = checkTypeLabels[locale.value] ? locale.value : 'en'
+      const normalizedCheckTypes = checkType.value.map(type => checkTypeLabels[currentLang][type]?.toLowerCase() || '')
+      
+      return hasProjectType && normalizedCheckTypes.includes(normalizedProjectType)
     })
+  })
+
+  /**
+   *  @function SwitchFilter
+   *  @description Permet de basculer l'état des filtres
+   *  @returns {void}
+   */
+  function switchFilter() {
+    const filterIcon = iconFilter.value
+
+    // Vérifier que filters.value et filterIcon ne sont pas null
+    if (!filters.value || !filterIcon) {
+      console.error("filters ou iconFilter n'est pas défini.")
+      return
+    }
+
+    if (filters.value.classList.contains('filterDeactivated')) {
+      filters.value.classList.remove('filterDeactivated')
+      filters.value.classList.add('filterActivated')
+      filterIcon.classList.remove('pi-angle-down')
+      filterIcon.classList.add('pi-angle-double-down')
+      localStorage.setItem('project_filterState', 'activated')
+    } else {
+      filters.value.classList.add('filterDeactivated')
+      filters.value.classList.remove('filterActivated')
+      filterIcon.classList.add('pi-angle-down')
+      filterIcon.classList.remove('pi-angle-double-down')
+      localStorage.setItem('project_filterState', 'deactivated')
+    }
   }
-
-  filteredByDate = filteredByDate.filter(project => {
-  // Vérifier si le projet a un type défini
-  const hasProjectType = project.type !== undefined && project.type !== null;
-
-  // Mettre en minuscule le type du projet (si défini)
-  const normalizedProjectType = hasProjectType ? project.type.toLowerCase() : '';
-
-  const checkTypeLabels = {
-    'fr': { University: 'Universitaire', Personal: 'Personnel' }, // French values
-    'en': { University: 'University', Personal: 'Personal' }   // English values
-  };
-
-  // Fallback to 'en' if locale is not set or not recognized
-  const currentLang = checkTypeLabels[locale.value] ? locale.value : 'en';
-
-  // Normalize checkType values
-  const normalizedCheckTypes = checkType.value.map(type => {
-    const label = checkTypeLabels[currentLang][type];
-    console.log(type)
-    return label ? label.toLowerCase() : '';
-  }).filter(Boolean);
-
-
-  // Check if the project type exists in checkType
-  const isTypeIncluded = normalizedCheckTypes.includes(normalizedProjectType);
-
-
-  // Retourner le résultat final de la condition de filtrage
-  return hasProjectType && isTypeIncluded;
-});
-
-  if (filteredByDate.length === 0) {
-    //alert(t('message.projectsNotFound'))
-    return data.projects
-  }
-
-  return filteredByDate
-})
-
-function switchFilter() {
-  const filterIcon = iconFilter.value
-
-  if (filters.value.classList.contains('filterDeactivated')) {
-    filters.value.classList.remove('filterDeactivated')
-    filters.value.classList.add('filterActivated')
-
-    filterIcon.classList.remove('pi-angle-down')
-    filterIcon.classList.add('pi-angle-double-down')
-
-    localStorage.setItem('project_filterState', 'activated')
-  } else {
-    filters.value.classList.add('filterDeactivated')
-    filters.value.classList.remove('filterActivated')
-
-    filterIcon.classList.add('pi-angle-down')
-    filterIcon.classList.remove('pi-angle-double-down')
-
-    localStorage.setItem('project_filterState', 'deactivated')
-  }
-}
 </script>
+
+
 
 <template>
   

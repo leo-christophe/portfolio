@@ -67,7 +67,7 @@
   
   .lightbox-content {
     position: relative;
-    max-width: 90%;
+    max-width: 90vw;
     max-height: 90vh; /* Use viewport height */
     display: flex;
     justify-content: center;
