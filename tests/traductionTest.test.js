@@ -79,14 +79,15 @@ describe('getLangFromUrl', () => {
 
 describe('updateUrlLang', () => {
   beforeEach(() => {
-      // Mock complet de l'objet window
+      // Mock complet de l'objet window avec un bon history et location
       vi.stubGlobal('window', {
           history: {
               pushState: vi.fn() // Spy pour pushState
           },
           location: {
               href: 'http://localhost', // Mock l'URL initiale
-              search: '' // Mock la partie search de l'URL
+              search: '', // Mock la partie search de l'URL
+              pathname: '/', // Ajoute pathname pour éviter les undefined
           }
       });
   });
@@ -102,6 +103,7 @@ describe('updateUrlLang', () => {
       expect(window.history.pushState).toHaveBeenCalledWith({}, '', 'http://localhost/?lang=fr');
   });
 });
+
 
   
 
