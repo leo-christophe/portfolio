@@ -16,13 +16,17 @@ export function traductionSetup() {
         const urlLang = getLangFromUrl();  
 
         // Get only the two-letter language code (fr instead of fr-FR)
-        const currentLang = (storedLang || urlLang || language.value).substring(0, 2);
+        let currentLang = (storedLang || urlLang || language.value).substring(0, 2);
 
-        if (currentLang != undefined || currentLang != null) {
+        if (currentLang != 'un' || currentLang != 'nu') {
             // Update stored language and URL accordingly
             localStorage.setItem('lang', currentLang);
             updateUrlLang(currentLang);  // Ensure URL reflects the current language
         } else {
+            localStorage.setItem('lang', 'fr');
+            updateUrlLang('fr');  // Ensure URL reflects the current language
+            currentLang = 'fr';
+
             reject('Erreur lors de la configuration de la langue dans le localStorage');
         }
 

@@ -78,25 +78,31 @@ describe('getLangFromUrl', () => {
 });
 
 describe('updateUrlLang', () => {
-    beforeEach(() => {
-        // Mock the window.history object
-        vi.stubGlobal('window', {
-            history: {
-                pushState: vi.fn() // Create a spy for pushState
-            },
-            location: {
-                href: 'http://localhost' // Mock the location.href
-            }
-        });
-    });
+  beforeEach(() => {
+      // Mock complet de l'objet window
+      vi.stubGlobal('window', {
+          history: {
+              pushState: vi.fn() // Spy pour pushState
+          },
+          location: {
+              href: 'http://localhost', // Mock l'URL initiale
+              search: '' // Mock la partie search de l'URL
+          }
+      });
+  });
 
-    it('devrait mettre à jour l\'URL avec le bon paramètre de langue', () => {
-        updateUrlLang('fr');
+  afterEach(() => {
+      vi.restoreAllMocks();  // Restaurer tous les mocks après chaque test
+  });
 
-        // Vérifie que l'URL est mise à jour avec la bonne langue
-        expect(window.history.pushState).toHaveBeenCalledWith({}, '', 'http://localhost/?lang=fr');
-    });
+  it('devrait mettre à jour l\'URL avec le bon paramètre de langue', () => {
+      updateUrlLang('fr');
+
+      // Vérifie que l'URL est mise à jour avec la bonne langue
+      expect(window.history.pushState).toHaveBeenCalledWith({}, '', 'http://localhost/?lang=fr');
+  });
 });
+
   
 
 describe('changeLang', () => {
