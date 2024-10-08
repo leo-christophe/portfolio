@@ -67,10 +67,17 @@ export function updateUrlLang(lang) {
     if (!['fr', 'en'].includes(lang)) {
         throw new Error('Langue non supportée'); // Utilise Error au lieu de Exception
     }
-
-    const url = new URL(window.location.href);  // Get the current URL
-    url.searchParams.set('lang', lang);  // Set the "lang" parameter
-    window.history.pushState({}, '', url.href);  // Update the URL without reloading the page
+    
+    try{
+        const url = new URL(window.location.href);  // Get the current URL
+        url.searchParams.set('lang', lang);  // Set the "lang" parameter
+        
+        console.log('History object:', window.history);
+        window.history.pushState({}, '', url.href);  // Update the URL without reloading the page
+        console.log('History object2:', window.history);
+    } catch (error) {
+        console.error('Error updating URL:', error);
+    }
 }
 
 /**
