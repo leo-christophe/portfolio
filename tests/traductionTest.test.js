@@ -77,8 +77,6 @@ describe('getLangFromUrl', () => {
   });
 });
 
-import { updateUrlLang } from '../src/utils/traduction';
-
 describe('updateUrlLang', () => {
     beforeEach(() => {
         // Simule l'URL
@@ -117,7 +115,6 @@ describe('updateUrlLang', () => {
 });
 
 
-
 describe('changeLang', () => {
   it('devrait mettre à jour la langue et le localStorage', () => {
     const mockUrl = new URL('http://localhost');
@@ -134,4 +131,16 @@ describe('changeLang', () => {
     // Verify that the document has the correct lang attribute
     expect(document.documentElement.lang).toBe('fr');
   });
-});  // Run after the rest of the setup has completed
+
+  it('devrait renvoyer une erreur si langue non adapté', () => {
+    const mockUrl = new URL('http://localhost');
+    vi.stubGlobal('window', {
+      location: mockUrl,
+      history: { pushState: vi.fn() } // Mock pushState for history
+    });
+
+    // Verify that localStorage is updated
+    expect(() => changeLang('es')).toThrow('Langue non supportée');
+  });
+
+});

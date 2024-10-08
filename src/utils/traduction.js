@@ -1,5 +1,6 @@
 import { useNavigatorLanguage } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';  // Importer l'API i18n
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../data/const';
 
 /**
  * @function traductionSetup
@@ -23,9 +24,9 @@ export function traductionSetup() {
             localStorage.setItem('lang', currentLang);
             updateUrlLang(currentLang);  // Ensure URL reflects the current language
         } else {
-            localStorage.setItem('lang', 'fr');
-            updateUrlLang('fr');  // Ensure URL reflects the current language
-            currentLang = 'fr';
+            localStorage.setItem('lang', DEFAULT_LANGUAGE);
+            updateUrlLang(DEFAULT_LANGUAGE);  // Ensure URL reflects the current language
+            currentLang = DEFAULT_LANGUAGE;
 
             reject('Erreur lors de la configuration de la langue dans le localStorage');
         }
@@ -51,7 +52,7 @@ export function getLangFromUrl() {
     try {
         const params = new URLSearchParams(window.location.search);
         const lang = params.get('lang');
-        return lang ? lang.substring(0, 2) : 'fr';  // Extract base lang (e.g., "fr" from "fr-FR")
+        return lang ? lang.substring(0, 2) : DEFAULT_LANGUAGE;  // Extract base lang (e.g., "fr" from "fr-FR")
     } catch (error) {
         console.error('Error parsing URL parameters:', error);
         return null;  // Fallback to null if there's any error
@@ -64,17 +65,14 @@ export function getLangFromUrl() {
  * @param {string} lang 
  */
 export function updateUrlLang(lang) {
-    if (!['fr', 'en'].includes(lang)) {
-        throw new Error('Langue non supportée'); // Utilise Error au lieu de Exception
+    if (!SUPPORTED_LANGUAGES.includes(lang)) {
+        throw new Error('Langue non supportée');
     }
     
-    try{
+    try {
         const url = new URL(window.location.href);  // Get the current URL
         url.searchParams.set('lang', lang);  // Set the "lang" parameter
-        
-        console.log('History object:', window.history);
         window.history.pushState({}, '', url.href);  // Update the URL without reloading the page
-        console.log('History object2:', window.history);
     } catch (error) {
         console.error('Error updating URL:', error);
     }
@@ -86,6 +84,10 @@ export function updateUrlLang(lang) {
  * @param {string} lang Les deux premières lettres du langage à mettre à jour 
  */
 export function changeLang(lang) {
+    if (!SUPPORTED_LANGUAGES.includes(lang)) {
+        throw new Error('Langue non supportée');
+    }
+
     localStorage.setItem('lang', lang);
     document.documentElement.lang = lang;
     updateUrlLang(lang);

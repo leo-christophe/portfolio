@@ -35,3 +35,9 @@ export const CV_NAME_WEB_EN = 'LEO-CHRISTOPHE-CV_2025_ENGLISH.pdf'
  */
 export const EMAIL = 'leo.christophe@etu.univ-savoie.fr'
 export const MOBILE = '+33 07 82 42 44 96'
+
+/**
+ *  DONNEES PORTFOLIO
+ */
+export const SUPPORTED_LANGUAGES = ['fr', 'en']
+export const DEFAULT_LANGUAGE = 'fr'
