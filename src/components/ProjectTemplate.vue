@@ -69,8 +69,8 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
 
     <div v-if="hasImages" id="images">
         <button id="leftButton" v-if="multipleImages" @click="switchImage('back')" :title="$t('message.projectLastImage')"><i class="pi pi-arrow-circle-left"></i></button>
-        <a :href="projectURL">
-                
+    
+        <span @click="openLightbox()" id="mainContentContainer">
           <div v-if="data.projects[props.id].images[ActualImage].type == 'image'">
               <img  :src="'/images/projects/'+data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
           </div>
@@ -84,8 +84,7 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
           </div>
 
           <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
-
-        </a>
+        </span>
         <button id="rightButton" v-if="multipleImages" @click="switchImage('forward')" :title="$t('message.projectNextImage')"><i class="pi pi-arrow-circle-right"></i></button>
         <i class="pi pi-search-plus" v-if="data.projects[props.id].images[ActualImage].type == 'image'" @click="openLightbox()"></i>
     </div>
@@ -186,6 +185,10 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
     font-size:1rem !important;
   }
 }
+}
+
+#mainContentContainer{
+  cursor:pointer;
 }
 
 .lignePaire{
