@@ -89,7 +89,11 @@ describe('updateUrlLang', () => {
             },
         });
 
-        window.history.pushState = vi.fn();
+        // Crée un objet history et simule pushState
+        global.window.history = {
+            pushState: vi.fn(), // Utilise vi.fn() pour Vitest
+        };
+        
     });
 
     afterEach(() => {
