@@ -77,8 +77,6 @@ describe('getLangFromUrl', () => {
   });
 });
 
-import { updateUrlLang } from '../src/utils/traduction';
-
 describe('updateUrlLang', () => {
     beforeEach(() => {
         // Simule l'URL
@@ -89,9 +87,9 @@ describe('updateUrlLang', () => {
             },
         });
 
-        // S'assure que history est défini avant de simuler pushState
-        window.history = {
-            pushState: vi.fn(), // Utiliser vi.fn() pour Vitest
+        // Assure que history est défini et ajoute pushState
+        global.window.history = {
+            pushState: vi.fn(), // Utilise vi.fn() pour Vitest
         };
     });
 
@@ -115,12 +113,6 @@ describe('updateUrlLang', () => {
     });
 });
 
-
-
-
-
-
-  
 
 describe('changeLang', () => {
   it('devrait mettre à jour la langue et le localStorage', () => {
