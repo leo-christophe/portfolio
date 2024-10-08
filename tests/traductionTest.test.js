@@ -77,32 +77,47 @@ describe('getLangFromUrl', () => {
   });
 });
 
+import { updateUrlLang } from '../src/utils/traduction';
+
 describe('updateUrlLang', () => {
-  beforeEach(() => {
-      // Mock complet de l'objet window avec un bon history et location
-      vi.stubGlobal('window', {
-          history: {
-              pushState: vi.fn() // Spy pour pushState
-          },
-          location: {
-              href: 'http://localhost', // Mock l'URL initiale
-              search: '', // Mock la partie search de l'URL
-              pathname: '/', // Ajoute pathname pour éviter les undefined
-          }
-      });
-  });
+    beforeEach(() => {
+        // Simule l'URL
+        global.window = Object.create(window);
+        Object.defineProperty(window, 'location', {
+            value: {
+                href: 'http://localhost',
+            },
+        });
 
-  afterEach(() => {
-      vi.restoreAllMocks();  // Restaurer tous les mocks après chaque test
-  });
+        // S'assure que history est défini avant de simuler pushState
+        window.history = {
+            pushState: vi.fn(), // Utiliser vi.fn() pour Vitest
+        };
+    });
 
-  it('devrait mettre à jour l\'URL avec le bon paramètre de langue', () => {
-      updateUrlLang('fr');
+    afterEach(() => {
+        vi.clearAllMocks(); // Réinitialise les mocks après chaque test
+    });
 
-      // Vérifie que l'URL est mise à jour avec la bonne langue
-      expect(window.history.pushState).toHaveBeenCalledWith({}, '', 'http://localhost/?lang=fr');
-  });
+    it('devrait mettre à jour l\'URL avec le bon paramètre de langue', () => {
+        updateUrlLang('fr');
+
+        // Vérifie que l'URL est mise à jour avec la bonne langue
+        expect(window.history.pushState).toHaveBeenCalledWith({}, '', 'http://localhost/?lang=fr');
+    });
+
+    it('devrait lancer une exception si la langue n\'est pas supportée', () => {
+        expect(() => updateUrlLang('es')).toThrow('Langue non supportée');
+    });
+
+    it('devrait lancer une exception si la langue est une chaîne vide', () => {
+        expect(() => updateUrlLang('')).toThrow('Langue non supportée');
+    });
 });
+
+
+
+
 
 
   
