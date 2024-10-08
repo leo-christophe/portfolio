@@ -77,6 +77,8 @@ describe('getLangFromUrl', () => {
   });
 });
 
+import { updateUrlLang } from '../src/utils/traduction';
+
 describe('updateUrlLang', () => {
     beforeEach(() => {
         // Simule l'URL
@@ -87,10 +89,7 @@ describe('updateUrlLang', () => {
             },
         });
 
-        // Assure que history est défini et ajoute pushState
-        global.window.history = {
-            pushState: vi.fn(), // Utilise vi.fn() pour Vitest
-        };
+        window.history.pushState = vi.fn();
     });
 
     afterEach(() => {
@@ -112,6 +111,7 @@ describe('updateUrlLang', () => {
         expect(() => updateUrlLang('')).toThrow('Langue non supportée');
     });
 });
+
 
 
 describe('changeLang', () => {
