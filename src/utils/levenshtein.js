@@ -1,5 +1,3 @@
-// Importing the JSON file with the sorted competencies
-import dataPlugin from "./dataPlugin.js";
 import { getLangFromUrl } from "./traduction.js";
 
 const lang = getLangFromUrl();
@@ -17,7 +15,13 @@ if (lang === "en") {
 // Accessing the sorted valid skills from the JSON data
 const sortedCompetences = json.sorted_valid_skills;
 
-// Function to calculate Levenshtein distance
+/**
+ * @function levenshtein
+ * @description Calcul de la distance de Levenshtein entre deux mots
+ * @param {String} a Mot 1 
+ * @param {String} b Mot 2
+ * @returns {Number} Distance de Levenshtein entre les deux mots
+ */
 function levenshtein(a, b) {
     const matrix = [];
 
@@ -47,8 +51,14 @@ function levenshtein(a, b) {
     return matrix[b.length][a.length];
 }
 
-// Function to find the closest competence
-function findClosestCompetence(input) {
+/**
+ * @function findClosestCompetence
+ * @description Trouve la compétence la plus proche d'une entrée donnée
+ * @param {Array} input Tableau de compétences triées
+ * @param {*} tolerance Seuil de tolérance de distance de Levenshtein pour la recherche de la compétence la plus proche
+ * @returns String La compétence la plus proche
+ */
+function findClosestCompetence(input, tolerance=10) {
     let closestCompetence = input;
     let minDistance = Infinity;
 
@@ -70,7 +80,12 @@ function findClosestCompetence(input) {
         }
     }
 
-    return closestCompetence;
+    // seuil de tolérance de 10 de distances soit 10 caractères différents au maximum (insertion, suppression, substitution)
+    if (minDistance <= tolerance){
+        return closestCompetence;
+    } else {
+        return input;
+    }
 }
 
 export { findClosestCompetence, levenshtein };
