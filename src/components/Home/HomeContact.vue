@@ -2,11 +2,9 @@
 import { CV_NAME_WEB, CV_NAME_WEB_EN } from '../../data/const.js';
 import { onMounted, ref } from 'vue';
 import { getLangFromUrl } from '../../utils/traduction.js';
-import Button from 'primevue/button';
 
 const WIDTH = "90%";
 const HEIGHT = "900px";
-const ZOOM = toString(50);
 const RACINE = "/documents/";
 
 // Reactive reference for the CV address
@@ -48,117 +46,115 @@ onMounted(() => {
 
 <style scoped>
 
-@media (max-width:1470px) and (min-width: 860px) {
-  span#softSkillsContainer, span#hardSkillsContainer {
-    min-width:1200px;
-  }
-}
-
-@media (max-width:860px) {
-    .computer{
-        display: none !important;
-    }
-
-    .mobile{
-        display: block !important;
-    }
-
-    div#contactSection div#CV{
-        min-width: auto;
-        max-width: 100%;
-        width:100vw;
-        margin: 0;
-        padding:0;
-
-        embed{
-            width:100%;
-            height: 100%;
-            max-width:none;
-            zoom:120%;
+    @media (max-width:1470px) and (min-width: 860px) {
+        span#softSkillsContainer, span#hardSkillsContainer {
+            min-width:1200px;
         }
     }
 
-    #contactSection{
-        flex-direction: column;
-    }
+    @media (max-width:860px) {
+        .computer{
+            display: none !important;
+        }
 
-    .CVsection #SousTitre {
-        width:90vw;
+        .mobile{
+            display: block !important;
+        }
+
+        div#contactSection div#CV{
+            min-width: auto;
+            max-width: 100%;
+            width:100vw;
+            margin: 0;
+            padding:0;
+
+            embed{
+                width:100%;
+                height: 100%;
+                max-width:none;
+                zoom:120%;
+            }
+        }
+
+        #contactSection{
+            flex-direction: column;
+        }
+
+        .CVsection #SousTitre {
+            width:90vw;
+        }
+
+        div div#finalText.CVsection{
+            width:80vw;
+            margin:0 10vw 0 10vw;
+        }   
+
+        #buttons{
+            flex-direction: column;
+            justify-content: center;
+            gap:20px;
+            width:100vw;
+        }
     }
-    div div#finalText.CVsection{
-        width:80vw;
-        margin:0 10vw 0 10vw;
-    
-    }   
 
     #buttons{
-        flex-direction: column;
-        justify-content: center;
-        gap:20px;
-        width:100vw;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 50px 0;
     }
-}
 
-#buttons{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 50px 0;
-}
-
-.computer{
+    .computer{
         display: block !important;
     }
 
-.mobile{
-    display: none !important;
-}
-
-embed{
-    max-width:40%;
-}
-
-div#CV{
-    max-width:40%;
-}
-
-
-#textCV{
-    max-width:500px;
-}
-
-.CVsection{
-    height:auto;
-    font-family: inherit;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.CVsection #SousTitre {
-    margin: 0 25px 50px 25px;
-
-}
-
-.CVsection h4 {
-    text-align: center;
-    margin: 100px 25px;
-}
-
-#CVTitre {
-    margin: 0 0 10px 25px;
-}
-
-div#CV{
-    display: flex;
-    justify-content: center;
-    height: auto;
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.4);
+    .mobile{
+        display: none !important;
+    }
 
     embed{
-        width:100vw;
-        max-width: 50vw;
+        max-width:40%;
     }
-}
+
+    div#CV{
+        max-width:40%;
+    }
+
+    #textCV{
+        max-width:500px;
+    }
+
+    .CVsection{
+        height:auto;
+        font-family: inherit;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .CVsection #SousTitre {
+        margin: 0 25px 50px 25px;
+    }
+
+    .CVsection h4 {
+        text-align: center;
+        margin: 100px 25px;
+    }
+
+    #CVTitre {
+        margin: 0 0 10px 25px;
+    }
+
+    div#CV{
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.4);
+
+        embed{
+            width:100vw;
+            max-width: 50vw;
+        }
+    }
 </style>

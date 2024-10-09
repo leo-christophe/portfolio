@@ -35,6 +35,7 @@ import HomeStart from '../components/Home/HomeStart.vue';
 .pageSection {
   padding-top:10vh;
   min-height:min-content;
+  height:100vh;
   transition: opacity 2s;
   z-index:5;
 }
