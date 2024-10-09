@@ -21,20 +21,19 @@
     const boolLang = ref(localStorage.getItem('lang')=='en')
     
     const switchLanguage = (lang) => {
-    boolLang.value = lang === 'en';  // Set boolLang based on the target language
-    locale.value = lang;  // Update the locale in the i18n system
-    changeLang(lang);  // Update language in localStorage and URL
+        boolLang.value = lang === 'en';  // Set boolLang based on the target language
+        locale.value = lang;  // Update the locale in the i18n system
+        changeLang(lang);  // Update language in localStorage and URL
 
-    localStorage.setItem('filter_competences', [])
-    localStorage.setItem('filter_checkType', [])
+        localStorage.setItem('filter_competences', [])
+        localStorage.setItem('filter_checkType', [])
 
-    // Update the language of the page
-    document.documentElement.lang = lang;
+        // Update the language of the page
+        document.documentElement.lang = lang;
 
 
-    location.reload();
-
-};
+        location.reload();
+    };
 
 
 </script>
@@ -105,7 +104,6 @@
 
     footer {
         background-color: rgb(0, 0, 0);
-        height: 150px;
         width: 100%;
         min-width:100vw;
         overflow: hidden;

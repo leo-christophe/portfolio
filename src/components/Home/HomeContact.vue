@@ -6,16 +6,16 @@ import Button from 'primevue/button';
 
 const WIDTH = "90%";
 const HEIGHT = "900px";
-const ZOOM = "70";
+const ZOOM = toString(50);
 const RACINE = "/documents/";
 
 // Reactive reference for the CV address
-const CVAdress = ref(RACINE + CV_NAME_WEB + "#page=1&zoom=" + ZOOM);
+const CVAdress = ref(RACINE + CV_NAME_WEB + "#page=1");
 const windowWidth = ref(window.innerWidth);
 onMounted(() => {
     // Check language and set the appropriate CV address
     if (getLangFromUrl() != 'fr') {
-        CVAdress.value = RACINE + CV_NAME_WEB_EN + "#page=1&zoom=" + ZOOM;
+        CVAdress.value = RACINE + CV_NAME_WEB_EN + "#page=1";
     }
 });
 </script>
@@ -129,6 +129,7 @@ div#CV{
 }
 
 .CVsection{
+    height:auto;
     font-family: inherit;
     display:flex;
     flex-direction: row;
@@ -152,7 +153,7 @@ div#CV{
 div#CV{
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: auto;
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.4);
 
     embed{

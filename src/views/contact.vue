@@ -4,7 +4,7 @@ import { reactive, ref, onMounted } from 'vue';
 
 // Components
 import { sendMail_asClient, callNumber_asClient, sendSMS_asClient } from '../utils/contact_client'; 
-import { isMobile } from '../utils/userdata.js'
+import { isMobile, copyToClipboard } from '../utils/userdata.js'
 import { MOBILE, EMAIL } from '../data/const.js';
 
 // Libs
@@ -109,30 +109,7 @@ const showError = (Emessage = t('message.errorMessage')) => {
   toast.add({ severity: 'error', summary: t('message.error'), detail: Emessage, life: 5000 });
 };
 
-// Copy to clipboard functionality
-const copyToClipboard = async (text) => {
-  try {
-    await navigator.clipboard.writeText(text);
-    toast.add({ 
-      severity: 'info', 
-      summary: t('message.copySummary'), 
-      detail: t('message.copyMessage'), 
-      life: 2500 
-    });
-  } catch (error) {
-    toast.add({ 
-      severity: 'error', 
-      summary: t('message.error'), 
-      detail: t('message.errorMessage'), 
-      life: 2500 
-    });
-  }
-};
-
-
-
 </script>
-
 
 <template>
   <div id="content">
@@ -182,7 +159,7 @@ const copyToClipboard = async (text) => {
             <div class="maillink">
               <div id="mailEtCopy">
                 <p class="e-mail_adress">{{ EMAIL }}</p>
-                <i class="pi pi-clone" @click="copyToClipboard(EMAIL)" :title="$t('message.copyTitle')"></i>
+                <i class="pi pi-clone" @click="copyToClipboard(EMAIL, toast, t)" :title="$t('message.copyTitle')"></i>
               </div>
               <Button id="greenValid" @click="sendMail_asClient(EMAIL)">{{ $t('message.contactButton') }}</Button>
             </div>
@@ -192,7 +169,7 @@ const copyToClipboard = async (text) => {
             <h2>{{ $t('message.phoneSectionTitle') }}</h2>
             <div id="mobileEtCopy">
               <p class="e-mail_adress">{{ MOBILE }}</p>
-              <i class="pi pi-clone" @click="copyToClipboard(MOBILE)" :title="$t('message.copyTitle')"></i>
+              <i class="pi pi-clone" @click="copyToClipboard(MOBILE, toast, t)" :title="$t('message.copyTitle')"></i>
             </div>
             <small>{{ $t('message.availability') }}</small>
             <div class="numlink">

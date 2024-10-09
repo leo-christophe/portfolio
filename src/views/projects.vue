@@ -27,6 +27,7 @@
 
   onMounted(() => {
     restoreFiltersState(Compvalue, startDate, endDate, checkType)
+    if (checkType.value.length === 0) checkType.value = ['University', 'Personal']
 
     if (data.projects && data.projects.length > 0) {
       const projectDates = data.projects.map(project => {
@@ -117,12 +118,14 @@
       filters.value.classList.add('filterActivated')
       filterIcon.classList.remove('pi-angle-down')
       filterIcon.classList.add('pi-angle-double-down')
+
       localStorage.setItem('project_filterState', 'activated')
     } else {
       filters.value.classList.add('filterDeactivated')
       filters.value.classList.remove('filterActivated')
       filterIcon.classList.add('pi-angle-down')
       filterIcon.classList.remove('pi-angle-double-down')
+
       localStorage.setItem('project_filterState', 'deactivated')
     }
   }
@@ -200,8 +203,8 @@
   }
 
   #startDate, #endDate{
-    color:black;
-    background-color:white;
+    color:var(--darkBackground-color);
+    background-color:var(--textBasicColor);
   }
 
   .filterActivated{

@@ -174,6 +174,10 @@
 <style scoped>
 /* Media query for mobile devices */
 @media (max-width: 860px) {
+    h1.formationTitres, h4.formationTitres{
+        text-align: left;
+    }
+
     #formationExperienceContainer {
         flex-direction: column; /* Stack sections vertically */
     }
@@ -244,10 +248,28 @@
 }
 
 
-@media (max-width:1450px) and (min-width:860px){
+@media (max-width:1580px) and (min-width:860px){
     #formationExperienceContainer{
         flex-direction:column !important;
     }
+
+    h1.formationTitres, h4.formationTitres{
+        text-align: left;
+        left:10vw;
+        position:relative;
+    }
+
+    span#conteneurTimelineFormations{
+        width:100vw;
+
+        div.card.flex.flex-wrap.gap-12{
+            width:50vw;
+            left:10vw;
+            position: relative;
+        }
+    }
+
+
 }
 
 .expSkillsTitle, .expMissionsTitle{
