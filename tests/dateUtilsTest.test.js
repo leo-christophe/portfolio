@@ -48,18 +48,30 @@ describe('DateUtils', () => {
     });
   });
 
-  // Test de isPastDate
   describe('isPastDate', () => {
     it('devrait retourner true si la date est passée', () => {
       const result = DateUtils.isPastDate('2020-01-01');
       expect(result).toBe(true);
     });
-
+  
     it('devrait retourner false si la date est dans le futur', () => {
       const futureDate = new Date();
       futureDate.setFullYear(futureDate.getFullYear() + 1);
       const result = DateUtils.isPastDate(futureDate.toISOString().split('T')[0]);
       expect(result).toBe(false);
     });
+  
+    it('devrait lancer une erreur si la date est vide', () => {
+      expect(() => DateUtils.isPastDate('')).toThrow('Format de date invalide. date: ');
+    });
+  
+    it('devrait lancer une erreur si la date est null', () => {
+      expect(() => DateUtils.isPastDate(null)).toThrow('Format de date invalide. date: null');
+    });
+  
+    it('devrait lancer une erreur si la date est "Invalid Date"', () => {
+      expect(() => DateUtils.isPastDate('Invalid Date')).toThrow('Format de date invalide. date: Invalid Date');
+    });
   });
+  
 });

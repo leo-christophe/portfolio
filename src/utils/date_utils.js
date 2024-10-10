@@ -51,6 +51,10 @@ class DateUtils {
      * @returns {boolean} - True si la date est passée, sinon false.
      */
     static isPastDate(date) {
+        if (!date || date === null || date === '' || date === 'Invalid Date') {
+            throw new Error('Format de date invalide. date: '+date);
+        }
+
         return new Date(date) <= new Date();
     }
 }
