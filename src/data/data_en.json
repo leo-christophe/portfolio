@@ -377,15 +377,16 @@
     "main_hard_skills": [
         {
             "Software Development": [
-                {"Web Development (JS, PHP, WebDev)": "80%"},
-                {"Software Development (C#, Python)": "70%"},
-                {"Networking": "40%"},
-                {"SQL Database Management": "80%"}
+                {"Web Development (JS, Python, PHP)": "80%"},
+                {"Software and Game Development (C#, Python)": "70%"},
+                {"Data Management (SQL, Python)": "80%"},
+                {"Networks": "40%"}
             ]
         },
         {
             "Other": [
-                {"Translation English/French": "80%"},
+                {"English Language (~C1)": "80%"},
+                {"Italian Language (~B1)": "60%"},
                 {"Video Editing": "70%"},
                 {"Photo Editing": "60%"}
             ]

@@ -51,7 +51,7 @@ function ToCV() {
 
                     <span id="conteneurInterets">
                         <div class="textContainer">
-                            <img src="/images/icons/manga.png">
+                            <img class="hobbyIcon" id="torii-gate-icon" src="/images/icons/torii-gate.gif">
                             
                             <div>
                                 <h3>{{$t('message.animes')}}</h3>
@@ -59,7 +59,7 @@ function ToCV() {
                             </div>
                         </div>
                         <div class="textContainer">
-                            <img src="/images/icons/game-controller.png">
+                            <img class="hobbyIcon" id="game-controller-icon" src="/images/icons/game-controller.gif">
                             
                             <div>
                                 <h3>{{$t('message.videogames')}}</h3>
@@ -67,7 +67,7 @@ function ToCV() {
                             </div>
                         </div>
                         <div class="textContainer">
-                            <img src="/images/icons/cooking-equipment.png">
+                            <img class="hobbyIcon" id="cooking-pot-icon" src="/images/icons/cook.gif">
                             
                             <div>
                                 <h3>{{$t('message.cooking')}}</h3>
@@ -403,5 +403,16 @@ function ToCV() {
 
     #CTA button{
         margin-right:20px;
+    }
+
+    img.hobbyIcon {
+        width: 10em; /* Taille des icônes */
+        margin-bottom: 15px; /* Space between icon and text */
+        border-radius: 30px;
+    }
+
+    #torii-gate-icon{
+        object-fit:cover !important;
+        width:10em !important;
     }
 </style>

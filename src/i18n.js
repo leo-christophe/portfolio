@@ -159,8 +159,8 @@ const messages = {
       // HomeSkills
       skillsTitle: 'Compétences techniques',
       softskillsTitle: 'Compétences interpersonnelles',
-      softskillsDescription: "Mes compétences comportementales reflètent ma capacité à bien interagir avec les autres et à m'adapter aux situations. Cela comprend la communication, le travail en équipe, la gestion du temps et l'adaptabilité.",
-      hardskillsDescription: "Mes compétences techniques sont des aptitudes précises que j'ai acquises grâce à mes études et expériences professionnelles. Cela inclut, par exemple, la maîtrise des langages de programmation, la gestion de bases de données et l'administration de réseaux.",
+      softskillsDescription: "Capacités interpersonnelles et d'adaptation favorisant la collaboration et la gestion efficace. (Communication, travail en équipe, gestion du temps, adaptabilité...)",
+      hardskillsDescription: "Compétences techniques spécifiques liées à l'exécution de tâches complexes dans un domaine précis. (maîtrise des langages de programmation, gestion de bases de données, administration de réseaux...)",
       references: 'Références',
       at: "à l'",
       at_au: "au",

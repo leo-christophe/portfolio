@@ -8,6 +8,18 @@
   const main_hard_skills = ref(data.main_hard_skills);
   const main_soft_skills = ref(data.main_soft_skills);
 
+  const hardSkillsIcons = ref([[
+    "pi pi-globe",
+    "pi pi-desktop",
+    "pi pi-database",
+    "pi pi-sitemap"
+  ],[
+    "pi pi-flag",
+    "pi pi-flag",
+    "pi pi-video",
+    "pi pi-camera"
+  ]])
+
   // Définir une directive personnalisée pour observer les barres de compétences
   const observer = ref(null);
   const vSkillBar = {
@@ -65,7 +77,10 @@
         <div v-for="(category, index) in main_hard_skills" :key="index" class="compType">
           <h4 class="hardSkillName">{{ Object.keys(category)[0] }}</h4>
           <div v-for="(skill, skillIndex) in category[Object.keys(category)[0]]" :key="skillIndex" class="skill-bar">
-            <div class="skill-name">{{ Object.keys(skill)[0] }}</div>
+            <span class="skill-name">
+              <i :class="hardSkillsIcons[index][skillIndex]"></i>
+              <div>{{ Object.keys(skill)[0] }}</div>
+            </span>
             <div class="skill-level">
               <div class="skill-percentage" :id="'skill-percentage-'+index" v-skill-bar :data-skill="skill[Object.keys(skill)[0]]" :style="{ height: '10px' }"></div>
             </div>
@@ -111,6 +126,10 @@
 
 /* Media Queries for Responsiveness */
 @media (max-width: 860px) {
+  span.skill-name{
+    max-width:75%;
+  }
+
   p.skillSectionDescription, div#hardSkillsDescription , div#softSkillsDescription  {
     width:auto !important;
     display:block !important;
@@ -187,7 +206,16 @@ a[href^="mailto:"] {
 }
 
 .skill-name{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
   margin-top:20px;
+  padding:5px 0 5px 0;
+  
+
+  i{
+    margin-right:5px;
+  }
 }
 
 .hardSkillName{
