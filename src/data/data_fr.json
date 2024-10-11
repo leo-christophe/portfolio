@@ -84,12 +84,12 @@
             "type": "Universitaire",
             "images": [
               {
-                "link": "project-marsinvaders-1.jfif",
+                "link": "project-marsinvaders-1.jpg",
                 "description": "Capture d'écran du jeu pendant une partie.",
                 "type": "image"
               },
               {
-                "link": "project-marsinvaders-2.jfif",
+                "link": "project-marsinvaders-2.jpg",
                 "description": "Capture d'écran du menu du jeu.",
                 "type": "image"
               },
@@ -153,12 +153,12 @@
             "type": "Universitaire",
             "images": [
               {
-                "link": "project-skillupnow-1.jfif",
+                "link": "project-skillupnow-1.jpg",
                 "description": "Capture d'écran de la page d'accueil du site.",
                 "type": "image"
               },
               {
-                "link": "project-skillupnow-2.jfif",
+                "link": "project-skillupnow-2.jpg",
                 "description": "Capture d'écran d'une formation.",
                 "type": "image"
               }
@@ -197,15 +197,15 @@
             "type": "Universitaire",
             "images": [
               {
-                "link": "project-bmw-1.jfif",
+                "link": "project-bmw-1.jpg",
                 "description": "Capture d'écran de la page d'accueil du site.",
                 "type": "image"
               },              {
-                "link": "project_bmw_crypt.png",
+                "link": "project_bmw_crypt.jpg",
                 "description": "Implémentation d'une fonction de hashage pour sécuriser les mots de passe.",
                 "type": "image"
               },              {
-                "link": "project_bmw_crypt_singleton.png",
+                "link": "project_bmw_crypt_singleton.jpg",
                 "description": "Utilisation de la bonne pratique du singleton pour assurer une optimisation de la mémoire lors du cryptage.",
                 "type": "image"
               }
@@ -317,12 +317,12 @@
             "type": "Universitaire",
             "images": [
               {
-                "link":"project-silkensweets.webp",
+                "link":"project-silkensweets.jpg",
                 "description":"Logo de la marque",
                 "type":"image"
               },
               {
-                "link":"project-silkensweets_poster.png",
+                "link":"project-silkensweets_poster.jpg",
                 "description":"Affiche publicitaire de Silken Sweets. La tour de gateau est censé représenté la tour de Pise.",
                 "type":"image"
               },

@@ -83,7 +83,7 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
               <iframe width="660" height="415" :src="data.projects[props.id].images[ActualImage].link" frameborder="1" allowFullScreen="true" class="projectimage" :title="data.projects[props.id].images[ActualImage].description"></iframe>
           </div>
 
-          <p class="imageDescription">{{ data.projects[props.id].images[ActualImage].description }}</p> 
+          <p class="imageDescription"><strong>{{ data.projects[props.id].images[ActualImage].description }}</strong></p> 
         </span>
         <button id="rightButton" v-if="multipleImages" @click="switchImage('forward')" :title="$t('message.projectNextImage')"><i class="pi pi-arrow-circle-right"></i></button>
         <i class="pi pi-search-plus" v-if="data.projects[props.id].images[ActualImage].type == 'image'" @click="openLightbox()"></i>
@@ -273,7 +273,7 @@ button#leftButton, button#rightButton {
     cursor:pointer;
 
     i{
-        font-size:2rem;
+        font-size:4rem;
     }
 }
 
@@ -294,7 +294,7 @@ button#rightButton {
 img.projectimage {
     width: 500px;
     height: auto;
-    max-height:500px;
+    max-height:800px;
     border-radius: 10px;
     border: 1px solid black;
     box-shadow: 3px 3px 3px 3px darkslategray;
@@ -347,7 +347,8 @@ small{
     background-color: gray;
     border-radius: 10px;
 
-    height:600px !important;
+    min-height:600px !important;
+    max-height: 800px;
     width:800px;
     display: flex;
     justify-content: center;
@@ -365,6 +366,12 @@ small{
     cursor:pointer;
     transition:0.5s ease all;
     border: 1px solid gray;
+    width:3em;
+    height:3em;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
 }
 
 .imgProjectLinks:hover {
