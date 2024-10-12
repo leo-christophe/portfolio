@@ -5,9 +5,6 @@ import { getLangFromUrl } from '../src/utils/traduction';
 const messages = {
   en: {
     message: {
-      dateFormat: 'MM/dd/yyyy',
-
-      hello: 'Hello world',
       homeTitle: 'Léo CHRISTOPHE',
       subtitle1: '3rd year bachelor computer science student',
       subtitle2: 'Based in Annecy, France',
@@ -139,10 +136,6 @@ const messages = {
   },
   fr: {
     message: {
-      dateFormat: 'dd/MM/yyyy',
-
-      // Home
-      hello: 'Bonjour le monde',
       homeTitle: 'Léo CHRISTOPHE',
       subtitle1: 'Étudiant en 3ème année de BUT Informatique',
       subtitle2: 'Localisé à Annecy, France',
