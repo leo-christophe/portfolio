@@ -112,46 +112,82 @@ const showError = (Emessage = t('message.errorMessage')) => {
 </script>
 
 <template>
+  <span>
+  <h1 id="contentText">{{ $t('message.subtitle') }}</h1>
   <div id="content">
-    <h1 id="contentText">{{ $t('message.subtitle') }}</h1>
     <!-- Contact form -->
-    <div id="contactform" class="ContactSquare">
-      <h2>{{ $t('message.contactTitle') }}</h2>
-      <form id="demo-form" @submit.prevent="handleSubmit">
-        <br>
-        <!-- Name input -->
-        <div class="flex flex-column gap-2">
-          <label for="name">{{ $t('message.nameLabel') }}</label>
-          <InputText type="text" id="name" v-model="form.name" aria-required="true" :placeholder="$t('message.nameLabel')" />
+    <div id="formAIcons">
+      <div id="contactform" class="ContactSquare">
+        <h2>{{ $t('message.contactTitle') }}</h2>
+        <form id="demo-form" @submit.prevent="handleSubmit">
+          <br>
+          <!-- Name input -->
+          <div class="flex flex-column gap-2">
+            <label for="name">{{ $t('message.nameLabel') }}</label>
+            <InputText type="text" id="name" v-model="form.name" aria-required="true" :placeholder="$t('message.nameLabel')" />
+          </div>
+          <br>
+          <!-- Email input -->
+          <div class="flex flex-column gap-2">
+            <label for="email">{{ $t('message.emailLabel') }}</label>
+            <InputText v-model="form.email" type="email" id="email" :placeholder="$t('message.example')+'@'+$t('message.domain')" aria-required="true" required />
+            <small>({{ $t('message.emailDisclaimer') }})</small>
+          </div>
+          <br>
+          <!-- Message input -->
+          <div class="flex justify-content-center">
+            <Textarea id="message" v-model="form.message" variant="filled" required autoResize rows="5" cols="30" aria-required="true" :placeholder="$t('message.messageLabel')"></Textarea>
+          </div>
+          <!-- Submit button -->
+          <div>
+            <Button 
+            type="submit" 
+            id="greenValid" 
+            class="g-recaptcha" 
+            :disabled="!recaptchaToken">{{ $t('message.submitButton') }}</Button>
+          </div>
+          <small>
+            {{ $t('message.formDisclaimer') }}
+          </small>
+        </form>
+      </div>
+      <span id="infoBubbles" style="display:flex;flex-direction: column;justify-content: space-evenly;">
+        <div id="bubble1" class="bubble">
+          <div @click="callNumber_asClient(MOBILE)" :title="$t('message.availability') " class="iconContainer">
+            <i class="pi pi-phone infoRightIcon"></i>
+          </div>
+          <div class="bubbleInfo">
+            <span>{{$t('message.phoneSectionTitle')}}</span>
+            <div>
+              <span>{{ MOBILE }}</span><i class="pi pi-clone" @click="copyToClipboard(MOBILE, toast, t)" :title="$t('message.copyTitle')"></i>
+            </div>
+          </div>
         </div>
-        <br>
-        <!-- Email input -->
-        <div class="flex flex-column gap-2">
-          <label for="email">{{ $t('message.emailLabel') }}</label>
-          <InputText v-model="form.email" type="email" id="email" :placeholder="$t('message.example')+'@'+$t('message.domain')" aria-required="true" required />
-          <small>({{ $t('message.emailDisclaimer') }})</small>
+        <div id="bubble2" class="bubble">
+          <div @click="sendMail_asClient(EMAIL)" class="iconContainer">
+            <i class="pi pi-envelope infoRightIcon"></i>
+          </div>
+          <div class="bubbleInfo">
+            <span>{{$t('message.emailSectionTitle')}}</span>
+            <div>
+              <span>leo.christophe@etu.univ-savoie.fr</span><i class="pi pi-clone" @click="copyToClipboard(EMAIL, toast, t)" :title="$t('message.copyTitle')"></i>
+            </div>
+          </div>
         </div>
-        <br>
-        <!-- Message input -->
-        <div class="flex justify-content-center">
-          <Textarea id="message" v-model="form.message" variant="filled" required autoResize rows="5" cols="30" aria-required="true" :placeholder="$t('message.messageLabel')"></Textarea>
+        <div id="bubble3" class="bubble">
+            <div class="iconContainer">
+              <i class="pi pi-map-marker infoRightIcon"></i>
+            </div>
+            <div class="bubbleInfo">
+            <span>{{$t('message.locationTitle')}}</span>
+            <span>Annecy, France</span>
+          </div>
         </div>
-        <!-- Submit button -->
-        <div>
-          <Button 
-          type="submit" 
-          id="greenValid" 
-          class="g-recaptcha" 
-          :disabled="!recaptchaToken">{{ $t('message.submitButton') }}</Button>
-        </div>
-        <small>
-          {{ $t('message.formDisclaimer') }}
-        </small>
-      </form>
+      </span>
     </div>
 
     <!-- Additional information (email, phone) -->
-    <div id="informationsCard" class="ContactSquare">
+    <!-- <div id="informationsCard" class="ContactSquare">
       <div id="socialLinks">
         <div id="Mails">
           <div id="mailInfoContainer">
@@ -179,9 +215,9 @@ const showError = (Emessage = t('message.errorMessage')) => {
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <span id="localisationSquare" class="ContactSquare">
+    <!-- <span id="localisationSquare" class="ContactSquare">
       <div id="carteContainer">
         <iframe width="100%" height="100%" src="https://www.openstreetmap.org/export/embed.html?bbox=5.901374816894532%2C45.7957758736992%2C6.354560852050782%2C46.002208482091724&amp;layer=mapnik&amp;marker=45.899088112583115%2C6.127967834472656" ></iframe>
       </div>
@@ -204,13 +240,67 @@ const showError = (Emessage = t('message.errorMessage')) => {
           <strong>{{ $t('message.region') }}</strong>
         </p>
       </div>
-    </span>
+    </span> -->
   </div>
+</span>
 </template>
 
 
 <style scoped>
+.bubble{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  .pi-phone{
+    cursor:pointer;
+  }
+
+  .pi-envelope{
+    cursor:pointer;
+  }
+
+  .iconContainer{
+    font-size: 1rem;
+    background-color: rgb(61, 61, 61);
+    color:var(--secondColor);
+    border-radius: 10%;
+    padding:20px;
+    width:4em;
+    height:4em;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.iconContainer:hover{
+  i{
+    transform:scale(1.1);
+  }
+}
+
+.bubble .bubbleInfo{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding:25px 0 25px 15px; 
+}
   @media screen and (max-width: 860px) {
+    div#formAIcons{
+      display:flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+
+      #infoBubbles{
+        display:flex;
+        flex-direction: column;
+        transform: scale(1.5);
+        margin: 0px 0 100px 0;
+      }
+    }
+
+
     #carteContainer {
       width: 100%;
       height:auto !important;
@@ -224,6 +314,10 @@ const showError = (Emessage = t('message.errorMessage')) => {
       font-size: 1.5rem !important;
     }
 
+    input{
+      height: 3rem !important;
+    }
+
     small{
       font-size: 1rem !important;
     }
@@ -232,7 +326,6 @@ const showError = (Emessage = t('message.errorMessage')) => {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      flex-wrap: wrap;
       min-height: 100vh; /* Prendre toute la hauteur */
       max-width:860px;
     }
@@ -281,21 +374,26 @@ const showError = (Emessage = t('message.errorMessage')) => {
 
     h1#contentText{
       padding:0 !important;
-      margin:0 0 20px 0 !important;
-      min-width:100vw;
+      margin:0 0 20px 40px !important;
+      min-width:78vw;
+      max-width: 90vw;
+      
     }
   }
 
   h1#contentText{
     padding:0vh 15vw 1vh 15vw;
     min-width:70vw;
-    text-align:justify;
+    text-align:center;
   }
 
   span#localisationSquare{
     display: flex;
     flex-direction: row;
     width:auto;
+    padding:30px;
+    margin:0;
+    max-width:50vw;
 
     #localisationSquareText{
       margin-left:30px;
@@ -343,7 +441,7 @@ const showError = (Emessage = t('message.errorMessage')) => {
 
   div#content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content:space-evenly;
 
@@ -380,5 +478,12 @@ const showError = (Emessage = t('message.errorMessage')) => {
   input:focus, textarea:focus {
       outline: none;
       border-color: #3a833d; /* Change border color on focus */
+  }
+
+  #formAIcons{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
   }
 </style>

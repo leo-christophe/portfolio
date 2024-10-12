@@ -43,28 +43,34 @@ onMounted(() => {
         <ul id="statisticsList">
             <li class="statistic" id="statistic1" v-tooltip.top="$t('message.finishedProjectsTitle')">
                 <span class="number">{{ projectsCompleted }}</span>
-                <span>{{$t('message.finishedProject')}}</span>
+                <span class="textN">{{$t('message.finishedProject')}}</span>
             </li>
 
             <li class="statistic" id="statistic2" v-tooltip.top="$t('message.yearsOfProgrammingTitle')">
                 <span class="number">{{ programmingYears }}</span>
-                <span>{{$t('message.yearsOfProgramming')}}</span>
+                <span class="textN">{{$t('message.yearsOfProgramming')}}</span>
             </li>
 
             <li class="statistic" id="statistic3" v-tooltip.top="$t('message.commitsTitle')"> 
                 <span class="number">{{ commitsNumber }}</span>
-                <span>{{$t('message.commits')}}</span>
+                <span class="textN">{{$t('message.commits')}}</span>
             </li>
 
             <li class="statistic" id="statistic4" v-tooltip.top="$t('message.masteredTechTitle')">
                 <span class="number">{{ technologiesMastered }}</span>
-                <span>{{$t('message.masteredTech')}}</span>
+                <span class="textN">{{$t('message.masteredTech')}}</span>
             </li>
         </ul>
     </div>
 </template>
 
 <style scoped>
+@media screen and (max-width: 860px){
+    #statisticsContentContainer{
+        display:none;
+    }
+}
+
 .p-tooltip {
     padding: var(--p-tooltip-padding); /* Augmenter le padding ici */
 }
@@ -90,8 +96,13 @@ ul{
 
 .number{
     color: var(--secondColor);
-    font-size: 2em !important;
+    font-size: 4em !important;
     font-weight: bold;
     margin-right: 1em;
+}
+
+.textN{
+    font-size: 2em !important;
+    font-weight: bold;
 }
 </style>

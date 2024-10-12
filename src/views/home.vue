@@ -6,11 +6,11 @@ import HomeInterests from '../components/Home/HomeInterests.vue';
 </script>
 
 <template>
-  <div>
+  <div id="homeContent">
     <HomeStart id="start" class="pageSection"></HomeStart>
     <HomeSkills id="skills" class="pageSection"></HomeSkills>
-    <HomeContact id="contactSection" class="pageSection"></HomeContact>
     <HomeInterests id="interests" class="pageSection"></HomeInterests>
+    <HomeContact id="contactSection" class="pageSection"></HomeContact>
   </div>
 </template>
 

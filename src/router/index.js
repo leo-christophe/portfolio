@@ -2,8 +2,7 @@ import { createWebHistory, createRouter } from 'vue-router'
 
 import home from '../views/home.vue';
 import projects from '../views/projects.vue';
-import formations from '../views/formations.vue';
-import experience from '../views/experience.vue';
+import formation from '../views/parcours.vue';
 import contact from '../views/contact.vue';
 
 import project_portfolio from '../views/projects/project_portfolio.vue';
@@ -72,12 +71,8 @@ const routes = [
 },{ 
     path: '/formations',
     name: 'Formations',
-    component: formations,
+    component: formation,
     alias: '/etudes' 
-},{ 
-    path: '/experience',
-    name: 'Experience',
-    component: experience 
 },{ 
     path: '/contact',
     name: 'Contact',
@@ -103,7 +98,6 @@ const router = createRouter({
 const menuItems = {
     Accueil: "1",
     Formations: "2",
-    Experience: "2",
     Projets: "3",
     Portfolio: "3",
     Marsinvaders: "3",

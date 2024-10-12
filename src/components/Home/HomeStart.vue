@@ -4,28 +4,28 @@
 
     const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child(3) > a').href;
 
-    function ToCV() {
-        window.scrollTo({
-            top: window.innerHeight * 2 + 80,
-            behavior: 'smooth'
-        });
-    }
+    // function ToCV() {
+    //     window.scrollTo({
+    //         top: window.innerHeight * 2 + 80,
+    //         behavior: 'smooth'
+    //     });
+    // }
 </script>
 
 <template>
     <div id="welcome">
-        <div id="text" class="paragraphe">  
+        <!-- <div id="text" class="paragraphe">  
             <h1 class="outlined-text" id="titre">{{ $t('message.homeTitle') }}</h1>
             <h3 class="outlined-text text_line" id="soustitre1">{{ $t('message.subtitle1') }}</h3>
             <h4 class="outlined-text text_line" id="soustitre2">{{ $t('message.subtitle2') }}</h4>
 
             <i id="flecheNext1" class="pi pi-arrow-down" @click="ToCV()"></i>
-        </div>
+        </div>  -->
 
         <div id="partieDroite">
             <div class="paragraphe" id="texteParagrapheDroiteContainer">
                 <div id="texteParagrapheDroite">
-                    <h2 id="titreAPropos">{{ $t('message.aboutTitle') }}</h2>
+                    <h2 id="titreAPropos">Léo CHRISTOPHE</h2>
                     <h4 id="paragrapheAPropos">{{ $t('message.aboutText') }}</h4>
                 </div>
             </div>
@@ -214,7 +214,7 @@
     }
 
     #partieDroite{
-        float:right;
+        float:left;
         width:50vw;
     }
     

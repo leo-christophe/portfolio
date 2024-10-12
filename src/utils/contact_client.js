@@ -29,7 +29,8 @@ const verifyNumber = (number) => {
     }
 
     number = number.trim();
-
+    number = number.replace(/\s/g, '');
+    
     const phoneRegex = /^\+?[0-9]{1,3}[0-9]{9}$/;
     if (!phoneRegex.test(number)){
         console.warn('Le numéro de téléphone renseigné est incorrect. Veuillez contacter l\'administrateur du site.');
