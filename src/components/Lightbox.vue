@@ -113,7 +113,9 @@
 
   .lightbox-image {
     max-width: 100%;
-    max-height: 90vh; /* Limit height to the viewport height */
+    max-height: 100vh; /* Limit height to the viewport height */
+    width:60vw;
+    height:auto;
     object-fit: contain; /* Ensures the image maintains its aspect ratio */
   }
 

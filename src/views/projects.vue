@@ -5,6 +5,7 @@
   import { useI18n } from 'vue-i18n'
   import { findClosestCompetence } from '../utils/levenshtein'
   import { saveToLocalStorage, restoreFromLocalStorage, getEarliestDate, getLatestDate, saveFiltersState, restoreFiltersState, applyFilterStateClasses } from '../utils/project_list'
+  import DateUtils from '../utils/date_utils'
 
   const instance = getCurrentInstance();
   const data = instance.appContext.config.globalProperties.$JSONData;
@@ -35,7 +36,7 @@
         const projectEnd = project.dates[1] === t('message.projectsOnGoing') ? new Date() : new Date(project.dates[1])
         return { start: projectStart, end: projectEnd }
       })
-
+      
       startDate.value = getEarliestDate(projectDates).toISOString().split('T')[0]
       endDate.value = getLatestDate(projectDates, t).toISOString().split('T')[0]
     }
@@ -373,6 +374,10 @@
 
   input[name="checkType"] {
     color:black;
+  }
+
+  #typeProjetContainer > div > div > div{
+    margin-right: 5px;
   }
 
   .dateInput {

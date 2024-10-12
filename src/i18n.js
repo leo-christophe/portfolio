@@ -5,6 +5,8 @@ import { getLangFromUrl } from '../src/utils/traduction';
 const messages = {
   en: {
     message: {
+      dateFormat: 'MM/dd/yyyy',
+
       hello: 'Hello world',
       homeTitle: 'Léo CHRISTOPHE',
       subtitle1: '3rd year bachelor computer science student',
@@ -137,6 +139,8 @@ const messages = {
   },
   fr: {
     message: {
+      dateFormat: 'dd/MM/yyyy',
+
       // Home
       hello: 'Bonjour le monde',
       homeTitle: 'Léo CHRISTOPHE',

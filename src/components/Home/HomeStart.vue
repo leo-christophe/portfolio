@@ -152,10 +152,13 @@ function ToCV() {
 
             img{
                 width:100px;
+                }
             }
         }
-    }
 
+        .column{
+            width:100% !important;
+        }
         div#CTA.paragraphe {
             flex-direction: row;
             justify-content: space-around;

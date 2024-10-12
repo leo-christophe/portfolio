@@ -71,7 +71,7 @@
                                         <h4 class="titreFormation">{{ formationTimeline.item.titre }} <br> <strong>{{ formationTimeline.item.lieu }}</strong>, {{ formationTimeline.item.ville }} ({{ formationTimeline.item.departement }})</h4>
                                         <h5 class="obtention">{{ formationTimeline.item.obtention }}</h5>
                                     </div>
-                                    <div id="imageFormation">
+                                    <div class="imageFormation">
                                         <img :src="formationTimeline.item.image" class="imgFormation" @click="window.open(formationTimeline.item.website, '_blank');">
                                     </div>
                                 </div>
@@ -117,7 +117,6 @@
                                                 </span>
                                             </h5>
                                             <br>
-                                            {{ console.log(locale) }}
                                             <h4 class="titreExperience" v-if="locale == 'fr'">{{ experienceTimeline.item.contrat + " " + experienceTimeline.item.poste }} {{$t('message.at_au')}} {{ experienceTimeline.item.entreprise }}</h4>
                                             <h4 class="titreExperience" v-else>{{ experienceTimeline.item.entreprise }}</h4>
                                             <p class="expDesc">{{ experienceTimeline.item.description }}</p>
@@ -174,12 +173,47 @@
 <style scoped>
 /* Media query for mobile devices */
 @media (max-width: 860px) {
+    .downArrowExperienceContainer{
+        
+        position:relative !important;
+    }
+
+    .downArrowExperienceContainer i{
+        margin:0 !important;
+        padding:20px;
+    }
+
+    .column{
+        width:100vw !important;
+    }
+
+    ul.skillsListExp, ul.missionsListExp{
+        font-size: 1.3em;
+    }
+
+    .expDesc{
+        max-width: none !important;
+        font-size: 1.3em !important;
+    }
+
+    span#conteneurTimelineFormations{
+        div.card.flex.flex-wrap.gap-12{
+            left:0 !important;
+        }
+    }
+
     h1.formationTitres, h4.formationTitres{
         text-align: left;
+        margin-left:5vw;
+        width:100vw !important;
     }
 
     #formationExperienceContainer {
         flex-direction: column; /* Stack sections vertically */
+    }
+
+    #conteneurTimelineFormations > div > div > div > div.p-timeline-event-content > div:nth-child(1) > div.imgExperienceContainer{
+        display:none;
     }
 
     .column {
@@ -191,7 +225,9 @@
     }
 
     .conteneurBox {
-        width: 100%; /* Adjust the box width to fit the screen */
+        width: 100vw; /* Adjust the box width to fit the screen */
+        max-width: 80vw  !important;
+
     }
 
     .information {
@@ -245,31 +281,51 @@
     div.information.experienceInf{
         max-width:80%;
     }
+
+
+
+    h4.titreExperience, h4.titreFormation{
+        font-size: 1.6em !important;
+    }
+
+    h5.obtention{
+        font-size: 1.3em !important;
+    }
+
+
 }
 
 
-@media (max-width:1580px) and (min-width:860px){
+@media (max-width:1300px) and (min-width:860px){
     #formationExperienceContainer{
         flex-direction:column !important;
     }
 
     h1.formationTitres, h4.formationTitres{
-        text-align: left;
-        left:10vw;
-        position:relative;
+        width:100%;
+        margin-right:20%;
+        text-align: center;
+        position: relative;
+    }
+
+    .column{
+        width:100vw !important;
     }
 
     span#conteneurTimelineFormations{
         width:100vw;
 
         div.card.flex.flex-wrap.gap-12{
-            width:50vw;
-            left:10vw;
+            width:100%;
+            margin-right:20%;
             position: relative;
         }
     }
 
-
+    .conteneurBox{
+        min-width: min-content !important;
+        width:70vw !important;
+    }
 }
 
 .expSkillsTitle, .expMissionsTitle{
@@ -342,13 +398,19 @@ ul.missionsListExp li{
     .downArrowExperienceContainer{
         display:flex;
         flex-direction: column-reverse;
-        height:100%;
-        padding-left: 100px;
+        
+        z-index: 100;
+        position: absolute;
+        right:0;
+        bottom:0;
+        background-color: black;
+        padding:10px;
+        border-radius: 100%;
     }
 
-    .information.experienceInf{
+    /* .information.experienceInf{
         max-width:20vw;
-    }
+    } */
 
     #conteneurColonneExperience{
         margin-right:5vw;
@@ -356,7 +418,8 @@ ul.missionsListExp li{
 
     h5.annees{
         margin-top:1rem;
-        font-size: 1.5rem;
+        font-size: 1.8em !important;
+    
         font-weight:500;
         color: var(--secondColor);
     }
@@ -377,8 +440,9 @@ ul.missionsListExp li{
 
         background-color:rgb(36, 36, 36);
         color: white;
-        max-width:45rem;
-        width:60vw;
+        width:35vw;
+        min-width: min-content;
+        max-width: 60vw;
         height:20vh;
         min-height:fit-content;
         justify-content: left;
@@ -496,21 +560,17 @@ ul.missionsListExp li{
 
         /* Conteneur de l'image d'expérience */
     .imgExperienceContainer {
-        width: 150px;
-        height: 150px; /* Ajuster la taille comme souhaité */
+
+
+        width: auto;
+        height: auto; /* Ajuster la taille comme souhaité */
         margin-left: 10px;
-        display: flex;
         align-items: center; /* Centrage vertical */
         justify-content: center; /* Centrage horizontal */
     }
 
     /* Image de l'expérience */
-    .imgExperience {
-        max-width: 100%; /* Limiter la taille à la largeur du conteneur */
-        max-height: 100%; /* Limiter la hauteur à la hauteur du conteneur */
-        border-radius: 5px;
-        transition: transform 0.5s;
-    }
+
 
     .imgFormation, .imgExperience {
         display:grid;
