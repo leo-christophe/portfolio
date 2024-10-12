@@ -31,6 +31,8 @@
 
   --IconSize: 1.5rem;
   --HeaderSize: 2.5rem;
+
+  --p-tooltip-padding: 5em; /* Ajuste la valeur ici */
 }
 
 * {

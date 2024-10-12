@@ -22,6 +22,14 @@ const messages = {
       cooking: 'Cooking',
       cookingDescription: "I love cooking. From a young age, I've always enjoyed food, so being able to prepare it with my own personal touches is a real pleasure.",
 
+      finishedProject: 'Finished Projects',
+      finishedProjectsTitle: 'Counting all my projects, I have completed',
+      yearsOfProgramming: 'Years of Programming',
+      yearsOfProgrammingTitle: 'I have been programming for over 5 years',
+      commits: 'Commits',
+      commitsTitle: 'I have made over 450 commits on Github in the pasts years',
+      masteredTech: 'Mastered Technologies',
+      masteredTechTitle: 'In 4 diffent languages: PHP, JS, Python, C#. Frameworks: Flask, Blazor, VueJS, Laravel, ASP.NET Core, WPF and more... ',
 
       // HomeSkills
       skillsTitle: 'Hard skills',
@@ -152,6 +160,16 @@ const messages = {
       videogamesDescription: "J'aime beaucoup les jeux créatifs comme Minecraft. Jouant depuis près de 10 ans, le genre me plaît toujours autant en m'inspirant toujours.",
       cooking: 'Cuisine',
       cookingDescription:"J'adore cuisiner. Depuis mon plus jeune âge, j'ai toujours aimé la nourriture, alors pouvoir la confectionner avec mes propres touches est un vrai plaisir.",
+
+      finishedProject: 'Projets Terminés',
+      finishedProjectsTitle: 'En comptant tous les projets que j\'ai terminé',
+      yearsOfProgramming: 'Années de Programmation',
+      yearsOfProgrammingTitle: 'Je programme depuis plus de 5 ans',
+      commits: 'Commits',
+      commitsTitle: 'J\'ai effectué plus de 450 commits sur Github ces dernières années',
+      masteredTech: 'Technologies maîtrisées',
+      masteredTechTitle: 'Dans 4 langages différents: PHP, JS, Python, C#. Frameworks: Flask, Blazor, VueJS, Laravel, ASP.NET Core, WPF et plus...',
+
 
       // HomeSkills
       skillsTitle: 'Compétences techniques',

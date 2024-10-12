@@ -1,14 +1,15 @@
 <script setup>
-import Button from 'primevue/button';
+    import Button from 'primevue/button';
+    import HomeStatistics from './HomeStatistics.vue';
 
-const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child(3) > a').href;
+    const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child(3) > a').href;
 
-function ToCV() {
-    window.scrollTo({
-        top: window.innerHeight * 2 + 80,
-        behavior: 'smooth'
-    });
-}
+    function ToCV() {
+        window.scrollTo({
+            top: window.innerHeight * 2 + 80,
+            behavior: 'smooth'
+        });
+    }
 </script>
 
 <template>
@@ -37,50 +38,10 @@ function ToCV() {
                     <Button id="blackVariant">{{ $t('message.contact')+" " }} <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
                 </RouterLink>
             </div>
-
-            
         </div>
-
-        <div id="interetsSection">
-
-        <h2 id="titreAProposI">{{ $t('message.interestsTitle') }}</h2>
-        <h5 id="paragrapheAProposI">{{ $t('message.interestsDescription') }}</h5>
-
-        <div class="paragraphe" id="interets" style="display:flex;">
-                <div>
-
-                    <span id="conteneurInterets">
-                        <div class="textContainer">
-                            <img class="hobbyIcon" id="torii-gate-icon" src="/images/icons/manga.png">
-                            
-                            <div>
-                                <h3>{{$t('message.animes')}}</h3>
-                                {{ $t('message.animesDescription') }}
-                            </div>
-                        </div>
-                        <div class="textContainer">
-                            <img class="hobbyIcon" id="game-controller-icon" src="/images/icons/game-controller.png">
-                            
-                            <div>
-                                <h3>{{$t('message.videogames')}}</h3>
-                                {{ $t('message.videogamesDescription') }}    
-                            </div>
-                        </div>
-                        <div class="textContainer">
-                            <img class="hobbyIcon" id="cooking-pot-icon" src="/images/icons/cooking-equipment.png">
-                            
-                            <div>
-                                <h3>{{$t('message.cooking')}}</h3>
-                                {{ $t('message.cookingDescription') }}
-                            </div>
-                        </div>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div id="video_container">
-            <!-- Vidéo background -->
-        </div>
+        <div id="statistics">
+            <HomeStatistics></HomeStatistics>
+        </div>    
     </div>
 </template>
 
@@ -111,60 +72,11 @@ function ToCV() {
             padding: 0 100px 0 100px;
         }
 
-        div#interetsSection{
-            justify-content: left;
-            margin:120vh 0 0 0;
-        }
-
-        div#interets{
-            justify-content: center;
-            align-items: center;
-        }
-
-        span#conteneurInterets{
-            flex-direction: column;
-            padding:0;
-            margin:0;
-            width:100vw;
-        }
-
-        div#interets.paragraphe{
-            margin:0;
-            padding:0;
-            
-        }
-
-        span#conteneurInterets {
-            margin-top:30px;
-            gap:20px;
-
-            div.textContainer{
-            display:block;
-            max-width:80vw;
-            min-width:50%;
-            min-height: min-content;
-            max-height:20vh;
-            
-            width:auto;
-            justify-content:center;
-            margin: 0 auto;
-            text-align: center;
-
-            img{
-                width:100px;
-                }
-            }
-        }
-
-        .column{
-            width:100% !important;
-        }
         div#CTA.paragraphe {
             flex-direction: row;
             justify-content: space-around;
         }
         
-
         div#textCV{
             max-width:none;
             min-width:auto;
@@ -181,76 +93,6 @@ function ToCV() {
         #CTA button{
             margin-bottom:10px;
         }
-    }
-
-    #conteneurInterets img {
-        width: 10em; /* Taille des icônes */
-        margin-bottom: 15px; /* Space between icon and text */
-        align-self: center; /* Align icons to the top */
-    }
-
-    #interetsSection{
-        border:1px solid black;
-        background-color:var(--home-background-color3);
-        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.4);
-        border-radius: 20px;
-
-        display:flex;
-        flex-direction:column;
-        justify-content:left;
-        margin-top:60vh;
-        position:relative;
-        z-index: 10;
-        width:90vw;
-        margin-left:5vw;
-        min-width:min-content;
-    }
-
-    
-
-    #interets {
-        display: flex;
-        flex-wrap:wrap;
-        flex-direction: row;
-        justify-content: center; /* Center the child elements horizontally */
-        width:100%;
-        
-        
-    }
-
-    #conteneurInterets {
-        display: flex;
-        flex-direction: row;
-        justify-content:center;
-        gap: 5%; /* Space between individual interest items */
-        width: 100%;
-    }
-
-    #conteneurInterets div.textContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start; /* Align content to the top */
-        align-items: center;
-        margin: 20px 0;
-        border: 2px solid var(--secondColor);
-        border-radius: 10%;
-        padding: 20px;
-        max-width: 20%;
-        min-width: 15rem;
-        min-height: 350px; /* Ensure a minimum height for consistent size */
-        text-align: center;
-    }
-
-
-
-    #conteneurInterets div div {
-        font-size: 0.8rem;
-        text-align: justify; /* Align text inside the description */
-    }
-
-    #conteneurInterets h3 {
-        text-align: center;
-        margin-bottom: 10px;
     }
 
 
@@ -352,12 +194,6 @@ function ToCV() {
         height:100vh;
     }
 
-    #video_container {
-        z-index: 1;
-        filter:grayscale(100%);
-        
-    }
-
     #text {
         display: flex;
         flex-direction: column;
@@ -369,8 +205,6 @@ function ToCV() {
         position:relative;
         z-index: 10;
         
-
-     
         border-radius:40px;
     }
 
@@ -384,9 +218,7 @@ function ToCV() {
         width:50vw;
     }
     
-    #titreAProposI, #paragrapheAProposI{
-        margin-left:30px;
-    }
+
 
     #paragrapheAPropos{
         font-size: 1em;
@@ -408,15 +240,4 @@ function ToCV() {
         margin-right:20px;
     }
 
-    img.hobbyIcon {
-        width: 10em; /* Taille des icônes */
-        margin-bottom: 15px; /* Space between icon and text */
-        border-radius: 30px;
-        background-color: transparent;
-    }
-
-    #torii-gate-icon{
-        object-fit:cover !important;
-        width:10em !important;
-    }
 </style>

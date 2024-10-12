@@ -19,6 +19,7 @@ import ConfirmationService from 'primevue/confirmationservice';
 
 // Directives
 //import scrollDirective from './directives/scroll-directive.js';
+import Tooltip from 'primevue/tooltip';
 
 // Données
 import dataPlugin from './utils/dataPlugin'
@@ -38,6 +39,7 @@ createApp(App)
   .use(ConfirmationService)
   // Directives
   //.directive('scroll', scrollDirective)
+    .directive('tooltip', Tooltip)
   // i18n
   .use(i18n)
   // Données

@@ -2,14 +2,16 @@
 import HomeContact from '../components/Home/HomeContact.vue';
 import HomeSkills from '../components/Home/HomeSkills.vue';
 import HomeStart from '../components/Home/HomeStart.vue';
+import HomeInterests from '../components/Home/HomeInterests.vue';
 </script>
 
 <template>
-
-  <HomeStart id="start" class="pageSection"></HomeStart>
-  <HomeSkills id="skills" class="pageSection"></HomeSkills>
-  <HomeContact id="contactSection" class="pageSection"></HomeContact>
-
+  <div>
+    <HomeStart id="start" class="pageSection"></HomeStart>
+    <HomeSkills id="skills" class="pageSection"></HomeSkills>
+    <HomeContact id="contactSection" class="pageSection"></HomeContact>
+    <HomeInterests id="interests" class="pageSection"></HomeInterests>
+  </div>
 </template>
 
 <style scoped>
