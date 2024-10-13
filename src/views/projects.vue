@@ -2,6 +2,7 @@
   import { ref, computed, onMounted, watch, getCurrentInstance } from 'vue'
   import Chips from 'primevue/chips'
   import Checkbox from 'primevue/checkbox'
+  import Button from 'primevue/button'
   import { useI18n } from 'vue-i18n'
   import { findClosestCompetence } from '../utils/levenshtein'
   import { saveToLocalStorage, restoreFromLocalStorage, getEarliestDate, getLatestDate, saveFiltersState, restoreFiltersState, applyFilterStateClasses } from '../utils/project_list'
@@ -139,7 +140,12 @@
   <div>
     <h1>{{$t('message.projectsTitle')}}</h1>
     
-    <p id="textFilterHeader" ref="textFilter" @click="switchFilter()"><i ref="iconFilter" class="pi pi-angle-down" style="margin: 0 10px 0 0"></i> {{$t('message.projectsFiltersKeyword')}}</p>
+    <Button id="blackVariant">
+      <p id="textFilterHeader" ref="textFilter" @click="switchFilter()">
+        <i ref="iconFilter" class="pi pi-angle-down" style="margin: 0 10px 0 0"></i> 
+        {{$t('message.projectsFiltersKeyword')}}
+      </p>
+    </Button>
     <div id="filters" ref="filters" class="card gap-3 p-fluid filterDeactivated">
       <div class="datesIn" id="dateFilters">
         <h3 id="datesTitle">{{ $t('message.projectsDateLabel') }}</h3>
@@ -224,8 +230,13 @@
     background-color:rgb(66, 79, 79);
   }
 
+  Button#blackVariant{
+    margin-left:2vw;
+  }
+
   #textFilterHeader{
-    margin-left:10px;
+    width:fit-content;
+    height:fit-content;
   }
 
   #textFilterHeader:hover{
