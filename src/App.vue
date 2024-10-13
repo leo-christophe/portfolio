@@ -11,6 +11,7 @@
     </main>
     <FooterCmt />
   </div>
+  
 </template>
 
 <script setup>

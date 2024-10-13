@@ -140,13 +140,16 @@ div#contactgifContainer {
 }
 
 @media (max-width: 860px) {
-    span#buttons {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        gap: 20px;
-        width: 80vw;
-    }
+    Button#blackVariant {
+
+    justify-content:space-around !important;
+    width: 100% !important;
+}
+
+span#buttons{
+    justify-content:center !important;
+    width: 70% !important;
+}
 
     .computer {
         display: none !important;
@@ -224,18 +227,26 @@ div#finalText {
 } */
 
 Button#blackVariant {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content:space-around;
-    width:50vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50vw; /* Largeur ajustable selon l'écran */
+    max-width: 300px; /* Limite la largeur pour éviter que ça devienne trop large */
+    padding: 10px 20px; /* Pour une meilleure mise en forme */
+
+    i {
+        margin-right: 10px; /* Espace entre l'icône et le texte */
+    }
 }
 
-span#buttons{
-    display:flex;
-    flex-direction:row;
-    justify-content:space-around;
-    width:100%;
+#buttons {
+    display: flex; /* Assure que les boutons sont affichés en flex */
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center; /* Centre les boutons horizontalement */
+    align-items: center; /* Centre verticalement si besoin */
+    margin: 50px 0;
+    gap: 20px; /* Espace entre les boutons */
 }
-
 </style>

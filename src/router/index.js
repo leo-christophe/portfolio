@@ -14,10 +14,10 @@ import project_video from '../views/projects/project_video.vue';
 import project_converter from '../views/projects/project_chrisconverter.vue';
 
 import NotFound from '../components/Error/NotFound.vue';
-import dataPage from '../views/mesdonnees.vue';
+import mesdonnees from '../views/mesdonnees.vue';
+import confidentialite from '../views/confidentialite.vue';
 
 import {COULEUR_MENU_BASIC, COULEUR_MENU_SELECTIONNE} from '../data/const.js';
-import mesdonnees from '../views/mesdonnees.vue';
 
 import { useTitle } from '@vueuse/core'
 
@@ -85,6 +85,10 @@ const routes = [
     path: '/mesdonnees',
     name: 'Mes données',
     component: mesdonnees
+  },{
+    path: '/confidentialite',
+    name: 'Confidentialité',
+    component: confidentialite
   }
 ]
 
@@ -107,6 +111,7 @@ const menuItems = {
     BMW: "3",
     project_video: '3',
     'Mes données': "0",
+    'Confidentialité': "0",
     Contact: "4"
   };
 

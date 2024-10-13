@@ -125,7 +125,7 @@
 <style scoped>
 
 /* Media Queries for Responsiveness */
-@media (max-width: 860px) {
+@media (max-width: 1278px) {
   span.skill-name{
     max-width:75%;
   }

@@ -143,6 +143,36 @@ const messages = {
       donneesDisclaimer: "Your data stored on the browser is purely for ergonomic or translation purposes. They are not used for commercial or tracking purposes.",
       donneesDisclaimer2: "You can delete optional (ergonomic) data at any time by clicking the button below.",
       donneesBtnSupp: "Delete my data",
+
+      "privacy": {
+      "title": "Privacy Policy",
+      "cookies": {
+        "title": "Cookies",
+        "intro": "This cookie policy explains what cookies are, how we use them, how third parties we may be associated with may use cookies on the service, your choices regarding cookies, and additional information about cookies.",
+        "details": {
+          "title": "Types of Cookies Used",
+          "lang": "Cookie 'lang': Used to manage the user's language preference. (Functional, Permanent)",
+          "rc_a": "Cookie 'rc::a': Necessary for the operation of the service. (Necessary, Permanent)",
+          "rc_c": "Cookie 'rc::c': Used for user sessions. (Necessary, Session)"
+        }
+      },
+      "data_protection": {
+        "title": "Data Protection",
+        "content": "We are committed to protecting your personal data. This section explains how we process your data."
+      },
+      "user_rights": {
+        "title": "User Rights",
+        "content": "You have rights regarding your personal data, including the right to access, rectify, delete, and object. You can exercise these rights by accessing the data section in the footer below."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "For any questions regarding this privacy policy, please contact us at [leochristophe@outlook.fr]."
+      },
+      "policy_update": {
+        "title": "Policy Update",
+        "content": "We may update this privacy policy from time to time. The date of the last update will be indicated at the top of this page."
+      }
+    }
     }
   },
   fr: {
@@ -284,6 +314,36 @@ const messages = {
       donneesDisclaimer: "Vos données stockées sur le navigateur ont un but purement ergonomique ou de traduction. Elles ne sont pas utilisées à des fins commerciales ou de tracking.",
       donneesDisclaimer2: "Vous pouvez effacer les données facultatives (ergonomiques) à tous moments en cliquant sur le bouton ci-dessous.",
       donneesBtnSupp:  "Supprimer mes données",
+
+      "privacy": {
+      "title": "Politique de confidentialité",
+      "cookies": {
+        "title": "Cookies",
+        "intro": "Cette politique de cookies explique ce que sont les cookies, comment nous les utilisons, comment les tiers avec lesquels nous pouvons être associés peuvent utiliser des cookies sur le service, vos choix concernant les cookies et des informations supplémentaires sur les cookies.",
+        "details": {
+          "title": "Types de cookies utilisés",
+          "lang": "Cookie 'lang' : Utilisé pour gérer la préférence de langue de l'utilisateur. (Fonctionnel, Permanent)",
+          "rc_a": "Cookie 'rc::a' : Nécessaire au fonctionnement du service. (Nécessaire, Permanent)",
+          "rc_c": "Cookie 'rc::c' : Utilisé pour les sessions utilisateur. (Nécessaire, Session)"
+        }
+      },
+      "data_protection": {
+        "title": "Protection des données",
+        "content": "Nous nous engageons à protéger vos données personnelles. Cette section explique comment nous traitons vos données."
+      },
+      "user_rights": {
+        "title": "Droits des utilisateurs",
+        "content": "Vous avez des droits concernant vos données personnelles, y compris le droit d'accès, de rectification, de suppression et d'opposition. Vous pouvez exercer ces droits en accédant à la section données dans le pied de page ci-dessous."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "Pour toute question concernant cette politique de confidentialité, veuillez nous contacter à [leochristophe@outlook.fr]."
+      },
+      "policy_update": {
+        "title": "Mise à jour de la politique",
+        "content": "Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. La date de la dernière mise à jour sera indiquée en haut de cette page."
+      }
+    }
     }
   }
 };

@@ -85,6 +85,12 @@ onMounted(() => {
     }
 }
 
+@media screen and (max-width: 1200px){
+    ul{
+        flex-wrap: wrap !important;
+    }
+}
+
 .p-tooltip {
     padding: var(--p-tooltip-padding); /* Augmenter le padding ici */
 }

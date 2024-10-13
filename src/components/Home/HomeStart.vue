@@ -3,13 +3,6 @@
     import HomeStatistics from './HomeStatistics.vue';
 
     const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child(3) > a').href;
-
-    // function ToCV() {
-    //     window.scrollTo({
-    //         top: window.innerHeight * 2 + 80,
-    //         behavior: 'smooth'
-    //     });
-    // }
 </script>
 
 <template>
@@ -31,6 +24,7 @@
                     </div>
 
                     <span id="photoContainer" class="border-animated-box">
+                        <!-- Photo de profil Linkedin -->
                         <img src="https://media.licdn.com/dms/image/v2/D4E03AQGsWTRA8Q7aJA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1698118847727?e=1734566400&v=beta&t=FEXDpgmvSFDF0KLR1L1Rjbf6xxzjfPrk_lCo8Tbv9Rw" alt="Photo de profil" id="photoProfil">
                     </span>
 
@@ -81,8 +75,8 @@
         }
 
         #photoContainer{
-            width: 350px !important;
-            height: 350px !important;
+            min-width: 350px !important;
+            min-height: 350px !important;
             margin-bottom:1vh;
         }
 
@@ -92,6 +86,8 @@
             align-items: center;
             width:100%;
         }
+
+
     }
 
 

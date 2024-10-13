@@ -28,7 +28,7 @@
 
   --listPaire: var(--gray-500);
   --listImpaire: var(--gray-700);
-  --listHeader: var(--gray-950);
+  --listHeader: black;
 
   --IconSize: 1.5rem;
   --HeaderSize: 2.5rem;

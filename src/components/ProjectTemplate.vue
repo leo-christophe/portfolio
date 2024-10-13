@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, getCurrentInstance } from 'vue';
+import { ref, onMounted, onUnmounted, computed, getCurrentInstance } from 'vue';
 
 import Lightbox from './Lightbox.vue'
 
@@ -56,6 +56,41 @@ const hasImages = computed(() => data.projects[props.id].images[0] != null);
 const multipleImages = computed(() => data.projects[props.id].images.length > 1);
 const projectURL = ref("")
 projectURL.value = data.projects[props.id].url || data.projects[props.id].github || "";
+
+const observer = ref(null);
+  const vReal = {
+    mounted(el) {
+      observer.value = new IntersectionObserver((entries) => {
+      }, { threshold: 0.5 }); // Déclenchement à 50% de visibilité
+
+      // Observer l'élément (la barre de compétences)
+      observer.value.observe(el);
+    },
+    unmounted(el) {
+      // Nettoyage de l'observation quand l'élément est supprimé
+      if (observer.value){
+        observer.value.unobserve(el);
+      }
+    }
+  };
+
+  onMounted(() => {
+  const containers = document.querySelectorAll('.realisationitem');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  containers.forEach(container => {
+    observer.observe(container);
+  });
+});
+
 
 </script>
 
@@ -119,7 +154,7 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
     <h2 class="project_title">{{$t('message.projectRealisationsMissionsTitle')}}</h2>
     <div id="realisations" class="ListeDescendanteConteneur projectElement ">
         <div class="ListeDescendante" v-for="realisation in data.projects[props.id].realisations" :key="realisation">
-          <strong>{{ realisation }}</strong>
+          <strong class="realisationitem">{{ realisation }}</strong>
         </div>
       </div>
 
@@ -155,6 +190,18 @@ projectURL.value = data.projects[props.id].url || data.projects[props.id].github
 </template>
 
 <style scoped>
+
+.realisationitem {
+  transform: translateY(50px);
+  opacity: 0;
+  transition: transform 1s ease-out, opacity 1s ease-out; /* Ajout de la transition */
+}
+
+.realisationitem.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 
 @media (max-width: 860px) {
   div#desc{
@@ -398,5 +445,6 @@ small{
     padding:5px;
     width:40vw;
 }
+
 
 </style>
