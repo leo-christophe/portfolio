@@ -66,31 +66,30 @@ export function getLangFromUrl() {
  */
 export function updateUrlLang(lang) {
     if (!SUPPORTED_LANGUAGES.includes(lang)) {
-        throw new Error('Langue non supportée', lang);
+        throw new Error(`Langue non supportée : ${lang}`); // Utiliser un seul argument pour le message
     }
 
     try {
-        const url = new URL(window.location.href);  // Crée un objet URL à partir de l'URL actuelle
+        const url = new URL(window.location.href);
 
-        // Vérifie si "lang" est valide, sinon prend la valeur par défaut du localStorage
         const validLang = lang || localStorage.getItem('lang') || DEFAULT_LANGUAGE;
-        console.log('Langue validée:', validLang);  // Log de la langue validée
+        console.log('Langue validée:', validLang);
 
-        url.searchParams.set('lang', validLang);  // Met à jour l'URL avec la langue
+        url.searchParams.set('lang', validLang);
 
-        // Vérifie si replaceState est une fonction avant de l'appeler
         if (typeof window.history.replaceState === 'function') {
-            window.history.replaceState({}, '', url.href);  
-            console.log('URL mise à jour:', url.href);  // Log de l'URL mise à jour
+            window.history.replaceState({}, '', url.href);
+            console.log('URL mise à jour:', url.href);
         } else {
             window.history.pushState({}, '', url.href);
             console.warn('replaceState n\'est pas une fonction, impossible de mettre à jour l\'URL');
         }
     } catch (error) {
         console.error('Erreur lors de la mise à jour de l’URL:', error);
-        throw new Error('Erreur lors de la mise à jour de l’URL:', error);
+        throw new Error('Erreur lors de la mise à jour de l’URL'); // Pas besoin de passer l'error ici
     }
 }
+
 
   
 
