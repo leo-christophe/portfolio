@@ -2,6 +2,7 @@
 import { CV_NAME_WEB, CV_NAME_WEB_EN } from '../../data/const.js';
 import { onMounted, ref } from 'vue';
 import { getLangFromUrl } from '../../utils/traduction.js';
+import Button from 'primevue/button';
 
 const WIDTH = "90%";
 const HEIGHT = "900px";
@@ -16,6 +17,26 @@ onMounted(() => {
         CVAdress.value = RACINE + CV_NAME_WEB_EN + "#page=1";
     }
 });
+const downloadFile = (url, target = '_blank') => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', '');
+    link.setAttribute('target', target);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
+
+const downloadCV = () => {
+    // Download the CV
+    downloadFile(CVAdress.value, '_blank');
+
+}
+
+const consultCV = () => {
+    // Open the CV in a new tab
+    window.open(CVAdress.value, '_blank');
+}
 </script>
 
 
@@ -41,9 +62,14 @@ onMounted(() => {
 
 
             <span id="buttons">
-                <Button id="blackVariant"><i class="pi pi-download"></i>{{ $t("message.btnDownload") }}</Button>
-                <Button id="blackVariant"><i class="pi pi-eye"></i>{{ $t("message.btnConsult") }}</Button>
+                <Button id="blackVariant" @click="downloadCV">
+                    <i class="pi pi-download"></i>{{ $t("message.btnDownload") }}
+                </Button>
+                <Button id="blackVariant" @click="consultCV">
+                    <i class="pi pi-eye"></i>{{ $t("message.btnConsult") }}
+                </Button>
             </span>
+
         </div>
 
         <div id="CV">
