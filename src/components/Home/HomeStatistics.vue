@@ -66,8 +66,22 @@ onMounted(() => {
 
 <style scoped>
 @media screen and (max-width: 860px){
-    #statisticsContentContainer{
-        display:none;
+    div#statisticsContentContainer{
+        display:none !important;
+    }
+}
+
+@media screen and (max-width: 1500px){
+    ul#statisticsList{
+        margin:0;
+        padding:0;
+        font-size:smaller;
+        justify-content: space-around;
+    }
+
+    li.statistic{
+        padding:0.5em;
+        width: min-content !important;
     }
 }
 
@@ -86,6 +100,7 @@ li.statistic{
     display:flex;
     padding:1em;    
     width:10vw;
+    width: min-content !important;
 }
 
 ul{

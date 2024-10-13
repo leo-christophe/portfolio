@@ -9,37 +9,43 @@ import HomeInterests from '../components/Home/HomeInterests.vue';
   <div id="homeContent">
     <HomeStart id="start" class="pageSection"></HomeStart>
     <HomeSkills id="skills" class="pageSection"></HomeSkills>
-    <HomeInterests id="interests" class="pageSection"></HomeInterests>
+    <HomeInterests id="interests"></HomeInterests>
     <HomeContact id="contactSection" class="pageSection"></HomeContact>
   </div>
 </template>
 
 <style scoped>
 
-#start{
-  height:100vh;
-  background-color:var(--home-background-color1);
-  z-index:2;
+#start {
+  height: 100vh;
+  z-index: 2;
+  transition: background-color 2s ease-in-out; /* Ensure each section has smooth transition */
 }
 
-#skills{
-  z-index:3;
-  height:100vh;
-  min-width:100vw;
-  margin-left:0px !important;
-  background-color: var(--home-background-color2);
+
+#skills {
+  z-index: 3;
+  height: 100vh;
+  min-width: 100vw;
+  margin-left: 0px !important;
+  transition: background-color 2s ease-in-out; /* Ensure smooth transition */
 }
 
-#contactSection{
-  background-color: var(--home-background-color3);
+#contactSection {
+  transition: background-color 2s ease-in-out; /* Smooth transition */
+  margin-top:10vh;
+}
+
+#interests{
+  margin-top:10vh;
 }
 
 .pageSection {
-  padding-top:10vh;
-  min-height:min-content;
-  height:100vh;
-  transition: opacity 2s;
-  z-index:5;
+  padding-top: 10vh;
+  min-height: min-content;
+  height: 100vh;
+  transition: background-color 2s ease-in-out; /* Smooth transition of background color */
+  z-index: 5;
 }
 
 .fade-enter-active {
@@ -73,4 +79,6 @@ h1 {
 #welcome {
   text-align: center;
 }
+
+
 </style>

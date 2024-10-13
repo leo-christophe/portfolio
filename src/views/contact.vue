@@ -113,9 +113,12 @@ const showError = (Emessage = t('message.errorMessage')) => {
 
 <template>
   <span>
-  <h1 id="contentText">{{ $t('message.subtitle') }}</h1>
   <div id="content">
     <!-- Contact form -->
+    <h1 id="contentText">{{ $t('message.subtitle') }}</h1>
+    <br>
+    <br>
+    <br>
     <div id="formAIcons">
       <div id="contactform" class="ContactSquare">
         <h2>{{ $t('message.contactTitle') }}</h2>
@@ -284,6 +287,7 @@ const showError = (Emessage = t('message.errorMessage')) => {
   flex-direction: column;
   justify-content: space-evenly;
   padding:25px 0 25px 15px; 
+  min-width:287px;
 }
   @media screen and (max-width: 860px) {
     div#formAIcons{
@@ -316,6 +320,10 @@ const showError = (Emessage = t('message.errorMessage')) => {
 
     input{
       height: 3rem !important;
+    }
+
+    textarea{
+      height: 10rem !important;
     }
 
     small{

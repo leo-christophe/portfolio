@@ -152,7 +152,7 @@ function switchPageLang() {
     text-align: center;
     background-color: #000000;
     width:100%;
-    
+    min-width:100vw;
   }
 
   .menuItem:hover{

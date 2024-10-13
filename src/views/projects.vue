@@ -218,7 +218,8 @@
 
   #filters{
     position:relative;
-    width:100%;    
+    width:100%;   
+    min-width:100vw; 
     justify-content: center;
     background-color:rgb(66, 79, 79);
   }

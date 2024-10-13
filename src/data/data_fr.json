@@ -218,7 +218,7 @@
           ,{
             "id": "project_portfolio",
             "nom": "Portfolio",
-            "dates": ["2024-05-23","En cours"],
+            "dates": ["2024-05-20","2024-10-15"],
             "titre": "Développement d'un portfolio web en Vue-JS",
             "description": "Création d'un portfolio web en Vue-JS pour présenter mes compétences et mes projets. Utilisation des librairies nodeJS PrimeVue et Vue-Route. Déploiement continu sur Vercel.App à chaque push sur Github. Application des bonnes pratiques en terme de sécurité.", 
             "competences": {
@@ -245,7 +245,7 @@
                 "type": "image"
               }
             ],
-            "url": "https://portfolio-wheat-six-32.vercel.app/",
+            "url": "https://leochristophe.vercel.app",
             "github": null,
             "download": null,
             "route": "/projects/portfolio"

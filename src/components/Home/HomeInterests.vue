@@ -91,6 +91,10 @@
         }
     }
 
+    h2#titreAProposI, h5#paragrapheAProposI{
+        margin-left:10vw;
+    }
+
     
     #conteneurInterets img {
         width: 10em; /* Taille des icônes */
@@ -160,6 +164,7 @@
     #conteneurInterets h3 {
         text-align: center;
         margin-bottom: 10px;
+        font-size:2em !important;
     }
 
     #titreAProposI, #paragrapheAProposI{

@@ -51,6 +51,13 @@
 </template>
 
 <style scoped>
+  @media screen and (max-width: 860px){
+    .lightbox-content {
+      min-width: 100vw;
+      min-height: auto;
+    }
+  }
+
   .pi-times {
     font-size: 2rem;
     background-color: black;

@@ -68,7 +68,7 @@
                                     <div class="information">
                                         <h5 class="annees">{{ formationTimeline.item.annees }}</h5>
                                         <br>
-                                        <h4 class="titreFormation">{{ formationTimeline.item.titre }} <br> <strong>{{ formationTimeline.item.lieu }}</strong>, {{ formationTimeline.item.ville }} ({{ formationTimeline.item.departement }})</h4>
+                                        <h4 class="titreFormation">{{ formationTimeline.item.titre }} <br><p id="departementDetail" title="(Haute-Savoie)"><strong>{{ formationTimeline.item.lieu }}</strong>, {{ formationTimeline.item.ville }} ({{ formationTimeline.item.departement }})</p></h4>
                                         <h5 class="obtention">{{ formationTimeline.item.obtention }}</h5>
                                     </div>
                                     <div class="imageFormation">
@@ -493,6 +493,10 @@ ul.missionsListExp li{
 
     #titreFormations, #titreExperience {
         font-size: 2.5em;
+    }
+
+    #departementDetail{
+        cursor:pointer;
     }
 
     .sousTitreFormations {

@@ -14,230 +14,179 @@
 
 <template>
     <div id="welcome">
-        <!-- <div id="text" class="paragraphe">  
-            <h1 class="outlined-text" id="titre">{{ $t('message.homeTitle') }}</h1>
-            <h3 class="outlined-text text_line" id="soustitre1">{{ $t('message.subtitle1') }}</h3>
-            <h4 class="outlined-text text_line" id="soustitre2">{{ $t('message.subtitle2') }}</h4>
+        <div id="contentContainer">
+            <div id="textAndButtons">
+                <div id="textAndPhoto">
+                    <div id="mainTextContainer" class="paragraphe">
+                        <h2 id="titreAPropos">Léo CHRISTOPHE</h2>
+                        <h5 id="paragrapheAPropos">{{ $t('message.aboutText') }}</h5>
+                        <div id="CTAButtons" class="paragraphe">
+                            <a :href="CVAdress" target="_blank" id="linkButtonCV" class="btnLink">
+                                <Button id="blackVariant">{{ $t('message.viewCV')+" " }} <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
+                            </a>
+                            <RouterLink to="/contact" id="linkButtonContact" class="btnLink">
+                                <Button id="blackVariant">{{ $t('message.contact')+" " }} <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
+                            </RouterLink>
+                        </div>
+                    </div>
 
-            <i id="flecheNext1" class="pi pi-arrow-down" @click="ToCV()"></i>
-        </div>  -->
+                    <span id="photoContainer" class="border-animated-box">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQGsWTRA8Q7aJA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1698118847727?e=1734566400&v=beta&t=FEXDpgmvSFDF0KLR1L1Rjbf6xxzjfPrk_lCo8Tbv9Rw" alt="Photo de profil" id="photoProfil">
+                    </span>
 
-        <div id="partieDroite">
-            <div class="paragraphe" id="texteParagrapheDroiteContainer">
-                <div id="texteParagrapheDroite">
-                    <h2 id="titreAPropos">Léo CHRISTOPHE</h2>
-                    <h4 id="paragrapheAPropos">{{ $t('message.aboutText') }}</h4>
                 </div>
-            </div>
 
-            <div id="CTA" class="paragraphe">
-                <a :href="CVAdress" target="_blank">
-                    <Button id="blackVariant">{{ $t('message.viewCV')+" " }} <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
-                </a>
-                <RouterLink to="/contact">
-                    <Button id="blackVariant">{{ $t('message.contact')+" " }} <i class="pi pi-chevron-right chevronDroitBoutonsDroits"></i></Button>
-                </RouterLink>
             </div>
-        </div>
-        <div id="statistics">
-            <HomeStatistics></HomeStatistics>
-        </div>    
+            <div id="statistics">
+                <HomeStatistics id="statisticComponent"></HomeStatistics>
+            </div>
+        </div>   
     </div>
 </template>
 
+
 <style scoped>
     @media screen and (max-width: 860px){
-        #imageLeo{
-            display:none;
+        #statisticComponent{
+            display:none !important;
         }
 
-        #flecheNext1{
-            display:none;
+        #CTAButtons{
+            width:80vw;
         }
 
+        h4#paragrapheAPropos{
+            width:80vw;
+        }
         
-        div#CTA.paragraphe{
+        div#textAndButtons{
+            margin: 0;
+        }
+
+        #photoContainer{
+            width: 400px !important;
+            height: 400px !important;
+            margin-bottom:1vh;
+        }
+
+        #textAndPhoto{
+            flex-direction: column-reverse !important;
+        }
+    }
+
+    @media screen and (max-width: 1439px){
+        #photoProfil{
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        #photoContainer{
+            width: 350px !important;
+            height: 350px !important;
+            margin-bottom:1vh;
+        }
+
+        #textAndPhoto{
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            width:100%;
+        }
+    }
+
+
+    #textAndButtons{
+        display:flex;
+        flex-direction:column;
+        margin: 10vh 10vw;
+    }
+
+    #textAndPhoto{
+        display:flex;
+        flex-direction:row;
+        justify-content: left;
+        width:80vw;
+
+        /* Paragraphe 1 */
+        #mainTextContainer{
             display:flex;
             flex-direction:column;
-            align-items:center;
+            max-width:50vw;
+
+            #titreAPropos{
+                font-size:3em;
+                line-height: 1.6em;
+            }
+
+            #paragrapheAPropos{
+                font-size:1.5em;
+                line-height: 1.4em;
+            }
         }
-
-        .paragraphe{
-            padding:5px;
-        }
-
-        div#text.paragraphe{
-            width:100vw;
-            margin:0;
-            padding: 0 100px 0 100px;
-        }
-
-        div#CTA.paragraphe {
-            flex-direction: row;
-            justify-content: space-around;
-        }
-        
-        div#textCV{
-            max-width:none;
-            min-width:auto;
-        }
-
-        div#partieDroite{
-            width:100vw;
-            margin-right:0px;
-            padding-right:0px;
-        }
-    }
-
-    @media screen and (max-width: 1219px){
-        #CTA button{
-            margin-bottom:10px;
-        }
-    }
-
-
-    #texteParagrapheDroiteContainer {
-        display:flex;
-        flex-direction:row-reverse;
-    }
-
-    #imageLeo {
-        display: grid;
-        position: relative;
-        grid-template-areas: "background"; /* Les deux images occuperont la même zone */
-        justify-content: center;
-        align-items: center;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%; /* Forme circulaire */
-        border: 1px solid black;
-        overflow: hidden; /* Empêche les images de déborder du cadre */
-        background-color:white;
-        margin-right:100px;
-    }
-
-    #backgroundshadow {
-        grid-area: background; /* Place l'ombre dans la même zone */
-        z-index: 1; /* Derrière l'image principale */
-        filter: blur(10px); /* Applique un flou à l'ombre */
-    }
-
-    #background {
-        grid-area: background; /* Place l'image de fond dans la même zone */
-        z-index: 2; /* Devant l'ombre */
-    }
-
-    #background img, #backgroundshadow img {
-        width: 95%;
-        height:95%;
-        object-fit: cover; /* Maintient l'aspect des images */
-        border-radius: 500px 0px 500px 500px; /* Applique un arrondi aux images */
-        margin:10px 20px 0px 5px;
-    }
-
-
-    #CTA Button{
-        font-size:1rem;
-    }
-
-    i{
-        justify-content: center;
-    }
-
-    #flecheNext1{
-        cursor:pointer;
-
-        width:max-content;
-        height:max-content;
-
-        padding:25px;
-        margin-top:30px;
-        
-        border-radius:500px;
-        background-color:black;
-        color: RGB(159, 229, 227); 
-        font-size: 2rem;
-        transition:0.7s ease-in-out all;
-    }
-
-    #flecheNext1:hover{
-        font-size: 2.2rem;
-        transition:0.7s ease-in-out all;
-        border:1px solid white;
-        color:white;
-    }
-
-    #titre{
-        font-size: 3em;
-        color:white;
-    }
-
-    #soustitre1{
-        font-size: 2em;
-        color:lightcyan;
-    }
-
-    #soustitre2{
-        font-size: 1.5em;
-        color:rgb(212, 253, 253);
-    }
-
-    .text_line{
-        padding-top:50px;
-    }
-
-    #video {
-        object-fit: fill;
-        filter: blur(5px); /* Ajuste la valeur pour plus ou moins de flou */
-        width:100vw;
-        transition: opacity 0.5s; /* Pour un effet de fondu en douceur */
-        height:100vh;
-    }
-
-    #text {
-        display: flex;
-        flex-direction: column;
-        float:left;
-
-        height: auto;
-        width:40vw;
-
-        position:relative;
-        z-index: 10;
-        
-        border-radius:40px;
-    }
-
-    .paragraphe{
-        padding:30px;
-        
-    }
-
-    #partieDroite{
-        float:left;
-        width:50vw;
     }
     
+    /* Boutons */
+    #CTAButtons{
+        --tailleBoutonsOrdinateur:1.2em;
+        display:flex;
+        flex-direction:row;
+        justify-content: left;
+        margin-top:5vh;
 
+        button, i{
+            font-size:var(--tailleBoutonsOrdinateur) !important;
+        }
 
-    #paragrapheAPropos{
-        font-size: 1em;
-        color:lightcyan;
-        width:100%;
+        .btnLink{
+            margin: 1em;
+        }
     }
 
-    .outlined-text {
-        color: white; /* Ou la couleur de ton choix */
-        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    #photoContainer {
+        position: relative;
+        width: 20vw;
+        height: 20vw;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left:5vw;
     }
 
-    .paragraphe{
-        padding:100px 100px 0px 100px;
-
+    /* Image */
+    #photoProfil {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        position:absolute;
     }
 
-    #CTA button{
-        margin-right:20px;
+    /* Cercle cyan animé */
+    .border-animated-box {
+        position: relative;
+
+        border: 5px solid transparent;
+        border-radius: 50%;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: spinCyan 3s linear infinite; /* Animation de rotation */
     }
+
+    @keyframes spinCyan {
+    0% {
+        border-color: transparent; /* Le bord commence cyan */
+    }
+    50% {
+        border-color: var(--secondColor); /* Le bord reste cyan */
+    }
+    100%{
+        border-color: transparent; /* Le bord redevient transparent */
+    }
+    }
+
+
 
 </style>

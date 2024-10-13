@@ -49,6 +49,9 @@ const messages = {
       CTA2: ' contact me',
       CTA3: ' to discuss further!',
 
+      btnDownload: 'Download resume',
+      btnConsult: 'Consult resume',
+
       // Contact
       contactTitle: 'Contact Me',
       subtitle: 'Got a job offer? Want to share your thoughts?',
@@ -153,6 +156,9 @@ const messages = {
       contact: 'Me contacter',
       interestsTitle: 'Mes intérêts',
       interestsDescription: 'Ce que j\'aime faire en dehors de l\'informatique',
+
+      btnDownload: 'Télécharger le CV',
+      btnConsult: 'Consulter le CV',
 
       animes: 'Animés',
       animesDescription: "J\'aime beaucoup les oeuvres d'animations japonaises. J\'ai commencé à regarder des animes en 2016 et depuis, je suis devenu un grand fan de ce genre de contenu. Surtout les animes de type isekai ou comique comme Re:Zero.",
