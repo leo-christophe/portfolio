@@ -182,7 +182,7 @@ const messages = {
       subtitle2: 'Localisé à Annecy, France',
       aboutTitle: 'À propos de moi',
       aboutText: `Étudiant de BUT Informatique, passionné de programmation depuis plus de 5 ans. J'ai affiné mes compétences à travers divers projets personnels et professionnels. Fan d'animés, de jeux vidéo et de cuisine, je mets ma créativité au service de chaque projet.`,
-      viewCV: 'Curriculum Vitae',
+      viewCV: 'CV',
       contact: 'Me contacter',
       interestsTitle: 'Mes intérêts',
       interestsDescription: 'Ce que j\'aime faire en dehors de l\'informatique',
@@ -218,7 +218,7 @@ const messages = {
       mobile: "Tel",
       
       // HomeContact
-      homeContactTitle: 'Curriculum Vitae',
+      homeContactTitle: 'CV',
       homeContactDesc: 'Je suis actuellement à la recherche d\'un stage de fin d\'études en développement web, développement C# ou développement de jeux-vidéos. Le stage se déroulerait entre le 20 Janvier 2025 et le 1er Mai 2025 pour une durée de 14 semaines maximum.',
       CTA1: 'Vous avez une offre de stage ou des informations à me communiquer ? N\'hésitez pas à ',
       CTA2: ' me contacter',
