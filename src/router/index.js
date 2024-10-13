@@ -123,6 +123,9 @@ function updateMenuStyle(menuItem, borderBottom, color) {
 }
 
 router.beforeResolve((to, from, next) => {
+    if (document.querySelector('main').children.length == 0){
+        window.location.reload();
+      }
     if (to.fullPath === from.fullPath) {
         router.go(-1);
     } else {

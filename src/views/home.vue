@@ -3,13 +3,6 @@ import HomeContact from '../components/Home/HomeContact.vue';
 import HomeSkills from '../components/Home/HomeSkills.vue';
 import HomeStart from '../components/Home/HomeStart.vue';
 import HomeInterests from '../components/Home/HomeInterests.vue';
-import { onMounted } from 'vue';
-
-onMounted(() => {
-  if (document.querySelector('main').children.length == 0){
-    window.location.reload();
-  }
-});
 </script>
 
 <template>
