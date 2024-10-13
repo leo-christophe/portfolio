@@ -16,6 +16,8 @@ onMounted(() => {
     if (getLangFromUrl() != 'fr') {
         CVAdress.value = RACINE + CV_NAME_WEB_EN + "#page=1";
     }
+
+    adjustPdfZoom();
 });
 const downloadFile = (url, target = '_blank') => {
     const link = document.createElement('a');
@@ -60,9 +62,6 @@ function adjustPdfZoom() {
             pdfViewer.style.height = `${100 / zoomLevel}vh`; // Ajuster la hauteur selon le zoom
         }
 
-        // Appeler la fonction au chargement et à chaque redimensionnement de la fenêtre
-        window.addEventListener('load', adjustPdfZoom);
-        window.addEventListener('resize', adjustPdfZoom);
 </script>
 
 
