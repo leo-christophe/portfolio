@@ -78,6 +78,7 @@ function switchPageLang() {
 
     i#buttonTranslateIcon{
       margin-right:30px;
+
     }
   } 
 
@@ -102,6 +103,18 @@ function switchPageLang() {
   }
 
   .buttonTranslateContainer{
+    width:min-content !important;
+    display:flex;
+    align-items:center;
+    justify-self: center;
+    justify-content: center;
+    padding:0;
+    margin:0;
+    right:0;
+    top:0;
+    z-index: 100;
+    color:white;
+
     i, button, #buttonTranslate{
       border:none;
       background-color: transparent;
@@ -117,17 +130,7 @@ function switchPageLang() {
       transition: 0.3s ease-in all;
     }
 
-    width:min-content !important;
-    display:flex;
-    align-items:center;
-    justify-self: center;
-    justify-content: center;
-    padding:0;
-    margin:0;
-    right:0;
-    top:0;
-    z-index: 100;
-    color:white;
+
 
   }
 
@@ -181,5 +184,10 @@ function switchPageLang() {
   a{
     text-decoration: none;
     color: white;
+  }
+
+  i#buttonTranslateIcon{
+      color:white !important;
+    
   }
 </style>
