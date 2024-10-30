@@ -34,9 +34,23 @@ createApp(App)
       v3SiteKey: apiKey, // Your v3 Site Key 
     })
   // PrimeVue
-  .use(PrimeVue)
+  .use(PrimeVue, {
+    locale: {
+      dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+      dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+      dayNamesMin: ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
+      monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+      monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
+      today: 'Aujourd\'hui',
+      clear: 'Effacer',
+      weekHeader: 'Semaine',
+      firstDayOfWeek: 0,
+      dateFormat: 'dd/mm/yy',
+    }
+  })
   .use(ToastService)
   .use(ConfirmationService)
+
   // Directives
   //.directive('scroll', scrollDirective)
     .directive('tooltip', Tooltip)

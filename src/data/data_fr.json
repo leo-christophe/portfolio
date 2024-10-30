@@ -300,8 +300,8 @@
           },{
             "id": "video_silken_sweets",
             "nom": "Silken Sweets",
-            "dates": ["01-01-2024","01-02-2024"],
-            "titre": "Silken Sweets",
+            "dates": ["01-01-2024","02-01-2024"],
+            "titre": "Publicité pour une marque de pâtisserie italienne",
             "description": "Création d'une pub visant à plaire à une clientèle italienne dans le cadre d'un cours d'Anglais. En équipe de 4 personnes, le but était de trouver une culture, un produit qui serait adapté et de réaliser une publicité pour promouvoir ce produit dans le style du pays travaillé.",
             "competences": {
               "Vidéo-montage": ["Montage vidéo (Premiere Pro)", "Montage Photo"],
@@ -336,6 +336,46 @@
             "github": null,
             "download": null,
             "route": "/projects/video_silkensweets"
+          },{
+            "id": "matinfo",
+            "nom": "Matinfo",
+            "dates": ["04-15-2023","06-15-2023"],
+            "titre": "Logiciel de gestion du matériel MATINFO",
+            "description": "Développement en duo d'une application IHM de gestion du matériel informatique. Le principe était d'utiliser une base de données en ligne et de réaliser un logiciel le plus ergonomique possible. En première étape, le but était de réaliser des documents de conceptions basiques comme un diagramme de cas d'utilisations ou un diagramme de classes. Puis, il fallait réaliser la conception de la base de données, la base de données. Enfin, il fallait programmer le logiciel en WPF, à deux, tout en utilisant Github pour le versionning. A la fin, il fallait présenter l'application au professeur qui nous a noté.", 
+            "competences": {
+              "Développement logiciel": ["C#", "WPF"],
+              "Base de données": ["PostgreSQL", "SQL", "Base de données"],
+              "Conception & Architecture": ["Cas d'utilisations", "Diagramme de classes", "UML", "Mapping objet-relationnel (ORM)"],
+              "UI/UX & Expérience utilisateur": ["Ergonomie"],
+              "DevOps & Déploiement": ["Github"]
+            },
+            "realisations": [
+              "Réalisation de documents de conceptions pour la base de données et pour l'application",
+              "Création de la base de données sous PostgreSQL",
+              "Développement de l'application en C# avec WPF",
+              "Optimisation de l'ergonomie",
+              "Versionning sur Github"
+            ],
+            "type": "Universitaire",
+            "images": [
+              {
+                "link":"project-matinfo.jpg",
+                "description":"Capture d'écran de l'application",
+                "type":"image"
+              },{
+                "link":"project-matinfo-2.jpg",
+                "description":"Code permettant de créer un nouveau matériel.",
+                "type":"image"
+              },{
+                "link":"project-matinfo-3.jpg",
+                "description":"Implémentation du CRUD en tant qu'interface.",
+                "type":"image"
+              }
+            ],
+            "url": null,
+            "github": "https://github.com/leoChris7/MATINFO",
+            "download": "/files/Matinfo-Explications.pdf",
+            "route": "/projects/matinfo"
           }
           
     ],
@@ -453,7 +493,7 @@
       },
       {
         "Conception & Architecture": [
-          "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conception", "UML", "BPMN",
+          "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conception", "UML", "BPMN", "Mapping objet-relationnel (ORM)",
           "Documents techniques", "Cahier de recette", "Rédaction", "MVC", "MVVM", "Repository", "Injection de dépendances"
         ]
       },
