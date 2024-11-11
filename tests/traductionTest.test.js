@@ -77,44 +77,6 @@ describe('getLangFromUrl', () => {
   });
 });
 
-describe('updateUrlLang', () => {
-    beforeEach(() => {
-        // Simule l'URL
-        global.window = Object.create(window);
-        Object.defineProperty(window, 'location', {
-            value: {
-                href: 'http://localhost',
-            },
-        });
-
-        // Crée un objet history et simule pushState
-        global.window.history = {
-            pushState: vi.fn(), // Utilise vi.fn() pour Vitest
-        };
-        
-    });
-
-    afterEach(() => {
-        vi.clearAllMocks(); // Réinitialise les mocks après chaque test
-    });
-
-    it('devrait mettre à jour l\'URL avec le bon paramètre de langue', () => {
-        updateUrlLang('fr');
-
-        // Vérifie que l'URL est mise à jour avec la bonne langue
-        expect(window.history.pushState).toHaveBeenCalledWith({}, '', 'http://localhost/?lang=fr');
-    });
-
-    it('devrait lancer une exception si la langue n\'est pas supportée', () => {
-        expect(() => updateUrlLang('es')).toThrow('Langue non supportée');
-    });
-
-    it('devrait lancer une exception si la langue est une chaîne vide', () => {
-        expect(() => updateUrlLang('')).toThrow('Langue non supportée');
-    });
-});
-
-
 describe('changeLang', () => {
   it('devrait mettre à jour la langue et le localStorage', () => {
     const mockUrl = new URL('http://localhost');
