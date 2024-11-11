@@ -16,6 +16,10 @@ import HomeInterests from '../components/Home/HomeInterests.vue';
 
 <style scoped>
 
+#contactSection{
+  height:100vh;
+}
+
 #start {
   height: 100vh;
   z-index: 2;

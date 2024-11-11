@@ -1,33 +1,40 @@
 <script setup>
-  import { ref, computed, onMounted, watch, getCurrentInstance } from 'vue'
-  import Chips from 'primevue/chips'
-  import Checkbox from 'primevue/checkbox'
-  import Button from 'primevue/button'
-  import { useI18n } from 'vue-i18n'
-  import { findClosestCompetence } from '../utils/levenshtein'
-  import { saveToLocalStorage, restoreFromLocalStorage, getEarliestDate, getLatestDate, saveFiltersState, restoreFiltersState, applyFilterStateClasses } from '../utils/project_list'
-  import DateUtils from '../utils/date_utils'
+import { ref, computed, watch, onMounted, getCurrentInstance } from 'vue'
+import Chips from 'primevue/chips'
+import Checkbox from 'primevue/checkbox'
+import Button from 'primevue/button'
+import Calendar from 'primevue/calendar'
+import { useI18n } from 'vue-i18n'
+import { findClosestCompetence } from '../utils/levenshtein'
+import { saveFiltersState, restoreFiltersState, getEarliestDate, getLatestDate, applyFilterStateClasses } from '../utils/project_list'
+import { changeLibLangs } from '../utils/traduction'
+import { onBeforeMount } from 'vue'
 
-  const instance = getCurrentInstance();
-  const data = instance.appContext.config.globalProperties.$JSONData;
+// Initialisation des données
+const instance = getCurrentInstance()
+const data = instance.appContext.config.globalProperties.$JSONData
+const { t, locale } = useI18n()
 
-  const { t, locale } = useI18n()
+const Compvalue = ref([])
+const startDate = ref(null)
+const endDate = ref(null)
+const checkType = ref(['University', 'Personal'])
+const sortBy = ref('recent')
 
-  const Compvalue = ref([])
-  const startDate = ref(null)
-  const endDate = ref(null)
-  const checkType = ref(['University', 'Personal'])
-
-  const filters = ref(null)
-  const textFilter = ref(null)
-  const iconFilter = ref(null)
+const filters = ref(null)
+const textFilter = ref(null)
+const iconFilter = ref(null)
 
   // Sauvegarde l'état des filtres
   watch([Compvalue, startDate, endDate, checkType], () => {
     saveFiltersState(Compvalue.value, startDate.value, endDate.value, checkType.value)
   }, { deep: true })
 
-  onMounted(() => {
+onBeforeMount(() => {
+  changeLibLangs(localStorage.getItem('lang') || 'en')
+})
+
+onMounted(() => {
     restoreFiltersState(Compvalue, startDate, endDate, checkType)
     if (checkType.value.length === 0) checkType.value = ['University', 'Personal']
 
@@ -44,69 +51,103 @@
 
     const savedFilterState = localStorage.getItem('project_filterState')
     if (savedFilterState) applyFilterStateClasses(filters.value, iconFilter.value, savedFilterState)
+
   })
 
-  /**
-   * @function filteredProjects
-   * @description Filtre les projets en fonction des critères de recherche
-   * @returns {Array} Liste des projets filtrés
-   */
-  const filteredProjects = computed(() => {
-    let filteredByDate = data.projects || []
-
-    if (startDate.value || endDate.value) {
-      const end = endDate.value ? new Date(endDate.value) : new Date("2100-01-01")
-      const start = startDate.value ? new Date(startDate.value) : new Date("1970-01-01")
-
-      if (isNaN(start.getTime()) || isNaN(end.getTime())) {
-        alert(t('message.projectsInvalidDate'))
-        return []
-      }
-
-      if (start > end) {
-        alert(t('message.projectsDateError'))
-        return []
-      } else {
-        filteredByDate = filteredByDate.filter(project => {
-          const projectStartDate = new Date(project.dates[0])
-          const projectEndDate = project.dates[1] === t('message.projectsOnGoing') ? new Date() : new Date(project.dates[1])
-          return (projectStartDate >= start && projectEndDate <= end)
-        })
-      }
+// Définir la fonction de filtrage et de tri combinée
+const filteredAndSortedProjects = computed(() => {
+  // Filtrage par date
+  let projects = data.projects || []
+  
+  if (startDate.value || endDate.value) {
+    const start = startDate.value ? new Date(startDate.value) : new Date("1970-01-01")
+    const end = endDate.value ? new Date(endDate.value) : new Date("2100-01-01")
+    
+    if (start > end) {
+      alert(t('message.projectsDateError'))
+      return []
     }
-
-    if (Compvalue.value && Compvalue.value.length > 0) {
-      const correctedCompetences = Compvalue.value.map(comp => findClosestCompetence(comp))
-
-      filteredByDate = filteredByDate.filter(project => {
-        return project.competences && Object.values(project.competences).some(category =>
-          category.some(competence => correctedCompetences.includes(competence))
-        )
-      })
-    }
-
-    // Filtrage par type de projet
-    return filteredByDate.filter(project => {
-      const hasProjectType = project.type !== undefined && project.type !== null
-      const normalizedProjectType = hasProjectType ? project.type.toLowerCase() : ''
-      
-      const checkTypeLabels = {
-        'fr': { University: 'Universitaire', Personal: 'Personnel' },
-        'en': { University: 'University', Personal: 'Personal' }
-      }
-      const currentLang = checkTypeLabels[locale.value] ? locale.value : 'en'
-      const normalizedCheckTypes = checkType.value.map(type => checkTypeLabels[currentLang][type]?.toLowerCase() || '')
-      
-      return hasProjectType && normalizedCheckTypes.includes(normalizedProjectType)
+    
+    projects = projects.filter(project => {
+      const projectStartDate = new Date(project.dates[0])
+      const projectEndDate = project.dates[1] === t('message.projectsOnGoing') ? new Date() : new Date(project.dates[1])
+      return projectStartDate >= start && projectEndDate <= end
     })
+  }
+
+  // Filtrage par compétence
+  if (Compvalue.value.length > 0) {
+    const correctedCompetences = Compvalue.value.map(comp => findClosestCompetence(comp))
+    projects = projects.filter(project =>
+      project.competences && Object.values(project.competences).some(category =>
+        category.some(competence => correctedCompetences.includes(competence))
+      )
+    )
+  }
+
+  // Filtrage par type
+  projects = projects.filter(project => {
+    const type = project.type ? project.type.toLowerCase() : ''
+    const typeMap = { fr: { University: 'Universitaire', Personal: 'Personnel' }, en: { University: 'University', Personal: 'Personal' } }
+    const localeType = typeMap[locale.value] || typeMap['en']
+    const selectedTypes = checkType.value.map(type => localeType[type]?.toLowerCase() || '')
+    return selectedTypes.includes(type)
   })
+
+// Tri selon `sortBy`
+return projects.sort((a, b) => {
+  // Vérifier et initialiser la date de début
+  if (isNaN(new Date(a.dates[0]))) {
+    a.dates[0] = new Date(); // Assigner la date actuelle si la date est invalide
+  }
+
+  if (isNaN(new Date(b.dates[0]))) {
+    b.dates[0] = new Date(); // Assigner la date actuelle si la date est invalide
+  }
+
+  const dateA = new Date(a.dates[0]);
+  const dateB = new Date(b.dates[0]);
+  
+  // Vérifier et initialiser la date de fin
+  if (isNaN(new Date(a.dates[1]))) {
+    a.dates[1] = new Date(); // Assigner la date actuelle si la date est invalide
+  }
+
+  if (isNaN(new Date(b.dates[1]))) {
+    b.dates[1] = new Date(); // Assigner la date actuelle si la date est invalide
+  }
+
+  let dateFinA = new Date(a.dates[1]);
+  let dateFinB = new Date(b.dates[1]);
+
+  // Calculer la durée en jours
+  const durationA = (dateFinA - dateA) / (1000 * 60 * 60 * 24); // en jours
+  const durationB = (dateFinB - dateB) / (1000 * 60 * 60 * 24); // en jours
+  
+  console.log(a.nom, b.nom, dateA, dateB, durationA, durationB);
+
+  switch (sortBy.value) {
+    case 'recent':
+      return dateB - dateA; // Trier par date la plus récente
+    case 'oldest':
+      return dateA - dateB; // Trier par date la plus ancienne
+    case 'longest':
+      return durationB - durationA; // Trier par la durée la plus longue
+    case 'shortest':
+      return durationA - durationB; // Trier par la durée la plus courte
+    default:
+      return 0; // Pas de tri
+  }
+});
+
+})
 
   /**
    *  @function SwitchFilter
    *  @description Permet de basculer l'état des filtres
    *  @returns {void}
    */
-  function switchFilter() {
+   function switchFilter() {
     const filterIcon = iconFilter.value
 
     // Vérifier que filters.value et filterIcon ne sont pas null
@@ -131,58 +172,63 @@
       localStorage.setItem('project_filterState', 'deactivated')
     }
   }
+
 </script>
 
 
-
 <template>
-  
   <div>
     <h1>{{$t('message.projectsTitle')}}</h1>
-    
-    <Button id="blackVariant">
-      <p id="textFilterHeader" ref="textFilter" @click="switchFilter()">
-        <i ref="iconFilter" class="pi pi-angle-down" style="margin: 0 10px 0 0"></i> 
-        {{$t('message.projectsFiltersKeyword')}}
-      </p>
-    </Button>
-    <div id="filters" ref="filters" class="card gap-3 p-fluid filterDeactivated">
-      <div class="datesIn" id="dateFilters">
-        <h3 id="datesTitle">{{ $t('message.projectsDateLabel') }}</h3>
-        <input class="dateInput" type="date" v-model="startDate" id="startDate">
-        <input class="dateInput" type="date" v-model="endDate" id="endDate">
+    <span id="sortFilterContainer">
+      <Button class="blackVariant">
+        <p id="textFilterHeader" @click="switchFilter">
+          <i ref="iconFilter" class="pi pi-angle-down" style="margin: 0 10px 0 0"></i> 
+          {{$t('message.projectsFiltersKeyword')}}
+        </p>
+      </Button>
+
+      <div class="sort-filter">
+        <label for="sort">{{$t('message.projectsSort')}}</label>
+        <select id="sort" v-model="sortBy" class="blackVariant">
+          <option value="recent">{{$t('message.projectsMostRecent')}}</option>
+          <option value="oldest">{{$t('message.projectsOldest')}}</option>
+          <option value="longest">{{$t('message.projectsLongest')}}</option>
+          <option value="shortest">{{$t('message.projectsShortest')}}</option>
+        </select>
       </div>
-      
-      <div class="datesIn" id="motClesContainer">
-        <h3 id="motclesTitle">{{ $t('message.projectsKeywordsLabel') }}</h3>
-        <div id="competenceFilter" class="p-fluid chip">
-          <Chips v-model="Compvalue" separator="," :title="$t('message.projectsFiltersKeywordTitle')"/>
-        </div>
+    </span>
+
+    <div id="filters" class="card gap-3 p-fluid filterDeactivated" ref="filters">
+      <div id="dateFilters">
+        <h3>{{ $t('message.projectsDateLabel') }}</h3>
+        <Calendar  v-model="startDate" class="dateInput" id="startDate" :showIcon="true" dateFormat="yy-mm-dd"/>
+        <Calendar v-model="endDate" class="dateInput" id="endDate" :showIcon="true" dateFormat="yy-mm-dd"/>
       </div>
 
-      <div class="datesIn" id="typeProjetContainer">
-        <h3 id="typProjetTitle">{{$t('message.projectsTypeLabel')}}</h3>
-        <div class="flex flex-wrap gap-3">
-          <div class="flex align-items-center">
-            <Checkbox v-model="checkType" inputId="University" name="checkType" value="University" :title="$t('message.projectsTypeUniversityTitle')"/>
-            <label for="University" class="ml-2"> {{$t('message.projectsTypeUniversity')}} </label>
-          </div>
-          <div class="flex align-items-center">
-            <Checkbox v-model="checkType" inputId="Personal" name="checkType" value="Personal" :title="$t('message.projectsTypePersonalTitle')"/>
-            <label for="Personal" class="ml-2"> {{$t('message.projectsTypePersonal')}} </label>
-          </div>
-        </div>
+      <div id="motClesContainer">
+        <h3>{{ $t('message.projectsKeywordsLabel') }}</h3>
+        <Chips v-model="Compvalue" separator="," :title="$t('message.projectsFiltersKeywordTitle')"/>
       </div>
 
+      <div id="typeProjetContainer">
+        <h3>{{$t('message.projectsTypeLabel')}}</h3>
+        <div>
+        <Checkbox v-model="checkType" inputId="University" value="University" :title="$t('message.projectsTypeUniversityTitle')"/>
+        <label for="University"> {{$t('message.projectsTypeUniversity')}} </label>
+        </div>
+        <div>
+        <Checkbox v-model="checkType" inputId="Personal" value="Personal" :title="$t('message.projectsTypePersonalTitle')"/>
+        <label for="Personal"> {{$t('message.projectsTypePersonal')}} </label>
+        </div>
+      </div>
     </div>
 
     <ul id="projectList">
-      <li v-for="project in filteredProjects" :key="project.id" :id="project.id" class="projectCard">
+      <li v-for="project in filteredAndSortedProjects" :key="project.id" :id="project.id" class="projectCard">
         <router-link :to="project.route" class="liensrouteur">
           <div class="projectCardIn">
             <h3 class="projectName">{{ project.nom }}</h3> 
           </div>
-
           <div class="pjtImgContainer">
             <img v-if="project.images[0]" 
             :src="'/images/projects/'+project.images[0].link" 
@@ -209,9 +255,14 @@
     }
   }
 
+  #startDate{
+    margin-bottom:10px;
+  }
+
   #startDate, #endDate{
-    color:var(--darkBackground-color);
-    background-color:var(--textBasicColor);
+    color:var(--darkBackground-color) !important;
+    background-color:var(--textBasicColor) !important;
+    width:150px;
   }
 
   .filterActivated{
@@ -226,7 +277,7 @@
     position:relative;
     width:100%;   
     min-width:100vw; 
-    justify-content: center;
+    justify-content: space-around;
     background-color:rgb(66, 79, 79);
   }
 
@@ -347,6 +398,10 @@
     text-align: center;
   }
 
+  #motClesContainer{
+    width: 30vw !important;
+  }
+
   li .p-chips-token {
     display: flex;
     flex-wrap: wrap;
@@ -380,9 +435,7 @@
     margin-right: 10px;
   }
 
-  input[type="date"] {
-    margin: 5px;
-  }
+
 
   input[name="checkType"] {
     color:black;
@@ -392,6 +445,11 @@
     margin-right: 5px;
   }
 
+  #typeProjetContainer{
+    display: flex;
+    flex-direction: column;
+  }
+
   .dateInput {
 
     height: 30px;
@@ -399,6 +457,18 @@
     font-weight: bold;
     font-size: 1em;
     border-radius: 10px;
+  }
+
+  #sortFilterContainer{
+    display:flex;
+    justify-content: space-between;
+    margin: 20px 0px 0px 0px;
+  }
+
+  div#typeProjetContainer div{
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start  ;
   }
 
   

@@ -5,6 +5,9 @@ import { getLangFromUrl } from '../src/utils/traduction';
 const messages = {
   en: {
     message: {
+      month: 'month(s)',
+      days: 'day(s)',
+
       homeTitle: 'Léo CHRISTOPHE',
       subtitle1: '3rd year bachelor computer science student',
       subtitle2: 'Based in Annecy, France',
@@ -106,6 +109,12 @@ const messages = {
       projectsTypeUniversityTitle: 'Academic projects are projects that I have developed as part of my studies.',
       projectsOnGoing: 'Ongoing',
 
+      projectsSort: 'Sort by',
+      projectsMostRecent: 'Most Recent',
+      projectsOldest: 'Oldest',
+      projectsLongest: 'Longest',
+      projectsShortest: 'Shortest',
+
       projectsInvalidDate: 'Please, enter valid dates.',
       projectsDateError: 'The end date must be greater than the start date.',
       projectsNotFound: 'No project was found corresponding to your search.',
@@ -177,6 +186,8 @@ const messages = {
   },
   fr: {
     message: {
+      month: 'mois',
+      days: 'jour(s)',
       homeTitle: 'Léo CHRISTOPHE',
       subtitle1: 'Étudiant en 3ème année de BUT Informatique',
       subtitle2: 'Localisé à Annecy, France',
@@ -276,6 +287,12 @@ const messages = {
       projectsTypeUniversity: 'Universitaire',
       projectsTypeUniversityTitle: 'Les projets académiques sont des projets que j\'ai développés dans le cadre de mes études.',
       projectsOnGoing: 'En cours',
+
+      projectsSort: 'Trier par',
+      projectsMostRecent: 'Plus Récent',
+      projectsOldest: 'Plus Ancien',
+      projectsLongest: 'Le Plus Long',
+      projectsShortest: 'Le Plus Court',
 
       projectsInvalidDate: 'Veuillez entrer des dates valides.',
       projectsDateError: 'La date de fin doit être supérieure à la date de début.',

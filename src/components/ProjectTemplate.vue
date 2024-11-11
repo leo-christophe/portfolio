@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed, getCurrentInstance } from 'vue';
+import { useI18n} from 'vue-i18n';
 
+const { t } = useI18n(); // Accès à la fonction de traduction
 import Lightbox from './Lightbox.vue'
 
 const instance = getCurrentInstance();
@@ -91,14 +93,28 @@ const observer = ref(null);
   });
 });
 
+function tempsPris(datedebut, datefin){
+    const start = new Date(datedebut);
+    const end = new Date(datefin);
 
+    const years = end.getFullYear() - start.getFullYear();
+    const months = end.getMonth() - start.getMonth();
+
+    const totalMonths = years * 12 + months;
+
+    if (totalMonths == 0){
+      return end.getDate() - start.getDate()  + " " + t('message.days');
+    }
+
+    return totalMonths + " " + t('message.month');
+}
 </script>
 
 <template>
   <div id="project">
     <h1 class="projectElement">{{ data.projects[props.id].nom }}</h1>
 
-    <div id="titre" class="projectElement">{{ data.projects[props.id].titre }}</div>
+    <div id="titre" class="projectElement">{{ data.projects[props.id].titre }} ({{ tempsPris(data.projects[props.id].dates[0], data.projects[props.id].dates[1]) }}) </div>
 
     <div id="images-container" class="projectElement">
 

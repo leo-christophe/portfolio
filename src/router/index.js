@@ -12,6 +12,7 @@ import project_sae301 from '../views/projects/project_sae301.vue';
 import project_sae401 from '../views/projects/project_sae401.vue';
 import project_video from '../views/projects/project_video.vue';
 import project_converter from '../views/projects/project_chrisconverter.vue';
+import project_matinfo from '../views/projects/project_matinfo.vue';
 
 import NotFound from '../components/Error/NotFound.vue';
 import mesdonnees from '../views/mesdonnees.vue';
@@ -69,6 +70,10 @@ const routes = [
     path: '/projects/chrisconverter',
     name: 'ChrisConverter',
     component: project_converter
+},{
+    path: '/projects/matinfo',
+    name: 'Matinfo',
+    component: project_matinfo
 },{ 
     path: '/formations',
     name: 'Formations',
@@ -109,6 +114,7 @@ const menuItems = {
     Skillupnow: "3",
     Amphibiens: "3",
     ChrisConverter: "3",
+    Matinfo: "3",
     BMW: "3",
     project_video: '3',
     'Mes données': "0",

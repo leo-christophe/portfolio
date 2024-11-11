@@ -27,6 +27,7 @@ import FooterCmt from './components/FooterCmt.vue';
 import Toast from 'primevue/toast';
 import { useFavicon } from '@vueuse/core';
 
+
 // Functions
 import { traductionSetup } from '../src/utils/traduction.js';
 import { isMobile } from '../src/utils/userdata.js';

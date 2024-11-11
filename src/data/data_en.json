@@ -38,6 +38,7 @@
         "contrat": "Intern",
         "poste": "R&D Developer (GTA)",
         "entreprise": "Groupe Alpha-3i (Software Developing SME)",
+        "localisation": "Alby-sur-Chéran, France",
         "dates": ["2024-04-15", "2024-07-05"],
         "competences": {
           "Web Development": ["javascript", "webdev"],
@@ -333,7 +334,50 @@
         "github": null,
         "download": null,
         "route": "/projects/video_silkensweets"
+      },{
+        "id": "matinfo",
+        "nom": "Matinfo",
+        "dates": ["04-15-2023","06-15-2023"],
+        "titre": "MATINFO Equipment Management Software",
+        "description": "Development in pairs of a GUI application for IT equipment management. The goal was to use an online database and create software as ergonomic as possible. The first step was to create basic design documents, such as a use case diagram and a class diagram. Then, we needed to design and implement the database itself. Finally, we had to program the software in WPF, working together and using GitHub for version control. At the end, we presented the application to the professor, who graded us.",
+        "competences": {
+          "Software Development": ["C#", "WPF"],
+          "Database": ["PostgreSQL", "SQL", "Database"],
+          "Design & Architecture": ["Use cases", "Class diagram", "UML", "Object-relational mapping (ORM)"],
+          "UI/UX & User Experience": ["Ergonomics"],
+          "DevOps & Deployment": ["Github"]
+        },
+        "realisations": [
+          "Creation of design documents for the database and the application",
+          "Database creation with PostgreSQL",
+          "Application development in C# with WPF",
+          "Ergonomics optimization",
+          "Version control on Github"
+        ],
+        "type": "University",
+        "images": [
+          {
+            "link": "project-matinfo.jpg",
+            "description": "Screenshot of the application",
+            "type": "image"
+          },
+          {
+            "link": "project-matinfo-2.jpg",
+            "description": "Code for creating new equipment.",
+            "type": "image"
+          },
+          {
+            "link": "project-matinfo-3.jpg",
+            "description": "CRUD implementation as an interface.",
+            "type": "image"
+          }
+        ],
+        "url": null,
+        "github": "https://github.com/leoChris7/MATINFO",
+        "download": "/files/Matinfo-Explications.pdf",
+        "route": "/projects/matinfo"
       }
+      
     ]
     ,
     "links": [
@@ -419,7 +463,7 @@
       },
       {
           "Software Development": [
-              "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "WPF", "FFMPEG","WinUI", "CodeFirst", "Repository", "Dependency Injection"
+              "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "WPF", "FFMPEG","WinUI", "CodeFirst", "Repository", "Object-relational mapping (ORM)", "Dependency Injection"
           ]
       },
       {

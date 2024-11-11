@@ -1,6 +1,8 @@
-import { useNavigatorLanguage } from '@vueuse/core';
+import { tryOnBeforeMount, useNavigatorLanguage } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';  // Importer l'API i18n
+import { usePrimeVue } from 'primevue/config';  // Importer l'API PrimeVue
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../data/const';
+import { onBeforeMount, onMounted } from 'vue';
 
 /**
  * @function traductionSetup
@@ -31,12 +33,12 @@ export function traductionSetup() {
             reject('Erreur lors de la configuration de la langue dans le localStorage');
         }
 
-        // Set the locale based on the prioritized language
-        locale.value = currentLang;
+
         
         // Ensure the language is changed globally
         changeLang(currentLang);
-
+        // Set the locale based on the prioritized language
+        locale.value = currentLang;
         // Resolve the promise with the current language
         resolve(currentLang); 
     });
@@ -103,7 +105,42 @@ export function changeLang(lang) {
         throw new Error('Langue non supportée');
     }
 
+    
+
     localStorage.setItem('lang', lang);
     document.documentElement.lang = lang;
+    
     updateUrlLang(lang);
+
+}
+
+export function changeLibLangs(lang){
+    const primevue = usePrimeVue();
+
+    if (lang == 'fr'){
+        
+        primevue.config.locale.dayNames= ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+        primevue.config.locale.dayNamesShort= ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+        primevue.config.locale.dayNamesMin= ['Di', 'Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa'],
+        primevue.config.locale.monthNames= ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+        primevue.config.locale.monthNamesShort= ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
+        primevue.config.locale.today='Aujourd\'hui',
+        primevue.config.locale.clear= 'Effacer',
+        primevue.config.locale.weekHeader= 'Semaine',
+        primevue.config.locale.firstDayOfWeek= 1
+        
+    } else if (lang == 'en'){
+            
+        primevue.config.locale.dayNames= ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        primevue.config.locale.dayNamesShort= ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        primevue.config.locale.dayNamesMin= ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+        primevue.config.locale.monthNames= ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        primevue.config.locale.monthNamesShort= ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        primevue.config.locale.today='Today',
+        primevue.config.locale.clear= 'Clear',
+        primevue.config.locale.weekHeader= 'Week',
+        primevue.config.locale.firstDayOfWeek= 0
+    }
+
+    console.log('Langue de PrimeVue mise à jour:', primevue.config.locale);
 }
