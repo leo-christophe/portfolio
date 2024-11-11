@@ -117,8 +117,9 @@
                                                 </span>
                                             </h5>
                                             <br>
-                                            <h4 class="titreExperience" v-if="locale == 'fr'">{{ experienceTimeline.item.contrat + " " + experienceTimeline.item.poste }} {{$t('message.at_au')}} {{ experienceTimeline.item.entreprise }}</h4>
-                                            <h4 class="titreExperience" v-else>{{ experienceTimeline.item.entreprise }}</h4>
+                                            <h4 class="titreExperience" v-if="locale == 'fr'">{{ experienceTimeline.item.contrat + " " + experienceTimeline.item.poste }} {{$t('message.at_au')}} {{ experienceTimeline.item.entreprise }} <p class="titreExperience">({{ experienceTimeline.item.localisation }})</p></h4>
+                                            <h4 class="titreExperience" v-else>{{ experienceTimeline.item.entreprise }} ({{ experienceTimeline.item.localisation }})</h4>
+                                            
                                             <p class="expDesc">{{ experienceTimeline.item.description }}</p>
                                         </div>
                                         <div class="downArrowExperienceContainer">
@@ -603,6 +604,7 @@ ul.missionsListExp li{
     /* Description d'expérience */
     .expDesc {
         max-width: 400px;
+        margin-top:10px;
     }
 
     /* Marges similaires */

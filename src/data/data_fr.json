@@ -38,6 +38,7 @@
             "contrat": "Stagiaire",
             "poste": "Développeur R&D (GTA)",
             "entreprise": "Groupe Alpha-3i",
+            "localisation": "Alby-sur-Chéran, France",
             "dates": ["2024-04-15", "2024-07-05"],
             "competences": {
               "Développement web": ["javascript", "webdev"],

@@ -38,6 +38,7 @@
         "contrat": "Intern",
         "poste": "R&D Developer (GTA)",
         "entreprise": "Groupe Alpha-3i (Software Developing SME)",
+        "localisation": "Alby-sur-Chéran, France",
         "dates": ["2024-04-15", "2024-07-05"],
         "competences": {
           "Web Development": ["javascript", "webdev"],

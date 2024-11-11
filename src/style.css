@@ -34,9 +34,10 @@
   --HeaderSize: 2.5rem;
 
   --p-tooltip-padding: 5em; /* Ajuste la valeur ici */
+  --p-focus-ring-color:black !important;
 }
 
-* {
+*:not(button) {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -209,6 +210,50 @@ button[autofocus] {
     height: var(--p-timeline-event-marker-size); /* Use design token for marker size */
     background-color: var(--p-timeline-event-marker-background); /* Use design token for marker background */
     border-radius: var(--p-timeline-event-marker-border-radius); /* Use design token for marker border radius */
+}
+
+/* 1. Bouton de sélection du calendrier */
+.dateInput .p-datepicker-trigger {
+  background-color: black;        /* Couleur de fond du bouton */
+  color: lightblue;               /* Couleur de l'icône */
+  border: none;                   /* Enlever la bordure si souhaité */
+}
+
+.dateInput .p-datepicker-trigger:hover {
+  color:white;    /* Fond au survol */
+  border:1px solid white;               /* Couleur de l'icône au survol */
+}
+
+.dateInput input[aria-expanded="true"], .p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext{
+  outline:1px solid black;
+}
+
+/* 2. Survol des mois et des années dans le calendrier */
+.p-datepicker-calendar .p-datepicker-month:hover,
+.p-datepicker-calendar .p-datepicker-year:hover {
+  background-color: lightblue;    /* Couleur de fond au survol */
+  color: black;                   /* Couleur du texte */
+}
+
+.p-checkbox.p-highlight .p-checkbox-box {
+  background:black;
+  border-color:black;
+  color:var(--secondColor) !important;
+}
+#typeProjetContainer > div  > label{
+  margin-left: 10px;
+}
+
+.p-checkbox.p-highlight .p-checkbox-box {
+  color:var(--secondColor) !important;
+}
+
+#motClesContainer > div > ul input{
+  line-height: 1.9
+}
+
+#motClesContainer > div > ul{
+  padding-left:5px;
 }
 
 @media screen and (max-width: 860px) {

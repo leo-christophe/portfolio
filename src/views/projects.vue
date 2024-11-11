@@ -255,13 +255,14 @@ return projects.sort((a, b) => {
     }
   }
 
-  :deep(.dateInput .p-datepicker-month){
-    margin-right:20px !important;
+  #startDate{
+    margin-bottom:10px;
   }
 
   #startDate, #endDate{
-    color:var(--darkBackground-color);
-    background-color:var(--textBasicColor);
+    color:var(--darkBackground-color) !important;
+    background-color:var(--textBasicColor) !important;
+    width:150px;
   }
 
   .filterActivated{
@@ -469,4 +470,6 @@ return projects.sort((a, b) => {
     flex-direction:row;
     justify-content:flex-start  ;
   }
+
+  
 </style>
