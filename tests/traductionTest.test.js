@@ -123,7 +123,7 @@ describe('changeLang', () => {
         changeLang('es');
       } catch (error) {
         // Vérifiez que l'erreur levée est correcte
-        expect(error).toEqual(new Error('Langue non supportée : es'));
+        expect(error).toEqual(new Error('Langue non supportée'));
       }
     });
 
