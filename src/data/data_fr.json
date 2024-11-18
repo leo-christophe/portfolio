@@ -107,7 +107,7 @@
           },{
             "id": "project_chrisconverter",
             "nom": "Chris Converter",
-            "dates": ["2024-02-22","En cours"],
+            "dates": ["2024-02-22","2024-03-15"],
             "titre": "Création d'une application WPF permettant de convertir des musiques en divers formats (MP3, WAV, FLAC, OGG, etc.)",
             "description": "Le besoin est le suivant: Souvent, quand j'ai l'habitude de faire du montage vidéo, quand j'écoute de la musique ou quand j'essaye de rajouter des sons à un jeu, je me retrouve face à un problème: le format du fichier audio. Certaines applications n'acceptent que MP3, certaines OGG. Ainsi, j'avais l'habitude de chercher des sites en lignes pour réaliser une conversion. Le but de ce projet est donc de pouvoir convertir un ou plusieurs fichiers à la fois directement depuis un logiciel.",
             "competences": {

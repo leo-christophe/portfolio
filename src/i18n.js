@@ -12,7 +12,11 @@ const messages = {
       subtitle1: '3rd year bachelor computer science student',
       subtitle2: 'Based in Annecy, France',
       aboutTitle: 'About Me',
-      aboutText: `A driven 3rd year bachelor computer science student with over 5 years of programming experience, constantly pushing the boundaries of innovation through diverse personal and professional projects. With a passion for anime, video games, and cooking, I infuse creativity into every challenge I tackle. My career goal is to become a lead software developer, specializing in game development or AI, where I can combine my love for technology and creativity to craft immersive experiences that captivate users worldwide.`,
+      aboutText: `A driven 3rd year bachelor computer science student with over 5 years of programming experience, 
+                  constantly pushing the boundaries of innovation through diverse personal and professional projects. 
+                  I infuse creativity into every challenge I tackle and my career goal is to become a lead software developer, 
+                  specializing in game development, where I can combine my love for technology and creativity to craft 
+                  immersive experiences that captivate users worldwide.`,
       viewCV: 'Resume ',
       contact: 'Contact me ',
       interestsTitle: 'My Interests',

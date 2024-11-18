@@ -127,9 +127,6 @@ describe('changeLang', () => {
       },
     });
     
-
-    console.log('-------------------------------------------> ',changeLang('es'))
-
     // Verify that localStorage is updated
     expect(() => changeLang('es')).toThrowError(new Error('Langue non supportée'));
   });
