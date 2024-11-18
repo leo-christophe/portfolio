@@ -241,6 +241,11 @@
             "link": "project-portfolio-1.jpg",
             "description": "Screenshot of the site's homepage.",
             "type": "image"
+          },
+          {
+            "link": "project-portfolio-2.png",
+            "description": "Screenshot of some Vitest unit tests.",
+            "type": "image"
           }
         ],
         "url": "https://leochristophe.vercel.app",

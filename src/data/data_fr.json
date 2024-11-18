@@ -244,6 +244,11 @@
                 "link": "project-portfolio-1.jpg",
                 "description": "Capture d'écran de la page d'accueil du site.",
                 "type": "image"
+              },
+              {
+                "link": "project-portfolio-2.png",
+                "description": "Capture d'écran de tests unitaires Vitest de la classe DateUtils.",
+                "type": "image"
               }
             ],
             "url": "https://leochristophe.vercel.app",

@@ -128,3 +128,72 @@ describe('changeLang', () => {
     });
 
 });
+
+describe('updateUrlLang', () => {
+  let originalUrl;
+
+  beforeEach(() => {
+    // Sauvegarder l'URL originale et configurer un environnement simulé
+    originalUrl = window.location.href;
+    const mockUrl = new URL('http://localhost?lang=en');
+    vi.stubGlobal('window', {
+      location: {
+        href: mockUrl.href,
+        search: mockUrl.search,
+        pathname: mockUrl.pathname,
+      },
+      history: {
+        replaceState: vi.fn(),
+      },
+    });
+  });
+
+  afterEach(() => {
+    // Réinitialiser les simulations après chaque test
+    vi.unstubAllGlobals();
+  });
+
+  it('devrait mettre à jour le paramètre "lang" de l\'URL si la langue est supportée', () => {
+    updateUrlLang('fr');
+    const expectedUrl = new URL('http://localhost');
+    expectedUrl.searchParams.set('lang', 'fr');
+
+    expect(window.history.replaceState).toHaveBeenCalledWith({}, '', expectedUrl.href);
+  });
+
+  it('ne devrait pas mettre à jour l\'URL si la langue n\'est pas supportée', () => {
+    const consoleWarnSpy = vi.spyOn(console, 'warn');
+    updateUrlLang('es'); // Langue non supportée
+
+    expect(window.history.replaceState).not.toHaveBeenCalled();
+    expect(consoleWarnSpy).toHaveBeenCalledWith('Langue non supportée : es');
+  });
+
+  it('ne devrait pas planter si replaceState n\'est pas disponible', () => {
+    vi.stubGlobal('window', {
+      location: { href: originalUrl },
+      history: {}, // Pas de méthode replaceState
+    });
+
+    const consoleWarnSpy = vi.spyOn(console, 'warn');
+    updateUrlLang('fr');
+
+    expect(consoleWarnSpy).toHaveBeenCalledWith('replaceState non disponible, URL non mise à jour.');
+  });
+
+  it('devrait gérer les erreurs dans la mise à jour de l\'URL sans planter', () => {
+    vi.stubGlobal('window', {
+      location: { href: 'http://localhost?lang=fr' },
+      history: {
+        replaceState: () => {
+          throw new Error('Erreur simulée');
+        },
+      },
+    });
+
+    const consoleErrorSpy = vi.spyOn(console, 'error');
+    updateUrlLang('fr');
+
+    expect(consoleErrorSpy).toHaveBeenCalledWith('Erreur lors de la mise à jour de l’URL:', expect.any(Error));
+  });
+});
