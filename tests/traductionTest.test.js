@@ -99,11 +99,10 @@ describe('changeLang', () => {
       },
     });
     
-    console.log('LocalStorage lang:', localStorage.getItem('lang'));
-console.log('Document lang:', document.documentElement.lang);
-
-
     changeLang('fr');
+
+    console.log('-------------------------------------------> ','LocalStorage lang:', localStorage.getItem('lang'));
+    console.log('-------------------------------------------> ','Document lang:', document.documentElement.lang);
 
     // Verify that localStorage is updated
     expect(localStorage.getItem('lang')).toBe('fr');
@@ -118,6 +117,8 @@ console.log('Document lang:', document.documentElement.lang);
       location: mockUrl,
       history: { pushState: vi.fn() } // Mock pushState for history
     });
+
+    console.log('-------------------------------------------> ',changeLang('es'))
 
     // Verify that localStorage is updated
     expect(() => changeLang('es')).toThrowError(new Error('Langue non supportée'));
