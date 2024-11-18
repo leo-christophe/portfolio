@@ -313,3 +313,6 @@ button[autofocus] {
 /* Order */
 @layer reset, primevue;
 
+input:user-invalid{
+  border: 1px solid red;
+}

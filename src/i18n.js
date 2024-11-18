@@ -12,16 +12,16 @@ const messages = {
       subtitle1: '3rd year bachelor computer science student',
       subtitle2: 'Based in Annecy, France',
       aboutTitle: 'About Me',
-      aboutText: `A driven Computer Science student at BUT with over 5 years of programming experience, constantly pushing the boundaries of innovation through diverse personal and professional projects. With a passion for anime, video games, and cooking, I infuse creativity into every challenge I tackle. My career goal is to become a lead software developer, specializing in game development or AI, where I can combine my love for technology and creativity to craft immersive experiences that captivate users worldwide.`,
+      aboutText: `A driven 3rd year bachelor computer science student with over 5 years of programming experience, constantly pushing the boundaries of innovation through diverse personal and professional projects. With a passion for anime, video games, and cooking, I infuse creativity into every challenge I tackle. My career goal is to become a lead software developer, specializing in game development or AI, where I can combine my love for technology and creativity to craft immersive experiences that captivate users worldwide.`,
       viewCV: 'Resume ',
       contact: 'Contact me ',
       interestsTitle: 'My Interests',
       interestsDescription: 'What I enjoy doing outside of programming',
       
       animes: 'Anime',
-      animesDescription: "I really enjoy Japanese animated works. I started watching anime in 2016, and since then, I’ve become a big fan of this type of content, especially isekai or comedic anime like Re:Zero.",
+      animesDescription: "I really enjoy Japanese animated works. I started watching anime in 2016 and since then, I’ve become a big fan of this type of content, especially isekai or comedic anime like Re:Zero.",
       videogames: 'Video Games',
-      videogamesDescription: "I really like creative games like Minecraft. I've been playing for nearly 10 years, and I still enjoy the genre as it continues to inspire me.",
+      videogamesDescription: "I really like creative games like Minecraft. I've been playing for nearly 10 years and I still enjoy the genre as it continues to inspire me.",
       cooking: 'Cooking',
       cookingDescription: "I love cooking. From a young age, I've always enjoyed food, so being able to prepare it with my own personal touches is a real pleasure.",
 
@@ -37,7 +37,7 @@ const messages = {
       // HomeSkills
       skillsTitle: 'Hard skills',
       softskillsTitle: 'Soft skills',
-      softskillsDescription: 'My interpersonal skills reflect my ability to interact well with others and adapt to situations. This includes communication, teamwork, time management, and adaptability.',
+      softskillsDescription: 'My interpersonal skills reflect my ability to interact well with others and adapt to situations. This includes communication, teamwork, time management and adaptability.',
       hardskillsDescription: "My technical skills are specific abilities I've gained through studies and professional experience. This includes, for example, proficiency in programming languages, database management, and network administration.",
       references: 'References',
       at: "at ",
@@ -46,7 +46,7 @@ const messages = {
 
       // HomeContact
       homeContactTitle: 'Resume',
-      homeContactDesc: 'I am currently looking for an end-of-study internship in web development, C# development, or video game development. The internship would take place between January 20, 2025, and May 1, 2025, for a maximum duration of 14 weeks.',
+      homeContactDesc: 'I am currently looking for an end-of-study internship in web development, C# development, or video game development. The internship would take place between January 20, 2025 and May 1, 2025, for a maximum duration of 14 weeks.',
 
       CTA1: 'Do you have an internship offer or information to share with me? Feel free to',
       CTA2: ' contact me',
@@ -157,7 +157,7 @@ const messages = {
       "title": "Privacy Policy",
       "cookies": {
         "title": "Cookies",
-        "intro": "This cookie policy explains what cookies are, how we use them, how third parties we may be associated with may use cookies on the service, your choices regarding cookies, and additional information about cookies.",
+        "intro": "This cookie policy explains what cookies are, how we use them, how third parties we may be associated with may use cookies on the service, your choices regarding cookies and additional information about cookies.",
         "details": {
           "title": "Types of Cookies Used",
           "lang": "Cookie 'lang': Used to manage the user's language preference. (Functional, Permanent)",
@@ -171,7 +171,7 @@ const messages = {
       },
       "user_rights": {
         "title": "User Rights",
-        "content": "You have rights regarding your personal data, including the right to access, rectify, delete, and object. You can exercise these rights by accessing the data section in the footer below."
+        "content": "You have rights regarding your personal data, including the right to access, rectify, delete and object. You can exercise these rights by accessing the data section in the footer below."
       },
       "contact": {
         "title": "Contact",
