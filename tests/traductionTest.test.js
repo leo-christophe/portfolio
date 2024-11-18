@@ -86,9 +86,22 @@ describe('changeLang', () => {
   it('devrait mettre à jour la langue et le localStorage', () => {
     const mockUrl = new URL('http://localhost');
     vi.stubGlobal('window', {
-      location: mockUrl,
-      history: { pushState: vi.fn() } // Mock pushState for history
+      location: {
+        href: 'http://localhost',
+        search: '',
+        pathname: '/',
+        assign: vi.fn(),
+        reload: vi.fn(),
+      },
+      history: {
+        pushState: vi.fn(),
+        replaceState: vi.fn(),
+      },
     });
+    
+    console.log('LocalStorage lang:', localStorage.getItem('lang'));
+console.log('Document lang:', document.documentElement.lang);
+
 
     changeLang('fr');
 
@@ -107,7 +120,7 @@ describe('changeLang', () => {
     });
 
     // Verify that localStorage is updated
-    expect(() => changeLang('es')).toThrow('Langue non supportée');
+    expect(() => changeLang('es')).toThrowError(new Error('Langue non supportée'));
   });
 
 });
