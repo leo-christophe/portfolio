@@ -78,6 +78,11 @@ describe('getLangFromUrl', () => {
 });
 
 describe('changeLang', () => {
+  beforeEach(() => {
+    localStorage.clear();
+    document.documentElement.lang = ''; // Réinitialiser le DOM
+  });
+
   it('devrait mettre à jour la langue et le localStorage', () => {
     const mockUrl = new URL('http://localhost');
     vi.stubGlobal('window', {

@@ -1,8 +1,7 @@
-import { tryOnBeforeMount, useNavigatorLanguage } from '@vueuse/core';
+import { useNavigatorLanguage } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';  // Importer l'API i18n
 import { usePrimeVue } from 'primevue/config';  // Importer l'API PrimeVue
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../data/const';
-import { onBeforeMount, onMounted } from 'vue';
 
 /**
  * @function traductionSetup
@@ -105,15 +104,17 @@ export function changeLang(lang) {
         throw new Error('Langue non supportée');
     }
 
-    
-
     localStorage.setItem('lang', lang);
     document.documentElement.lang = lang;
     
     updateUrlLang(lang);
-
 }
 
+/**
+ * Change la langue de la bibliothèque PrimeVue pour le calendrier et les composants de date
+ * @function changeLibLangs
+ * @param {string} lang - EN ou FR dépendant à la langue choisie 
+ */
 export function changeLibLangs(lang){
     const primevue = usePrimeVue();
 
@@ -141,6 +142,4 @@ export function changeLibLangs(lang){
         primevue.config.locale.weekHeader= 'Week',
         primevue.config.locale.firstDayOfWeek= 0
     }
-
-    console.log('Langue de PrimeVue mise à jour:', primevue.config.locale);
 }
