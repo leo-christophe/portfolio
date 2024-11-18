@@ -153,7 +153,8 @@ function tempsPris(datedebut, datefin){
           <i class="pi pi-github imgProjectLinks"></i>
         </a>
         <a v-if="data.projects[props.id].url" :href="data.projects[props.id].url">
-          <i class="pi pi-globe imgProjectLinks"></i>
+          <i v-if="data.projects[props.id].url.includes('youtube')" class="pi pi-youtube imgProjectLinks"></i>
+          <i v-else class="pi pi-globe imgProjectLinks"></i>
         </a>
         <a v-if="data.projects[props.id].download" @click="downloadFile(data.projects[props.id].download)">
           <i class="pi pi-download imgProjectLinks"></i>

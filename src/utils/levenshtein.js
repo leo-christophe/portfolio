@@ -25,7 +25,7 @@ const sortedCompetences = json.sorted_valid_skills;
 function levenshtein(a, b) {
     const matrix = [];
 
-    // Initialize the matrix
+    // Initialisation de la matrice
     for (let i = 0; i <= b.length; i++) {
         matrix[i] = [i];
     }
@@ -34,7 +34,7 @@ function levenshtein(a, b) {
         matrix[0][j] = j;
     }
 
-    // Fill the matrix
+    // Remplissage de la matrice
     for (let i = 1; i <= b.length; i++) {
         for (let j = 1; j <= a.length; j++) {
             if (b.charAt(i - 1) === a.charAt(j - 1)) {
