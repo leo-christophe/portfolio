@@ -108,16 +108,6 @@ describe('changeLang', () => {
     expect(document.documentElement.lang).toBe('fr');
   });
 
-  it('devrait renvoyer une erreur si langue non adaptée', () => {
-    const mockUrl = new URL('http://localhost');
-    vi.stubGlobal('window', {
-      location: mockUrl,
-      history: {
-        replaceState: vi.fn(),
-        pushState: vi.fn(),
-      },
-    });
-  });
     it('devrait renvoyer une erreur si langue non adaptée', () => {
       // Mock complet pour window et history
       const mockUrl = new URL('http://localhost');
@@ -133,7 +123,7 @@ describe('changeLang', () => {
         changeLang('es');
       } catch (error) {
         // Vérifiez que l'erreur levée est correcte
-        expect(error).toEqual(new Error('Langue non supportée'));
+        expect(error).toEqual(new Error('Langue non supportée : es'));
       }
     });
 
