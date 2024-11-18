@@ -114,9 +114,19 @@ describe('changeLang', () => {
   it('devrait renvoyer une erreur si langue non adapté', () => {
     const mockUrl = new URL('http://localhost');
     vi.stubGlobal('window', {
-      location: mockUrl,
-      history: { pushState: vi.fn() } // Mock pushState for history
+      location: {
+        href: 'http://localhost',
+        search: '',
+        pathname: '/',
+        assign: vi.fn(),
+        reload: vi.fn(),
+      },
+      history: {
+        replaceState: vi.fn(),
+        pushState: vi.fn(),
+      },
     });
+    
 
     console.log('-------------------------------------------> ',changeLang('es'))
 
