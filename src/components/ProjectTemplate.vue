@@ -333,7 +333,15 @@ function tempsPris(datedebut, datefin){
 button#leftButton, button#rightButton {
     color:white;
     background-color: black;
-    border-radius:200px;
+
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    align-items: center;
+    display:flex;
+    justify-content:center;
+    border:0;
+
     cursor:pointer;
 
     i{
