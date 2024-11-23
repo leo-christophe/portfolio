@@ -5,10 +5,10 @@
 <template>
     <div id="interetsSection">
 
-    <h2 id="titreAProposI">{{ $t('message.interestsTitle') }}</h2>
-    <h5 id="paragrapheAProposI">{{ $t('message.interestsDescription') }}</h5>
+        <h1 id="titreAProposI">{{ $t('message.interestsTitle') }}</h1>
+        <h3 id="paragrapheAProposI">{{ $t('message.interestsDescription') }}</h3>
 
-    <div class="paragraphe" id="interets" style="display:flex;">
+        <div class="paragraphe" id="interets" style="display:flex;">
             <div>
 
                 <span id="conteneurInterets">
@@ -37,6 +37,7 @@
                         </div>
                     </div>
                 </span>
+
             </div>
         </div>
     </div>
@@ -91,7 +92,7 @@
         }
     }
 
-    h2#titreAProposI, h5#paragrapheAProposI{
+    h1#titreAProposI, h3#paragrapheAProposI{
         margin-left:10vw;
     }
 

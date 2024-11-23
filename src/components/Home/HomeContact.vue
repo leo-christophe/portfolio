@@ -1,66 +1,66 @@
 <script setup>
-import { CV_NAME_WEB, CV_NAME_WEB_EN } from '../../data/const.js';
-import { onMounted, ref } from 'vue';
-import { getLangFromUrl } from '../../utils/traduction.js';
-import Button from 'primevue/button';
+    import { CV_NAME_WEB, CV_NAME_WEB_EN } from '../../data/const.js';
+    import { onMounted, ref } from 'vue';
+    import { getLangFromUrl } from '../../utils/traduction.js';
+    import Button from 'primevue/button';
 
-const WIDTH = "90%";
-const HEIGHT = "900px";
-const RACINE = "/documents/";
+    const WIDTH = "90%";
+    const HEIGHT = "900px";
+    const RACINE = "/documents/";
 
-// Reactive reference for the CV address
-const CVAdress = ref(RACINE + CV_NAME_WEB + "#page=1");
-const windowWidth = ref(window.innerWidth);
-onMounted(() => {
-    // Check language and set the appropriate CV address
-    if (getLangFromUrl() != 'fr') {
-        CVAdress.value = RACINE + CV_NAME_WEB_EN + "#page=1";
+    // Reactive reference for the CV address
+    const CVAdress = ref(RACINE + CV_NAME_WEB + "#page=1");
+    const windowWidth = ref(window.innerWidth);
+    onMounted(() => {
+        // Check language and set the appropriate CV address
+        if (getLangFromUrl() != 'fr') {
+            CVAdress.value = RACINE + CV_NAME_WEB_EN + "#page=1";
+        }
+
+        adjustPdfZoom();
+    });
+    const downloadFile = (url, target = '_blank') => {
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', '');
+        link.setAttribute('target', target);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
+    const downloadCV = () => {
+        // Download the CV
+        downloadFile(CVAdress.value, '_blank');
+
     }
 
-    adjustPdfZoom();
-});
-const downloadFile = (url, target = '_blank') => {
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', '');
-    link.setAttribute('target', target);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-};
+    const consultCV = () => {
+        // Open the CV in a new tab
+        window.open(CVAdress.value, '_blank');
+    }
 
-const downloadCV = () => {
-    // Download the CV
-    downloadFile(CVAdress.value, '_blank');
+    function adjustPdfZoom() {
+        const pdfViewer = document.getElementById('pdf-viewer');
+        const width = window.innerWidth;
+        const height = window.innerHeight;
 
-}
-
-const consultCV = () => {
-    // Open the CV in a new tab
-    window.open(CVAdress.value, '_blank');
-}
-
-function adjustPdfZoom() {
-            const pdfViewer = document.getElementById('pdf-viewer');
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-
-            // Logique pour ajuster le zoom (par exemple, en fonction de la taille de la fenêtre)
-            // Tu peux ajuster ces valeurs selon tes besoins
-            let zoomLevel;
-            if (width < 600) {
-                zoomLevel = 0.5; // Réduire le zoom à 50% pour les écrans petits
-            } else if (width < 1200) {
-                zoomLevel = 0.75; // Réduire le zoom à 75% pour les écrans moyens
-            } else {
-                zoomLevel = 0.8; // 100% pour les grands écrans
-            }
-
-            // Appliquer le zoom (dans ce cas, en modifiant la taille de l'iframe)
-            pdfViewer.style.transformOrigin = "0 0"; // Origine du zoom en haut à gauche
-            pdfViewer.style.width = `${100 / zoomLevel}vw`; // Ajuster la largeur selon le zoom
-            pdfViewer.style.height = `${100 / zoomLevel}vh`; // Ajuster la hauteur selon le zoom
+        // Logique pour ajuster le zoom (par exemple, en fonction de la taille de la fenêtre)
+        // Tu peux ajuster ces valeurs selon tes besoins
+        let zoomLevel;
+        if (width < 600) {
+            zoomLevel = 0.5; // Réduire le zoom à 50% pour les écrans petits
+        } else if (width < 1200) {
+            zoomLevel = 0.75; // Réduire le zoom à 75% pour les écrans moyens
+        } else {
+            zoomLevel = 0.8; // 100% pour les grands écrans
         }
+
+        // Appliquer le zoom (dans ce cas, en modifiant la taille de l'iframe)
+        pdfViewer.style.transformOrigin = "0 0"; // Origine du zoom en haut à gauche
+        pdfViewer.style.width = `${100 / zoomLevel}vw`; // Ajuster la largeur selon le zoom
+        pdfViewer.style.height = `${100 / zoomLevel}vh`; // Ajuster la hauteur selon le zoom
+    }
 
 </script>
 
@@ -75,11 +75,11 @@ function adjustPdfZoom() {
                     </div>
                 </span>
                 <span>
-                    <h2 id="CVTitre">{{ $t('message.homeContactTitle') }}</h2>
+                    <h1 id="CVTitre">{{ $t('message.homeContactTitle') }}</h1>
                     <div id="SousTitre">{{ $t('message.homeContactDesc') }}</div>
 
                     <div id="finalText" class="CVsection computer">
-                        <h5>{{ $t('message.CTA1') }}<RouterLink to="/contact">{{ $t('message.CTA2') }}</RouterLink>{{ $t('message.CTA3')}}</h5>
+                        <h2>{{ $t('message.CTA1') }}<RouterLink to="/contact">{{ $t('message.CTA2') }}</RouterLink>{{ $t('message.CTA3')}}</h2>
                     </div>
                 </span>
             </div>
@@ -229,7 +229,6 @@ function adjustPdfZoom() {
         .CVsection #SousTitre {
             width: 90vw;
             max-width:50vw;
-            font-size:1.5em !important;
         }
 
         div div#finalText.CVsection {
@@ -252,6 +251,7 @@ function adjustPdfZoom() {
         padding: 0;
 
         margin-top:5vh;
+        text-align:center;
         
     }
 

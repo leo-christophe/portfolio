@@ -108,6 +108,11 @@ p,div,span{
   line-height: 1.5 !important;
 }
 
+div#SousTitre, div.textContainer div, h4.formationTitres{
+  font-size: 1.3em !important;
+  line-height: 1.5 !important;
+}
+
 button#blackVariant, button#greenValid, .blackVariant {
   border-radius: 8px;
   border: 1px solid transparent;
