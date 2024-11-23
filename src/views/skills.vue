@@ -1,4 +1,5 @@
 <script setup>
+    import InputText from 'primevue/inputtext';
     import { computed, getCurrentInstance, ref } from 'vue';
     import { useRouter } from 'vue-router';
 
@@ -21,7 +22,7 @@
 <template>
     <div>
         <h1>Skills and Corresponding Projects/Experiences</h1>
-        <input v-model="searchQuery" placeholder="Search for a skill or category..." />
+        <InputText v-model="searchQuery" placeholder="Search for a skill or category..." />
         <div id="skillsPage">
             <div v-for="(category, catIndex) in filteredSkills" :key="catIndex" class="skill-category">
             <!-- Extract the category name dynamically -->
