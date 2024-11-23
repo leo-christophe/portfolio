@@ -70,10 +70,9 @@
             "titre": "Développement d'un jeu vidéo sur le thème de l'espace",
             "description": "Programmation en C# avec le framework Monogame en équipe de deux. Le but était de réaliser un jeu vidéo en quelques semaines en s'appuyant directement sur la documentation, en respectant les bonnes pratiques lors du développement (Nommage, Structure du code, Commentaires, etc.). Le jeu devait être jouable et présenter un menu, un écran de jeu et un écran de fin. Le jeu devait être présenté à la fin du projet en vidéo, puis devant un jury de professeur.", 
             "competences": {
-              "Développement logiciel": ["C#", "Monogame", "Visual Studio 2022"],
-              "Tests & Qualité": ["Tests manuels"],
+              "Développement logiciel": ["C#", "Visual Studio 2022"],
               "Compétences interpersonnelles": ["Travail en équipe", "Brainstorming", "Présentation"],
-              "UI/UX & Expérience utilisateur": ["Tiled", "Game Design"],
+              "Développement de jeux vidéo": ["Tiled", "Monogame"],
               "Autre": ["Sony Vegas", "Photoshop", "Github"]
             },
             "realisations": [
@@ -453,77 +452,59 @@
     ],
     "sorted_valid_skills":[
       {
-        "Vidéo-montage": [
-          "Montage vidéo (Premiere Pro)", "Montage Photo"
-          ]
-        },{
-          "Outils de collaboration": ["Trello", "Discord"]
-        },
-      {
         "Développement web": [
           "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue-JS", "PrimeVue", "Phaser",
           "Responsive", "Ergonomie", "NodeJS", "JQuery", "Git", "Vercel.app", "Flask", "Python", "WebDev", "API Rest", "C#"
         ]
-      },
-      {
+      },{
         "Développement logiciel": [
           "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "FFMPEG","WPF", "WinUI","CodeFirst", "Repository", "Injection de dépendances"
         ]
-      },
-      {
+      },{
         "Développement de jeux vidéo":[
           "Monogame", "PyGame", "Phaser", "Tiled"
         ]
-      },
-      {
+      },{
         "DevOps & Déploiement": [
           "CI/CD", "Vercel.app", "Azure", "Git", "Gitlab", "Github"
         ]
-      },
-      {
+      },{
         "Tests & Qualité": [
           "Cypress", "Vitest", "Tests unitaires", "Tests mock", "Tests d'intégration", "Tests fonctionnels", "Tests de performance", "Tests de sécurité", "Tests de charge", "Tests de non régression", "Tests de robustesse", 
           "Tests de montée en charge", "Tests de régression", "Tests de validation", "Tests manuels"
         ]
-      },
-      {
+      },{
         "Base de données": [
           "SQL", "PostgreSQL", "MLD", "MCD", "noSQL", "plpgSQL", "plpSQL", "MongoDB", "Gestion des bases de données", "Authentification", "PowerBI", "PowerAMC", "SQLite", "Bases de données relationnelles"
         ]
-      },
-      {
-        "Gestion de projet": [
-          "Travail en équipe", "Comptes rendus de sprint", "Organisation de réunion", 
-          "Rédaction de rapport", "Gestion de projet", "Démarche agile SCRUM", "Revues de sprint", "Méthode agile", "Azure DevOps"
-        ]
-      },
-      {
+      },{
         "Conception & Architecture": [
           "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conception", "UML", "BPMN", "Mapping objet-relationnel (ORM)",
           "Documents techniques", "Cahier de recette", "Rédaction", "MVC", "MVVM", "Repository", "Injection de dépendances"
         ]
-      },
-      {
+      },{
         "UI/UX & Expérience utilisateur": [
           "UI/UX", "Expérience Utilisateur", "Ergonomie", "Conception centrée utilisateur", "Tiled", "Game Design"
         ]
-      },
-      {
+      },{
+        "Outils de visualisation": [
+          "PowerBI", "Excel", "Tableau", "Data Studio", "Google Analytics"
+        ]
+      },{
         "Compétences interpersonnelles": [
           "Travail en équipe", "Autonomie", "Rigueur", "Organisation", "Créativité",
           "Adaptabilité", "Esprit critique", "Force de proposition", "Polyvalence", "Communication", "Analyse", "Présentation",
           "Anglais"
         ]
-      },
-      {
-        "Outils de visualisation": [
-          "PowerBI", "Excel", "Tableau", "Data Studio", "Google Analytics"
+      },{
+        "Gestion de projet": [
+          "Travail en équipe", "Comptes rendus de sprint", "Organisation de réunion", 
+          "Rédaction de rapport", "Gestion de projet", "Démarche agile SCRUM", "Revues de sprint", "Méthode agile", "Azure DevOps"
         ]
-      },
-      {
-        "Virtualisation":[
-          "VirtualBox", "Docker"
-        ]
+      },{
+        "Vidéo-montage": ["Montage vidéo (Premiere Pro)", "Montage Photo"]
+      },{
+        "Outils de collaboration": ["Trello", "Discord"]
       }
     ]
 }

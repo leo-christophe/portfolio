@@ -70,9 +70,8 @@
         "description": "Programming in C# using the Monogame framework in a team of two. The goal was to create a video game in a few weeks by relying directly on the documentation, adhering to best practices during development (Naming, Code structure, Comments, etc.). The game had to be playable and include a menu, a gameplay screen, and an end screen. The game was presented at the end of the project in a video, then in front of a jury of professors.",
         "competences": {
           "Software Development": ["C#", "Monogame", "Visual Studio 2022"],
-          "Testing & Quality": ["Manual Testing"],
           "Interpersonal Skills": ["Teamwork", "Brainstorming", "Presentation"],
-          "UI/UX & User Experience": ["Tiled", "Game Design"],
+          "Game Development": ["Monogame", "Tiled"],
           "Other": ["Sony Vegas", "Photoshop", "Github"]
         },
         "realisations": [
@@ -216,7 +215,7 @@
       {
         "id": "project_portfolio",
         "nom": "Portfolio",
-        "dates": ["2024-05-23", "Ongoing"],
+        "dates": ["2024-05-23", "2024-09-15"],
         "titre": "Development of a web portfolio in Vue-JS",
         "description": "Creating a web portfolio in Vue-JS to showcase my skills and projects. Using the nodeJS libraries PrimeVue and Vue-Route. Continuous deployment on Vercel.App with each push to Github. Applying best practices in terms of security.",
         "competences": {
@@ -307,7 +306,8 @@
         "titre": "Creation of an advertisement for an English course project targeting Italian clients",
         "description": "Creation of a video advertisement with the goal of presenting an English course in a fun and engaging way for Italian clients. Using various video editing tools (Premiere Pro) and photo editing software (Photoshop). Applying best practices in terms of visuals, audio quality, and storytelling.",
         "competences": {
-          "Video Production": ["Video Editing", "Premiere Pro", "Photoshop"],
+          "Video Editing": ["Video Editing", "Premiere Pro", "Photoshop"],
+          "Collaboration Tools": ["Trello", "Discord"],
           "Interpersonal Skills": ["Teamwork", "Creativity"],
           "Presentation Skills": ["Public Speaking"]
         },
@@ -453,78 +453,61 @@
     ],
     "sorted_valid_skills": [
       {
-          "Video Editing": [
-              "Video Editing (Premiere Pro)", "Photo Editing"
-          ]
-      },
-      {
+        "Web Development": [
+            "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue-JS", "PrimeVue", "Phaser",
+            "Responsive", "Ergonomics", "NodeJS", "JQuery", "Git", "Vercel.app", "Flask", "Python", "WebDev", "API Rest", "C#"
+        ]
+      },{
+        "Software Development": [
+            "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "WPF", "FFMPEG","WinUI", "CodeFirst", "Repository", "Object-relational mapping (ORM)", "Dependency Injection"
+        ]
+      },{
+        "Game Development": [
+            "Monogame", "PyGame", "Phaser", "Tiled"
+        ]
+      },{
+        "DevOps & Deployment": [
+            "Continuous Deployment", "CI/CD", "Vercel.app", "Azure", "Git"
+        ]
+      },{
+        "Testing & Quality": [
+            "Cypress", "Vitest", "Unit Testing", "Mock Testing", "Integration Testing", "Functional Testing", "Performance Testing", "Security Testing", "Load Testing", "Non-Regression Testing", 
+            "Robustness Testing", "Scalability Testing", "Regression Testing", "Validation Testing", "Manual Testing"
+        ]
+      },{
+        "Database": [
+            "SQL", "PostgreSQL", "MLD", "MCD", "NoSQL", "plpgSQL", "plpSQL", "MongoDB", "Database Management", "Authentication", "PowerBI", "PowerAMC", "SQLite", "Relational Databases"
+        ]
+      },{
+        "Design & Architecture": [
+            "State-Transition", "Class Diagram", "Diagrams", "Design", "BPMN", "UML",
+            "Technical Documents", "Acceptance Criteria", "Documentation", "MVC", "MVVM", "Repository", "Dependency Injection"
+        ]
+      },{
+        "UI/UX & User Experience": [
+            "UI/UX", "User Experience", "Ergonomics", "User-Centered Design", "Tiled", "Game Design"
+        ]
+      },{
+        "Interpersonal Skills": [
+            "Teamwork", "Autonomy", "Rigor", "Organization", "Creativity",
+            "Adaptability", "Critical Thinking", "Proactivity", "Versatility", "Communication", "Analysis", "Presentation",
+            "English"
+        ]
+      },{
+        "Visualization Tools": [
+            "PowerBI", "Excel", "Tableau", "Data Studio", "Google Analytics"
+        ]
+      },{
+        "Project Management": [
+            "Teamwork", "Sprint Reports", "Meeting Organization", 
+            "Report Writing", "Project Management", "Agile SCRUM Methodology", "Sprint Reviews", "Agile Methodology", "Azure DevOps"
+        ]
+      },{
+        "Video Editing": [
+            "Video Editing (Premiere Pro)", "Photo Editing"
+        ]
+      },{
           "Collaboration Tools": ["Trello", "Discord"]
-      },
-      {
-          "Web Development": [
-              "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue-JS", "PrimeVue", "Phaser",
-              "Responsive", "Ergonomics", "NodeJS", "JQuery", "Git", "Vercel.app", "Flask", "Python", "WebDev", "API Rest", "C#"
-          ]
-      },
-      {
-          "Software Development": [
-              "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "WPF", "FFMPEG","WinUI", "CodeFirst", "Repository", "Object-relational mapping (ORM)", "Dependency Injection"
-          ]
-      },
-      {
-          "Game Development": [
-              "Monogame", "PyGame", "Phaser", "Tiled"
-          ]
-      },
-      {
-          "DevOps & Deployment": [
-              "Continuous Deployment", "CI/CD", "Vercel.app", "Azure", "Git"
-          ]
-      },
-      {
-          "Testing & Quality": [
-              "Cypress", "Vitest", "Unit Testing", "Mock Testing", "Integration Testing", "Functional Testing", "Performance Testing", "Security Testing", "Load Testing", "Non-Regression Testing", 
-              "Robustness Testing", "Scalability Testing", "Regression Testing", "Validation Testing", "Manual Testing"
-          ]
-      },
-      {
-          "Database": [
-              "SQL", "PostgreSQL", "MLD", "MCD", "NoSQL", "plpgSQL", "plpSQL", "MongoDB", "Database Management", "Authentication", "PowerBI", "PowerAMC", "SQLite", "Relational Databases"
-          ]
-      },
-      {
-          "Project Management": [
-              "Teamwork", "Sprint Reports", "Meeting Organization", 
-              "Report Writing", "Project Management", "Agile SCRUM Methodology", "Sprint Reviews", "Agile Methodology", "Azure DevOps"
-          ]
-      },
-      {
-          "Design & Architecture": [
-              "State-Transition", "Class Diagram", "Diagrams", "Design", "BPMN", "UML",
-              "Technical Documents", "Acceptance Criteria", "Documentation", "MVC", "MVVM", "Repository", "Dependency Injection"
-          ]
-      },
-      {
-          "UI/UX & User Experience": [
-              "UI/UX", "User Experience", "Ergonomics", "User-Centered Design", "Tiled", "Game Design"
-          ]
-      },
-      {
-          "Interpersonal Skills": [
-              "Teamwork", "Autonomy", "Rigor", "Organization", "Creativity",
-              "Adaptability", "Critical Thinking", "Proactivity", "Versatility", "Communication", "Analysis", "Presentation",
-              "English"
-          ]
-      },
-      {
-          "Visualization Tools": [
-              "PowerBI", "Excel", "Tableau", "Data Studio", "Google Analytics"
-          ]
-      },
-      {
-          "Virtualization": [
-              "VirtualBox", "Docker"
-          ]
       }
     ]
   }
