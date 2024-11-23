@@ -72,6 +72,13 @@
 
 
 <style scoped>
+    #Github_img {
+        background-color: white;
+        height:40px;
+        border:1px solid white;
+        border-radius:3px;
+    }
+
     .footerURLLink:hover{
         text-decoration:underline;
     }

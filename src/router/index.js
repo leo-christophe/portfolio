@@ -4,6 +4,7 @@ import home from '../views/home.vue';
 import projects from '../views/projects.vue';
 import formation from '../views/parcours.vue';
 import contact from '../views/contact.vue';
+import skills from '../views/skills.vue';
 
 import project_portfolio from '../views/projects/project_portfolio.vue';
 import project_sae101 from '../views/projects/project_sae101.vue';
@@ -37,6 +38,11 @@ const routes = [
     name: 'Projets',
     component: projects,
     alias: '/projets'
+},{
+    path:'/skills',
+    name: 'Compétences',
+    component: skills,
+    alias: '/competences'
 },{
     path: '/projects/portfolio',
     name: 'Portfolio',
@@ -119,7 +125,8 @@ const menuItems = {
     project_video: '3',
     'Mes données': "0",
     'Confidentialité': "0",
-    Contact: "4"
+    Contact: "4",
+    Competences: "5"
   };
 
 // Mis à jour du style du menu
