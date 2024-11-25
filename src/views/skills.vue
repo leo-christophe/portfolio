@@ -2,7 +2,9 @@
     import InputText from 'primevue/inputtext';
     import { computed, getCurrentInstance, ref } from 'vue';
     import { useRouter } from 'vue-router';
+    import { useI18n } from 'vue-i18n'; // Notez le "I" majuscule dans `useI18n`.
 
+    const { t } = useI18n(); 
     const router = useRouter();
     const instance = getCurrentInstance();
     const data = instance.appContext.config.globalProperties.$JSONData;
@@ -21,8 +23,8 @@
 
 <template>
     <div>
-        <h1>Skills and Corresponding Projects/Experiences</h1>
-        <InputText v-model="searchQuery" placeholder="Search for a skill or category..." />
+        <h1>{{$t('message.skills')}}</h1>
+        <InputText v-model="searchQuery" :placeholder="t('message.search')" />
         <div id="skillsPage">
             <div v-for="(category, catIndex) in filteredSkills" :key="catIndex" class="skill-category">
             <!-- Extract the category name dynamically -->
