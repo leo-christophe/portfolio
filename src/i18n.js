@@ -142,7 +142,8 @@ const messages = {
       hobbies: 'Hobbies',
       translateHeaderDesc: "Switch to French",
 
-      Accueil: "Home",
+      // Titre de fenetres
+      Accueil: "Léo Christophe - Home",
       Formations: "Career",
       Projets: "Projects",
       Portfolio: "Portfolio",
@@ -341,7 +342,7 @@ const messages = {
       hobbies: 'Hobbies',
       translateHeaderDesc: "Passer en anglais",
 
-      Accueil: "Accueil",
+      Accueil: "Léo Christophe - Accueil",
       Formations: "Parcours",
       Projets: "Projets",
       Portfolio: "Portfolio",
