@@ -154,8 +154,8 @@ const messages = {
       Matinfo: "Matinfo",
       BMW: "BMW",
       project_video: 'Silken Sweets',
-      'Mes données': "My data",
-      'Confidentialité': "Privacy",
+      mesdonnees: "My data",
+      Confidentialité: "Privacy",
       Contact: "Contact",
       Competences: "Skills",
 
@@ -342,6 +342,7 @@ const messages = {
       hobbies: 'Hobbies',
       translateHeaderDesc: "Passer en anglais",
 
+      // Titre de fenetres
       Accueil: "Léo Christophe - Accueil",
       Formations: "Parcours",
       Projets: "Projets",
@@ -352,9 +353,9 @@ const messages = {
       ChrisConverter: "ChrisConverter",
       Matinfo: "Matinfo",
       BMW: "BMW",
-      project_video: 'Projet Vidéo',
-      'Mes données': "Mes données",
-      'Confidentialité': "Confidentialité",
+      project_video: 'Silken Sweets',
+      mesdonnees: "Mes données",
+      Confidentialité: "Confidentialité",
       Contact: "Contact",
       Competences: "Compétences",
 
