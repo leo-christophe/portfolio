@@ -23,6 +23,7 @@ import {COULEUR_MENU_BASIC, COULEUR_MENU_SELECTIONNE} from '../data/const.js';
 import { updateUrlLang } from '../utils/traduction.js';
 
 import { useTitle } from '@vueuse/core'
+import i18n from '../i18n.js';
 
 const title = useTitle()
 
@@ -70,7 +71,7 @@ const routes = [
     alias: '/projets/bmw'
 },{
     path: '/projects/video_silkensweets',
-    name: 'Vidéo Silken Sweets',
+    name: 'project_video',
     component: project_video
 },{
     path: '/projects/chrisconverter',
@@ -95,7 +96,7 @@ const routes = [
     component: NotFound
   },{
     path: '/mesdonnees',
-    name: 'Mes données',
+    name: 'mesdonnees',
     component: mesdonnees
   },{
     path: '/confidentialite',
@@ -164,8 +165,8 @@ router.afterEach((to) => {
     updateUrlLang(lang);
     const menuItem = menuItems[to.name] || "1";
     updateMenuStyle(menuItem, '2px solid ' + COULEUR_MENU_SELECTIONNE, COULEUR_MENU_SELECTIONNE);
-    title.value = to.name;
 
+    title.value = i18n.global.t('message.'+to.name);
 });
 
 

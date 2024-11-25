@@ -5,6 +5,10 @@ import { getLangFromUrl } from '../src/utils/traduction';
 const messages = {
   en: {
     message: {
+      skills: 'Skills',
+      search: 'Search: ',
+      searchPlaceholder: 'Search for a skill or a category.',
+
       month: 'month(s)',
       days: 'day(s)',
 
@@ -138,6 +142,23 @@ const messages = {
       hobbies: 'Hobbies',
       translateHeaderDesc: "Switch to French",
 
+      // Titre de fenetres
+      Accueil: "Léo Christophe - Home",
+      Formations: "Career",
+      Projets: "Projects",
+      Portfolio: "Portfolio",
+      Marsinvaders: "Marsinvaders",
+      Skillupnow: "SkillUpNow",
+      Amphibiens: "Amphibians",
+      ChrisConverter: "ChrisConverter",
+      Matinfo: "Matinfo",
+      BMW: "BMW",
+      project_video: 'Silken Sweets',
+      'Mes données': "My data",
+      'Confidentialité': "Privacy",
+      Contact: "Contact",
+      Competences: "Skills",
+
       // Footer
       personalData: 'Personal Data',
       contactInfo: 'Contact Information',
@@ -190,6 +211,10 @@ const messages = {
   },
   fr: {
     message: {
+      skills: 'Compétences',
+      search: 'Rechercher: ',
+      searchPlaceholder: 'Chercher par compétence ou domaine.',
+
       month: 'mois',
       days: 'jour(s)',
       homeTitle: 'Léo CHRISTOPHE',
@@ -316,6 +341,22 @@ const messages = {
       education: 'Parcours',
       hobbies: 'Hobbies',
       translateHeaderDesc: "Passer en anglais",
+
+      Accueil: "Léo Christophe - Accueil",
+      Formations: "Parcours",
+      Projets: "Projets",
+      Portfolio: "Portfolio",
+      Marsinvaders: "Marsinvaders",
+      Skillupnow: "SkillUpNow",
+      Amphibiens: "Amphibiens",
+      ChrisConverter: "ChrisConverter",
+      Matinfo: "Matinfo",
+      BMW: "BMW",
+      project_video: 'Projet Vidéo',
+      'Mes données': "Mes données",
+      'Confidentialité': "Confidentialité",
+      Contact: "Contact",
+      Competences: "Compétences",
 
       // Footer
       personalData: 'Données personnelles',
