@@ -296,7 +296,7 @@
         ],
         "url": null,
         "github": null,
-        "download": null,
+        "download": "/files/Rapport.pbix",
         "route": "/projects/project_sae104"
       },
       {
@@ -495,7 +495,7 @@
         ]
       },{
         "Visualization Tools": [
-            "PowerBI", "Excel", "Tableau", "Data Studio", "Google Analytics"
+            "PowerBI", "Excel", "Google Analytics"
         ]
       },{
         "Project Management": [

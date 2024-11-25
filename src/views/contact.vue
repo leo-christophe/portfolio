@@ -109,6 +109,14 @@ const showError = (Emessage = t('message.errorMessage')) => {
   toast.add({ severity: 'error', summary: t('message.error'), detail: Emessage, life: 5000 });
 };
 
+/** @function openGoogleMaps
+ * 
+ *  @description Ouvre Google Maps dans un nouvel onglet
+ */
+function openGoogleMaps() {
+  window.open('https://www.google.com/maps?q=Annecy', '_blank');
+}
+
 </script>
 
 <template>
@@ -178,10 +186,10 @@ const showError = (Emessage = t('message.errorMessage')) => {
           </div>
         </div>
         <div id="bubble3" class="bubble">
-            <div class="iconContainer">
-              <i class="pi pi-map-marker infoRightIcon"></i>
-            </div>
-            <div class="bubbleInfo">
+          <div @click="openGoogleMaps" class="iconContainer">
+            <i class="pi pi-map-marker infoRightIcon"></i>
+          </div>
+          <div class="bubbleInfo">
             <span>{{$t('message.locationTitle')}}</span>
             <span>Annecy, France</span>
           </div>
@@ -258,7 +266,7 @@ const showError = (Emessage = t('message.errorMessage')) => {
     cursor:pointer;
   }
 
-  .pi-envelope{
+  .infoRightIcon{
     cursor:pointer;
   }
 
@@ -279,6 +287,7 @@ const showError = (Emessage = t('message.errorMessage')) => {
 .iconContainer:hover{
   i{
     transform:scale(1.1);
+    transition:0.5s ease;
   }
 }
 
