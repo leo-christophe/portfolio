@@ -178,6 +178,8 @@ const messages = {
       donneesDisclaimer2: "You can delete optional (ergonomic) data at any time by clicking the button below.",
       donneesBtnSupp: "Delete my data",
 
+      learnmore: "Learn more",
+
       "privacy": {
       "title": "Privacy Policy",
       "cookies": {
@@ -377,6 +379,8 @@ const messages = {
       donneesDisclaimer: "Vos données stockées sur le navigateur ont un but purement ergonomique ou de traduction. Elles ne sont pas utilisées à des fins commerciales ou de tracking.",
       donneesDisclaimer2: "Vous pouvez effacer les données facultatives (ergonomiques) à tous moments en cliquant sur le bouton ci-dessous.",
       donneesBtnSupp:  "Supprimer mes données",
+
+      learnmore: "En savoir plus",
 
       "privacy": {
       "title": "Politique de confidentialité",
