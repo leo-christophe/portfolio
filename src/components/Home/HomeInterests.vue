@@ -13,7 +13,7 @@
 
                 <span id="conteneurInterets">
                     <div class="textContainer">
-                        <img class="hobbyIcon" id="torii-gate-icon" src="/images/icons/manga.png">
+                        <img class="hobbyIcon" id="torii-gate-icon" src="/images/icons/manga.svg">
                         
                         <div>
                             <h3>{{$t('message.animes')}}</h3>
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="textContainer">
-                        <img class="hobbyIcon" id="game-controller-icon" src="/images/icons/game-controller.png">
+                        <img class="hobbyIcon" id="game-controller-icon" src="/images/icons/game-controller.svg">
                         
                         <div>
                             <h3>{{$t('message.videogames')}}</h3>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="textContainer">
-                        <img class="hobbyIcon" id="cooking-pot-icon" src="/images/icons/cooking-equipment.png">
+                        <img class="hobbyIcon" id="cooking-pot-icon" src="/images/icons/cooking-equipment.svg">
                         
                         <div>
                             <h3>{{$t('message.cooking')}}</h3>

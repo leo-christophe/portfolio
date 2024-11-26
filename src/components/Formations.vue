@@ -1,18 +1,65 @@
 <script setup>
-    import Formations from '../components/Formations.vue';
-    import Experiences from '../components/Experiences.vue';
+    import { getCurrentInstance, ref } from 'vue';
+
+    import Timeline from 'primevue/timeline';
+    import { useI18n } from 'vue-i18n';
+
+    import DateUtils from '../utils/date_utils.js';
+    import { TIMELINE_STYLE } from '../data/const.js'
+
+    const {locale} = useI18n();
+    const instance = getCurrentInstance();
+
+    const { formations } = instance.appContext.config.globalProperties.$JSONData;
+    const  experiences = instance.appContext.config.globalProperties.$JSONData.experiences;
+    const formationTimeline = ref([...formations.slice(0, formations.length), ""]);
+    const experienceTimeline = ref([...experiences.slice(0, experiences.length), ""]);
 </script>
 
 <template>
-    <div id="formationExperienceContainer">
-        <!-- Section Formations -->
-        <Formations></Formations>
+    <!-- Section Formations -->
+    <span class="column education">
 
-        <!-- Section Expériences -->
-        <Experiences></Experiences>
-    </div>
+        <h1 id="titreFormations" class="formationTitres">{{ $t('message.educationTitle') }}</h1>
+        <h4 class="sousTitreFormations formationTitres">{{ $t('message.educationSubtitle') }}</h4>
+
+        <span id="conteneurTimelineFormations">
+            <div class="card flex flex-wrap gap-12">
+                <Timeline 
+                        :value="formationTimeline" 
+                        align="left" 
+                        class="customized-timeline"
+                        :style="TIMELINE_STYLE"
+                    >
+                    <template #marker="formationTimeline">
+                        <div class="anneeCercle">
+                            <span class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm">
+                                <i class="pi pi-circle-fill" v-if="formationTimeline.item"></i>
+                            </span>
+                        </div>
+                    </template>
+                    <template #content="formationTimeline">
+                        <div id="conteneurFormations" v-if="formationTimeline.item">
+                            <div class="conteneurBox">
+                                <div class="information">
+                                    <h5 class="annees">{{ formationTimeline.item.annees }}</h5>
+                                    <br>
+                                    <h4 class="titreFormation">{{ formationTimeline.item.titre }} <br><p id="departementDetail" title="(Haute-Savoie)"><strong>{{ formationTimeline.item.lieu }}</strong>, {{ formationTimeline.item.ville }} ({{ formationTimeline.item.departement }})</p></h4>
+                                    <h5 class="obtention">{{ formationTimeline.item.obtention }}</h5>
+                                </div>
+                                <div class="imageFormation">
+                                    <img :src="formationTimeline.item.image" class="imgFormation" @click="window.open(formationTimeline.item.website, '_blank');">
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </Timeline>
+            </div>
+
+            
+        </span>
+    </span>
 </template>
-
 
 <style scoped>
 /* Media query for mobile devices */

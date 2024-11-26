@@ -1,18 +1,134 @@
 <script setup>
-    import Formations from '../components/Formations.vue';
-    import Experiences from '../components/Experiences.vue';
+    import { getCurrentInstance, ref } from 'vue';
+
+    import Timeline from 'primevue/timeline';
+    import { useI18n } from 'vue-i18n';
+
+    import DateUtils from '../utils/date_utils.js';
+    import { TIMELINE_STYLE } from '../data/const.js'
+
+    const {locale, t} = useI18n();
+    const instance = getCurrentInstance();
+
+    const { formations } = instance.appContext.config.globalProperties.$JSONData;
+    const  experiences = instance.appContext.config.globalProperties.$JSONData.experiences;
+    const formationTimeline = ref([...formations.slice(0, formations.length), ""]);
+    const experienceTimeline = ref([...experiences.slice(0, experiences.length), ""]);
+
+    /**
+    *  @function showHideMissionDetails
+    *  @description Affiche ou cache les détails de la mission
+    *  @returns {void}
+    */
+    function showHideMissionDetails(){
+    let elements = document.querySelector(".partieCachee");
+
+    if (elements.style.display === "none") {
+        elements.style.display = "flex";
+    } else {
+        elements.style.display = "none";
+    }
+    
+    }
+
 </script>
 
 <template>
-    <div id="formationExperienceContainer">
-        <!-- Section Formations -->
-        <Formations></Formations>
+    <!-- Section Expériences -->
+    <span class="column experience">
+            <h1 id="titreExperience" class="formationTitres">{{ $t('message.experienceTitle') }}</h1>
+            <h4 class="sousTitreFormations formationTitres">{{ $t('message.experienceSubtitle') }}</h4>
+            <span id="conteneurColonneExperiences">
 
-        <!-- Section Expériences -->
-        <Experiences></Experiences>
-    </div>
+                    <span id="conteneurTimelineFormations">
+                    <div class="card flex flex-wrap gap-12">
+                        <Timeline 
+                                :value="experienceTimeline" 
+                                align="left" 
+                                class="customized-timeline"
+                                :style="TIMELINE_STYLE"
+                            >
+                            <template #marker="experienceTimeline">
+                                <div class="anneeCercle">
+                                    <span class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm">
+                                        <i class="pi pi-circle-fill" v-if="experienceTimeline.item"></i>
+                                    </span>
+                                </div>
+                            </template>
+                            <template #content="experienceTimeline">
+                                <div class="conteneurBox experienceBox" v-if="experienceTimeline.item" @click="showHideMissionDetails()">
+                                    <div>
+                                        <span class="text-image-exp">
+                                            <div class="information experienceInf">
+                                                <h5 class="annees">
+                                                    <span v-if="DateUtils.isPastDate(experienceTimeline.item.dates[1])">
+                                                        {{ DateUtils.formatDateRange(experienceTimeline.item.dates[0], experienceTimeline.item.dates[1], $i18n.locale) }}
+                                                    </span>
+                                                    <span v-else>
+                                                        {{ DateUtils.formatDate(experienceTimeline.item.dates[0]) + " - " + $t('message.experienceOngoing') }}
+                                                    </span>
+                                                </h5>
+                                                <br>
+                                                <h4 class="titreExperience" v-if="locale == 'fr'">{{ experienceTimeline.item.contrat + " " + experienceTimeline.item.poste }} {{$t('message.at_au')}} {{ experienceTimeline.item.entreprise }} <p class="titreExperience">({{ experienceTimeline.item.localisation }})</p></h4>
+                                                <h4 class="titreExperience" v-else>{{ experienceTimeline.item.entreprise }} ({{ experienceTimeline.item.localisation }})</h4>
+                                                
+                                                <p class="expDesc">{{ experienceTimeline.item.description }}</p>
+                                            </div>
+
+
+                                            <div v-if="experienceTimeline.item.image" class="imgExperienceContainer">
+                                                <img :src="experienceTimeline.item.image" class="imgExperience">
+                                            </div>   
+                                        </span>
+                                        
+                                        <div id="text-ensavoirplus">
+                                            <p>
+                                                <i class="pi pi-info arrowDownExp"></i>
+                                                {{t('message.learnmore')}}
+                                            </p>
+                                        </div>
+                                        </div>
+
+                                </div>
+                                
+                                <div class="partieCachee conteneurBox experienceBox" v-if="experienceTimeline.item" style="display:none;">
+                                    <span class="expCacheContainerSkills">
+                                        <h4 class="expSkillsTitle">{{ $t('message.experienceCompetenceTitle') }}</h4>
+                                        <ul class="skillsListExp">
+                                            <li v-for="(competence, key) in experienceTimeline.item.competences" :key="key">
+                                                <span>
+                                                    <p><strong>{{ key }}:</strong></p>
+                                                    <span v-for="(competenceElt, indexY) in competence" :key="indexY">
+                                                        {{ competenceElt.charAt(0).toUpperCase() + competenceElt.slice(1) }}
+                                                        <span v-if="indexY < competence.length - 1">, </span>
+                                                    </span>
+                                                    <br> 
+                                                    <br> 
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </span>
+                                    <span class="expCacheContainerMissions">
+                                        <h4 class="expMissionsTitle">{{ $t('message.experienceMissionsTitle') }}</h4>
+                                        <ul class="missionsListExp">
+                                            <li v-for="(mission, index) in experienceTimeline.item.missions" :key="index">
+                                                {{ mission }}
+                                            </li>
+                                        </ul>
+                                    </span>
+                                </div>
+
+                            </template>
+
+                    
+                        </Timeline>
+                    </div>
+
+                    
+                </span>
+            </span>
+        </span>
 </template>
-
 
 <style scoped>
 /* Media query for mobile devices */
@@ -171,6 +287,29 @@
         width:70vw !important;
     }
 }
+
+.text-image-exp{
+    display:flex;
+
+}
+
+#text-ensavoirplus{
+        display:flex !important;
+        flex-direction: row !important;
+        justify-content: left;
+        min-width:min-content;
+        cursor:pointer;
+        text-decoration: underline;
+
+        i{
+            font-size:var(--fontSize);  
+            padding:5px;
+            border-radius:50%;
+            border:1px solid var(--secondColor);
+            background-color:black;
+    
+        }
+    }
 
 .expSkillsTitle, .expMissionsTitle{
     font-size: 1.2rem;
@@ -459,4 +598,6 @@ ul.missionsListExp li{
         display:flex;
         flex-direction:row;
     }
+
+
 </style>
