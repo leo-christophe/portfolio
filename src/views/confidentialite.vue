@@ -1,7 +1,7 @@
 <template>
   <div class="privacy-policy">
     <h1>{{ $t('message.privacy.title') }}</h1>
-    <small>{{ DateUtils.formatDate('2024-10-13', locale) }}</small>
+    <small>{{ DateUtils.formatDate('2024-11-27', locale) }}</small>
 
     <section>
       <h2>{{ $t('message.privacy.cookies.title') }}</h2>

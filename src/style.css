@@ -39,7 +39,7 @@
   --p-dialog-border-color: #000 !important; /* Override border color design token */
 }
 
-*:not(button) {
+*:not(button, div.p-dialog-content) {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -222,6 +222,14 @@ button[autofocus] {
   background-color: rgb(36, 36, 36);
   border: 2px solid black;
   color:white;
+  padding:1em 5em 1em 5em;
+}
+
+.p-dialog .p-dialog-header{
+  line-height: 1.5em;
+  padding-left:10px;
+  padding-top:5px;
+  padding-bottom:5px;
 }
 
 /*? Timeline */

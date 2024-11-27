@@ -62,7 +62,7 @@
                             </template>
                             <template #content="experienceTimeline">
                                 <div class="conteneurBox experienceBox" v-if="experienceTimeline.item" @click="toggleDialog(experienceTimeline.index)">
-                                    <div>
+                                    <div class="experienceLearnMore">
                                         <span class="text-image-exp">
                                             <div class="information experienceInf">
                                                 <h5 class="annees">
@@ -75,6 +75,9 @@
                                                 </h5>
                                                 <h4 class="titreExperience">{{ experienceTimeline.item.contrat + " " + experienceTimeline.item.poste }}</h4>
                                                 <p class="expDesc">{{ experienceTimeline.item.description }}</p>
+                                                <span class="learnMore">
+                                                    <i class="pi pi-info-circle"></i><p class="learnMoreText">{{ $t('message.learnmore') }}</p>
+                                                </span>
                                             </div>
 
                                             <div class="imgExperienceContainer">
@@ -83,7 +86,9 @@
                                                     :title="experienceTimeline.item.entreprise" 
                                                     class="imgExperience" />
                                             </div>
+                                            
                                         </span>
+
                                     </div>
 
                                     <!-- Dialog spécifique à cet index -->
@@ -93,7 +98,7 @@
                                         :modal="true" 
                                         :header="$t('message.experienceModalTitle')+ ' ' + experienceTimeline.item.poste" 
                                         class="custom-dialog"
-                                        :style="{ width: '70vw'}"
+                                        :style="{ width: '50vw'}"
                                         :breakpoints="{ '1300px': '75vw', '800px': '90vw' }"
                                     >
                                         <ExperienceDialog :experienceProp="experienceTimeline.item" />
@@ -115,6 +120,24 @@
 <style scoped>
 
 
+.learnMore{
+    display:flex;
+    flex-direction: row;
+    margin-top:20px;
+    cursor:pointer;
+    color:var(--secondColor);
+
+    i{
+        font-size:1.5em;
+        margin-right:10px;
+    }
+}
+
+.learnMore .learnMoreText{
+    font-size:1.5em;
+    text-decoration: underline;
+    
+}
 
 .custom-dialog {
     max-height: 80vh;
