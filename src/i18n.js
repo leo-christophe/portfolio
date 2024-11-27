@@ -182,6 +182,7 @@ const messages = {
       donneesBtnSupp: "Delete my data",
 
       learnmore: "Learn more",
+      link: "Link to ",
 
       "privacy": {
       "title": "Privacy Policy",
@@ -387,6 +388,7 @@ const messages = {
       donneesBtnSupp:  "Supprimer mes données",
 
       learnmore: "En savoir plus",
+      link: "Lien vers ",
 
       "privacy": {
       "title": "Politique de confidentialité",
