@@ -2,18 +2,13 @@
     import { getCurrentInstance, ref } from 'vue';
 
     import Timeline from 'primevue/timeline';
-    import { useI18n } from 'vue-i18n';
 
-    import DateUtils from '../utils/date_utils.js';
     import { TIMELINE_STYLE } from '../data/const.js'
 
-    const {locale} = useI18n();
     const instance = getCurrentInstance();
 
     const { formations } = instance.appContext.config.globalProperties.$JSONData;
-    const  experiences = instance.appContext.config.globalProperties.$JSONData.experiences;
     const formationTimeline = ref([...formations.slice(0, formations.length), ""]);
-    const experienceTimeline = ref([...experiences.slice(0, experiences.length), ""]);
 </script>
 
 <template>
@@ -48,7 +43,11 @@
                                     <h5 class="obtention">{{ formationTimeline.item.obtention }}</h5>
                                 </div>
                                 <div class="imageFormation">
-                                    <img :src="formationTimeline.item.image" class="imgFormation" @click="window.open(formationTimeline.item.website, '_blank');">
+                                    <img :src="formationTimeline.item.image" 
+                                        class="imgFormation" 
+                                        :alt="formationTimeline.item.titre + ' ' + formationTimeline.item.annees + ' ' + formationTimeline.item.lieu"
+                                        :title="formationTimeline.item.lieu"
+                                        @click="window.open(formationTimeline.item.website, '_blank');">
                                 </div>
                             </div>
                         </div>

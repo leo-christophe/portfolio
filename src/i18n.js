@@ -8,6 +8,8 @@ const messages = {
       skills: 'Skills',
       search: 'Search: ',
       searchPlaceholder: 'Search for a skill or a category.',
+      profilePicture: 'Léo Christophe, Developer: Profile Picture',
+      contactGifTitle: 'Contact me if you have an internship offer or information to share.',
 
       month: 'month(s)',
       days: 'day(s)',
@@ -102,7 +104,8 @@ const messages = {
       experienceSubtitle: 'My professional experiences',
       experienceCompetenceTitle: 'Mobilized skills',
       experienceMissionsTitle: 'Missions',
-      experienceOngoing: 'Ongoing',    
+      experienceOngoing: 'Ongoing', 
+      experienceModalTitle: 'Job details:',   
 
       // Projects
       projectsTitle: 'Projects',
@@ -216,6 +219,8 @@ const messages = {
       skills: 'Compétences',
       search: 'Rechercher: ',
       searchPlaceholder: 'Chercher par compétence ou domaine.',
+      profilePicture: 'Léo Christophe, Développeur: Photo de profil',
+      contactGifTitle: 'Contactez-moi si vous avez une proposition de stage ou des informations à me communiquer.',
 
       month: 'mois',
       days: 'jour(s)',
@@ -305,6 +310,7 @@ const messages = {
       experienceSubtitle: 'Mes expériences professionnelles',
       experienceCompetenceTitle: 'Compétences mobilisées',
       experienceMissionsTitle: 'Missions',
+      experienceModalTitle: 'Détails de la mission:',   
 
       // Projects
       projectsTitle: 'Projets',

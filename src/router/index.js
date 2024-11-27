@@ -132,8 +132,8 @@ const menuItems = {
 
 // Mis à jour du style du menu
 function updateMenuStyle(menuItem, borderBottom, color) {
-    $('nav ul a:nth-child(' + menuItem + ')').css('border-bottom', borderBottom);
-    $('nav ul a:nth-child(' + menuItem + ') span').css('color', color);
+    $('nav span a:nth-child(' + menuItem + ')').css('border-bottom', borderBottom);
+    $('nav span a:nth-child(' + menuItem + ') span').css('color', color);
 }
 
 router.beforeResolve((to, from, next) => {

@@ -71,7 +71,11 @@
             <div id="mainText">
                 <span>
                     <div id="contactgifContainer">
-                        <img id="imgContact" src="/images/home/contactGif.gif">
+                        <img 
+                            id="imgContact" 
+                            alt="Contact Gif"
+                            :title="$t('message.contactGifTitle')"
+                            src="/images/home/contactGif.gif">
                     </div>
                 </span>
                 <span>

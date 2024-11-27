@@ -1,19 +1,25 @@
 <script setup>
     import { getCurrentInstance, ref } from 'vue';
 
+    import Dialog from 'primevue/dialog';
     import Timeline from 'primevue/timeline';
     import { useI18n } from 'vue-i18n';
 
     import DateUtils from '../utils/date_utils.js';
     import { TIMELINE_STYLE } from '../data/const.js'
 
+    import ExperienceDialog from './ExperienceDialog.vue';
+
     const {locale, t} = useI18n();
     const instance = getCurrentInstance();
 
-    const { formations } = instance.appContext.config.globalProperties.$JSONData;
     const  experiences = instance.appContext.config.globalProperties.$JSONData.experiences;
-    const formationTimeline = ref([...formations.slice(0, formations.length), ""]);
     const experienceTimeline = ref([...experiences.slice(0, experiences.length), ""]);
+    const visibleDialogs = ref({});
+
+    function toggleDialog(index) {
+    visibleDialogs.value[index] = !visibleDialogs.value[index];
+    }
 
     /**
     *  @function showHideMissionDetails
@@ -44,7 +50,6 @@
                     <div class="card flex flex-wrap gap-12">
                         <Timeline 
                                 :value="experienceTimeline" 
-                                align="left" 
                                 class="customized-timeline"
                                 :style="TIMELINE_STYLE"
                             >
@@ -56,7 +61,7 @@
                                 </div>
                             </template>
                             <template #content="experienceTimeline">
-                                <div class="conteneurBox experienceBox" v-if="experienceTimeline.item" @click="showHideMissionDetails()">
+                                <div class="conteneurBox experienceBox" v-if="experienceTimeline.item" @click="toggleDialog(experienceTimeline.index)">
                                     <div>
                                         <span class="text-image-exp">
                                             <div class="information experienceInf">
@@ -68,57 +73,34 @@
                                                         {{ DateUtils.formatDate(experienceTimeline.item.dates[0]) + " - " + $t('message.experienceOngoing') }}
                                                     </span>
                                                 </h5>
-                                                <br>
-                                                <h4 class="titreExperience" v-if="locale == 'fr'">{{ experienceTimeline.item.contrat + " " + experienceTimeline.item.poste }} {{$t('message.at_au')}} {{ experienceTimeline.item.entreprise }} <p class="titreExperience">({{ experienceTimeline.item.localisation }})</p></h4>
-                                                <h4 class="titreExperience" v-else>{{ experienceTimeline.item.entreprise }} ({{ experienceTimeline.item.localisation }})</h4>
-                                                
+                                                <h4 class="titreExperience">{{ experienceTimeline.item.contrat + " " + experienceTimeline.item.poste }}</h4>
                                                 <p class="expDesc">{{ experienceTimeline.item.description }}</p>
                                             </div>
 
-
-                                            <div v-if="experienceTimeline.item.image" class="imgExperienceContainer">
-                                                <img :src="experienceTimeline.item.image" class="imgExperience">
-                                            </div>   
+                                            <div class="imgExperienceContainer">
+                                                <img :src="experienceTimeline.item.image" 
+                                                    :alt="experienceTimeline.item.poste"
+                                                    :title="experienceTimeline.item.entreprise" 
+                                                    class="imgExperience" />
+                                            </div>
                                         </span>
-                                        
-                                        <div id="text-ensavoirplus">
-                                            <p>
-                                                <i class="pi pi-info arrowDownExp"></i>
-                                                {{t('message.learnmore')}}
-                                            </p>
-                                        </div>
-                                        </div>
+                                    </div>
 
+                                    <!-- Dialog spécifique à cet index -->
+                                    <Dialog 
+                                        v-if="experienceTimeline.item"
+                                        v-model:visible="visibleDialogs[experienceTimeline.index]" 
+                                        :modal="true" 
+                                        :header="$t('message.experienceModalTitle')+ ' ' + experienceTimeline.item.poste" 
+                                        class="custom-dialog"
+                                        :style="{ width: '70vw'}"
+                                        :breakpoints="{ '1300px': '75vw', '800px': '90vw' }"
+                                    >
+                                        <ExperienceDialog :experienceProp="experienceTimeline.item" />
+                                    </Dialog>
                                 </div>
-                                
-                                <div class="partieCachee conteneurBox experienceBox" v-if="experienceTimeline.item" style="display:none;">
-                                    <span class="expCacheContainerSkills">
-                                        <h4 class="expSkillsTitle">{{ $t('message.experienceCompetenceTitle') }}</h4>
-                                        <ul class="skillsListExp">
-                                            <li v-for="(competence, key) in experienceTimeline.item.competences" :key="key">
-                                                <span>
-                                                    <p><strong>{{ key }}:</strong></p>
-                                                    <span v-for="(competenceElt, indexY) in competence" :key="indexY">
-                                                        {{ competenceElt.charAt(0).toUpperCase() + competenceElt.slice(1) }}
-                                                        <span v-if="indexY < competence.length - 1">, </span>
-                                                    </span>
-                                                    <br> 
-                                                    <br> 
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </span>
-                                    <span class="expCacheContainerMissions">
-                                        <h4 class="expMissionsTitle">{{ $t('message.experienceMissionsTitle') }}</h4>
-                                        <ul class="missionsListExp">
-                                            <li v-for="(mission, index) in experienceTimeline.item.missions" :key="index">
-                                                {{ mission }}
-                                            </li>
-                                        </ul>
-                                    </span>
-                                </div>
-
                             </template>
+
 
                     
                         </Timeline>
@@ -131,18 +113,18 @@
 </template>
 
 <style scoped>
+
+
+
+.custom-dialog {
+    max-height: 80vh;
+    overflow: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
 /* Media query for mobile devices */
 @media (max-width: 860px) {
-    .downArrowExperienceContainer{
-        
-        position:relative !important;
-    }
-
-    .downArrowExperienceContainer i{
-        margin:0 !important;
-        padding:20px;
-    }
-
     .column{
         width:100vw !important;
     }
@@ -180,14 +162,13 @@
         width: 100%; /* Make the columns take full width on mobile */
     }
 
-    .experience, .education {
+    .experience{
         margin-bottom: 20px; /* Add space between sections */
     }
 
     .conteneurBox {
         width: 100vw; /* Adjust the box width to fit the screen */
         max-width: 80vw  !important;
-
     }
 
     .information {
@@ -201,10 +182,13 @@
     .imgExperienceContainer {
         width: auto; /* Adjust image container on mobile */
         margin: 0 auto; /* Center images on mobile */
+        display:flex;
+        justify-content:center;
     }
 
     .imgExperience {
         width: 100%; /* Ensure the images resize correctly */
+        
     }
 
     .expDesc {
@@ -242,17 +226,9 @@
         max-width:80%;
     }
 
-
-
     h4.titreExperience, h4.titreFormation{
         font-size: 1.6em !important;
     }
-
-    h5.obtention{
-        font-size: 1.3em !important;
-    }
-
-
 }
 
 
@@ -311,11 +287,7 @@
         }
     }
 
-.expSkillsTitle, .expMissionsTitle{
-    font-size: 1.2rem;
-    font-weight:500;
-    color: var(--secondColor);
-}
+
 
 .partieCachee.conteneurBox.experienceBox{
     height:fit-content;
@@ -331,21 +303,8 @@ ul.missionsListExp li{
     margin:0rem 0 1rem 0;
 }
 
-.expCacheContainerSkills, .expCacheContainerMissions{
-    position: relative !important;
-    height:100%;
-    top:0px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    padding:20px 5px 0px 20px;
-    width:40%;
-}
 
-.skillsListExp{
-    list-style-type: "- ";
-    margin-left:10px;
-}
+
 
 .missionsListExp{
     list-style-type:  decimal;
@@ -364,37 +323,6 @@ ul.missionsListExp li{
 
     }
 
-
-    .pi-arrow-circle-down,.pi-arrow-circle-up, .arrowDownExp{
-        font-size: 2rem;
-        color: var(--secondColor);
-        transition:0.4s ease-out all;
-        cursor:pointer;
-    }
-
-    .pi-arrow-circle-down:hover,.pi-arrow-circle-up:hover{
-        font-size: 2rem;
-        color: white;
-        transition:0.4s ease-in all;
-    }
-
-    .downArrowExperienceContainer{
-        display:flex;
-        flex-direction: column-reverse;
-        
-        z-index: 100;
-        position: absolute;
-        right:0;
-        bottom:0;
-        background-color: black;
-        padding:10px;
-        border-radius: 100%;
-    }
-
-    /* .information.experienceInf{
-        max-width:20vw;
-    } */
-
     #conteneurColonneExperience{
         margin-right:5vw;
     }
@@ -403,12 +331,6 @@ ul.missionsListExp li{
         margin-top:1rem;
         font-size: 1.8em !important;
     
-        font-weight:500;
-        color: var(--secondColor);
-    }
-
-    h5.obtention{
-        font-size: 1.2rem;
         font-weight:500;
         color: var(--secondColor);
     }
@@ -476,10 +398,6 @@ ul.missionsListExp li{
 
     #titreFormations, #titreExperience {
         font-size: 2.5em;
-    }
-
-    #departementDetail{
-        cursor:pointer;
     }
 
     .sousTitreFormations {
@@ -553,7 +471,7 @@ ul.missionsListExp li{
         height: auto; /* Ajuster la taille comme souhaité */
         margin-left: 10px;
         align-items: center; /* Centrage vertical */
-        justify-content: center; /* Centrage horizontal */
+        justify-content: right; /* Centrage horizontal */
     }
 
     /* Image de l'expérience */

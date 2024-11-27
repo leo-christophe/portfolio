@@ -35,6 +35,8 @@
 
   --p-tooltip-padding: 5em; /* Ajuste la valeur ici */
   --p-focus-ring-color:black !important;
+  --p-dialog-background: #333 !important;  /* Override the design token */
+  --p-dialog-border-color: #000 !important; /* Override border color design token */
 }
 
 *:not(button) {
@@ -45,7 +47,7 @@
 }
 
 html, body {
-  min-width: 867px;
+  min-width: 900px;
   height: 100%;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -61,6 +63,22 @@ html, body {
 }
 
 
+/*TODO Page de Projet (Devrait être dans la page de projet directement)*/
+input:invalid:not(:placeholder-shown){
+  border: 1px solid red;
+}
+
+#typeProjetContainer > div  > label{
+  margin-left: 10px;
+}
+
+#motClesContainer > div > ul input{
+  line-height: 1.9
+}
+
+#motClesContainer > div > ul{
+  padding-left:5px;
+}
 
 a {
   font-weight: 500;
@@ -167,22 +185,28 @@ Button#blackVariant:hover , .blackVariant:hover{
   color:white;
 }
 
+button[autofocus] {
+  outline: none;
+  margin-right:5px;
+}
+
+/* Recaptcha */
+.grecaptcha-badge{
+  visibility: collapse;
+}
+
+/*? Toast */
+.p-toast{
+  margin:-5px 2px 20px 0px;
+  width: 25%;
+}
+
 .p-toast-message-icon{
   margin:5px;
 }
 
 .p-toast-message-content{
   margin:3px;
-}
-
-button[autofocus] {
-  outline: none;
-  margin-right:5px;
-}
-
-.p-toast{
-  margin:-5px 2px 20px 0px;
-  width: 25%;
 }
 
 .p-toast-close-button::content{
@@ -193,35 +217,39 @@ button[autofocus] {
   border: none !important;
 }
 
-.grecaptcha-badge{
-  visibility: collapse;
+/*? Boite de dialogues */
+.p-dialog .p-dialog-content {
+  background-color: rgb(36, 36, 36);
+  border: 2px solid black;
+  color:white;
 }
 
+/*? Timeline */
 .p-timeline-event {
-    min-height: var(--p-timeline-event-min-height); /* Apply design token */
+    min-height: var(--p-timeline-event-min-height);
 }
 
 .p-timeline-event-content {
-    padding: var(--p-timeline-horizontal-event-content-padding); /* Apply design token for horizontal padding */
+    padding: var(--p-timeline-horizontal-event-content-padding);
 }
 
 .p-timeline-event-connector {
-    background-color: var(--p-timeline-event-connector-color); /* Use design token for connector color */
-    width: var(--p-timeline-event-connector-size); /* Use design token for connector size */
+    background-color: var(--p-timeline-event-connector-color);
+    width: var(--p-timeline-event-connector-size);
 }
 
 .p-timeline-event-marker {
-    width: var(--p-timeline-event-marker-size); /* Use design token for marker size */
-    height: var(--p-timeline-event-marker-size); /* Use design token for marker size */
-    background-color: var(--p-timeline-event-marker-background); /* Use design token for marker background */
-    border-radius: var(--p-timeline-event-marker-border-radius); /* Use design token for marker border radius */
+    width: var(--p-timeline-event-marker-size);
+    height: var(--p-timeline-event-marker-size);
+    background-color: var(--p-timeline-event-marker-background);
+    border-radius: var(--p-timeline-event-marker-border-radius);
 }
 
-/* 1. Bouton de sélection du calendrier */
+/*? Calendrier */
 .dateInput .p-datepicker-trigger {
-  background-color: black;        /* Couleur de fond du bouton */
-  color: lightblue;               /* Couleur de l'icône */
-  border: none;                   /* Enlever la bordure si souhaité */
+  background-color: black;
+  color: lightblue;
+  border: none;
 }
 
 .dateInput .p-datepicker-trigger:hover {
@@ -236,30 +264,21 @@ button[autofocus] {
 /* 2. Survol des mois et des années dans le calendrier */
 .p-datepicker-calendar .p-datepicker-month:hover,
 .p-datepicker-calendar .p-datepicker-year:hover {
-  background-color: lightblue;    /* Couleur de fond au survol */
-  color: black;                   /* Couleur du texte */
+  background-color: lightblue;
+  color: black;
 }
 
+/*? Checkboxes */
 .p-checkbox.p-highlight .p-checkbox-box {
   background:black;
   border-color:black;
   color:var(--secondColor) !important;
 }
-#typeProjetContainer > div  > label{
-  margin-left: 10px;
-}
 
 .p-checkbox.p-highlight .p-checkbox-box {
   color:var(--secondColor) !important;
 }
 
-#motClesContainer > div > ul input{
-  line-height: 1.9
-}
-
-#motClesContainer > div > ul{
-  padding-left:5px;
-}
 
 @media screen and (max-width: 860px) {
 
@@ -317,7 +336,3 @@ button[autofocus] {
 
 /* Order */
 @layer reset, primevue;
-
-input:invalid:not(:placeholder-shown){
-  border: 1px solid red;
-}

@@ -32,7 +32,7 @@ function switchPageLang() {
 
 <template>
   <nav>
-      <ul>
+    <span id="navContent">
         <RouterLink v-for="(item, index) in items" :key="index" class="menuItem" :to="item.route">
             <span :ref="'menu_'+index" class="menuItemLink">
               <i :class="item.icon" style="font-size: var(--IconSize)"></i> 
@@ -45,7 +45,7 @@ function switchPageLang() {
             <i id="buttonTranslateIcon" class="pi pi-language" style="font-size: var(--IconSize)"></i>
           </button>
         </div>
-      </ul>
+      </span>
   </nav>
 
  
@@ -143,11 +143,11 @@ function switchPageLang() {
     height:100%;
   }
 
-  ul{
+  nav span#navContent{
     display:flex;
     justify-content: center;
     height:100%;
-
+    top:0px;
   }
 
 
@@ -175,10 +175,6 @@ function switchPageLang() {
     display: block;
     padding: 1rem 2rem 0rem 2rem;
     transition:0.5s ease-out all;
-  }
-
-  ul{
-    top:0px;
   }
 
   a{

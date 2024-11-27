@@ -118,7 +118,6 @@
 
     #conteneurTimelineFormations > div > div > div:nth-child(1) > div.p-timeline-event-content > div:nth-child(1) > div.downArrowExperienceContainer > i{
         transform:scale(2);
-        margin-right:50px;
         margin-bottom:50px;
     }
 

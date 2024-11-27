@@ -25,7 +25,10 @@
 
                     <span id="photoContainer" class="border-animated-box">
                         <!-- Photo de profil Linkedin -->
-                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQGsWTRA8Q7aJA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1698118847727?e=1734566400&v=beta&t=FEXDpgmvSFDF0KLR1L1Rjbf6xxzjfPrk_lCo8Tbv9Rw" alt="Photo de profil" id="photoProfil">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQGsWTRA8Q7aJA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1698118847727?e=1734566400&v=beta&t=FEXDpgmvSFDF0KLR1L1Rjbf6xxzjfPrk_lCo8Tbv9Rw" 
+                            alt="Léo Christophe Photo" 
+                            :title="$t('message.profilePicture')"
+                            id="photoProfil">
                     </span>
 
                 </div>
