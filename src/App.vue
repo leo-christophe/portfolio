@@ -7,6 +7,7 @@
         <transition name="fade" mode="out-in">
           <component :is="Component" />
         </transition>
+        <CookieBanner></CookieBanner>
       </router-view>
 
     </main>
@@ -31,6 +32,7 @@ import { useFavicon } from '@vueuse/core';
 // Functions
 import { traductionSetup } from '../src/utils/traduction.js';
 import { isMobile } from '../src/utils/userdata.js';
+import CookieBanner from './components/CookieBanner.vue';
 
 const icon = useFavicon();
 

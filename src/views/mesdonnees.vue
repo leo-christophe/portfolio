@@ -44,7 +44,7 @@ function effacerStockageLocal(){
             <h1 id="title">{{$t('message.donneesTitle')}}</h1>
         </div>
 
-        <p id="disclaimer">{{$t('message.donneesDisclaimer')}}<br><br>{{ $t('message.donneesDisclaimer2') }}
+        <p id="disclaimer">{{$t('message.donneesDisclaimer')}}<a href="/confidentialite">{{ $t('message.privacy.title') }}</a>.<br><br>{{ $t('message.donneesDisclaimer2') }}
         </p>
     
         <div id="suppButtonContainer">
@@ -67,6 +67,7 @@ function effacerStockageLocal(){
             min-width: min-content;
             min-height: min-content;
         }
+      
     }
 
     div#dataPageContent {
@@ -74,7 +75,9 @@ function effacerStockageLocal(){
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-top:50px;
+        margin-top: 50px;
+        max-width: 860px;
+        margin: 0 auto;
     }
 
     #disclaimer {

@@ -177,42 +177,87 @@ const messages = {
       infoToast: "You have no data to delete.",
 
       donneesTitle: "Your data",
-      donneesDisclaimer: "Your data stored on the browser is purely for ergonomic or translation purposes. They are not used for commercial or tracking purposes.",
+      donneesDisclaimer: `Your data stored on the browser is purely for ergonomic, translation purposes or to determine if you are a bot or not (Google Recaptcha). 
+      They are not used for commercial or tracking purposes. For more details regarding your data, their use and deletion, please consult the `,
+
       donneesDisclaimer2: "You can delete optional (ergonomic) data at any time by clicking the button below.",
       donneesBtnSupp: "Delete my data",
 
       learnmore: "Learn more",
       link: "Link to ",
 
-      "privacy": {
-      "title": "Privacy Policy",
-      "cookies": {
-        "title": "Cookies",
-        "intro": "This cookie policy explains what cookies are, how we use them, how third parties we may be associated with may use cookies on the service, your choices regarding cookies and additional information about cookies.",
-        "details": {
-          "title": "Types of Cookies Used",
-          "lang": "Cookie 'lang': Used to manage the user's language preference. (Functional, Permanent)",
-          "rc_a": "Cookie 'rc::a': Necessary for the operation of the service. (Necessary, Permanent)",
-          "rc_c": "Cookie 'rc::c': Used for user sessions. (Necessary, Session)"
+    
+      "cookieBanner":{
+        "disclaimer":"This site uses cookies to improve your user experience. By continuing to browse this site, you accept the ",
+        "privacypolicy":"privacy policy",
+        "buttons":{
+          "accept":"Accept",
+          "refuse":"Refuse"
         }
       },
-      "data_protection": {
-        "title": "Data Protection",
-        "content": "We are committed to protecting your personal data. This section explains how we process your data."
-      },
-      "user_rights": {
-        "title": "User Rights",
-        "content": "You have rights regarding your personal data, including the right to access, rectify, delete and object. You can exercise these rights by accessing the data section in the footer below."
-      },
-      "contact": {
-        "title": "Contact",
-        "content": "For any questions regarding this privacy policy, please contact us at [leochristophe@outlook.fr]."
-      },
-      "policy_update": {
-        "title": "Policy Update",
-        "content": "We may update this privacy policy from time to time. The date of the last update will be indicated at the top of this page."
+
+      "privacy": {
+        "title": "Privacy Policy",
+        "cookies": {
+          "title": "Cookies",
+          "intro": `
+            This cookie policy explains what cookies are, 
+            how they are used, how third-party services such as Google Recaptcha 
+            may use cookies on this site, your choices regarding these cookies, 
+            and additional information about their usage.`,
+          "details": {
+            "title": "Types of Cookies Used",
+            "lang": {
+              "name": "Cookie 'lang'",
+              "description": "Used to manage the user's language preference. (Functional, Permanent)",
+              "details": "This cookie is solely used to improve user experience by displaying the site in your preferred language."
+            },
+            "rc_a": {
+              "name": "Cookie 'rc::a'",
+              "description": "Required for the proper functioning of the captcha service (Google Recaptcha). (Essential, Permanent)",
+              "details": "This cookie is used to distinguish between humans and bots, ensuring that only real users can interact with the contact form."
+            },
+            "rc_c": {
+              "name": "Cookie 'rc::c'",
+              "description": "Used for user sessions related to the captcha (Google Recaptcha). (Essential, Session)",
+              "details": "This temporary cookie verifies that a real user is filling out the contact form and does not retain personal data beyond the session."
+            },
+            "filter_prefs": {
+              "name": "Cookie 'filter_prefs'",
+              "description": "Used to save filter preferences on the project page. (Functional, Permanent)",
+              "details": "This cookie remembers your filter preferences to simplify navigation without collecting additional personal data."
+            }
+          }
+        },
+        "data_protection": {
+          "title": "Data Protection",
+          "content": `
+            I am committed to protecting your personal data. The data collected via cookies or services  
+            are exclusively used to enhance your user experience (language preferences, project filters) 
+            ,to ensure the proper functioning of the contact form using Recaptcha V3 or to contact me via EmailJS.
+            EmailJS is used to send each email directly to my email address and is archived and then deleted after reading.`
+        },
+        "user_rights": {
+          "title": "User Rights",
+          "content": `
+            You have the right to access, rectify, or delete your data. 
+            A dedicated page in the footer allows you to delete your data easily.`
+        },
+        "contact": {
+          "title": "Contact",
+          "content": `
+            For any questions regarding this privacy policy or the use of cookies, 
+            please contact me at {email}.`
+        },
+        "policy_update": {
+          "title": "Policy Updates",
+          "content": `
+            This privacy policy may be updated periodically. 
+            Any changes will be displayed here, with the date of the last update indicated at the top of this page.`
+        }
+      
       }
-    }
+      
     }
   },
   fr: {
@@ -383,42 +428,85 @@ const messages = {
       infoToast: "Vous n\'avez aucune donnée à supprimer.",
 
       donneesTitle: "Vos données",
-      donneesDisclaimer: "Vos données stockées sur le navigateur ont un but purement ergonomique ou de traduction. Elles ne sont pas utilisées à des fins commerciales ou de tracking.",
+      donneesDisclaimer: `Vos données stockées sur le navigateur ont un but purement ergonomique, 
+                          de traduction ou pour savoir si vous être un robot ou non (Google Recaptcha). 
+                          Elles ne sont pas utilisées à des fins commerciales ou de tracking. Pour plus
+                          de détails concernant vos données, leur utilisation et leur suppression, veuillez
+                          consulter la `,
+
       donneesDisclaimer2: "Vous pouvez effacer les données facultatives (ergonomiques) à tous moments en cliquant sur le bouton ci-dessous.",
       donneesBtnSupp:  "Supprimer mes données",
 
       learnmore: "En savoir plus",
       link: "Lien vers ",
 
-      "privacy": {
-      "title": "Politique de confidentialité",
-      "cookies": {
-        "title": "Cookies",
-        "intro": "Cette politique de cookies explique ce que sont les cookies, comment nous les utilisons, comment les tiers avec lesquels nous pouvons être associés peuvent utiliser des cookies sur le service, vos choix concernant les cookies et des informations supplémentaires sur les cookies.",
-        "details": {
-          "title": "Types de cookies utilisés",
-          "lang": "Cookie 'lang' : Utilisé pour gérer la préférence de langue de l'utilisateur. (Fonctionnel, Permanent)",
-          "rc_a": "Cookie 'rc::a' : Nécessaire au fonctionnement du service. (Nécessaire, Permanent)",
-          "rc_c": "Cookie 'rc::c' : Utilisé pour les sessions utilisateur. (Nécessaire, Session)"
+      "cookieBanner":{
+        "disclaimer":"Ce site utilise des cookies pour améliorer votre expérience utilisateur. En continuant à naviguer sur ce site, vous acceptez la ",
+        "privacypolicy":"politique de confidentialité",
+        "buttons":{
+          "accept":"Accepter",
+          "refuse":"Refuser"
         }
       },
-      "data_protection": {
-        "title": "Protection des données",
-        "content": "Nous nous engageons à protéger vos données personnelles. Cette section explique comment nous traitons vos données."
-      },
-      "user_rights": {
-        "title": "Droits des utilisateurs",
-        "content": "Vous avez des droits concernant vos données personnelles, y compris le droit d'accès, de rectification, de suppression et d'opposition. Vous pouvez exercer ces droits en accédant à la section données dans le pied de page ci-dessous."
-      },
-      "contact": {
-        "title": "Contact",
-        "content": "Pour toute question concernant cette politique de confidentialité, veuillez nous contacter à [leochristophe@outlook.fr]."
-      },
-      "policy_update": {
-        "title": "Mise à jour de la politique",
-        "content": "Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. La date de la dernière mise à jour sera indiquée en haut de cette page."
+
+      "privacy": {
+        "title": "Politique de confidentialité",
+        "cookies": {
+          "title": "Cookies",
+          "intro": `
+            Cette politique de cookies explique ce que sont les cookies, 
+            comment ils sont utilisés, comment des services tiers, comme Google Recaptcha, 
+            peuvent les utiliser sur ce site, vos choix concernant ces cookies, 
+            et des informations complémentaires sur leur usage.`,
+          "details": {
+            "title": "Types de cookies utilisés",
+            "lang": {
+              "name": "Cookie 'lang'",
+              "description": "Utilisé pour gérer la préférence de langue de l'utilisateur. (Fonctionnel, Permanent)",
+              "details": "Ce cookie est uniquement utilisé pour améliorer l'ergonomie et vous présenter le site dans la langue de votre choix."
+            },
+            "rc_a": {
+              "name": "Cookie 'rc::a'",
+              "description": "Nécessaire au fonctionnement du service de captcha (Google Recaptcha). (Nécessaire, Permanent)",
+              "details": "Ce cookie est utilisé pour distinguer les humains des robots, assurant que seul un utilisateur réel puisse interagir avec le formulaire de contact."
+            },
+            "rc_c": {
+              "name": "Cookie 'rc::c'",
+              "description": "Utilisé pour les sessions utilisateurs concernant le captcha (Google Recaptcha). (Nécessaire, Session)",
+              "details": "Ce cookie est temporaire et permet de vérifier qu'un utilisateur réel remplit le formulaire de contact, sans conserver d'informations personnelles au-delà de la session."
+            }
+          }
+        },
+        "data_protection": {
+          "title": "Protection des données",
+          "content": `
+            Je suis engagé à protéger vos données personnelles. Les données collectées par les cookies 
+            sont exclusivement utilisées pour améliorer votre expérience utilisateur (préférences de langue, filtres de projets) 
+            ,pour assurer le bon fonctionnement du formulaire de contact avec Recaptcha V3 ou pour l'envoi de mail automatique à 
+            partir du formulaire de contact. Ce formulaire de contact envoie chaque mail directement à mon adresse mail et est
+            archivé puis supprimé après lecture.`
+        },
+        "user_rights": {
+          "title": "Droits des utilisateurs",
+          "content": `
+            Vous avez le droit d'accéder à vos données, de les rectifier ou de les supprimer. 
+            Une page dédiée dans le pied de page vous permet de supprimer vos données en toute simplicité.`
+        },
+        "contact": {
+          "title": "Contact",
+          "content": `
+            Pour toute question concernant cette politique de confidentialité ou l'utilisation des cookies, 
+            veuillez me contacter à {email}.`
+        },
+        "policy_update": {
+          "title": "Mise à jour de la politique",
+          "content": `
+            Cette politique de confidentialité peut être mise à jour périodiquement. 
+            Toute modification sera affichée ici, avec la date de la dernière mise à jour indiquée en haut de cette page.`
+        }
+      
       }
-    }
+      
     }
   }
 };

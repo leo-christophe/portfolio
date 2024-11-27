@@ -56,6 +56,11 @@
                     <a v-else id="switchLanguageFooter"  @click="switchLanguage('en')" :style="{ color: COULEUR_MENU_SELECTIONNE }"> {{ $t('message.changeLang') }} </a>
                 </div>
             </li>
+            <li class="footerURLLink">
+                <div>
+                    <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/confidentialite">{{ $t('message.privacy.title') }}</RouterLink>
+                </div>
+            </li>
         </ul>
 
         <p id="watermark"><strong>© {{ new Date().getFullYear() }} {{  $t('message.name')  }}</strong></p>
