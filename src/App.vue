@@ -8,6 +8,8 @@
           <component :is="Component" />
         </transition>
         <CookieBanner></CookieBanner>
+        <Toast id="toastMainComponent"></Toast>
+        <ConfirmDialog id="confirmDialogMainComponent"></ConfirmDialog>
       </router-view>
 
     </main>
@@ -26,8 +28,8 @@ import FooterCmt from './components/FooterCmt.vue';
 
 // Libs
 import Toast from 'primevue/toast';
+import ConfirmDialog from 'primevue/confirmdialog';
 import { useFavicon } from '@vueuse/core';
-
 
 // Functions
 import { traductionSetup } from '../src/utils/traduction.js';

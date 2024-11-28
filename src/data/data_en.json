@@ -214,7 +214,7 @@
       {
         "id": "project_portfolio",
         "nom": "Portfolio",
-        "dates": ["2024-05-23", "2024-09-15"],
+        "dates": ["2024-05-23", "2024-10-15"],
         "titre": "Development of a web portfolio in Vue-JS",
         "description": "Creating a web portfolio in Vue-JS to showcase my skills and projects. Using the nodeJS libraries PrimeVue and Vue-Route. Continuous deployment on Vercel.App with each push to Github. Applying best practices in terms of security.",
         "competences": {

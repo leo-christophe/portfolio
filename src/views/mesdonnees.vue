@@ -3,22 +3,19 @@ import { useRouter } from 'vue-router';  // Import useRouter to access the route
 import Button from 'primevue/button';
 import Toast from 'primevue/toast';
 import { useToast } from 'primevue/usetoast';
+import { useConfirm } from "primevue/useconfirm";
 import { traductionSetup } from '../utils/traduction';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();  // Initialize the i18n instance
 const router = useRouter();  // Initialize the router
 const toast = useToast();
+const confirm = useConfirm();
 
 function effacerStockageLocal(){
     if (localStorage.length == 1){
         showInfo()
         return router.go(-1);  // Go back to the previous page
-    }
-
-    const confirmation = confirm(t('message.etesVousSur'));
-    if (!confirmation) {
-        return;  // If the user cancels, do nothing
     }
 
     const lang = localStorage.getItem('lang');
@@ -35,10 +32,27 @@ function effacerStockageLocal(){
     const showInfo = () => {
         toast.add({ severity: 'info', summary: t('message.infoData'), detail: t('message.infoToast'), life: 2500 });
     };
+
+    const confirm2 = () => {
+    confirm.require({
+        message: t('message.etesVousSur'),
+        header: t('message.etesVousSurHeader'),
+        icon: 'pi pi-info-circle',
+        rejectLabel: t('message.cancel'),
+        acceptLabel: t('message.delete'),
+        rejectClass: 'p-button-secondary p-button-outlined',
+        acceptClass: 'p-button-danger',
+        accept: () => {
+            effacerStockageLocal();
+        },
+        reject: () => {
+            return;
+        }
+    });
+};
 </script>
 
 <template>
-    <Toast></Toast>
     <div id="dataPageContent">
         <div id="title_container">
             <h1 id="title">{{$t('message.donneesTitle')}}</h1>
@@ -48,7 +62,7 @@ function effacerStockageLocal(){
         </p>
     
         <div id="suppButtonContainer">
-            <Button id="suppButton" :label="t('message.donneesBtnSupp')" severity="danger" @click="effacerStockageLocal"/>
+            <Button id="suppButton" :label="t('message.donneesBtnSupp')" severity="danger" @click="confirm2()"/>
         </div>
     </div>
 </template>

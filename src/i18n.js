@@ -119,6 +119,8 @@ const messages = {
       projectsTypeUniversity: 'University',
       projectsTypeUniversityTitle: 'Academic projects are projects that I have developed as part of my studies.',
       projectsOnGoing: 'Ongoing',
+      dateFilter_du: 'From',
+      dateFilter_au: 'To',
 
       projectsSort: 'Sort by',
       projectsMostRecent: 'Most Recent',
@@ -160,7 +162,7 @@ const messages = {
       mesdonnees: "My data",
       Confidentialité: "Privacy",
       Contact: "Contact",
-      Competences: "Skills",
+      Compétences: "Skills",
 
       // Footer
       personalData: 'Personal Data',
@@ -171,6 +173,9 @@ const messages = {
 
       // Donnees
       etesVousSur: "Are you sure you want to delete all your data?",
+      etesVousSurHeader: "Deleting your data",
+      cancel: "Cancel",
+      delete: "Delete",
       infoData: "No data",
       deletedData: "Deleted data",
       succesToast: "Your data has been successfully deleted.",
@@ -375,6 +380,8 @@ const messages = {
       projectsTypeUniversity: 'Universitaire',
       projectsTypeUniversityTitle: 'Les projets académiques sont des projets que j\'ai développés dans le cadre de mes études.',
       projectsOnGoing: 'En cours',
+      dateFilter_du: 'Du',
+      dateFilter_au: 'au',
 
       projectsSort: 'Trier par',
       projectsMostRecent: 'Plus Récent',
@@ -416,7 +423,7 @@ const messages = {
       mesdonnees: "Mes données",
       Confidentialité: "Confidentialité",
       Contact: "Contact",
-      Competences: "Compétences",
+      Compétences: "Compétences",
 
       // Footer
       personalData: 'Données personnelles',
@@ -427,6 +434,9 @@ const messages = {
 
       // Donnees
       etesVousSur: "Êtes-vous sûr de vouloir supprimer toutes vos données ?",
+      etesVousSurHeader: "Suppression de vos données",
+      cancel: "Annuler",
+      delete: "Supprimer",
       infoData: "Aucune donnée",
       deletedData: "Données supprimées",
       succesToast: "Vos données ont été supprimé avec succès.",

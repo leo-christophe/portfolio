@@ -1,5 +1,7 @@
 <script setup>
     import InputText from 'primevue/inputtext';
+    import Checkbox from 'primevue/checkbox';
+
     import { computed, getCurrentInstance, ref } from 'vue';
     import { useRouter } from 'vue-router';
     import { useI18n } from 'vue-i18n'; // Notez le "I" majuscule dans `useI18n`.
@@ -24,7 +26,30 @@
 <template>
     <div>
         <h1>{{$t('message.skills')}}</h1>
-        <InputText v-model="searchQuery" :placeholder="t('message.search')" />
+        <span id="searchBarContainer">
+            <p>{{$t('message.search')}}</p>
+            <InputText v-model="searchQuery" :placeholder="$t('message.searchPlaceholder')" />
+        </span>
+        <!-- <div class="card flex flex-wrap justify-content-center gap-3">
+            <div class="flex align-items-center">
+                <Checkbox v-model="pizza" inputId="ingredient1" name="devlog" value="Cheese" aria-checked="true"/>
+                <label for="ingredient1" class="ml-2"> Developpeur logiciel/c# </label>
+            </div>
+            <div class="flex align-items-center">
+                <Checkbox v-model="pizza" inputId="ingredient2" name="devweb" value="Mushroom" aria-checked="true"/>
+                <label for="ingredient2" class="ml-2"> Developpeur web </label>
+            </div>
+            <div class="flex align-items-center">
+                <Checkbox v-model="pizza" inputId="ingredient3" name="gesdata" value="Pepper" aria-checked="true"/>
+                <label for="ingredient3" class="ml-2"> Gestion de bases de données </label>
+            </div>
+            <div class="flex align-items-center">
+                <Checkbox v-model="pizza" inputId="ingredient4" name="autre" value="Onion" aria-checked="true"/>
+                <label for="ingredient4" class="ml-2"> Autre </label>
+            </div>
+        </div> -->
+
+
         <div id="skillsPage">
             <div v-for="(category, catIndex) in filteredSkills" :key="catIndex" class="skill-category">
             <!-- Extract the category name dynamically -->
@@ -71,6 +96,22 @@
   
 
 <style scoped>
+    span#searchBarContainer{
+        p{
+            margin-right: 1vw;
+        }
+
+        input{
+            line-height: 2em;
+            width: 20vw;
+        }
+
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        margin:5vh 0 0 3vw;
+    }
+
     #skillsPage{
         display:flex;
         flex-wrap:wrap;

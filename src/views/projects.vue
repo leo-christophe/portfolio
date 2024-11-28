@@ -63,6 +63,7 @@ onMounted(() => {
       const start = startDate.value ? new Date(startDate.value) : new Date("1970-01-01")
       const end = endDate.value ? new Date(endDate.value) : new Date("2100-01-01")
       
+      // Ne devrait théoriquement jamais arriver
       if (start > end) {
         alert(t('message.projectsDateError'))
         return []
@@ -176,6 +177,13 @@ onMounted(() => {
     window.location.reload()
   }
 
+  const maxEndDate = computed(() => {
+    return new Date(endDate.value);
+  })
+
+  const minStartDate = computed(() => {
+    return new Date(startDate.value)
+  })
 </script>
 
 
@@ -204,8 +212,12 @@ onMounted(() => {
     <div id="filters" class="card gap-3 p-fluid filterDeactivated" ref="filters">
       <div id="dateFilters">
         <h3>{{ $t('message.projectsDateLabel') }}</h3>
-        <Calendar  v-model="startDate" class="dateInput" id="startDate" :showIcon="true" dateFormat="yy-mm-dd"/>
-        <Calendar v-model="endDate" class="dateInput" id="endDate" :showIcon="true" dateFormat="yy-mm-dd"/>
+        <div id="datedebutcontainer">
+          <p>{{$t('message.dateFilter_du')}}</p> <Calendar  v-model="startDate" class="dateInput" id="startDate" :showIcon="true" dateFormat="yy-mm-dd" :maxDate="maxEndDate" />
+        </div>
+        <div id="datefincontainer">
+          <p>{{$t('message.dateFilter_au')}}</p> <Calendar v-model="endDate" class="dateInput" id="endDate" :showIcon="true" dateFormat="yy-mm-dd" :minDate="minStartDate" />
+        </div>
       </div>
 
       <div id="motClesContainer">
@@ -478,6 +490,18 @@ onMounted(() => {
 
   #sort{
     padding:10px;
+  }
+
+  div#datedebutcontainer, div#datefincontainer{
+    display:flex;
+    flex-direction:row;
+    justify-content: right;
+
+    p{
+      margin-right:10px;
+      width:35px;
+      justify-content: right;
+    }
   }
   
 </style>
