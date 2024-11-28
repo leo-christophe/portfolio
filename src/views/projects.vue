@@ -277,6 +277,7 @@ return projects.sort((a, b) => {
     position:relative;
     width:100%;   
     min-width:100vw; 
+    padding:2vh 0 2vh 0;
     justify-content: space-around;
     background-color:rgb(66, 79, 79);
   }
@@ -471,5 +472,8 @@ return projects.sort((a, b) => {
     justify-content:flex-start  ;
   }
 
+  #sort{
+    padding:10px;
+  }
   
 </style>
