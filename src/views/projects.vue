@@ -213,12 +213,12 @@ return projects.sort((a, b) => {
       <div id="typeProjetContainer">
         <h3>{{$t('message.projectsTypeLabel')}}</h3>
         <div>
-        <Checkbox v-model="checkType" inputId="University" value="University" :title="$t('message.projectsTypeUniversityTitle')"/>
-        <label for="University"> {{$t('message.projectsTypeUniversity')}} </label>
+          <Checkbox v-model="checkType" inputId="University" value="University" :title="$t('message.projectsTypeUniversityTitle')"/>
+          <label for="University"> {{$t('message.projectsTypeUniversity')}} </label>
         </div>
         <div>
-        <Checkbox v-model="checkType" inputId="Personal" value="Personal" :title="$t('message.projectsTypePersonalTitle')"/>
-        <label for="Personal"> {{$t('message.projectsTypePersonal')}} </label>
+          <Checkbox v-model="checkType" inputId="Personal" value="Personal" :title="$t('message.projectsTypePersonalTitle')"/>
+          <label for="Personal"> {{$t('message.projectsTypePersonal')}} </label>
         </div>
       </div>
     </div>
@@ -231,10 +231,10 @@ return projects.sort((a, b) => {
           </div>
           <div class="pjtImgContainer">
             <img v-if="project.images[0]" 
-            :src="'/images/projects/'+project.images[0].link" 
-            :alt="project.images[0].description" 
-            :title="project.images[0].description"
-            class="projectimage">
+              :src="'/images/projects/'+project.images[0].link" 
+              :alt="project.images[0].description" 
+              :title="project.images[0].description"
+              class="projectimage">
           </div>
         </router-link>
       </li>
@@ -247,8 +247,12 @@ return projects.sort((a, b) => {
     .filterActivated{
       display:flex;
       flex-wrap:wrap;
-      flex-direction: column;
+      flex-direction: row;
       
+      select{
+        padding:20px;
+      }
+
       .datesIn{
         margin:10px
       }
@@ -436,8 +440,6 @@ return projects.sort((a, b) => {
     margin-right: 10px;
   }
 
-
-
   input[name="checkType"] {
     color:black;
   }
@@ -452,7 +454,6 @@ return projects.sort((a, b) => {
   }
 
   .dateInput {
-
     height: 30px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
