@@ -54,93 +54,91 @@ onMounted(() => {
 
   })
 
-// Définir la fonction de filtrage et de tri combinée
-const filteredAndSortedProjects = computed(() => {
-  // Filtrage par date
-  let projects = data.projects || []
-  
-  if (startDate.value || endDate.value) {
-    const start = startDate.value ? new Date(startDate.value) : new Date("1970-01-01")
-    const end = endDate.value ? new Date(endDate.value) : new Date("2100-01-01")
+  // Définir la fonction de filtrage et de tri combinée
+  const filteredAndSortedProjects = computed(() => {
+    // Filtrage par date
+    let projects = data.projects || []
     
-    if (start > end) {
-      alert(t('message.projectsDateError'))
-      return []
+    if (startDate.value || endDate.value) {
+      const start = startDate.value ? new Date(startDate.value) : new Date("1970-01-01")
+      const end = endDate.value ? new Date(endDate.value) : new Date("2100-01-01")
+      
+      if (start > end) {
+        alert(t('message.projectsDateError'))
+        return []
+      }
+      
+      projects = projects.filter(project => {
+        const projectStartDate = new Date(project.dates[0])
+        const projectEndDate = project.dates[1] === t('message.projectsOnGoing') ? new Date() : new Date(project.dates[1])
+        return projectStartDate >= start && projectEndDate <= end
+      })
     }
-    
-    projects = projects.filter(project => {
-      const projectStartDate = new Date(project.dates[0])
-      const projectEndDate = project.dates[1] === t('message.projectsOnGoing') ? new Date() : new Date(project.dates[1])
-      return projectStartDate >= start && projectEndDate <= end
-    })
-  }
 
-  // Filtrage par compétence
-  if (Compvalue.value.length > 0) {
-    const correctedCompetences = Compvalue.value.map(comp => findClosestCompetence(comp))
-    projects = projects.filter(project =>
-      project.competences && Object.values(project.competences).some(category =>
-        category.some(competence => correctedCompetences.includes(competence))
+    // Filtrage par compétence
+    if (Compvalue.value.length > 0) {
+      const correctedCompetences = Compvalue.value.map(comp => findClosestCompetence(comp))
+      projects = projects.filter(project =>
+        project.competences && Object.values(project.competences).some(category =>
+          category.some(competence => correctedCompetences.includes(competence))
+        )
       )
-    )
-  }
+    }
 
-  // Filtrage par type
-  projects = projects.filter(project => {
-    const type = project.type ? project.type.toLowerCase() : ''
-    const typeMap = { fr: { University: 'Universitaire', Personal: 'Personnel' }, en: { University: 'University', Personal: 'Personal' } }
-    const localeType = typeMap[locale.value] || typeMap['en']
-    const selectedTypes = checkType.value.map(type => localeType[type]?.toLowerCase() || '')
-    return selectedTypes.includes(type)
+    // Filtrage par type
+    projects = projects.filter(project => {
+      const type = project.type ? project.type.toLowerCase() : ''
+      const typeMap = { fr: { University: 'Universitaire', Personal: 'Personnel' }, en: { University: 'University', Personal: 'Personal' } }
+      const localeType = typeMap[locale.value] || typeMap['en']
+      const selectedTypes = checkType.value.map(type => localeType[type]?.toLowerCase() || '')
+      return selectedTypes.includes(type)
+    })
+
+  // Tri selon `sortBy`
+  return projects.sort((a, b) => {
+    // Vérifier et initialiser la date de début
+    if (isNaN(new Date(a.dates[0]))) {
+      a.dates[0] = new Date(); // Assigner la date actuelle si la date est invalide
+    }
+
+    if (isNaN(new Date(b.dates[0]))) {
+      b.dates[0] = new Date(); // Assigner la date actuelle si la date est invalide
+    }
+
+    const dateA = new Date(a.dates[0]);
+    const dateB = new Date(b.dates[0]);
+    
+    // Vérifier et initialiser la date de fin
+    if (isNaN(new Date(a.dates[1]))) {
+      a.dates[1] = new Date(); // Assigner la date actuelle si la date est invalide
+    }
+
+    if (isNaN(new Date(b.dates[1]))) {
+      b.dates[1] = new Date(); // Assigner la date actuelle si la date est invalide
+    }
+
+    let dateFinA = new Date(a.dates[1]);
+    let dateFinB = new Date(b.dates[1]);
+
+    // Calculer la durée en jours
+    const durationA = (dateFinA - dateA) / (1000 * 60 * 60 * 24); // en jours
+    const durationB = (dateFinB - dateB) / (1000 * 60 * 60 * 24); // en jours
+    
+    switch (sortBy.value) {
+      case 'recent':
+        return dateB - dateA; // Trier par date la plus récente
+      case 'oldest':
+        return dateA - dateB; // Trier par date la plus ancienne
+      case 'longest':
+        return durationB - durationA; // Trier par la durée la plus longue
+      case 'shortest':
+        return durationA - durationB; // Trier par la durée la plus courte
+      default:
+        return 0; // Pas de tri
+    }
+  });
+
   })
-
-// Tri selon `sortBy`
-return projects.sort((a, b) => {
-  // Vérifier et initialiser la date de début
-  if (isNaN(new Date(a.dates[0]))) {
-    a.dates[0] = new Date(); // Assigner la date actuelle si la date est invalide
-  }
-
-  if (isNaN(new Date(b.dates[0]))) {
-    b.dates[0] = new Date(); // Assigner la date actuelle si la date est invalide
-  }
-
-  const dateA = new Date(a.dates[0]);
-  const dateB = new Date(b.dates[0]);
-  
-  // Vérifier et initialiser la date de fin
-  if (isNaN(new Date(a.dates[1]))) {
-    a.dates[1] = new Date(); // Assigner la date actuelle si la date est invalide
-  }
-
-  if (isNaN(new Date(b.dates[1]))) {
-    b.dates[1] = new Date(); // Assigner la date actuelle si la date est invalide
-  }
-
-  let dateFinA = new Date(a.dates[1]);
-  let dateFinB = new Date(b.dates[1]);
-
-  // Calculer la durée en jours
-  const durationA = (dateFinA - dateA) / (1000 * 60 * 60 * 24); // en jours
-  const durationB = (dateFinB - dateB) / (1000 * 60 * 60 * 24); // en jours
-  
-  console.log(a.nom, b.nom, dateA, dateB, durationA, durationB);
-
-  switch (sortBy.value) {
-    case 'recent':
-      return dateB - dateA; // Trier par date la plus récente
-    case 'oldest':
-      return dateA - dateB; // Trier par date la plus ancienne
-    case 'longest':
-      return durationB - durationA; // Trier par la durée la plus longue
-    case 'shortest':
-      return durationA - durationB; // Trier par la durée la plus courte
-    default:
-      return 0; // Pas de tri
-  }
-});
-
-})
 
   /**
    *  @function SwitchFilter
@@ -171,6 +169,11 @@ return projects.sort((a, b) => {
 
       localStorage.setItem('project_filterState', 'deactivated')
     }
+  }
+
+  // Simple vérification pour setup la liste des projets
+  if (filteredAndSortedProjects.value.length === 0) {
+    window.location.reload()
   }
 
 </script>

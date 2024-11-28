@@ -186,6 +186,11 @@ const messages = {
       learnmore: "Learn more",
       link: "Link to ",
 
+      notfound:{
+        title: "404 - Page not found",
+        message: "The page you are looking for does not exist.",
+        home: "Back to home"
+      },
     
       "cookieBanner":{
         "disclaimer":"This site uses cookies to improve your user experience. By continuing to browse this site, you accept the ",
@@ -439,6 +444,12 @@ const messages = {
 
       learnmore: "En savoir plus",
       link: "Lien vers ",
+
+      notfound:{
+        title: "404 - Page inconnue",
+        message: "La page que vous cherchez n'existe pas.",
+        home: "Retour à l'accueil"
+      },
 
       "cookieBanner":{
         "disclaimer":"Ce site utilise des cookies pour améliorer votre expérience utilisateur. En continuant à naviguer sur ce site, vous acceptez la ",

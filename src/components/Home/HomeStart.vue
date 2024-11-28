@@ -52,12 +52,17 @@
             width:80vw;
         }
 
-        h4#paragrapheAPropos{
-            width:80vw;
+        h5#paragrapheAPropos{
+            min-width:80vw;
+            width:100%;
         }
         
         div#textAndButtons{
-            margin: 0;
+            margin:0;
+
+            Button{
+                font-size:2em !important;
+            }
         }
 
         #photoContainer{
@@ -66,12 +71,16 @@
             margin-bottom:1vh;
         }
 
-        #textAndPhoto{
-            flex-direction: column-reverse !important;
+        div#textAndPhoto{
+            flex-direction: column-reverse;
+            max-width:100vw;
+            min-width:90vw;
+            justify-content: left;
+            margin: 0 5vw 0 10vw;
         }
     }
 
-    @media screen and (max-width: 1439px){
+    @media screen and (min-width: 861px) and (max-width: 1439px){
         #photoProfil{
             width: 100% !important;
             height: 100% !important;

@@ -322,12 +322,13 @@ button[autofocus] {
 
   select#sort.blackVariant{
     font-size:1.5rem;
+    height:100%;
   }
 
   Button,button, select, .sort-filter label{
     font-size: 1.5rem !important;
 
-    i{
+    i:not(#buttonTranslateIcon){
       font-size: 1.5rem !important;
     }
   }

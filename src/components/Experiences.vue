@@ -98,8 +98,7 @@
                                         :modal="true" 
                                         :header="$t('message.experienceModalTitle')+ ' ' + experienceTimeline.item.poste" 
                                         class="custom-dialog"
-                                        :style="{ width: '50vw'}"
-                                        :breakpoints="{ '1300px': '75vw', '800px': '90vw' }"
+                                        :breakpoints="{ '1300px': '75vw', '800px': '80vw' }"
                                     >
                                         <ExperienceDialog :experienceProp="experienceTimeline.item" />
                                     </Dialog>
@@ -141,6 +140,7 @@
 
 .custom-dialog {
     max-height: 80vh;
+    min-width:80vw;
     overflow: auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }

@@ -92,6 +92,7 @@
     #missionEtRealisation{
         display:flex;
         width:100%;
+        min-width:fit-content;
         height:100%;
         justify-content: space-between;
     }

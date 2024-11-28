@@ -77,9 +77,29 @@ function switchPageLang() {
     }
 
     i#buttonTranslateIcon{
-      margin-right:30px;
-
+      margin:0;
+      padding:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
+
+    
+
+    div#ButtonTranslateContainer{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100%;
+    }
+
+    button#buttonTranslate{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
   } 
 
   
@@ -121,6 +141,7 @@ function switchPageLang() {
     }
 
     i{
+      height:100%;
       padding-left:20px;
       transition: 0.3s ease-out all;
     }

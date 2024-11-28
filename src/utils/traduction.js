@@ -76,7 +76,6 @@ export function updateUrlLang(lang) {
       url.searchParams.set('lang', lang);
       if (typeof window.history.replaceState === 'function') {
         window.history.replaceState({}, '', url.href);
-        console.log('URL mise à jour:', url.href);
       } else {
         console.warn('replaceState non disponible, URL non mise à jour.');
       }
