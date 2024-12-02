@@ -12,6 +12,19 @@ const router = useRouter();  // Initialize the router
 const toast = useToast();
 const confirm = useConfirm();
 
+
+// Clear all cookies
+function clearAllCookies() {
+  const cookies = document.cookie.split(";");
+
+  cookies.forEach(cookie => {
+    const cookieName = cookie.split("=")[0].trim();
+    // Set the cookie expiration date to a past date
+    document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+  });
+}
+
+
 function effacerStockageLocal(){
     if (localStorage.length == 1){
         showInfo()
@@ -19,7 +32,11 @@ function effacerStockageLocal(){
     }
 
     const lang = localStorage.getItem('lang');
+
     localStorage.clear();
+    clearAllCookies()
+    
+    localStorage.setItem('cookieChoice', "0")
     localStorage.setItem('lang', lang);
     window.location.reload();
     showSuccess();

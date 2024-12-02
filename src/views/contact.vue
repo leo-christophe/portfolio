@@ -515,7 +515,7 @@ function openGoogleMaps() {
   }
 
   #contactform {
-    min-width:400px;
+    min-width:450px;
     width:30vw
   }
 

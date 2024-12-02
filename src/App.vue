@@ -62,6 +62,12 @@ onMounted(() => {
     zoomOutMobile();
   }
 
+  // Setup cookie variable
+  const isCookiePreferenceSet = localStorage.getItem("cookieChoice");
+  if (isCookiePreferenceSet == null || isCookiePreferenceSet == ""){
+    localStorage.setItem("cookieChoice","0")
+  }
+
   const apiKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
   const script = document.createElement('script');
   script.src = `https://www.google.com/recaptcha/api.js?render=${apiKey}`;
