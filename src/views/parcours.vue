@@ -303,6 +303,8 @@ ul.missionsListExp li{
         img{
             width:200px;
             height:200px;
+            max-height:95%;
+            max-width:95%;
             object-fit: cover;
             border-radius:8px;
         }

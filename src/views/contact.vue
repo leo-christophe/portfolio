@@ -117,32 +117,63 @@ function openGoogleMaps() {
   window.open('https://www.google.com/maps?q=Annecy', '_blank');
 }
 
-// var i = 0;
-// var txt = 'Bonjour, je cherche\nun stage';
-// var speed = 70;
-// var actualElement=ref(null);
+// let textIndex = 0; // Indice pour gérer les textes
+// let charIndex = 0; // Indice pour les caractères
+// let currentText = null; // Texte courant
+// let activeElement = null; // Élément actif
 
-// setInterval(()=>{
-//   typeWriter();
-// },5000)
+// // Liste des textes et des vitesses
+// const texts = [
+//   { content: "00001010111110000101", speed: 70 },
+//   { content: "000010101110001101", speed: 100 },
+//   { content: "00001001010010101", speed: 120 },
+// ];
+
+// function getRandomSize() {
+//   return (Math.random() * 2.5 + 0.5).toFixed(2) + "em"; // Taille entre 0.5em et 3em
+// }
+
+// function getRandomYPosition() {
+//   return Math.random()*-1 + 150 * 300 + "px"; // Position entre 0 et 300 pixels
+// }
 
 // function typeWriter() {
-//   if (i < txt.length) {
-//     if (actualElement.value == null){
-//     actualElement.value = document.querySelectorAll('.linesOfText')[Math.random()*6]
-//     console.warn(document.querySelector('.linesOfText')[Math.random()*6])
-//   }
+//   if (charIndex < currentText.content.length) {
+//     if (activeElement === null) {
+//       const lines = document.querySelectorAll(".linesOfText");
+//       const randomIndex = Math.floor(Math.random() * lines.length);
+//       activeElement = lines[randomIndex];
+//       activeElement.textContent = ""; // Réinitialise le contenu
+//       activeElement.style.fontSize = getRandomSize(); // Taille aléatoire
+//       activeElement.style.transform = `translateY(${getRandomYPosition()})`; // Position verticale aléatoire
+//       activeElement.style.color = "lightgray"; // Force la couleur
+//     }
 
-//     actualElement.value.textContent += txt.charAt(i);
-//     i++;
-//     setTimeout(typeWriter, speed);
-//   }
-//   if (i == txt.length){
-//     i=0;
-//     actualElement.value = null;
-//     document.getElementById("lineOfText").textContent = ""
+//     activeElement.textContent += currentText.content.charAt(charIndex); // Ajoute le prochain caractère
+//     charIndex++;
+//     setTimeout(typeWriter, currentText.speed);
+//   } else {
+//     // Réinitialisation une fois le texte terminé
+//     charIndex = 0;
+//     activeElement = null;
+//     textIndex = (textIndex + 1) % texts.length; // Passer au texte suivant
+//     currentText = texts[textIndex];
+//     setTimeout(resetText, 500); // Réinitialise après 5 secondes
 //   }
 // }
+
+// function resetText() {
+//   document.querySelectorAll(".linesOfText").forEach((el) => {
+//     el.textContent = "";
+//     el.style.transform = "translateY(0)"; // Réinitialise la position Y
+//   });
+//   typeWriter(); // Relance l'animation
+// }
+
+// // Initialisation
+// currentText = texts[textIndex];
+// setTimeout(typeWriter, 200); // Lancer la boucle après 5 secondes
+
 
 </script>
 
@@ -156,15 +187,19 @@ function openGoogleMaps() {
     <br>
     <div id="everythingContainer">
 
-    
-    <!-- <span id="leftAnimation">
+<!--     
+      <div id="leftAnimation">
       <div>
-        <span id="lineOfText">
-
-        </span>
-        <span class="linesOfText"></span><span class="linesOfText"></span><span class="linesOfText"></span><span class="linesOfText"></span><span class="linesOfText"></span><span class="linesOfText"></span>
+        <span id="lineOfText"></span>
+        <span class="linesOfText"></span>
+        <span class="linesOfText"></span>
+        <span class="linesOfText"></span>
+        <span class="linesOfText"></span>
+        <span class="linesOfText"></span>
+        <span class="linesOfText"></span>
       </div>
-    </span> -->
+    </div> -->
+
     <div id="formAIcons">
       <div id="contactform" class="ContactSquare">
         <h2>{{ $t('message.contactTitle') }}</h2>
@@ -297,14 +332,22 @@ function openGoogleMaps() {
 
 
 <style scoped>
-#lineOfText{
-  font-size:3em !important;
-  transform:translateX(-200px) !important;
-  position:absolute;
-  padding-left:50px;
-  z-index:0;
-  max-width:50vw;
+/* 
+.linesOfText {
+  display: inline-block;
+  margin: 5px;
+  font-weight: bold !important; 
+  position: relative !important; 
+  transition: transform 0.3s ease;
+  white-space: pre; 
+  color:rgb(71, 71, 71);
 }
+
+.linesOfText:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+} */
+
 
 .bubble{
   display:flex;
