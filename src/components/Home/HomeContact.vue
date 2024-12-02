@@ -17,7 +17,7 @@
             CVAdress.value = RACINE + CV_NAME_WEB_EN + "#page=1";
         }
 
-        adjustPdfZoom();
+        // adjustPdfZoom();
     });
     const downloadFile = (url, target = '_blank') => {
         const link = document.createElement('a');
@@ -40,27 +40,27 @@
         window.open(CVAdress.value, '_blank');
     }
 
-    function adjustPdfZoom() {
-        const pdfViewer = document.getElementById('pdf-viewer');
-        const width = window.innerWidth;
-        const height = window.innerHeight;
+    // function adjustPdfZoom() {
+    //     const pdfViewer = document.getElementById('pdf-viewer');
+    //     const width = window.innerWidth;
+    //     const height = window.innerHeight;
 
-        // Logique pour ajuster le zoom (par exemple, en fonction de la taille de la fenêtre)
-        // Tu peux ajuster ces valeurs selon tes besoins
-        let zoomLevel;
-        if (width < 600) {
-            zoomLevel = 0.5; // Réduire le zoom à 50% pour les écrans petits
-        } else if (width < 1200) {
-            zoomLevel = 0.75; // Réduire le zoom à 75% pour les écrans moyens
-        } else {
-            zoomLevel = 0.8; // 100% pour les grands écrans
-        }
+    //     // Logique pour ajuster le zoom (par exemple, en fonction de la taille de la fenêtre)
+    //     // Tu peux ajuster ces valeurs selon tes besoins
+    //     let zoomLevel;
+    //     if (width < 600) {
+    //         zoomLevel = 0.5; // Réduire le zoom à 50% pour les écrans petits
+    //     } else if (width < 1200) {
+    //         zoomLevel = 0.75; // Réduire le zoom à 75% pour les écrans moyens
+    //     } else {
+    //         zoomLevel = 0.8; // 100% pour les grands écrans
+    //     }
 
-        // Appliquer le zoom (dans ce cas, en modifiant la taille de l'iframe)
-        pdfViewer.style.transformOrigin = "0 0"; // Origine du zoom en haut à gauche
-        pdfViewer.style.width = `${100 / zoomLevel}vw`; // Ajuster la largeur selon le zoom
-        pdfViewer.style.height = `${100 / zoomLevel}vh`; // Ajuster la hauteur selon le zoom
-    }
+    //     // Appliquer le zoom (dans ce cas, en modifiant la taille de l'iframe)
+    //     pdfViewer.style.transformOrigin = "0 0"; // Origine du zoom en haut à gauche
+    //     pdfViewer.style.width = `${100 / zoomLevel}vw`; // Ajuster la largeur selon le zoom
+    //     pdfViewer.style.height = `${100 / zoomLevel}vh`; // Ajuster la hauteur selon le zoom
+    // }
 
 </script>
 
