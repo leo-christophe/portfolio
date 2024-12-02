@@ -333,7 +333,6 @@ ul.missionsListExp li{
         width:35vw;
         min-width: min-content;
         max-width: 60vw;
-        height:20vh;
         min-height:fit-content;
         justify-content: left;
         position: relative;

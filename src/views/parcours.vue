@@ -283,13 +283,16 @@ ul.missionsListExp li{
     }
 
     .conteneurBox{
-        height:auto !important;
+        height: auto !important; /* Ou une autre valeur spécifique */
+        min-height: unset !important; 
+        max-height: unset !important;
+
+
         background-color:rgb(36, 36, 36);
         color: white;
         width:35vw;
         min-width: min-content;
         max-width: 60vw;
-        min-height:min-content;
         justify-content: left;
         position: relative;
         margin: 5px;
