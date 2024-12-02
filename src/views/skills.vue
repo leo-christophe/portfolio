@@ -83,7 +83,12 @@
                     <span @click="router.push(project.route)">
                     <h4>{{ project.nom }}</h4>
                     <p>{{ project.titre }}</p>
+                    <p class="competenceListe">
+                        ({{ project.competences[Object.keys(category)[0]].join(', ') }})
+                    </p>
+                    <hr>
                     </span>
+
                 </div>
                 </div>
 
@@ -92,19 +97,23 @@
                 <div v-if="Object.keys(experience.competences).includes(Object.keys(category)[0])" class="affichageExperience">
                     <img v-if="experience.image" :src="experience.image" alt="experience" style="width: 40px; height: 40px;"/>
                     <span @click="router.push('/formations')" class="projectCard">
-                    <h4>{{ experience.contrat }} {{ experience.poste }}</h4>
-                    <p>{{ experience.entreprise }} - {{ experience.localisation }}</p>
+                        <h4>{{ experience.contrat }} {{ experience.poste }}</h4>
+                        <p>{{ experience.entreprise }} - {{ experience.localisation }}</p>
+                        <p class="competenceListe">
+                            ({{ experience.competences[Object.keys(category)[0]].join(', ') }})
+                        </p>
                     </span>
+                    
                 </div>
                 </div>
             </div>
 
-            <details>
+            <!-- <details>
                 <summary>Liste des compétences</summary>
                 <ul>
                 <li v-for="(skill, skillIndex) in Object.values(category)[0]" :key="skillIndex">{{ skill }}</li>
                 </ul>
-            </details>
+            </details> -->
             </div>
         </div>
     </div>
@@ -115,6 +124,11 @@
   
 
 <style scoped>
+    p.competenceListe{
+        font-size:0.8em !important;
+        font-style: italic;
+    }
+
     h1{
         position:relative;
         z-index:90;
@@ -276,6 +290,7 @@
     }
 
     .skill-category{
+
         margin: 2vh;
         background-color:rgb(27, 27, 27);
         padding:2vh;

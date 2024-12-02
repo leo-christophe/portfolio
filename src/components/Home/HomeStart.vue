@@ -1,9 +1,11 @@
 <script setup>
-    import Button from 'primevue/button';
-    import HomeStatistics from './HomeStatistics.vue';
+import Button from 'primevue/button';
+import HomeStatistics from './HomeStatistics.vue';
 
-    const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child(3) > a').href;
+const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child(3) > a').href;
+
 </script>
+
 
 <template>
     <div id="welcome">
@@ -42,7 +44,7 @@
 </template>
 
 
-<style scoped>
+<style lang="scss" scoped>
     @media screen and (max-width: 860px){
         #statisticComponent{
             display:none !important;

@@ -326,6 +326,7 @@ ul.missionsListExp li{
         justify-content: space-between;
         height: auto;
         align-items: flex-start;
+        margin:0 50px 0 50px;
     }
 
     /* Colonnes */
