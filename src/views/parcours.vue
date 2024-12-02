@@ -171,6 +171,8 @@
     }
 }
 
+
+
 .expSkillsTitle, .expMissionsTitle{
     font-size: 1.2rem;
     font-weight:500;
@@ -286,7 +288,7 @@ ul.missionsListExp li{
         width:35vw;
         min-width: min-content;
         max-width: 60vw;
-        height:20vh;
+        height:fit-content;
         min-height:fit-content;
         justify-content: left;
         position: relative;
