@@ -117,6 +117,33 @@ function openGoogleMaps() {
   window.open('https://www.google.com/maps?q=Annecy', '_blank');
 }
 
+// var i = 0;
+// var txt = 'Bonjour, je cherche\nun stage';
+// var speed = 70;
+// var actualElement=ref(null);
+
+// setInterval(()=>{
+//   typeWriter();
+// },5000)
+
+// function typeWriter() {
+//   if (i < txt.length) {
+//     if (actualElement.value == null){
+//     actualElement.value = document.querySelectorAll('.linesOfText')[Math.random()*6]
+//     console.warn(document.querySelector('.linesOfText')[Math.random()*6])
+//   }
+
+//     actualElement.value.textContent += txt.charAt(i);
+//     i++;
+//     setTimeout(typeWriter, speed);
+//   }
+//   if (i == txt.length){
+//     i=0;
+//     actualElement.value = null;
+//     document.getElementById("lineOfText").textContent = ""
+//   }
+// }
+
 </script>
 
 <template>
@@ -127,6 +154,17 @@ function openGoogleMaps() {
     <br>
     <br>
     <br>
+    <div id="everythingContainer">
+
+    
+    <!-- <span id="leftAnimation">
+      <div>
+        <span id="lineOfText">
+
+        </span>
+        <span class="linesOfText"></span><span class="linesOfText"></span><span class="linesOfText"></span><span class="linesOfText"></span><span class="linesOfText"></span><span class="linesOfText"></span>
+      </div>
+    </span> -->
     <div id="formAIcons">
       <div id="contactform" class="ContactSquare">
         <h2>{{ $t('message.contactTitle') }}</h2>
@@ -196,6 +234,7 @@ function openGoogleMaps() {
         </div>
       </span>
     </div>
+  </div>
 
     <!-- Additional information (email, phone) -->
     <!-- <div id="informationsCard" class="ContactSquare">
@@ -258,6 +297,15 @@ function openGoogleMaps() {
 
 
 <style scoped>
+#lineOfText{
+  font-size:3em !important;
+  transform:translateX(-200px) !important;
+  position:absolute;
+  padding-left:50px;
+  z-index:0;
+  max-width:50vw;
+}
+
 .bubble{
   display:flex;
   flex-direction: row;
@@ -498,6 +546,8 @@ function openGoogleMaps() {
   }
 
   #formAIcons{
+    z-index:1000;
+    position:relative;
     display:flex;
     flex-direction:row;
     justify-content: center;

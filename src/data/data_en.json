@@ -173,7 +173,7 @@
         "titre": "Creation of a fictitious BMW website in Javascript (Vue-JS) with API Rest in C#",
         "description": "Creation of a fictitious website in a team of 5, applying best practices in terms of programming, quality, security, and performance. Communication from the Javascript client to the REST API developed in C#. The database was implemented using code first with Entity Framework Core. Using Vue-JS for the client side with Vue-Router, Pinia, Prime Vue frameworks. The quality of the API was verified through unit testing and mock testing, and the client’s quality was validated through unit and 'End to End' testing. Presentation of the website and the API in front of a jury of two professors.",
         "competences": {
-          "Web Development": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Route-JS", "Github"],
+          "Web Development": ["Javascript", "Vue-JS", "HTML", "CSS", "Github"],
           "Software Development": ["C#", "API Rest", "Visual Studio 2022", "Repository", "Dependency Injection"],
           "Database": ["PostgreSQL", "SQL", "Database", "MLD", "MCD"],
           "DevOps & Deployment": ["Azure DevOps", "Vercel.app", "CI/CD", "Continuous Deployment", "Github"],
@@ -218,7 +218,7 @@
         "titre": "Development of a web portfolio in Vue-JS",
         "description": "Creating a web portfolio in Vue-JS to showcase my skills and projects. Using the nodeJS libraries PrimeVue and Vue-Route. Continuous deployment on Vercel.App with each push to Github. Applying best practices in terms of security.",
         "competences": {
-          "Web Development": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Route-JS", "Github", "Responsive", "Usability", "NodeJS", "JQuery", "JSON"],
+          "Web Development": ["Javascript", "Vue-JS", "HTML", "CSS", "Responsive", "NodeJS", "JQuery", "JSON"],
           "DevOps & Deployment": ["Vercel.app", "Continuous Deployment", "CI/CD", "Github"],
           "UI/UX & User Experience": ["UI/UX", "User Experience"],
           "Interpersonal Skills": ["Autonomy", "Versatility"],

@@ -101,9 +101,9 @@
 
         </div>
 
-        <div id="CV">
+        <!-- <div id="CV">
             <embed :src="CVAdress" id="pdf-viewer" type="application/pdf" :width="WIDTH" :height="HEIGHT" />
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -166,7 +166,7 @@
 
     @media (max-width: 1470px) and (min-width: 860px) {
         #buttons {
-            display: none !important;
+            display: flex !important;
         }
 
         .CVsection {
@@ -296,7 +296,7 @@
     }
 
     #buttons {
-        display: none; /* Assure que les boutons sont affichés en flex */
+        display: flex; /* Assure que les boutons sont affichés en flex */
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: center; /* Centre les boutons horizontalement */
