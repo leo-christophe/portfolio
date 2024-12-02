@@ -25,6 +25,25 @@
 
 <template>
     <div>
+
+        <div class="wrapper">
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+            <div><span class="dot"></span></div>
+        </div>
+
         <h1>{{$t('message.skills')}}</h1>
         <span id="searchBarContainer">
             <p>{{$t('message.search')}}</p>
@@ -96,7 +115,132 @@
   
 
 <style scoped>
+    h1{
+        position:relative;
+        z-index:90;
+        text-align:center;
+        margin-top:2vh;
+        font-size:3em;
+    }
+
+.wrapper {
+    height: 100vh; /* Full height */
+    width: 100vw; /* Full width */
+    position: fixed; /* Fixed positioning for background effect */
+    top: 0; /* Start from top */
+    left: 0; /* Start from left */
+    z-index: 0; /* Lowest stacking */
+    background: linear-gradient(180deg, #04f9fd84, 5%, #119cff9f, 50%, #030423da);
+}
+
+
+    .wrapper div {
+    height: 60px;
+    width: 60px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50px;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    animation: 4s linear infinite;
+    }
+    div .dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    }
+    .wrapper div:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    animation: animate 8s linear infinite;
+    }
+    .wrapper div:nth-child(2) {
+    top: 60%;
+    left: 80%;
+    animation: animate 10s linear infinite;
+    }
+    .wrapper div:nth-child(3) {
+    top: 40%;
+    left: 40%;
+    animation: animate 3s linear infinite;
+    }
+    .wrapper div:nth-child(4) {
+    top: 66%;
+    left: 30%;
+    animation: animate 7s linear infinite;
+    }
+    .wrapper div:nth-child(5) {
+    top: 90%;
+    left: 10%;
+    animation: animate 9s linear infinite;
+    }
+    .wrapper div:nth-child(6) {
+    top: 30%;
+    left: 60%;
+    animation: animate 5s linear infinite;
+    }
+    .wrapper div:nth-child(7) {
+    top: 70%;
+    left: 20%;
+    animation: animate 8s linear infinite;
+    }
+    .wrapper div:nth-child(8) {
+    top: 75%;
+    left: 60%;
+    animation: animate 10s linear infinite;
+    }
+    .wrapper div:nth-child(9) {
+    top: 50%;
+    left: 50%;
+    animation: animate 6s linear infinite;
+    }
+    .wrapper div:nth-child(10) {
+    top: 45%;
+    left: 20%;
+    animation: animate 10s linear infinite;
+    }
+    .wrapper div:nth-child(11) {
+    top: 10%;
+    left: 90%;
+    animation: animate 9s linear infinite;
+    }
+    .wrapper div:nth-child(12) {
+    top: 20%;
+    left: 70%;
+    animation: animate 7s linear infinite;
+    }
+    .wrapper div:nth-child(13) {
+    top: 20%;
+    left: 20%;
+    animation: animate 8s linear infinite;
+    }
+    .wrapper div:nth-child(14) {
+    top: 60%;
+    left: 5%;
+    animation: animate 6s linear infinite;
+    }
+    .wrapper div:nth-child(15) {
+    top: 90%;
+    left: 80%;
+    animation: animate 9s linear infinite;
+    }
+    @keyframes animate {
+    0% {
+        transform: scale(0) translateY(0) rotate(70deg);
+    }
+    100% {
+        transform: scale(1.3) translateY(-100px) rotate(360deg);
+    }
+    }
+
+
     span#searchBarContainer{
+        z-index: 1; /* Positioned above the wrapper */
+        position: relative; /* Ensure stacking context is respected */
         p{
             margin-right: 1vw;
         }
@@ -112,7 +256,9 @@
         margin:5vh 0 0 3vw;
     }
 
-    #skillsPage{
+    #skillsPage:not(.wrapper){
+        z-index: 2; /* Ensure it's above the wrapper */
+        position: relative; /* Respect stacking context */
         display:flex;
         flex-wrap:wrap;
         justify-content: space-around;
@@ -135,6 +281,9 @@
         padding:2vh;
         min-width:fit-content;
         width:25vw;
+        border:1px solid black;
+        border-radius:5px;
+        box-shadow: #000000 0px 0px 10px;
 
     }
 

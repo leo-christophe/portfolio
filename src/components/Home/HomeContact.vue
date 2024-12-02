@@ -85,20 +85,17 @@
                     <div id="finalText" class="CVsection computer">
                         <h2>{{ $t('message.CTA1') }}<RouterLink to="/contact">{{ $t('message.CTA2') }}</RouterLink>{{ $t('message.CTA3')}}</h2>
                     </div>
+
+                    <span id="buttons">
+                        <Button id="blackVariant" @click="downloadCV">
+                            <i class="pi pi-download"></i>{{ $t("message.btnDownload") }}
+                        </Button>
+                        <Button id="blackVariant" @click="consultCV">
+                            <i class="pi pi-eye"></i>{{ $t("message.btnConsult") }}
+                        </Button>
+                    </span>
                 </span>
             </div>
-
-
-
-            <span id="buttons">
-                <Button id="blackVariant" @click="downloadCV">
-                    <i class="pi pi-download"></i>{{ $t("message.btnDownload") }}
-                </Button>
-                <Button id="blackVariant" @click="consultCV">
-                    <i class="pi pi-eye"></i>{{ $t("message.btnConsult") }}
-                </Button>
-            </span>
-
         </div>
 
         <!-- <div id="CV">
@@ -127,13 +124,29 @@
         margin-bottom: 20px;
     }
 
+    Button#blackVariant {
+        font-size:1.2em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width:250px;
+        max-width: 20vw;
+        padding: 20px 20px; /* Pour une meilleure mise en forme */
+
+        i {
+            margin-right: 10px; /* Espace entre l'icône et le texte */
+        }
+    }
+
     #buttons {
-        display: none;
+        display: flex; /* Assure que les boutons sont affichés en flex */
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: center; /* Centre les boutons */
+        justify-content: space-around; /* Centre les boutons horizontalement */
+        align-items: center; /* Centre verticalement si besoin */
         margin: 50px 0;
-        gap: 20px;
+        gap: 20px; /* Espace entre les boutons */
     }
 
     #CV {
@@ -281,27 +294,5 @@
         }
     } */
 
-    Button#blackVariant {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        width: 50vw; /* Largeur ajustable selon l'écran */
-        max-width: 300px; /* Limite la largeur pour éviter que ça devienne trop large */
-        padding: 10px 20px; /* Pour une meilleure mise en forme */
 
-        i {
-            margin-right: 10px; /* Espace entre l'icône et le texte */
-        }
-    }
-
-    #buttons {
-        display: flex; /* Assure que les boutons sont affichés en flex */
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: center; /* Centre les boutons horizontalement */
-        align-items: center; /* Centre verticalement si besoin */
-        margin: 50px 0;
-        gap: 20px; /* Espace entre les boutons */
-    }
 </style>

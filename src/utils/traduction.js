@@ -32,13 +32,8 @@ export function traductionSetup() {
             reject('Erreur lors de la configuration de la langue dans le localStorage');
         }
 
-
-        
-        // Ensure the language is changed globally
         changeLang(currentLang);
-        // Set the locale based on the prioritized language
         locale.value = currentLang;
-        // Resolve the promise with the current language
         resolve(currentLang); 
     });
 }
@@ -53,10 +48,10 @@ export function getLangFromUrl() {
     try {
         const params = new URLSearchParams(window.location.search);
         const lang = params.get('lang');
-        return lang ? lang.substring(0, 2) : DEFAULT_LANGUAGE;  // Extract base lang (e.g., "fr" from "fr-FR")
+        return lang ? lang.substring(0, 2) : DEFAULT_LANGUAGE;
     } catch (error) {
         console.error('Error parsing URL parameters:', error);
-        return null;  // Fallback to null if there's any error
+        return null;
     }
 }
 
@@ -68,7 +63,7 @@ export function getLangFromUrl() {
 export function updateUrlLang(lang) {
     if (!SUPPORTED_LANGUAGES.includes(lang)) {
       console.warn(`Langue non supportée : ${lang}`);
-      return; // Sortir sans jeter d'erreur
+      return;
     }
   
     try {
@@ -81,7 +76,6 @@ export function updateUrlLang(lang) {
       }
     } catch (error) {
       console.error('Erreur lors de la mise à jour de l’URL:', error);
-      // Ne jetez pas d'erreur pour ne pas interrompre les tests
     }
   }
   

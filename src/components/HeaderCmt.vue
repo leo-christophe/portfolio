@@ -56,7 +56,6 @@ function switchPageLang() {
     .menuItem{
       padding: 1rem 0rem 0rem 0rem;
 
-
     }
 
     span.menuItemLink{
@@ -119,7 +118,8 @@ function switchPageLang() {
     text-align: center;
     background-color: #000000;
     width:100%;
-    
+    z-index:9000;
+    position:relative;
   }
 
   .buttonTranslateContainer{

@@ -13,11 +13,6 @@
     } 
   });
 
-  function acceptCookies() {
-    cookiesAccepted.value = true; // Cache le bandeau
-    localStorage.setItem('cookieChoice', '1'); // Enregistre "1" pour accepté
-  }
-
   function rejectCookies() {
     cookiesAccepted.value = true; // Cache le bandeau
     localStorage.setItem('cookieChoice', '1'); // Enregistre "0" pour refusé
@@ -31,14 +26,31 @@
       {{ $t('message.cookieBanner.disclaimer') }}
       <a href="/confidentialite">{{ $t('message.cookieBanner.privacypolicy') }}</a>.
     </p>
-    <div class="actions">
-      <Button @click="acceptCookies">{{ $t('message.cookieBanner.buttons.accept') }}</Button>
-      <Button @click="rejectCookies">{{ $t('message.cookieBanner.buttons.refuse') }}</Button>
+    <div class="actions" @click="rejectCookies">
+      <Button id="btnReject"><i class="pi pi-times"></i></Button>
     </div>
   </div>
 </template>
 
 <style scoped>
+  #btnReject{
+    background-color:transparent;
+    transition:1s ease;
+  }
+
+  #btnReject:hover{
+    background-color:transparent;
+    border:1px solid transparent;
+    color:none;
+    transition:1s ease;
+  }
+  #btnReject:active{
+    background-color:transparent;
+    border:1px solid transparent;
+    color:none;
+    transition:1s ease;
+  }
+
   .cookie-banner {
     position: fixed;
     bottom: 0;

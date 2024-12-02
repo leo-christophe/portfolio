@@ -54,7 +54,7 @@ function effacerStockageLocal(){
     confirm.require({
         message: t('message.etesVousSur'),
         header: t('message.etesVousSurHeader'),
-        icon: 'pi pi-info-circle',
+        icon: 'pi pi-exclamation-circle',
         rejectLabel: t('message.cancel'),
         acceptLabel: t('message.delete'),
         rejectClass: 'p-button-secondary p-button-outlined',

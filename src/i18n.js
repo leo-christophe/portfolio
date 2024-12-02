@@ -174,8 +174,8 @@ const messages = {
       // Donnees
       etesVousSur: "Are you sure you want to delete all your data?",
       etesVousSurHeader: "Deleting your data",
-      cancel: "Cancel",
-      delete: "Delete",
+      cancel: "No",
+      delete: "Yes",
       infoData: "No data",
       deletedData: "Deleted data",
       succesToast: "Your data has been successfully deleted.",
@@ -435,8 +435,8 @@ const messages = {
       // Donnees
       etesVousSur: "Êtes-vous sûr de vouloir supprimer toutes vos données ?",
       etesVousSurHeader: "Suppression de vos données",
-      cancel: "Annuler",
-      delete: "Supprimer",
+      cancel: "Non",
+      delete: "Oui",
       infoData: "Aucune donnée",
       deletedData: "Données supprimées",
       succesToast: "Vos données ont été supprimé avec succès.",
