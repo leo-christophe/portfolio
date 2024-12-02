@@ -72,6 +72,7 @@
         width: 100vw; /* Adjust the box width to fit the screen */
         max-width: 80vw  !important;
 
+
     }
 
     .information {
@@ -282,7 +283,7 @@ ul.missionsListExp li{
     }
 
     .conteneurBox{
-
+        height:auto !important;
         background-color:rgb(36, 36, 36);
         color: white;
         width:35vw;
