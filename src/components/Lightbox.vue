@@ -34,7 +34,7 @@
 
       <!-- Display image if type is image -->
       <div v-if="type === 'image'">
-        <img :src="content" class="lightbox-image" :alt="description">
+        <img :src="content" class="lightbox-image" :alt="content">
       </div>
 
       <!-- Display video if type is video -->

@@ -8,7 +8,7 @@
         "departement": "74",
         "obtention": "Ongoing",
         "annees": "2022-2025",
-        "image": "/images/career/iutannecy.jpg",
+        "image": "/images/career/iutannecy.webp",
         "siteFormation": "https://www.univ-smb.fr/iut-annecy/"
       },
       {
@@ -19,7 +19,7 @@
         "departement": "74",
         "obtention": "Graduated with High Honors",
         "annees": "2019-2022",
-        "image": "/images/career/lyceecharles.jpg"
+        "image": "/images/career/lyceecharles.webp"
       },
       {
         "id": "brevet",
@@ -29,7 +29,7 @@
         "departement": "74",
         "obtention": "Graduated with High Honors",
         "annees": "2015-2019",
-        "image": "/images/career/collegemarignier.jpg"
+        "image": "/images/career/collegemarignier.webp"
       }
     ],
     "experiences": [
@@ -57,7 +57,7 @@
           "Enhancing the style of the application, increasing the user experience"
         ],
         "website": "https://www.alpha-3i.com/",
-        "image": "/images/career/alpha3i.jpg"
+        "image": "/images/career/alpha3i.webp"
       }    
     ],
     "projects": [
@@ -82,12 +82,12 @@
         "type": "University",
         "images": [
           {
-            "link": "project-marsinvaders-1.jpg",
+            "link": "project-marsinvaders-1.webp",
             "description": "Screenshot of the game during a session.",
             "type": "image"
           },
           {
-            "link": "project-marsinvaders-2.jpg",
+            "link": "project-marsinvaders-2.webp",
             "description": "Screenshot of the game's menu.",
             "type": "image"
           },
@@ -120,7 +120,7 @@
         "type": "Personal",
         "images": [
           {
-            "link": "project-chrisconverter-application.jpg",
+            "link": "project-chrisconverter-application.webp",
             "description": "Screenshot of the application at startup.",
             "type": "image"
           }
@@ -151,12 +151,12 @@
         "type": "University",
         "images": [
           {
-            "link": "project-skillupnow-1.jpg",
+            "link": "project-skillupnow-1.webp",
             "description": "Screenshot of the site's homepage.",
             "type": "image"
           },
           {
-            "link": "project-skillupnow-2.jpg",
+            "link": "project-skillupnow-2.webp",
             "description": "Screenshot of a training session.",
             "type": "image"
           }
@@ -193,15 +193,15 @@
         "type": "University",
         "images": [
           {
-            "link": "project-bmw-1.jpg",
+            "link": "project-bmw-1.webp",
             "description": "Screenshot of the site's homepage.",
             "type": "image"
           },{
-            "link": "project_bmw_crypt.jpg",
+            "link": "project_bmw_crypt.webp",
             "description": "Implementation of a hashing function to secure passwords.",
             "type": "image"
           },{
-            "link": "project_bmw_crypt_singleton.jpg",
+            "link": "project_bmw_crypt_singleton.webp",
             "description": "Using the singleton design pattern to ensure memory optimization during encryption.",
             "type": "image"
           }
@@ -236,12 +236,12 @@
         "type": "Personal",
         "images": [
           {
-            "link": "project-portfolio-1.jpg",
+            "link": "project-portfolio-1.webp",
             "description": "Screenshot of the site's homepage.",
             "type": "image"
           },
           {
-            "link": "project-portfolio-2.png",
+            "link": "project-portfolio-2.webp",
             "description": "Screenshot of some Vitest unit tests.",
             "type": "image"
           }
@@ -273,7 +273,7 @@
         "type": "University",
         "images": [
           {
-            "link": "project-amphibien-1.jpg",
+            "link": "project-amphibien-1.webp",
             "description": "Page of amphibian characteristics",
             "type": "image"
           },
@@ -283,12 +283,12 @@
             "type": "powerbi"
           },
           {
-            "link": "project-amphibien-2.jpg",
+            "link": "project-amphibien-2.webp",
             "description": "Page of amphibian population statistics",
             "type": "image"
           },
           {
-            "link": "project-amphibien-3.jpg",
+            "link": "project-amphibien-3.webp",
             "description": "Amphibian population statistics page",
             "type": "image"
           }
@@ -319,12 +319,12 @@
         "type": "University",
         "images": [
           {
-            "link":"project-silkensweets.jpg",
+            "link":"project-silkensweets.webp",
             "description":"Logo of Silken Sweets, the fictitious English course.",
             "type":"image"
           },
           {
-            "link":"project-silkensweets_poster.jpg",
+            "link":"project-silkensweets_poster.webp",
             "description": "Silken Sweets advertisement poster. The cake tower is meant to represent the Leaning Tower of Pisa.",
             "type":"image"
           },
@@ -361,17 +361,17 @@
         "type": "University",
         "images": [
           {
-            "link": "project-matinfo.jpg",
+            "link": "project-matinfo.webp",
             "description": "Screenshot of the application",
             "type": "image"
           },
           {
-            "link": "project-matinfo-2.jpg",
+            "link": "project-matinfo-2.webp",
             "description": "Code for creating new equipment.",
             "type": "image"
           },
           {
-            "link": "project-matinfo-3.jpg",
+            "link": "project-matinfo-3.webp",
             "description": "CRUD implementation as an interface.",
             "type": "image"
           }
@@ -388,11 +388,11 @@
         {
             "name": "Linkedin",
             "url": "https://www.linkedin.com/in/leo-christophe/",
-            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogopng.com.br%2Flogos%2Flinkedin-83.png&f=1&nofb=1&ipt=dc66bbb08b2ea34d09367206dd5c669ee65d6b99f7198244a29605273c1296a8&ipo=images"
+            "classpi": "pi pi-linkedin"
         },{
             "name": "Github",
             "url": "https://github.com/leo-christophe",
-            "image": "/images/icons/github.svg"
+            "classpi": "pi pi-github"
         },{
             "name": "Internet Link",
             "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngrepo.com%2Fpng%2F278330%2F512%2Finternet.png&f=1&nofb=1&ipt=8612de18f582c30f9a421a547805d2bd447c0cead17501fdbcc4f8d986741cb7&ipo=images"

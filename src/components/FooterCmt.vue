@@ -68,12 +68,14 @@
         <div id="links">
             <div v-for="link in links" :key="link.name" :id="link.name" class="link">
                 <a :href="link.url" target="_blank" :aria-label="$t('message.link')+link.name+' - Léo Christophe'" v-if="link.url">
+                    <i v-if="link.classpi" :class="link.classpi + ' imgLink'" :id="link.name+'_img'"></i>
                     <img 
+                        v-else
                         :src="link.image" 
                         :id="link.name+'_img'" 
                         :alt="link.name"
                         :title="link.name"
-                        class="imgLink" />
+                        class="imgLink" /> 
                 </a>
             </div>
         </div>
@@ -82,12 +84,7 @@
 
 
 <style scoped>
-    #Github_img {
-        background-color: white;
-        height:40px;
-        border:1px solid white;
-        border-radius:3px;
-    }
+
 
     .footerURLLink:hover{
         text-decoration:underline;
@@ -111,12 +108,22 @@
         display: inline-flex;
         position:relative;
         float: right;
-        margin:0px 20px 20px 0px;
+        gap:20px;
+        margin-bottom:5px;
     }
 
-    .imgLink {
+    img.imgLink {
         height: 40px;
         margin: 10px;
+    }
+
+    i.imgLink{
+        font-size:2.5em;
+        color:var(--secondColor)
+    }
+
+    i.imgLink:hover{
+        transform:scale(1.1);
     }
 
     footer {

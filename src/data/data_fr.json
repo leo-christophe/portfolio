@@ -8,7 +8,7 @@
             "departement": "74",
             "obtention": "En cours",
             "annees": "2022-2025",
-            "image": "/images/career/iutannecy.jpg",
+            "image": "/images/career/iutannecy.webp",
             "siteFormation": "https://www.univ-smb.fr/iut-annecy/"
         },
           {
@@ -19,7 +19,7 @@
             "departement": "74",
             "obtention": "Obtenu avec mention Très Bien",
             "annees": "2019-2022",
-            "image": "/images/career/lyceecharles.jpg"
+            "image": "/images/career/lyceecharles.webp"
           },
           {
             "id": "brevet",
@@ -29,7 +29,7 @@
             "departement": "74",
             "obtention": "Obtenu avec mention Très Bien",
             "annees": "2015-2019",
-            "image": "/images/career/collegemarignier.jpg"
+            "image": "/images/career/collegemarignier.webp"
           }
     ],
     "experiences": [
@@ -57,7 +57,7 @@
               "Amélioration du style"
             ],
             "website": "https://www.alpha-3i.com/",
-            "image": "/images/career/alpha3i.jpg"
+            "image": "/images/career/alpha3i.webp"
           }
           
     ],
@@ -83,12 +83,12 @@
             "type": "Universitaire",
             "images": [
               {
-                "link": "project-marsinvaders-1.jpg",
+                "link": "project-marsinvaders-1.webp",
                 "description": "Capture d'écran du jeu pendant une partie.",
                 "type": "image"
               },
               {
-                "link": "project-marsinvaders-2.jpg",
+                "link": "project-marsinvaders-2.webp",
                 "description": "Capture d'écran du menu du jeu.",
                 "type": "image"
               },
@@ -121,7 +121,7 @@
             "type": "Personnel",
             "images": [
               {
-                "link": "project-chrisconverter-application.jpg",
+                "link": "project-chrisconverter-application.webp",
                 "description": "Capture d'écran de l'application au démarrage.",
                 "type": "image"
               }
@@ -152,12 +152,12 @@
             "type": "Universitaire",
             "images": [
               {
-                "link": "project-skillupnow-1.jpg",
+                "link": "project-skillupnow-1.webp",
                 "description": "Capture d'écran de la page d'accueil du site.",
                 "type": "image"
               },
               {
-                "link": "project-skillupnow-2.jpg",
+                "link": "project-skillupnow-2.webp",
                 "description": "Capture d'écran d'une formation.",
                 "type": "image"
               }
@@ -196,15 +196,15 @@
             "type": "Universitaire",
             "images": [
               {
-                "link": "project-bmw-1.jpg",
+                "link": "project-bmw-1.webp",
                 "description": "Capture d'écran de la page d'accueil du site.",
                 "type": "image"
               },              {
-                "link": "project_bmw_crypt.jpg",
+                "link": "project_bmw_crypt.webp",
                 "description": "Implémentation d'une fonction de hashage pour sécuriser les mots de passe.",
                 "type": "image"
               },              {
-                "link": "project_bmw_crypt_singleton.jpg",
+                "link": "project_bmw_crypt_singleton.webp",
                 "description": "Utilisation de la bonne pratique du singleton pour assurer une optimisation de la mémoire lors du cryptage.",
                 "type": "image"
               }
@@ -239,12 +239,12 @@
             "type": "Personnel",
             "images": [
               {
-                "link": "project-portfolio-1.jpg",
+                "link": "project-portfolio-1.webp",
                 "description": "Capture d'écran de la page d'accueil du site.",
                 "type": "image"
               },
               {
-                "link": "project-portfolio-2.png",
+                "link": "project-portfolio-2.webp",
                 "description": "Capture d'écran de tests unitaires Vitest de la classe DateUtils.",
                 "type": "image"
               }
@@ -277,7 +277,7 @@
             "type": "Universitaire",
             "images": [
               {
-                "link": "project-amphibien-1.jpg",
+                "link": "project-amphibien-1.webp",
                 "description": "Page des caractéristiques d'amphibiens",
                 "type": "image"
               },
@@ -287,12 +287,12 @@
                 "type": "powerbi"
               },
               {
-                "link": "project-amphibien-2.jpg",
+                "link": "project-amphibien-2.webp",
                 "description": "Page de statistiques de la population d'amphibiens",
                 "type": "image"
               },
               {
-                "link": "project-amphibien-3.jpg",
+                "link": "project-amphibien-3.webp",
                 "description": "Page de statistiques de comptage des amphibiens",
                 "type": "image"
               }
@@ -321,12 +321,12 @@
             "type": "Universitaire",
             "images": [
               {
-                "link":"project-silkensweets.jpg",
+                "link":"project-silkensweets.webp",
                 "description":"Logo de la marque",
                 "type":"image"
               },
               {
-                "link":"project-silkensweets_poster.jpg",
+                "link":"project-silkensweets_poster.webp",
                 "description":"Affiche publicitaire de Silken Sweets. La tour de gateau est censé représenté la tour de Pise.",
                 "type":"image"
               },
@@ -363,15 +363,15 @@
             "type": "Universitaire",
             "images": [
               {
-                "link":"project-matinfo.jpg",
+                "link":"project-matinfo.webp",
                 "description":"Capture d'écran de l'application",
                 "type":"image"
               },{
-                "link":"project-matinfo-2.jpg",
+                "link":"project-matinfo-2.webp",
                 "description":"Code permettant de créer un nouveau matériel.",
                 "type":"image"
               },{
-                "link":"project-matinfo-3.jpg",
+                "link":"project-matinfo-3.webp",
                 "description":"Implémentation du CRUD en tant qu'interface.",
                 "type":"image"
               }
@@ -387,11 +387,11 @@
         {
             "name": "Linkedin",
             "url": "https://www.linkedin.com/in/leo-christophe/",
-            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogopng.com.br%2Flogos%2Flinkedin-83.png&f=1&nofb=1&ipt=dc66bbb08b2ea34d09367206dd5c669ee65d6b99f7198244a29605273c1296a8&ipo=images"
-        },{
+            "classpi": "pi pi-linkedin"
+            },{
             "name": "Github",
             "url": "https://github.com/leo-christophe",
-            "image": "/images/icons/github.svg"
+            "classpi": "pi pi-github"
         },{
             "name": "Internet Link",
             "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngrepo.com%2Fpng%2F278330%2F512%2Finternet.png&f=1&nofb=1&ipt=8612de18f582c30f9a421a547805d2bd447c0cead17501fdbcc4f8d986741cb7&ipo=images"

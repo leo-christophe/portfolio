@@ -14,8 +14,8 @@
   });
 
   function rejectCookies() {
-    cookiesAccepted.value = true; // Cache le bandeau
-    localStorage.setItem('cookieChoice', '1'); // Enregistre "0" pour refusé
+    cookiesAccepted.value = true;
+    localStorage.setItem('cookieChoice', '1');
   }
 </script>
 
