@@ -393,12 +393,6 @@
             "name": "Github",
             "url": "https://github.com/leo-christophe",
             "classpi": "pi pi-github"
-        },{
-            "name": "Internet Link",
-            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngrepo.com%2Fpng%2F278330%2F512%2Finternet.png&f=1&nofb=1&ipt=8612de18f582c30f9a421a547805d2bd447c0cead17501fdbcc4f8d986741cb7&ipo=images"
-        },{
-            "name": "Download",
-            "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn3.iconfinder.com%2Fdata%2Ficons%2Fpyconic-icons-1-2%2F512%2Fdownload-2-1024.png&f=1&nofb=1&ipt=e887770a44dff205def116da5485eb641035d37bf5126a396a7f918fd693ad1b&ipo=images"
         }
         
     ],
