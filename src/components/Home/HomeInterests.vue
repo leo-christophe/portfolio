@@ -1,49 +1,126 @@
 <script setup>
+import { onMounted, ref } from 'vue';
 
+// Définition des listes d'images
+const animeImg = ref([
+  '/images/home/greatpretender.webp',
+  '/images/home/rezero.webp',
+  '/images/home/hunterxhunter.webp',
+]);
+
+const gameImg = ref([
+  '/images/home/stardewvalley.webp',
+  '/images/home/mariogalaxy.webp',
+  '/images/home/minecraft.webp',
+]);
+
+const cookingImg = ref([
+  '/images/home/potaufeu.webp',
+  '/images/home/steakfrite.webp',
+  '/images/home/tiramisu.webp',
+]);
+
+onMounted(() => {
+  const hobbyIcons = document.querySelectorAll('img.hobbyIcon');
+
+  if (hobbyIcons.length > 0) {
+    hobbyIcons.forEach((icon) => {
+      let hoverTimeout;
+      let intervalId;
+      let imgIndex = 0; // Index pour gérer le cycle des images
+
+      icon.addEventListener('mouseover', () => {
+        const textContainer = icon.closest('.textContainer');
+        if (!textContainer) return;
+
+        
+
+        // Lance le délai de 2 secondes pour changer l'image
+        intervalId = setInterval(() => {
+            const imgList =
+            icon.id === 'torii-gate-icon'
+              ? animeImg.value
+              : icon.id === 'game-controller-icon'
+              ? gameImg.value
+              : cookingImg.value;
+
+              // Cache le texte
+              icon.style.visibility = 'hidden';
+            textContainer.querySelector('div').style.visibility = 'hidden';
+            
+            textContainer.style.backgroundImage = `url(${imgList[imgIndex]})`;
+            textContainer.style.filter = 'blur(0.5px)';
+            textContainer.style.backgroundSize = 'cover';
+            textContainer.style.backgroundPosition = 'center';
+
+            imgIndex = (imgIndex + 1) % imgList.length; // Incrémente et boucle l'index
+        }, 2000);
+
+        // Supprime les images après 6 secondes
+        hoverTimeout = setTimeout(() => {
+          clearInterval(intervalId);
+        }, 6000);
+      });
+
+      icon.addEventListener('mouseout', () => {
+        clearTimeout(hoverTimeout);
+        clearInterval(intervalId);
+
+        const textContainer = icon.closest('.textContainer');
+        if (!textContainer) return;
+
+        // Réinitialise le fond et réaffiche le texte
+        textContainer.style.backgroundImage = '';
+        textContainer.querySelector('div').style.visibility = 'visible';
+        icon.style.visibility = 'visible';
+        textContainer.style.filter = 'blur(0px)';
+      });
+    });
+  } else {
+    console.error('No hobbyIcon elements found.');
+  }
+});
 </script>
 
 <template>
-    <div id="interetsSection">
+<div id="interetsSection">
+  <h1 id="titreAProposI">{{ $t('message.interestsTitle') }}</h1>
+  <h3 id="paragrapheAProposI">{{ $t('message.interestsDescription') }}</h3>
 
-        <h1 id="titreAProposI">{{ $t('message.interestsTitle') }}</h1>
-        <h3 id="paragrapheAProposI">{{ $t('message.interestsDescription') }}</h3>
-
-        <div class="paragraphe" id="interets" style="display:flex;">
-            <div>
-
-                <span id="conteneurInterets">
-                    <div class="textContainer">
-                        <img class="hobbyIcon" id="torii-gate-icon" src="/images/icons/manga.svg">
-                        
-                        <div>
-                            <h3>{{$t('message.animes')}}</h3>
-                            {{ $t('message.animesDescription') }}
-                        </div>
-                    </div>
-                    <div class="textContainer">
-                        <img class="hobbyIcon" id="game-controller-icon" src="/images/icons/game-controller.svg">
-                        
-                        <div>
-                            <h3>{{$t('message.videogames')}}</h3>
-                            {{ $t('message.videogamesDescription') }}    
-                        </div>
-                    </div>
-                    <div class="textContainer">
-                        <img class="hobbyIcon" id="cooking-pot-icon" src="/images/icons/cooking-equipment.svg">
-                        
-                        <div>
-                            <h3>{{$t('message.cooking')}}</h3>
-                            {{ $t('message.cookingDescription') }}
-                        </div>
-                    </div>
-                </span>
-
-            </div>
+  <div class="paragraphe" id="interets" style="display:flex;">
+    <span id="conteneurInterets">
+      <div class="textContainer">
+        <img class="hobbyIcon" id="torii-gate-icon" src="/images/icons/manga.svg" />
+        <div>
+          <h3>{{ $t('message.animes') }}</h3>
+          {{ $t('message.animesDescription') }}
         </div>
-    </div>
+      </div>
+      <div class="textContainer">
+        <img class="hobbyIcon" id="game-controller-icon" src="/images/icons/game-controller.svg" />
+        <div>
+          <h3>{{ $t('message.videogames') }}</h3>
+          {{ $t('message.videogamesDescription') }}
+        </div>
+      </div>
+      <div class="textContainer">
+        <img class="hobbyIcon" id="cooking-pot-icon" src="/images/icons/cooking-equipment.svg" />
+        <div>
+          <h3>{{ $t('message.cooking') }}</h3>
+          {{ $t('message.cookingDescription') }}
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
 </template>
 
+
 <style scoped>
+    .textContainer{
+        transition:1s ease all;
+    }
+
     @media screen and (max-width: 860px){
         div#interetsSection{
                 justify-content: left;
@@ -177,6 +254,35 @@
         margin-bottom: 15px; /* Space between icon and text */
         border-radius: 30px;
         background-color: transparent;
+        transition:0.5s ease all;
+    }
+
+    @keyframes iconHoverAnimation{
+        0%{
+            transform: scale(1);
+            transform:rotateZ(-2deg);
+        }
+        50%{
+            transform: scale(1.2);
+            
+            transform:rotateZ(-5deg);
+        }
+        75%{
+            transform:scale(1.2);
+            
+            transform:rotateZ(5deg);
+        }
+
+        100%{
+            transform: scale(1);
+            transform:rotateZ(2deg);
+        }
+    }
+
+    img.hobbyIcon:hover{
+        animation:iconHoverAnimation 0.5s infinite;
+        transition:0.5s ease all;
+        cursor:pointer;
     }
 
     #torii-gate-icon{

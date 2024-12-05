@@ -71,7 +71,10 @@
       <div id="hardSkillsDescription">
         <h2 id="competencesTitre" class="typeCompetenceTitre">{{ $t('message.skillsTitle') }}</h2>
         <p class="skillSectionDescription">{{ $t('message.hardskillsDescription') }}</p>
-        <img class="banniereSkills" src="/images/home/hardskills_banniere.jpg"></img>
+        <img class="banniereSkills" 
+              src="/images/home/hardskills_banniere.webp"
+              :alt=" $t('message.skillsTitle') "
+              :title=" $t('message.skillsTitle') "></img>
       </div>
       <div class="hard-skills">
         <div v-for="(category, index) in main_hard_skills" :key="index" class="compType">
@@ -95,7 +98,10 @@
         <span>
           <p class="skillSectionDescription">{{ $t('message.softskillsDescription') }}</p>
         </span>
-        <img class="banniereSkills" src="/images/home/softskills_banniere.jpg"></img>
+        <img class="banniereSkills" 
+              src="/images/home/softskills_banniere.webp" 
+              :alt="$t('message.softskillsTitle')"
+              :title="$t('message.softskillsTitle')"></img>
       </div>
       <div class="soft-skills">
         <div class="cloud">

@@ -208,16 +208,16 @@
 
     @media (max-width: 860px) {
         Button#blackVariant {
-        
-        justify-content:space-around !important;
-        width: 100% !important;
-    }
+            max-width: 90vw;
+            width:50vw;
+        }
 
-    span#buttons{
-        justify-content:center !important;
-        width: 100% !important;
-        display:flex !important;
-    }
+        span#buttons{
+            flex-direction: column;
+            justify-content:left;
+            min-width:50vw;
+            display:flex;
+        }
 
         .computer {
             display: none !important;

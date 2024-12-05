@@ -104,6 +104,30 @@ const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child
 
     }
 
+    @keyframes goLeftAndRight{
+        0%{
+            transform: translateX(0);
+        }
+        50%{
+            transform: translateX(5px);
+        }
+        100%{
+            transform: translateX(0);
+        }
+    }
+
+
+    i.chevronDroitBoutonsDroits{
+        transition:0.5s ease-in-out transform;
+    }
+
+    Button:hover{
+        i.chevronDroitBoutonsDroits{
+            animation: goLeftAndRight 0.5s infinite;
+            transition:0.5s ease-in-out transform;
+        }
+    }
+
 
     #textAndButtons{
         display:flex;
