@@ -418,9 +418,9 @@
     "main_hard_skills":[
       {
           "Développement Logiciel": [
-              {"Développement Web (JS, Python, PHP)": "80%"},
-              {"Développement de logiciels et de jeux (C#, Python)": "70%"},
-              {"Gestion des Données (SQL, Python)": "80%"},
+              {"Développement Web": "80%"},
+              {"Développement de logiciels et de jeux": "70%"},
+              {"Gestion des Données": "80%"},
               {"Réseaux": "40%"}
           ]
       },
