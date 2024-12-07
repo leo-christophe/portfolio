@@ -3,6 +3,8 @@ import HomeContact from '../components/Home/HomeContact.vue';
 import HomeSkills from '../components/Home/HomeSkills.vue';
 import HomeStart from '../components/Home/HomeStart.vue';
 import HomeInterests from '../components/Home/HomeInterests.vue';
+import { onMounted, ref } from 'vue';
+
 </script>
 
 <template>
@@ -26,6 +28,22 @@ import HomeInterests from '../components/Home/HomeInterests.vue';
   transition: background-color 2s ease-in-out; /* Ensure each section has smooth transition */
 }
 
+.star {
+  transition: opacity 2s ease-in-out; /* Ensure smooth transition */
+  border-radius:99999px;
+  z-index:-1;
+  filter:blur(100px);
+  animation: star 5s linear infinite;
+}
+
+@keyframes star {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
 
 #skills {
   z-index: 3;

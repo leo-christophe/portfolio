@@ -33,26 +33,42 @@ function switchPageLang() {
 <template>
   <nav>
     <span id="navContent">
-        <RouterLink v-for="(item, index) in items" :key="index" class="menuItem" :to="item.route">
-            <span :ref="'menu_'+index" class="menuItemLink">
-              <i :class="item.icon" style="font-size: var(--IconSize)"></i> 
-              <div style="font-size: var(--HeaderSize)">{{ item.label }}</div>
-            </span>
-        </RouterLink>
-
-        <div id="buttonTranslateContainer" class="buttonTranslateContainer" >
-          <button id="buttonTranslate" :title="$t('message.translateHeaderDesc')" @click="switchPageLang()">
-            <i id="buttonTranslateIcon" class="pi pi-language" style="font-size: var(--IconSize)"></i>
-          </button>
-        </div>
+      <span id="headerTitle">
+        <a href="/" id="headerHomeLink">
+          <img src="/images/app_identity/icon.webp" alt="Logo" title="Léo Christophe Logo" id="headerLogo">
+          <p>Léo Christophe</p>
+        </a>
       </span>
+      <RouterLink v-for="(item, index) in items" :key="index" class="menuItem" :to="item.route">
+          <span :ref="'menu_'+index" class="menuItemLink">
+            <i :class="item.icon" style="font-size: var(--IconSize)"></i> 
+            <div style="font-size: var(--HeaderSize)">{{ item.label }}</div>
+          </span>
+      </RouterLink>
+
+      <div id="buttonTranslateContainer" class="buttonTranslateContainer" >
+        <button id="buttonTranslate" :title="$t('message.translateHeaderDesc')" @click="switchPageLang()">
+          <i id="buttonTranslateIcon" class="pi pi-language" style="font-size: var(--IconSize)"></i>
+        </button>
+      </div>
+    </span>
   </nav>
 
  
 </template>
 
 <style scoped>
+  @media screen and (max-width: 1318px){
+    span#headerTitle{
+      visibility:hidden;
+    }
+  }
+
   @media screen and (max-width: 860px){
+    nav span#navContent{
+      justify-content: left !important;
+    }
+
     .menuItem{
       padding: 1rem 0rem 0rem 0rem;
 
@@ -93,15 +109,13 @@ function switchPageLang() {
     }
 
     button#buttonTranslate{
+      
       height:100%;
       display:flex;
       align-items:center;
       justify-content:center;
     }
-
   } 
-
-  
 
   .menuItemLink{
     display:flex;
@@ -123,6 +137,8 @@ function switchPageLang() {
   }
 
   .buttonTranslateContainer{
+    position:absolute;
+
     width:min-content !important;
     display:flex;
     align-items:center;
@@ -130,8 +146,8 @@ function switchPageLang() {
     justify-content: center;
     padding:0;
     margin:0;
-    right:0;
-    top:0;
+    right:2vw;
+    height:100%;
     z-index: 100;
     color:white;
 
@@ -142,7 +158,7 @@ function switchPageLang() {
 
     i{
       height:100%;
-      padding-left:20px;
+      margin-left:20px;
       transition: 0.3s ease-out all;
     }
 
@@ -155,8 +171,16 @@ function switchPageLang() {
 
   }
 
+  #buttonTranslate:active{
+    border:0px transparent !important;
+  }
+
   #buttonTranslate{
+    width:fit-content;
     cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
   }
 
   .rlR{
@@ -206,5 +230,32 @@ function switchPageLang() {
   i#buttonTranslateIcon{
       color:white !important;
     
+  }
+
+  a#headerHomeLink{
+    display:flex;
+    flex-direction: row;
+    font:inherit;
+  }
+
+  span#headerTitle{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+    padding-left:10px;
+    font-size: var(--HeaderSize);
+    color: white;
+    font-weight: bold;
+    font-size:1.5em !important;
+    position: absolute;
+    left:0;
+  }
+
+  img#headerLogo{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    border-radius:50%;
   }
 </style>

@@ -70,7 +70,7 @@
     <span id="hardSkillsContainer">
       <div id="hardSkillsDescription">
         <h2 id="competencesTitre" class="typeCompetenceTitre">{{ $t('message.skillsTitle') }}</h2>
-        <p class="skillSectionDescription">{{ $t('message.hardskillsDescription') }}</p>
+        <p class="skillSectionDescription">{{ $t('message.hardskillsDescription') }} <a  href="/skills">{{ $t('message.learnmore') }}</a></p>
         <img class="banniereSkills" 
               src="/images/home/hardskills_banniere.webp"
               :alt=" $t('message.skillsTitle') "

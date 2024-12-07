@@ -55,7 +55,7 @@ onMounted(() => {
   icon.value = '/images/app_identity/icon.jpg';
 
   // Gestion de la langue
-  const lang = traductionSetup();
+  traductionSetup();
 
   // Gestion du zoom sur mobile
   if (isMobile()) {

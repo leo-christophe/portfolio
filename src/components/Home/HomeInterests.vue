@@ -48,6 +48,7 @@ onMounted(() => {
               icon.style.visibility = 'hidden';
             textContainer.querySelector('div').style.visibility = 'hidden';
             
+            icon.style.cursor = 'none';
             textContainer.style.backgroundImage = `url(${imgList[imgIndex]})`;
             textContainer.style.filter = 'blur(0.5px)';
             textContainer.style.backgroundSize = 'cover';
@@ -73,6 +74,7 @@ onMounted(() => {
         textContainer.style.backgroundImage = '';
         textContainer.querySelector('div').style.visibility = 'visible';
         icon.style.visibility = 'visible';
+        icon.style.cursor = 'pointer';
         textContainer.style.filter = 'blur(0px)';
       });
     });

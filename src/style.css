@@ -33,7 +33,7 @@
   --IconSize: 1.5rem;
   --HeaderSize: 2.5rem;
 
-  --p-tooltip-padding: 5em; /* Ajuste la valeur ici */
+  --p-tooltip-padding: 5em !important; /* Ajuste la valeur ici */
   --p-focus-ring-color:black !important;
   --p-dialog-background: #333 !important;  /* Override the design token */
   --p-dialog-border-color: #000 !important; /* Override border color design token */
@@ -181,6 +181,7 @@ Button#blackVariant, .blackVariant{
 Button#blackVariant:hover , .blackVariant:hover{
   background-color:black;
   transition: 0.25s ease-in-out all;
+  filter:drop-shadow(0 0 2px white);
   border:1px solid white;
   color:white;
 }
@@ -286,6 +287,12 @@ button[autofocus] {
 .p-checkbox.p-highlight .p-checkbox-box {
   color:var(--secondColor) !important;
 }
+
+/*? Tooltip */
+.p-tooltip div.p-tooltip-text{
+  padding:0.4em ;
+}
+
 
 /*? Confirm */
 div.p-dialog#confirmDialogMainComponent .p-dialog-footer{

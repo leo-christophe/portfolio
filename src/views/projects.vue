@@ -8,6 +8,7 @@ import { useI18n } from 'vue-i18n'
 import { findClosestCompetence } from '../utils/levenshtein'
 import { saveFiltersState, restoreFiltersState, getEarliestDate, getLatestDate, applyFilterStateClasses } from '../utils/project_list'
 import { changeLibLangs } from '../utils/traduction'
+
 import { onBeforeMount } from 'vue'
 
 // Initialisation des données
@@ -35,6 +36,9 @@ onBeforeMount(() => {
 })
 
 onMounted(() => {
+
+    
+
     restoreFiltersState(Compvalue, startDate, endDate, checkType)
     if (checkType.value.length === 0) checkType.value = ['University', 'Personal']
 
@@ -184,10 +188,14 @@ onMounted(() => {
   const minStartDate = computed(() => {
     return new Date(startDate.value)
   })
+
+
+  
 </script>
 
 
 <template>
+  
   <div>
     <h1>{{$t('message.projectsTitle')}}</h1>
     <span id="sortFilterContainer">

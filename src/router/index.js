@@ -113,27 +113,28 @@ const router = createRouter({
 
 // Définition des items du menu
 const menuItems = {
-    Accueil: "1",
-    Formations: "2",
-    Projets: "3",
-    Portfolio: "3",
-    Marsinvaders: "3",
-    Skillupnow: "3",
-    Amphibiens: "3",
-    ChrisConverter: "3",
-    Matinfo: "3",
-    BMW: "3",
-    project_video: '3',
-    'Mes données': "0",
+    Accueil: "2",
+    Formations: "3",
+    Projets: "4",
+    Portfolio: "4",
+    Marsinvaders: "4",
+    Skillupnow: "4",
+    Amphibiens: "4",
+    ChrisConverter: "4",
+    Matinfo: "4",
+    BMW: "4",
+    project_video: '4',
+    'Mes données': "4",
     'Confidentialité': "0",
-    Contact: "4",
-    Competences: "5"
+    Contact: "5",
+    Competences: "0"
   };
 
 // Mis à jour du style du menu
 function updateMenuStyle(menuItem, borderBottom, color) {
-    $('nav span a:nth-child(' + menuItem + ')').css('border-bottom', borderBottom);
-    $('nav span a:nth-child(' + menuItem + ') span').css('color', color);
+    console.log(menuItem)
+    document.querySelector(`#navContent a:nth-child(${menuItem})`).style.borderBottom = borderBottom;
+    document.querySelector(`#navContent a:nth-child(${menuItem})`).style.color = color;
 }
 
 router.beforeResolve((to, from, next) => {
@@ -154,7 +155,7 @@ router.beforeResolve((to, from, next) => {
 // Avant chaque changement de route
 router.beforeEach((to, from, next) => {
     // Si menuItems est falsy (null ou false), 1 est utilisé par défaut
-    const menuItem = menuItems[from.name] || "1";
+    const menuItem = menuItems[from.name] || menuItems['Accueil'];
     updateMenuStyle(menuItem, '2px', COULEUR_MENU_BASIC);
     next();
 });
@@ -163,7 +164,7 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to) => {
     const lang = localStorage.getItem('lang');
     updateUrlLang(lang);
-    const menuItem = menuItems[to.name] || "1";
+    const menuItem = menuItems[to.name] || menuItems['Accueil'];
     updateMenuStyle(menuItem, '2px solid ' + COULEUR_MENU_SELECTIONNE, COULEUR_MENU_SELECTIONNE);
 
     title.value = i18n.global.t('message.'+to.name);

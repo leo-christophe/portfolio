@@ -19,7 +19,8 @@
             "departement": "74",
             "obtention": "Obtenu avec mention Très Bien",
             "annees": "2019-2022",
-            "image": "/images/career/lyceecharles.webp"
+            "image": "/images/career/lyceecharles.webp",
+            "siteFormation": "https://www.lycee-charles-poncet.fr/"
           },
           {
             "id": "brevet",
@@ -29,7 +30,9 @@
             "departement": "74",
             "obtention": "Obtenu avec mention Très Bien",
             "annees": "2015-2019",
-            "image": "/images/career/collegemarignier.webp"
+            "image": "/images/career/collegemarignier.webp",
+            "siteFormation": "https://camilleclaudel-marignier.ent.auvergnerhonealpes.fr/"
+
           }
     ],
     "experiences": [
@@ -418,15 +421,15 @@
     "main_hard_skills":[
       {
           "Développement Logiciel": [
-              {"Développement Web": "80%"},
+              {"Développement Web": "90%"},
               {"Développement de logiciels et de jeux": "70%"},
               {"Gestion des Données": "80%"},
-              {"Réseaux": "40%"}
+              {"Réseaux": "50%"}
           ]
       },
       {
           "Autre": [
-              {"Langue Anglaise (~C1)": "80%"},
+              {"Langue Anglaise (~C1)": "90%"},
               {"Langue Italienne (~B1)": "60%"},
               {"Montage Vidéo": "70%"},
               {"Retouche Photo": "60%"}

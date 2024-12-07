@@ -19,7 +19,8 @@
         "departement": "74",
         "obtention": "Graduated with High Honors",
         "annees": "2019-2022",
-        "image": "/images/career/lyceecharles.webp"
+        "image": "/images/career/lyceecharles.webp",
+        "siteFormation": "https://www.lycee-charles-poncet.fr/"
       },
       {
         "id": "brevet",
@@ -29,7 +30,8 @@
         "departement": "74",
         "obtention": "Graduated with High Honors",
         "annees": "2015-2019",
-        "image": "/images/career/collegemarignier.webp"
+        "image": "/images/career/collegemarignier.webp",
+        "siteFormation": "https://camilleclaudel-marignier.ent.auvergnerhonealpes.fr/"
       }
     ],
     "experiences": [
@@ -419,10 +421,10 @@
     "main_hard_skills": [
         {
             "Software Development": [
-                {"Web Development (JS, Python, PHP)": "80%"},
+                {"Web Development (JS, Python, PHP)": "95%"},
                 {"Software and Game Development (C#, Python)": "70%"},
-                {"Data Management (SQL, Python)": "80%"},
-                {"Networks": "40%"}
+                {"Data Management (SQL, Python)": "85%"},
+                {"Networks": "65%"}
             ]
         },
         {
