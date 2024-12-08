@@ -92,21 +92,33 @@ onMounted(() => {
   <div class="paragraphe" id="interets" style="display:flex;">
     <span id="conteneurInterets">
       <div class="textContainer">
-        <img class="hobbyIcon" id="torii-gate-icon" src="/images/icons/manga.svg" />
+        <img class="hobbyIcon" 
+              id="torii-gate-icon" 
+              src="/images/icons/manga.svg"
+              alt="Torii Gate Icon"
+              :title="$t('message.animes')" />
         <div>
           <h3>{{ $t('message.animes') }}</h3>
           {{ $t('message.animesDescription') }}
         </div>
       </div>
       <div class="textContainer">
-        <img class="hobbyIcon" id="game-controller-icon" src="/images/icons/game-controller.svg" />
+        <img class="hobbyIcon" 
+              id="game-controller-icon" 
+              src="/images/icons/game-controller.svg"
+              alt="Videogames Icon"
+              :title="$t('message.videogames')" />
         <div>
           <h3>{{ $t('message.videogames') }}</h3>
           {{ $t('message.videogamesDescription') }}
         </div>
       </div>
       <div class="textContainer">
-        <img class="hobbyIcon" id="cooking-pot-icon" src="/images/icons/cooking-equipment.svg" />
+        <img class="hobbyIcon" 
+              id="cooking-pot-icon" 
+              src="/images/icons/cooking-equipment.svg"
+              alt="Cooking icon"
+              :title="$t('message.cooking')" />
         <div>
           <h3>{{ $t('message.cooking') }}</h3>
           {{ $t('message.cookingDescription') }}
