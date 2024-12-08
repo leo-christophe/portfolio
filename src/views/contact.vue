@@ -180,9 +180,6 @@ function openGoogleMaps() {
 <template>
   <span>
   <div id="content">
-    <div id="backgroundImg">
-        <img src="/images/contact/phoneContact.webp"></img>
-    </div>
     <!-- Contact form -->
     <h1 id="contentText">{{ $t('message.subtitle') }}</h1>
     <br>
@@ -393,10 +390,6 @@ function openGoogleMaps() {
   min-width:287px;
 }
   @media screen and (max-width: 860px) {
-    div#backgroundImg img {
-      display: none;
-    }
-
     div#formAIcons{
       display:flex;
       flex-direction: column-reverse;
@@ -603,30 +596,4 @@ function openGoogleMaps() {
     justify-content: center;
     align-items: center;
   }
-
-  div#backgroundImg{
-    position: absolute;
-    top: 100px;
-
-    -webkit-filter: drop-shadow(5px 5px 5px #000000);
-    filter: drop-shadow(5px 5px 5px #000000);
-    filter:blur(3px);
-    filter:grayscale(100%);
-    filter:contrast(120%);
-    filter:brightness(50%);
-    transform:scaleX(-1);
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-  }
-
-  div#backgroundImg img{
-
-    filter:contrast(120%);
-    filter:drop-shadow(50px 20px 10px #000000);
-
-  }
-
-
 </style>
