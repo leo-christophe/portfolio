@@ -95,8 +95,7 @@ onMounted(() => {
         <img class="hobbyIcon" 
               id="torii-gate-icon" 
               src="/images/icons/manga.svg"
-              alt="Torii Gate Icon"
-              :title="$t('message.animes')" />
+              alt="Torii Gate Icon"/>
         <div>
           <h3>{{ $t('message.animes') }}</h3>
           {{ $t('message.animesDescription') }}
@@ -106,8 +105,7 @@ onMounted(() => {
         <img class="hobbyIcon" 
               id="game-controller-icon" 
               src="/images/icons/game-controller.svg"
-              alt="Videogames Icon"
-              :title="$t('message.videogames')" />
+              alt="Videogames Icon"/>
         <div>
           <h3>{{ $t('message.videogames') }}</h3>
           {{ $t('message.videogamesDescription') }}
@@ -117,8 +115,7 @@ onMounted(() => {
         <img class="hobbyIcon" 
               id="cooking-pot-icon" 
               src="/images/icons/cooking-equipment.svg"
-              alt="Cooking icon"
-              :title="$t('message.cooking')" />
+              alt="Cooking icon"/>
         <div>
           <h3>{{ $t('message.cooking') }}</h3>
           {{ $t('message.cookingDescription') }}
