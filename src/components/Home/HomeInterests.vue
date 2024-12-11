@@ -20,20 +20,28 @@ const cookingImg = ref([
   '/images/home/tiramisu.webp',
 ]);
 
-onMounted(() => {
-  const hobbyIcons = document.querySelectorAll('img.hobbyIcon');
+const hobbyIcons = ref(null);
 
-  if (hobbyIcons.length > 0) {
-    hobbyIcons.forEach((icon) => {
+onMounted(() => {
+  if (!hobbyIcons.value) {
+    console.error('Les icones ne sont pas liés.');
+    return;
+  }
+
+  // Boucle pour tous les enfants (icones)
+  Array.from(hobbyIcons.value.children).forEach((child) => {
+    const icon = child.querySelector('.hobbyIcon');
+    if (!icon) return;
+
       let hoverTimeout;
       let intervalId;
-      let imgIndex = 0; // Index pour gérer le cycle des images
+      let imgIndex = 0;
+      let repetitions = 3;
+      let iconCount = hobbyIcons.value.children.length;
 
-      icon.addEventListener('mouseover', () => {
+      icon.addEventListener('mouseover', (event) => {
         const textContainer = icon.closest('.textContainer');
         if (!textContainer) return;
-
-        
 
         // Lance le délai de 2 secondes pour changer l'image
         intervalId = setInterval(() => {
@@ -60,7 +68,8 @@ onMounted(() => {
         // Supprime les images après 6 secondes
         hoverTimeout = setTimeout(() => {
           clearInterval(intervalId);
-        }, 6000);
+          event.target.dispatchEvent(new Event('mouseout'));
+        }, 2000*iconCount*repetitions);
       });
 
       icon.addEventListener('mouseout', () => {
@@ -78,9 +87,6 @@ onMounted(() => {
         textContainer.style.filter = 'blur(0px)';
       });
     });
-  } else {
-    console.error('No hobbyIcon elements found.');
-  }
 });
 </script>
 
@@ -89,8 +95,8 @@ onMounted(() => {
   <h1 id="titreAProposI">{{ $t('message.interestsTitle') }}</h1>
   <h3 id="paragrapheAProposI">{{ $t('message.interestsDescription') }}</h3>
 
-  <div class="paragraphe" id="interets" style="display:flex;">
-    <span id="conteneurInterets">
+  <div class="paragraphe" id="interets">
+    <span id="conteneurInterets" ref="hobbyIcons">
       <div class="textContainer">
         <img class="hobbyIcon" 
               id="torii-gate-icon" 
@@ -128,15 +134,16 @@ onMounted(() => {
 
 
 <style scoped>
-    .textContainer{
-        transition:1s ease all;
-    }
-
+    /*
+    * /////////////////
+    *   STYLE TELEPHONE
+    * /////////////////
+    */
     @media screen and (max-width: 860px){
         div#interetsSection{
-                justify-content: left;
-                margin:120vh 0 0 0;
-            }
+            justify-content: left;
+            margin:120vh 0 0 0;
+        }
 
             
         div#interets{
@@ -154,14 +161,14 @@ onMounted(() => {
         div#interets.paragraphe{
             margin:0;
             padding:0;
-            
         }
 
         span#conteneurInterets {
             margin-top:30px;
             gap:20px;
+        }
 
-            div.textContainer{
+        span#conteneurInterets div.textContainer{
             display:block;
             max-width:80vw;
             min-width:50%;
@@ -172,23 +179,22 @@ onMounted(() => {
             justify-content:center;
             margin: 0 auto;
             text-align: center;
+        }
 
-            img{
-                width:100px;
-                }
-            }
+        span#conteneurInterets div.textContainer img{
+            width:100px;
         }
     }
 
-    h1#titreAProposI, h3#paragrapheAProposI{
-        margin-left:10vw;
-    }
-
-    
+    /*
+    * /////////////////
+    *   STYLE GENERAL
+    * /////////////////
+    */
     #conteneurInterets img {
-        width: 10em; /* Taille des icônes */
-        margin-bottom: 15px; /* Space between icon and text */
-        align-self: center; /* Align icons to the top */
+        width: 10em;
+        margin-bottom: 15px;
+        align-self: center;
     }
 
     #interetsSection{
@@ -208,30 +214,26 @@ onMounted(() => {
         min-width:min-content;
     }
 
-    
-
     #interets {
         display: flex;
         flex-wrap:wrap;
         flex-direction: row;
-        justify-content: center; /* Center the child elements horizontally */
+        justify-content: center;
         width:100%;
-        
-        
     }
 
     #conteneurInterets {
         display: flex;
         flex-direction: row;
         justify-content:center;
-        gap: 5%; /* Space between individual interest items */
+        gap: 5%;
         width: 100%;
     }
 
     #conteneurInterets div.textContainer {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Align content to the top */
+        justify-content: flex-start;
         align-items: center;
         margin: 20px 0;
         border: 2px solid var(--secondColor);
@@ -239,15 +241,14 @@ onMounted(() => {
         padding: 20px;
         max-width: 20%;
         min-width: 15rem;
-        min-height: 350px; /* Ensure a minimum height for consistent size */
+        min-height: 350px;
         text-align: center;
+        transition:1s ease all;
     }
-
-
 
     #conteneurInterets div div {
         font-size: 0.8rem;
-        text-align: justify; /* Align text inside the description */
+        text-align: justify;
     }
 
     #conteneurInterets h3 {
@@ -256,18 +257,30 @@ onMounted(() => {
         font-size:2em !important;
     }
 
-    #titreAProposI, #paragrapheAProposI{
+    h1#titreAProposI, h3#paragrapheAProposI{
         margin-left:30px;
     }
     
     img.hobbyIcon {
-        width: 10em; /* Taille des icônes */
-        margin-bottom: 15px; /* Space between icon and text */
+        width: 10em;
+        margin-bottom: 15px;
         border-radius: 30px;
         background-color: transparent;
         transition:0.5s ease all;
     }
 
+    img.hobbyIcon:hover{
+        animation:iconHoverAnimation 0.5s infinite;
+        transition:0.5s ease all;
+        cursor:pointer;
+    }
+
+    #torii-gate-icon{
+        object-fit:cover !important;
+        width:10em !important;
+    }
+
+    /** Détails d'Hobbies */
     @keyframes iconHoverAnimation{
         0%{
             transform: scale(1);
@@ -289,16 +302,4 @@ onMounted(() => {
             transform:rotateZ(2deg);
         }
     }
-
-    img.hobbyIcon:hover{
-        animation:iconHoverAnimation 0.5s infinite;
-        transition:0.5s ease all;
-        cursor:pointer;
-    }
-
-    #torii-gate-icon{
-        object-fit:cover !important;
-        width:10em !important;
-    }
-
 </style>

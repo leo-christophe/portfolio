@@ -84,8 +84,6 @@
 
 
 <style scoped>
-
-
     .footerURLLink:hover{
         text-decoration:underline;
     }
@@ -108,8 +106,8 @@
         display: inline-flex;
         position:relative;
         float: right;
-        gap:20px;
-        margin-bottom:5px;
+        gap:30px;
+        margin:0 50px 5px 0;
     }
 
     img.imgLink {
@@ -119,11 +117,14 @@
 
     i.imgLink{
         font-size:2.5em;
-        color:var(--secondColor)
+        color:var(--secondColor);
+        transition:0.5s ease;
     }
 
     i.imgLink:hover{
         transform:scale(1.1);
+        filter: drop-shadow(0 0 1rem var(--secondColor));
+        transition:0.5s ease;
     }
 
     footer {

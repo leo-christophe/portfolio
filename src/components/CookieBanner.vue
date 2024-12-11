@@ -13,6 +13,11 @@
     } 
   });
 
+  /**
+   *  @function rejectCookies
+   *  @description Rejette les cookies et cache le bandeau
+   *  @returns {void}
+   */
   function rejectCookies() {
     cookiesAccepted.value = true;
     localStorage.setItem('cookieChoice', '1');

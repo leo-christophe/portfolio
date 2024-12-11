@@ -200,6 +200,7 @@ button[autofocus] {
 .p-toast{
   margin:-5px 2px 20px 0px;
   width: 25%;
+  z-index:9001 !important;
 }
 
 .p-toast-message-icon{

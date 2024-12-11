@@ -80,9 +80,10 @@
         display:flex;
         justify-content:left;
         align-items:center;
-        img{
-            margin-right:50px;
-        }
+    }
+
+    #posteDescriptionRapide img{
+        margin-right:50px;
     }
 
     #ficheMetierDetaillee{

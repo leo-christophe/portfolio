@@ -132,9 +132,11 @@ const menuItems = {
 
 // Mis à jour du style du menu
 function updateMenuStyle(menuItem, borderBottom, color) {
-    console.log(menuItem)
-    document.querySelector(`#navContent a:nth-child(${menuItem})`).style.borderBottom = borderBottom;
-    document.querySelector(`#navContent a:nth-child(${menuItem})`).style.color = color;
+    // Vérifier que menuItem est un nombre entre 1 et 5
+    if (menuItem > 0 && menuItem < 6) {
+        document.querySelector(`#navContent a:nth-child(${menuItem})`).style.borderBottom = borderBottom;
+        document.querySelector(`#navContent a:nth-child(${menuItem})`).style.color = color;
+    }
 }
 
 router.beforeResolve((to, from, next) => {

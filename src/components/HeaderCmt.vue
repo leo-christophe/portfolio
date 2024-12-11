@@ -3,7 +3,7 @@ import { ref, onMounted } from "vue";
 
 import { RouterLink  } from 'vue-router';
 import { useI18n } from 'vue-i18n'; // Import Vue I18n
-import { changeLang } from '../utils/traduction.js';
+import { changeLang, getLangFromUrl } from '../utils/traduction.js';
 
 const { t, locale } = useI18n(); // Accès à la fonction de traduction
 
@@ -17,7 +17,7 @@ const items = ref([
 
 onMounted(() => {
   // Update the language of the page
-   changeLang(localStorage.getItem('lang') || 'en');
+   changeLang(getLangFromUrl() || 'en');
 });
 
 function switchPageLang() {

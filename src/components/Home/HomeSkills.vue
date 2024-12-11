@@ -3,7 +3,7 @@
 
   // Accéder aux données globales
   const instance = getCurrentInstance();
-  const data = instance.appContext.config.globalProperties.$JSONData; // Accéder aux données globales
+  const data = instance.appContext.config.globalProperties.$JSONData;
 
   const main_hard_skills = ref(data.main_hard_skills);
   const main_soft_skills = ref(data.main_soft_skills);
@@ -129,248 +129,257 @@
 </template>
 
 <style scoped>
+  /*
+  * /////////////////
+  *   STYLE MOBILE
+  * /////////////////
+  */
+  @media (max-width: 1278px) {
+    span.skill-name{
+      max-width:75%;
+    }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 1278px) {
-  span.skill-name{
-    max-width:75%;
+    p.skillSectionDescription, div#hardSkillsDescription , div#softSkillsDescription  {
+      width:auto !important;
+      display:block !important;
+      max-width:100% !important;
+      min-width:auto !important;
+    }
+
+    div.hard-skills{
+      flex-direction: row;
+    }
+
+
+    span#softSkillsContainer, span#hardSkillsContainer {
+      flex-direction: column; /* Stack containers vertically */
+      min-width: auto !important;
+      width:100vw;
+    }
+
+    .hard-skills {
+      flex-direction: column; /* Stack skills vertically */
+    }
+
+    div.references-row {
+      flex-direction: row;
+      justify-content: space-between;
+      gap:10%;
+      min-width:100% !important;
+    }
+
+    div.reference{
+      width:40%;
+      min-width:40%;
+      max-width:50%;
+    }
+
+    .skill-level {
+      width: 100%; /* Full width for skill levels */
+    }
+
+    div.soft-skills{
+      max-width:100% !important;
+    }
   }
 
-  p.skillSectionDescription, div#hardSkillsDescription , div#softSkillsDescription  {
-    width:auto !important;
-    display:block !important;
-    max-width:100% !important;
-    min-width:auto !important;
+  /*
+  * /////////////////
+  *   STYLE TABLETTE
+  * /////////////////
+  */
+  @media (max-width:1470px) and (min-width: 860px) {
+    span#softSkillsContainer, span#hardSkillsContainer {
+      min-width:1200px;
+    }
   }
 
-  div.hard-skills{
+  /*
+  * /////////////////
+  *   STYLE GENERAL
+  * /////////////////
+  */
+
+  #skill-percentage-0{
+    background-color: var(--skillDevColor);
+  }
+
+  #skill-percentage-1{
+    background-color: var(--skillOtherColor);
+  }
+
+  a[href^="mailto:"] {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .banniereSkills{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+    margin-top:20px;
+    border-radius:5px;
+  }
+
+  #softSkillsDescription > img{
+    height:175px;
+  }
+
+  .skill-name{
+    display:flex;
     flex-direction: row;
+    align-items: center;
+    margin-top:20px;
+    padding:5px 0 5px 0;
   }
 
+  .skill-name i{
+    margin-right:5px;
+  }
 
-  span#softSkillsContainer, span#hardSkillsContainer {
-    flex-direction: column; /* Stack containers vertically */
-    min-width: auto !important;
-    width:100vw;
+  .hardSkillName{
+    margin-bottom:10px;
+  }
+
+  span#contactRef{
+    width:100%;
+    margin-top:10px;
+    display:block;
+  }
+
+  .skills-display {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; 
+    gap:100px;
+  }
+
+  #hardSkillsContainer > div.hard-skills > div:nth-child(2){
+    margin-left: 20px;
+  }
+
+  #softSkillsContainer, #hardSkillsContainer {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(26, 26, 26);
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    width:80vw;
+    min-width: 850px;
+    max-width: 85%;
+    height: fit-content;
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.4);
+  }
+
+  #softSkillsContainer {
+    flex-direction: row-reverse;
   }
 
   .hard-skills {
-    flex-direction: column; /* Stack skills vertically */
+    display: flex;
+    min-width: 500px;
   }
 
-  div.references-row {
-    flex-direction: row;
-    justify-content: space-between;
-    gap:10%;
-    min-width:100% !important;
+  #hardSkillsContainer.show, #softSkillsContainer.show {
+    transform: translateY(0);
+    opacity: 1;
   }
 
-  div.reference{
-    width:40%;
-    min-width:40%;
-    max-width:50%;
+  /* Descriptions des sections */
+  div#softSkillsDescription, div#hardSkillsDescription {
+    max-width: 500px;
+    width:45vw;
+    min-width:250px;
+  }
+
+  #referencesContainer {
+    margin-top: 20px;
+    min-width:fit-content;
+  }
+
+  .references-title {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .references-row {
+    display: flex;
+  }
+
+  .reference {
+    margin-right: 20px;
+    flex: 1;
+    min-width: fit-content;
+    max-width: 250px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .skills-display {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding-top: 100px;
+  }
+
+  /* Styles pour les barres de compétences */
+  .skill-bar {
+    margin-bottom: 10px;
+  }
+
+  .skill-name {
+    font-weight: bold;
   }
 
   .skill-level {
-    width: 100%; /* Full width for skill levels */
+    background: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+    width: 200px;
   }
 
-  div.soft-skills{
-    max-width:100% !important;
+  .skill-percentage {
+    background: #3498db;
+    height: 10px;
+    border-radius: 5px 0 0 5px;
+    width: 0%;
+    transition: width 1.5s ease-in-out;
   }
-}
 
-@media (max-width:1470px) and (min-width: 860px) {
-  span#softSkillsContainer, span#hardSkillsContainer {
-    min-width:1200px;
+  /* Styles pour les soft-skills */
+  .soft-skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    max-width: 50%;
   }
-}
 
-#skill-percentage-0{
-  background-color: var(--skillDevColor);
-}
-
-#skill-percentage-1{
-  background-color: var(--skillOtherColor);
-}
-
-a[href^="mailto:"] {
-  color: inherit;
-  text-decoration: underline;
-}
-
-.banniereSkills{
-  width:100%;
-  height:120px;
-  object-fit:cover;
-  margin-top:20px;
-  border-radius:5px;
-}
-
-#softSkillsDescription > img{
-  height:175px;
-}
-
-.skill-name{
-  display:flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top:20px;
-  padding:5px 0 5px 0;
-  
-
-  i{
-    margin-right:5px;
+  .cloud {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-}
 
-.hardSkillName{
-  margin-bottom:10px;
-}
+  .soft-skill {
+    background: #3498db;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin: 5px;
+    font-size: 14px;
+    transition: transform 0.3s;
+  }
 
-span#contactRef{
-  width:100%;
-  margin-top:10px;
-  display:block;
-}
-
-.skills-display {
-  display: flex;
-  justify-content: center; /* Center align the containers */
-  align-items: flex-start; /* Align to the top */
-  flex-wrap: wrap; 
-  
-  gap:100px; /* Space between the containers */
-}
-
-#hardSkillsContainer > div.hard-skills > div:nth-child(2){
-  margin-left: 20px;
-}
-
-#softSkillsContainer, #hardSkillsContainer {
-  display: flex;
-  justify-content: space-around;
-  background-color: rgb(26, 26, 26);
-  padding: 20px; /* Add padding for better spacing */
-  border: 1px solid black;
-  border-radius: 20px;
-  width:80vw;
-  min-width: 850px; /* Adjust minimum width for mobile */
-  max-width: 85%; /* Limit maximum width */
-  height: fit-content; /* Set a fixed height for equal sizing */
-  position: relative;
-  transform: translateY(50px);
-  opacity: 0;
-  transition: all 0.6s ease-in-out;
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.4);
-}
-
-#softSkillsContainer {
-  flex-direction: row-reverse;
-}
-
-.hard-skills {
-  display: flex;
-  min-width: 500px;
-}
-
-#hardSkillsContainer.show, #softSkillsContainer.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Descriptions des sections */
-div#softSkillsDescription, div#hardSkillsDescription {
-  max-width: 500px; /* Ensure descriptions fit within the container */
-  width:45vw;
-  min-width:250px;
-}
-
-
-
-
-#referencesContainer {
-  margin-top: 20px; /* Space between soft skills and references */
-  min-width:fit-content;
-}
-
-.references-title {
-  text-align: left; /* Align title to the left */
-  margin-bottom: 10px; /* Space below title */
-}
-
-.references-row {
-  display: flex; /* Display references in a row */
-}
-
-.reference {
-  margin-right: 20px; /* Space between references */
-  flex: 1; /* Make references responsive */
-  min-width: fit-content; /* Set a minimum width for references */
-  max-width: 250px; /* Set a max width */
-  padding: 10px; /* Adjust padding for smaller boxes */
-  background-color: rgba(255, 255, 255, 0.1); /* Add a background for better visibility */
-  border-radius: 10px; /* Rounded corners for the reference box */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
-}
-
-.skills-display {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  padding-top: 100px;
-}
-
-/* Styles pour les barres de compétences */
-.skill-bar {
-  margin-bottom: 10px;
-}
-
-.skill-name {
-  font-weight: bold;
-}
-
-.skill-level {
-  background: #eee;
-  border-radius: 5px;
-  overflow: hidden;
-  height: 10px;
-  width: 200px;
-}
-
-.skill-percentage {
-  background: #3498db;
-  height: 10px;
-  border-radius: 5px 0 0 5px;
-  width: 0%; /* Initial width set to 0 */
-  transition: width 1.5s ease-in-out;
-}
-
-/* Styles pour les soft-skills */
-.soft-skills {
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  max-width: 50%;
-}
-
-.cloud {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.soft-skill {
-  background: #3498db;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 15px;
-  margin: 5px;
-  font-size: 14px;
-  transition: transform 0.3s;
-}
-
-.soft-skill:hover {
-  transform: scale(1.1);
-}
+  .soft-skill:hover {
+    transform: scale(1.1);
+  }
 </style>

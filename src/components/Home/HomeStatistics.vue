@@ -86,6 +86,10 @@ onMounted(() => {
     }
 }
 
+/*//////////////////////////////////////
+///         TABLETTE ET TEL          ///
+///        (0px - 1500px)            ///
+////////////////////////////////////////*/
 @media screen and (max-width: 1500px){
     ul#statisticsList{
         margin:0;

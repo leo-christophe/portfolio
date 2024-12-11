@@ -117,35 +117,6 @@
 </template>
 
 <style scoped>
-
-
-.learnMore{
-    display:flex;
-    flex-direction: row;
-    margin-top:20px;
-    cursor:pointer;
-    color:var(--secondColor);
-
-    i{
-        font-size:1.5em;
-        margin-right:10px;
-    }
-}
-
-.learnMore .learnMoreText{
-    font-size:1.5em;
-    text-decoration: underline;
-    
-}
-
-.custom-dialog {
-    max-height: 80vh;
-    min-width:80vw;
-    overflow: auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-
 /* Media query for mobile devices */
 @media (max-width: 860px) {
     .column{
@@ -291,6 +262,34 @@
     display:flex;
 
 }
+
+
+.learnMore{
+    display:flex;
+    flex-direction: row;
+    margin-top:20px;
+    cursor:pointer;
+    color:var(--secondColor);
+}
+
+.learnMore i{
+        font-size:1.5em;
+        margin-right:10px;
+}
+
+.learnMore .learnMoreText{
+    font-size:1.5em;
+    text-decoration: underline;
+    
+}
+
+.custom-dialog {
+    max-height: 80vh;
+    min-width:80vw;
+    overflow: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
 
 #text-ensavoirplus{
         display:flex !important;

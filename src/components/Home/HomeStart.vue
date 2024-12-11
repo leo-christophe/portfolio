@@ -161,9 +161,7 @@ const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child
                 filter:drop-shadow(0 0 0.1rem white);
                 animation:welcomeText 2s ease-in-out infinite;
             }
-
-
-
+            
             #paragrapheAPropos{
                 font-size:1.5em;
                 line-height: 1.4em;
@@ -178,14 +176,15 @@ const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child
         flex-direction:row;
         justify-content: left;
         margin-top:5vh;
+    }
 
-        button, i{
-            font-size:var(--tailleBoutonsOrdinateur) !important;
-        }
+    #CTAButtons button, #CTAButtons i{
+        transition:0.5s ease-in-out all;
+        font-size:var(--tailleBoutonsOrdinateur) !important;
+    }
 
-        .btnLink{
-            margin: 1em;
-        }
+    #CTAButtons .btnLink{
+        margin: 1em;
     }
 
     #photoContainer {
