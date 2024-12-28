@@ -52,7 +52,7 @@ onMounted(() => {
   document.body.style.overflowX = 'hidden';
 
   // Gestion des images de l'accueil / du site
-  icon.value = '/images/app_identity/icon.jpg';
+  icon.value = '/images/app_identity/icon.webp';
 
   // Gestion de la langue
   traductionSetup();
