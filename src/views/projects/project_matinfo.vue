@@ -4,6 +4,6 @@ import Matinfo from '../../components/ProjectTemplate.vue'
 
 <template>
     <div>
-        <Matinfo id="7"/>
+        <Matinfo id="5"/>
     </div>
 </template>

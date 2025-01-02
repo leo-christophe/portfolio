@@ -3,7 +3,7 @@ import BMW from '../../components/ProjectTemplate.vue'
 </script>
 
 <template>
-    <BMW id="3"/>
+    <BMW id="2"/>
 </template>
 
 <style scoped>

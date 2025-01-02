@@ -4,6 +4,6 @@ import Portfolio from '../../components/ProjectTemplate.vue'
 
 <template>
     <div>
-        <Portfolio id="4"/>
+        <Portfolio id="3"/>
     </div>
 </template>

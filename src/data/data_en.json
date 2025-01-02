@@ -36,6 +36,26 @@
     ],
     "experiences": [
       {
+        "id": "arpi",
+        "contrat": "Intern",
+        "poste": "Web Developer",
+        "entreprise": "ARPI TECHNOLOGIES",
+        "localisation": "Villaz, France",
+        "dates": ["2025-01-20", "2025-04-25"],
+        "competences": {
+          "Web Development": ["javascript", "php", "html", "css"],
+          "UI/UX & User Experience": ["ergonomics", "ui/ux"]
+        },
+        "description": "Development of a website for a company specializing in the design and manufacture of 3D components.",
+        "missions": [
+          "Development of the front end in Javascript",
+          "Development of the back end in PHP using a Python API",
+          "Creation of an algorithm to calculate the approximate price of the shopping cart with the alternatives"
+        ],
+        "website": "https://www.arpi-technology.com/",
+        "image": "/images/career/arpi.webp"
+      },
+      {
         "id": "alpha3i",
         "contrat": "Intern",
         "poste": "R&D Developer (GTA)",
@@ -60,7 +80,7 @@
         ],
         "website": "https://www.alpha-3i.com/",
         "image": "/images/career/alpha3i.webp"
-      }    
+      }   
     ],
     "projects": [
       {
@@ -103,34 +123,6 @@
         "github": "https://github.com/leoChris7/Mars-Invaders",
         "download": null,
         "route": "/projects/marsinvaders"
-      },{
-        "id": "project_chrisconverter",
-        "nom": "Chris Converter",
-        "dates": ["2024-02-22", "2024-03-15"],
-        "titre": "Creation of a WPF application to convert music into various formats (MP3, WAV, FLAC, OGG, etc.)",
-        "description": "The need is as follows: Often, when I do video editing, listen to music, or try to add sounds to a game, I face a problem: the audio file format. Some applications only accept MP3, some OGG. So, I used to look for online sites to perform a conversion. The goal of this project is to be able to convert one or more files at once directly from software.",
-        "competences": {
-          "Software Development": ["C#", "Visual Studio 2022", "FFMPEG", "WPF"],
-          "DevOps & Deployment": ["Github"],
-          "UI/UX & User Experience": ["Ergonomics"]
-        },
-        "realisations": [
-          "Creating a C# WPF application",
-          "Using the FFMPEG library for conversion",
-          "Applying best practices in terms of refactoring, naming, and code structure"
-        ],
-        "type": "Personal",
-        "images": [
-          {
-            "link": "project-chrisconverter-application.webp",
-            "description": "Screenshot of the application at startup.",
-            "type": "image"
-          }
-        ],
-        "url": null,
-        "github": "https://github.com/leo-christophe/ChrisConverter",
-        "download": null,
-        "route": "/projects/chrisconverter"
       },{
         "id": "project_sae301",
         "nom": "SkillUpNow",
@@ -299,47 +291,6 @@
         "github": null,
         "download": "/files/Rapport.pbix",
         "route": "/projects/project_sae104"
-      },
-      {
-        "id": "project_sae201",
-        "nom": "Silken Sweets",
-        "dates": ["2023-05-01", "2023-06-15"],
-        "titre": "Creation of an advertisement for an English course project targeting Italian clients",
-        "description": "Creation of a video advertisement with the goal of presenting an English course in a fun and engaging way for Italian clients. Using various video editing tools (Premiere Pro) and photo editing software (Photoshop). Applying best practices in terms of visuals, audio quality, and storytelling.",
-        "competences": {
-          "Video Editing": ["Video Editing", "Premiere Pro", "Photoshop"],
-          "Collaboration Tools": ["Trello", "Discord"],
-          "Interpersonal Skills": ["Teamwork", "Creativity"],
-          "Presentation Skills": ["Public Speaking"]
-        },
-        "realisations": [
-          "Planning the video structure",
-          "Editing the video",
-          "Creating graphics and effects",
-          "Presenting the final product"
-        ],
-        "type": "University",
-        "images": [
-          {
-            "link":"project-silkensweets.webp",
-            "description":"Logo of Silken Sweets, the fictitious English course.",
-            "type":"image"
-          },
-          {
-            "link":"project-silkensweets_poster.webp",
-            "description": "Silken Sweets advertisement poster. The cake tower is meant to represent the Leaning Tower of Pisa.",
-            "type":"image"
-          },
-          {
-            "link": "https://www.youtube.com/embed/cTXY3vAbVYY?si=3vxR0cpsp_PUxDPX",
-            "description": "Silken Sweets advertisement video",
-            "type": "video"
-          }
-        ],
-        "url": "https://www.youtube.com/embed/cTXY3vAbVYY?si=3vxR0cpsp_PUxDPX",
-        "github": null,
-        "download": null,
-        "route": "/projects/video_silkensweets"
       },{
         "id": "matinfo",
         "nom": "Matinfo",

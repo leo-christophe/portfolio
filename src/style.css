@@ -7,6 +7,14 @@
   --darkBackground-color:black;
   --secondColor: rgb(159, 229, 227);
 
+  --secondColorLight: #BAECEB;
+  --secondColorLighter: #D6F4F3;
+  --secondColorLightest: #F1FBFB;
+
+  --secondColorDark: #36C4BF;
+  --secondColorDarker: #24827F;
+  --secondColorDarkest: #124140;
+
   --home-background-color1:rgb(33, 33, 33);
   --home-background-color2:rgb(30, 30, 30);
   --home-background-color3:rgb(21, 21, 21);

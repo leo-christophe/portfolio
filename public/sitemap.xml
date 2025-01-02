@@ -1,26 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://leochristophe.vercel.app</loc>
-    <lastmod>2024-11-27</lastmod>
+    <loc>https://portfolio.leochristophe.fr</loc>
+    <lastmod>2025-01-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://leochristophe.fr/images/app_identity/icon.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://leochristophe.fr</loc>
+    <lastmod>2025-01-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://leochristophe.fr/images/app_identity/icon.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://leochristophe.vercel.app</loc>
+    <lastmod>2025-01-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://leochristophe.fr/images/app_identity/icon.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://leochristophe.vercel.app/formations</loc>
-    <lastmod>2024-11-27</lastmod>
+    <lastmod>2025-01-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
     <url>
     <loc>https://leochristophe.vercel.app/projects</loc>
-    <lastmod>2024-11-27</lastmod>
+    <lastmod>2025-01-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://leochristophe.fr/images/projects/project-matinfo.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://leochristophe.fr/images/projects/project-skillupnow-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://leochristophe.fr/images/projects/project-bmw-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://leochristophe.fr/images/projects/project-amphibien-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://leochristophe.fr/images/projects/project-marsinvaders-1.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://leochristophe.vercel.app/contact</loc>
-    <lastmod>2024-11-27</lastmod>
+    <lastmod>2025-01-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>

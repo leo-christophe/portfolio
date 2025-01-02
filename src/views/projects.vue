@@ -99,6 +99,12 @@ onMounted(() => {
       return selectedTypes.includes(type)
     })
 
+    // Filtrage des projets finits
+    projects = projects.filter(project => {
+      const isWIP = project.wip;
+      if (!isWIP) return true;
+    })
+
   // Tri selon `sortBy`
   return projects.sort((a, b) => {
     // Vérifier et initialiser la date de début

@@ -60,6 +60,7 @@ import { onMounted, ref } from 'vue';
 
 #interests{
   margin-top:10vh;
+
 }
 
 .pageSection {

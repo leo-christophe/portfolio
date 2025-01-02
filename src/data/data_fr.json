@@ -37,6 +37,26 @@
     ],
     "experiences": [
         {
+          "id": "arpi",
+          "contrat": "Stagiaire",
+          "poste": "Développeur Web",
+          "entreprise": "ARPI TECHNOLOGIES",
+          "localisation": "Villaz, France",
+          "dates": ["2025-01-20", "2025-04-25"],
+          "competences": {
+            "Développement web": ["javascript", "php", "html", "css"],
+            "UI/UX & Expérience utilisateur": ["ergonomie", "ui/ux"]
+          },
+          "description": "Développement d'un site web pour une entreprise de vente de matériel 3D",
+          "missions": [
+            "Développement du front end du site web vitrine en Javascript",
+            "Développement du back end en PHP avec une API en Python",
+            "Création d'algorithmes de calcul du prix selon les produits choisis"
+          ],
+          "website": "https://www.arpi-technology.com/",
+          "image": "/images/career/arpi.webp"
+        },
+        {
             "id": "alpha3i",
             "contrat": "Stagiaire",
             "poste": "Développeur R&D (GTA)",
@@ -105,34 +125,6 @@
             "github": "https://github.com/leoChris7/Mars-Invaders",
             "download": null,
             "route": "/projects/marsinvaders"
-          },{
-            "id": "project_chrisconverter",
-            "nom": "Chris Converter",
-            "dates": ["2024-02-22","2024-03-15"],
-            "titre": "Création d'une application WPF permettant de convertir des musiques en divers formats (MP3, WAV, FLAC, OGG, etc.)",
-            "description": "Le besoin est le suivant: Souvent, quand j'ai l'habitude de faire du montage vidéo, quand j'écoute de la musique ou quand j'essaye de rajouter des sons à un jeu, je me retrouve face à un problème: le format du fichier audio. Certaines applications n'acceptent que MP3, certaines OGG. Ainsi, j'avais l'habitude de chercher des sites en lignes pour réaliser une conversion. Le but de ce projet est donc de pouvoir convertir un ou plusieurs fichiers à la fois directement depuis un logiciel.",
-            "competences": {
-              "Développement logiciel": ["C#", "Visual Studio 2022", "FFMPEG", "WPF"],
-              "DevOps & Déploiement": ["Github"],
-              "UI/UX & Expérience utilisateur": ["Ergonomie"]
-            },
-            "realisations": [
-              "Création d'une application C# WPF",
-              "Utilisation de la librairie FFMPEG pour la conversion",
-              "Application des bonnes pratiques en terme de factorisation, de nommage, de structure du code"
-            ],
-            "type": "Personnel",
-            "images": [
-              {
-                "link": "project-chrisconverter-application.webp",
-                "description": "Capture d'écran de l'application au démarrage.",
-                "type": "image"
-              }
-            ],
-            "url": null,
-            "github": "https://github.com/leo-christophe/ChrisConverter",
-            "download": null,
-            "route": "/projects/chrisconverter"
           },{
             "id": "project_sae301",
             "nom": "SkillUpNow",
@@ -305,45 +297,6 @@
             "download": "/files/Rapport.pbix",
             "route": "/projects/project_sae104"
           },{
-            "id": "video_silken_sweets",
-            "nom": "Silken Sweets",
-            "dates": ["01-01-2024","02-01-2024"],
-            "titre": "Publicité pour une marque de pâtisserie italienne",
-            "description": "Création d'une pub visant à plaire à une clientèle italienne dans le cadre d'un cours d'Anglais. En équipe de 4 personnes, le but était de trouver une culture, un produit qui serait adapté et de réaliser une publicité pour promouvoir ce produit dans le style du pays travaillé.",
-            "competences": {
-              "Vidéo-montage": ["Montage vidéo (Premiere Pro)", "Montage Photo"],
-              "Outils de collaboration": ["Trello", "Discord"],
-              "Compétences interpersonnelles": ["Travail en équipe", "Anglais", "Présentation"]
-            },
-            "realisations": [
-              "Recherche de l'idée en brainstorming",
-              "Création de l'identité de la marque, du logo et du slogan",
-              "Réalisation de la vidéo à l'aide de Premiere Pro",
-              "Présentation et justification des choix"
-            ],
-            "type": "Universitaire",
-            "images": [
-              {
-                "link":"project-silkensweets.webp",
-                "description":"Logo de la marque",
-                "type":"image"
-              },
-              {
-                "link":"project-silkensweets_poster.webp",
-                "description":"Affiche publicitaire de Silken Sweets. La tour de gateau est censé représenté la tour de Pise.",
-                "type":"image"
-              },
-              {
-                "link": "https://www.youtube.com/embed/cTXY3vAbVYY?si=3vxR0cpsp_PUxDPX",
-                "description": "Vidéo publicitaire de Silken Sweets",
-                "type": "video"
-              }
-            ],
-            "url": "https://www.youtube.com/embed/cTXY3vAbVYY?si=3vxR0cpsp_PUxDPX",
-            "github": null,
-            "download": null,
-            "route": "/projects/video_silkensweets"
-          },{
             "id": "matinfo",
             "nom": "Matinfo",
             "dates": ["04-15-2023","06-15-2023"],
@@ -383,8 +336,46 @@
             "github": "https://github.com/leoChris7/MATINFO",
             "download": "/files/Matinfo-Explications.pdf",
             "route": "/projects/matinfo"
+          },{
+            "wip": true,
+            "id": "project_sae501",
+            "nom": "Datacare",
+            "dates": ["2024-11-06","2025-01-17"],
+            "titre": "Création d'une application de gestion et de visualisation de données de capteurs",
+            "description": "Le but de ce travail en groupe de 5 personnes était de réaliser une application de gestion et de visualisation de données de capteurs. L'application devait permettre de visualiser les données de capteurs, de les analyser et de les exporter. L'application devait être ergonomique et intuitive. La base de données devait être réalisée en code first avec Entity Framework Core. L'application devait être réalisée en C# avec WPF. L'application devait être testée avec des tests unitaires et des tests d'intégration. L'application devait être déployée sur un serveur Azure. L'application devait être présentée devant un jury de professeurs.",
+            "competences": {
+              "Développement logiciel": ["C#", "Entity Framework", "CodeFirst", "Repository", "Injection de dépendances"],
+              "Développement web": ["C#", "Blazor", "HTML", "CSS" ],
+              "Base de données": ["SQL", "MLD", "MCD", "InfluxDB", "noSQL"],
+              "DevOps & Déploiement": ["Azure", "CI/CD", "Github"],
+              "Tests & Qualité": ["Tests E2E", "Tests unitaires", "Tests mocks"]
+            },
+            "realisations": [
+              "Configuration d'une Raspberry PI, de sorte à récupérer les données des capteurs pour les envoyer vers une base de données InfluxDB à l'aide de ZwaveJS et HomeAssistant",
+              "Realisation d'une base de données InfluxDB et d'une API Rest en C# permettant de gérer et récupérer ces données",
+              "Realisation de la base de données en MCD sur PowerAMC, puis en SQL sous PostgreSQL (Hebergée sur AlwaysData)",
+              "Développement d'une API Rest en C# avec Entity Framework Core avec plusieurs tests mocks pour chaque méthode de controlleur.",
+              "Développement de l'application web en Blazor (WebAssembly) avec des des tests End to End",
+              "Déploiement de l'application Blazor et de l'API sur Azure."
+            ],
+            "type": "Universitaire",
+            "images": [
+              {
+                "link": "project-datacare-1.webp",
+                "description": "Capture d'écran de la page d'accueil de l'application.",
+                "type": "image"
+              },
+              {
+                "link": "project-datacare-2.webp",
+                "description": "Capture d'écran de la page de visualisation des données.",
+                "type": "image"
+              }
+            ],
+            "url": null,
+            "github": null,
+            "download": null,
+            "route": "/projects/datacare"
           }
-          
     ],
     "links": [
         {
@@ -449,7 +440,7 @@
     "sorted_valid_skills":[
       {
         "Développement web": [
-          "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue-JS", "PrimeVue", "Phaser",
+          "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue-JS", "PrimeVue", "Phaser", "Blazor",
           "Responsive", "Ergonomie", "NodeJS", "JQuery", "Git", "Vercel.app", "Flask", "Python", "WebDev", "API Rest", "C#"
         ]
       },{
@@ -471,7 +462,7 @@
         ]
       },{
         "Base de données": [
-          "SQL", "PostgreSQL", "MLD", "MCD", "noSQL", "plpgSQL", "plpSQL", "MongoDB", "Gestion des bases de données", "Authentification", "PowerBI", "PowerAMC", "SQLite", "Bases de données relationnelles"
+          "SQL", "PostgreSQL", "MLD", "MCD", "noSQL", "InfluxDB" ,"plpgSQL", "plpSQL", "MongoDB", "Gestion des bases de données", "Authentification", "PowerBI", "PowerAMC", "SQLite", "Bases de données relationnelles"
         ]
       },{
         "Conception & Architecture": [
