@@ -11,8 +11,6 @@ import project_sae101 from '../views/projects/project_sae101.vue';
 import project_sae104 from '../views/projects/project_sae104.vue';
 import project_sae301 from '../views/projects/project_sae301.vue';
 import project_sae401 from '../views/projects/project_sae401.vue';
-import project_video from '../views/projects/project_video.vue';
-import project_converter from '../views/projects/project_chrisconverter.vue';
 import project_matinfo from '../views/projects/project_matinfo.vue';
 
 import NotFound from '../components/Error/NotFound.vue';
@@ -70,14 +68,6 @@ const routes = [
     component: project_sae401,
     alias: '/projets/bmw'
 },{
-    path: '/projects/video_silkensweets',
-    name: 'project_video',
-    component: project_video
-},{
-    path: '/projects/chrisconverter',
-    name: 'ChrisConverter',
-    component: project_converter
-},{
     path: '/projects/matinfo',
     name: 'Matinfo',
     component: project_matinfo
@@ -120,10 +110,9 @@ const menuItems = {
     Marsinvaders: "4",
     Skillupnow: "4",
     Amphibiens: "4",
-    ChrisConverter: "4",
     Matinfo: "4",
     BMW: "4",
-    project_video: '4',
+    Datacare: '4',
     'Mes données': "4",
     'Confidentialité': "0",
     Contact: "5",
