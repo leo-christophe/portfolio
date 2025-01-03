@@ -95,7 +95,8 @@
               "Développement logiciel": ["C#", "Visual Studio 2022"],
               "Compétences interpersonnelles": ["Travail en équipe", "Brainstorming", "Présentation"],
               "Développement de jeux vidéo": ["Tiled", "Monogame"],
-              "Autre": ["Sony Vegas", "Photoshop", "Github"]
+              "Vidéo-montage": ["Sony Vegas", "Photoshop"],
+              "DevOps & Déploiement": ["Github"]
             },
             "realisations": [
               "Recherche de l'idée de jeu à développer, brainstorming",
@@ -136,7 +137,7 @@
               "Base de données": ["PostgreSQL", "SQL", "Base de données", "MCD", "MLD"],
               "Gestion de projet": ["SCRUM", "Revues de sprints", "Organisation de réunion", "Rédaction de rapport"],
               "Conception & Architecture": ["Cas d'utilisations", "Diagramme de classes", "BPMN", "UML"],
-              "Sécurité": ["Cryptographie"]
+              "Outils de collaboration": ["Azure DevOps", "Discord"]
             },
             "realisations": [
               "Réalisation de documents de conception",
@@ -250,6 +251,10 @@
               {
                 "link": "project-portfolio-2.webp",
                 "description": "Capture d'écran de tests unitaires Vitest de la classe DateUtils.",
+                "type": "image"
+              },{
+                "link": "project-portfolio-3.jpg",
+                "description": "Schéma de la structure du site.",
                 "type": "image"
               }
             ],
