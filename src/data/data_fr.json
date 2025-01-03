@@ -192,19 +192,28 @@
             "images": [
               {
                 "link": "project-bmw-1.webp",
-                "description": "Capture d'écran de la page d'accueil du site.",
+                "description": "Page d'accueil du site.",
                 "type": "image"
-              },              {
+              },{
+                "link": "project-bmw-2.webp",
+                "description": "Le pied de page du site web.",
+                "type": "image"
+              },{
+                "link": "project-bmw-3.webp",
+                "description": "Page d'inscription.",
+                "type": "image"
+              },{
                 "link": "project_bmw_crypt.webp",
                 "description": "Implémentation d'une fonction de hashage pour sécuriser les mots de passe.",
                 "type": "image"
-              },              {
+              },{
                 "link": "project_bmw_crypt_singleton.webp",
                 "description": "Utilisation de la bonne pratique du singleton pour assurer une optimisation de la mémoire lors du cryptage.",
                 "type": "image"
               }
             ],
             "url": "https://bmw-client.vercel.app/",
+            "pdf_docs": [ "PROJET_BMW_DOSSIER_TECHNIQUE.pdf" ],
             "github": null,
             "download": null,
             "route": "/projects/bmw"
@@ -333,8 +342,9 @@
               }
             ],
             "url": null,
-            "github": "https://github.com/leoChris7/MATINFO",
-            "download": "/files/Matinfo-Explications.pdf",
+            "github": null,
+            "download": null,
+            "pdf_docs": [ "PROJET_MATINFO_EXPLICATIONS.pdf" ],
             "route": "/projects/matinfo"
           },{
             "wip": true,

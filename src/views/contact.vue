@@ -6,17 +6,21 @@ import { reactive, ref, onMounted } from 'vue';
 import { sendMail_asClient, callNumber_asClient, sendSMS_asClient } from '../utils/contact_client'; 
 import { isMobile, copyToClipboard } from '../utils/userdata.js'
 import { MOBILE, EMAIL } from '../data/const.js';
+import emailjs from 'emailjs-com';
 
 // Libs
 import Button from 'primevue/button';
 import Textarea from 'primevue/textarea';
 import InputText from 'primevue/inputtext';
+import ProgressSpiner from 'primevue/progressspinner';
 import { useToast } from 'primevue/usetoast';
 import { useI18n } from 'vue-i18n'; // Import Vue I18n
 import { useVibrate } from '@vueuse/core';
 
 // Accès aux traductions
 const { t } = useI18n(); // Accès à la fonction de traduction
+
+const submitButton = ref(null); // Référence pour le bouton de soumission
 
 // Using toast for notifications
 const toast = useToast();
@@ -81,9 +85,11 @@ const sendEmail = async (form) => {
       message: form.message + '\nSigné: ' + form.email
     };
 
+    recaptchaToken.value = ''; // Reset reCAPTCHA token
     await emailjs.send(serviceID, templateID, sentForm, userID);
     
     showSuccess();
+    loadRecaptcha();
 
     form.name = '';
     form.email = '';
@@ -101,7 +107,7 @@ const showSuccess = () => {
     vibrate();
   }
 
-  toast.add({ severity: 'success', summary: t('message.success'), detail: t('message.successMessage'), life: 3000 });
+  toast.add({ severity: 'success', summary: t('message.success'), detail: t('message.successMessage'), life: 4000 });
 };
 
 // Error toast notification
@@ -225,10 +231,12 @@ function openGoogleMaps() {
           <!-- Submit button -->
           <div>
             <Button 
+            ref="submitButton"
             type="submit" 
             id="greenValid" 
             class="g-recaptcha" 
             :disabled="!recaptchaToken">{{ $t('message.submitButton') }}</Button>
+            <ProgressSpiner v-if="!recaptchaToken" style="width: 40px; height: 40px"/>
           </div>
           <small>
             {{ $t('message.formDisclaimer') }}

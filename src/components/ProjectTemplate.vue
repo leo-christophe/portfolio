@@ -156,6 +156,13 @@ function tempsPris(datedebut, datefin){
           <i v-if="data.projects[props.id].url.includes('youtube')" class="pi pi-youtube imgProjectLinks"></i>
           <i v-else class="pi pi-globe imgProjectLinks"></i>
         </a>
+
+        <span v-if="data.projects[props.id].pdf_docs" v-for="doc in data.projects[props.id].pdf_docs" :key="doc">
+          <a v-if="doc" :href="'/documents/'+doc" target="_blank" :title="doc">
+            <i class="pi pi-file-pdf imgProjectLinks"></i>
+          </a>
+        </span>
+
         <a v-if="data.projects[props.id].download" @click="downloadFile(data.projects[props.id].download)">
           <i class="pi pi-download imgProjectLinks"></i>
         </a>
@@ -168,14 +175,18 @@ function tempsPris(datedebut, datefin){
       </div>
     </div>
 
-    <h2 class="project_title">{{$t('message.projectRealisationsMissionsTitle')}}</h2>
+    <div class="project_title_container">
+      <h2 class="project_title">{{$t('message.projectRealisationsMissionsTitle')}}</h2>
+    </div>
     <div id="realisations" class="ListeDescendanteConteneur projectElement ">
         <div class="ListeDescendante" v-for="realisation in data.projects[props.id].realisations" :key="realisation">
           <strong class="realisationitem">{{ realisation }}</strong>
         </div>
       </div>
 
-    <h2 class="project_title">{{$t('message.mobilizedSkills')}}</h2>
+    <div class="project_title_container">
+      <h2 class="project_title">{{$t('message.mobilizedSkills')}}</h2>
+    </div>
     <div id="lists ListeDescendanteConteneur">
       <table id="competences" class=" projectElement">
         <thead>
@@ -297,8 +308,10 @@ function tempsPris(datedebut, datefin){
   padding: 7px;
 }
 
-.project_title{
-    margin: 0px 0px 0px 65px;
+.project_title_container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #descContainer{
