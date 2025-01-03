@@ -83,6 +83,7 @@
     "region": "Haute-Savoie, France",
     "educationTitle": "Education",
     "educationSubtitle": "My academic background",
+    "experienceComing": "Upcoming",
     "experienceTitle": "Experience",
     "experienceSubtitle": "My professional experiences",
     "experienceCompetenceTitle": "Mobilized skills",
@@ -155,6 +156,7 @@
     "learnmore": "Learn more",
     "link": "Link to ",
     "notfound": {
+        "pageTitle": "Error 404",
         "title": "404 - Page not found",
         "message": "The page you are looking for does not exist.",
         "home": "Back to home"

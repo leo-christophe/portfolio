@@ -15,7 +15,7 @@
     <span id="ficheMetierDetaillee">
         <section class="dialogSection" id="posteDescriptionRapide">
             <div>
-                <img :src="experienceProp.image" :alt="experienceProp.entreprise" :title="experienceProp.entreprise" class="imgExpDialog" width="100" height="100">
+                <img :src="experienceProp.image" :alt="experienceProp.entreprise" :title="experienceProp.entreprise" class="imgExpDialog" height="100">
             </div>
 
             <div id="description">
@@ -23,6 +23,9 @@
                 <p>{{ experienceProp.entreprise }} - {{ experienceProp.localisation }}</p>
                 <span v-if="DateUtils.isPastDate(experienceProp.dates[1])">
                     {{ DateUtils.formatDateRange(experienceProp.dates[0], experienceProp.dates[1], $i18n.locale) }}
+                </span>
+                <span v-else-if="DateUtils.isFutureDate(experienceProp.dates[0])">
+                    {{ DateUtils.formatDateRange(experienceProp.dates[0], experienceProp.dates[1], $i18n.locale) + " ("+$t("message.experienceComing")+")"}}
                 </span>
                 <span v-else>
                     {{ DateUtils.formatDate(experienceProp.dates[0]) + " - " + $t('message.experienceOngoing') }}

@@ -57,6 +57,20 @@ class DateUtils {
 
         return new Date(date) <= new Date();
     }
+
+    /**
+     * Vérifie si une date est future.
+     * 
+     * @param {Date} date 
+     * @returns 
+     */
+    static isFutureDate(date){
+        if (!date || date === null || date === '' || date === 'Invalid Date') {
+            throw new Error('Format de date invalide. date: '+date);
+        }
+
+        return new Date(date) > new Date();
+    }
 }
 
 export default DateUtils;

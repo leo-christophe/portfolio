@@ -55,6 +55,9 @@
                                                     <span v-if="DateUtils.isPastDate(experienceTimeline.item.dates[1])">
                                                         {{ DateUtils.formatDateRange(experienceTimeline.item.dates[0], experienceTimeline.item.dates[1], $i18n.locale) }}
                                                     </span>
+                                                    <span v-else-if="DateUtils.isFutureDate(experienceTimeline.item.dates[0])">
+                                                        {{ DateUtils.formatDateRange(experienceTimeline.item.dates[0], experienceTimeline.item.dates[1], $i18n.locale) + " ("+$t("message.experienceComing")+")"}}
+                                                    </span>
                                                     <span v-else>
                                                         {{ DateUtils.formatDate(experienceTimeline.item.dates[0]) + " - " + $t('message.experienceOngoing') }}
                                                     </span>
@@ -332,6 +335,7 @@
     h5.annees{
         margin-top:1rem;
         font-size: 1.8em !important;
+        
 
         font-weight:500;
         color: var(--secondColor);

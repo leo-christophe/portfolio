@@ -6,10 +6,9 @@
 <template>
     <div id="formationExperienceContainer">
         <!-- Section Formations -->
-        <Formations></Formations>
-
+            <Formations class="column"></Formations>
         <!-- Section Expériences -->
-        <Experiences></Experiences>
+            <Experiences class="column"></Experiences>
     </div>
 </template>
 
@@ -321,19 +320,19 @@ ul.missionsListExp li{
 
     /* Conteneur principal pour aligner les colonnes */
     #formationExperienceContainer {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        height: auto;
-        align-items: flex-start;
-        margin:0 50px 0 50px;
-    }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 5%; /* Marges gauche et droite de 5% */
+    width: 90%; /* 100% - (5% * 2) */
+}
 
-    /* Colonnes */
-    .column {
-        width: 45%;
-        position: relative;
-    }
+/* Colonnes */
+.column {
+    width: 40%; /* Chaque colonne occupe 40% de l'espace */
+    position: relative;
+}
 
     /* Titres */
     .formationTitres {
