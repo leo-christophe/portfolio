@@ -37,6 +37,11 @@
         <img :src="content" class="lightbox-image" :alt="content">
       </div>
 
+      <div v-if="type === 'icone'">
+        <img :src="content" class="lightbox-image" :alt="content">
+      </div>
+
+
       <!-- Display video if type is video -->
       <div v-else-if="type === 'video'">
         <iframe width="100%" height="100%" :src="content" frameborder="0" allowfullscreen></iframe>

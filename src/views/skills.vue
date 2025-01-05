@@ -65,11 +65,19 @@
                             <div v-if="Object.keys(project.competences).includes(Object.keys(category)[0])">
                             <div class="affichageProjet">
                                 <img 
-                                    v-if="project.images && project.images[0]" 
+                                    v-if="project.images && project.images[0] && project.images[0].type == 'image'" 
                                     :src="'/images/projects/' + project.images[0]['link']" 
                                     :alt="'experience' + projIndex" 
-                                    width="40" height="40" 
+                                    width="100" height="100" 
                                 />
+
+                                <img 
+                                    v-else-if="project.images && project.images[0] && project.images[0].type == 'icone'"
+                                    :src="project.images[0]['link']"
+                                    :alt="'experience' + projIndex"
+                                    width="100" height="100"
+                                />
+
                                 <span @click="router.push(project.route)">
                                 <h4>{{ project.nom }}</h4>
                                 <p class="competenceTitre">{{ project.titre }}</p>
@@ -84,7 +92,7 @@
                         <div v-for="(experience, projIndex) in data.experiences" :key="projIndex" class="listeExperiences projectCard">
                         <!-- Check if the project's competences include the category -->
                             <div v-if="Object.keys(experience.competences).includes(Object.keys(category)[0])" class="affichageExperience">
-                                <img v-if="experience.image" :src="experience.image" alt="experience" style="width: 40px; height: 40px;"/>
+                                <img v-if="experience.image" :src="experience.image" alt="experience" width="100"  height="100"/>
                                 <span @click="router.push('/formations')" class="projectCard">
                                     <h4>{{ experience.contrat }} {{ experience.poste }}</h4>
                                     <p>{{ experience.entreprise }} - {{ experience.localisation }}</p>
@@ -108,6 +116,12 @@
   
 
 <style scoped>
+    @media screen and (max-width: 860px){
+        .listeExperiences div, .listeProjets div {
+            width: 100vw !important;
+        }
+    }
+
     div#experiencesContainer{
         display:flex;
         flex-flow:row wrap;
@@ -224,7 +238,7 @@
     .listeExperiences div, .listeProjets div{
         margin-bottom:2vh;
 
-        width:20vw;
+        width:25vw;
     }
 
     h1{

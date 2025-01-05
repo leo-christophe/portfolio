@@ -54,7 +54,7 @@
             "Création d'algorithmes de calcul du prix selon les produits choisis"
           ],
           "website": "https://www.arpi-technology.com/",
-          "image": "/images/career/arpi.webp"
+          "image": "/images/career/arpi.png"
         },
         {
             "id": "alpha3i",
@@ -148,6 +148,12 @@
             "type": "Universitaire",
             "images": [
               {
+                "link": "/images/projects/project-skillupnow-logo.jpg",
+                "description": "Logo du site SkillUpNow",
+                "display": false,
+                "type": "icone"
+              },
+              {
                 "link": "project-skillupnow-1.webp",
                 "description": "Capture d'écran de la page d'accueil du site.",
                 "type": "image"
@@ -191,6 +197,12 @@
             ],
             "type": "Universitaire",
             "images": [
+              {
+                "link": "/images/projects/project-bmw-logo.svg",
+                "description": "Logo du site BMW",
+                "display": false,
+                "type": "icone"
+              },
               {
                 "link": "project-bmw-1.webp",
                 "description": "Page d'accueil du site.",
@@ -244,6 +256,12 @@
             "type": "Personnel",
             "images": [
               {
+                "link": "/images/app_identity/icon.webp",
+                "description": "Icone du portfolio, réalisée avec Canvas",
+                "display": false,
+                "type": "icone"
+              },
+              {
                 "link": "project-portfolio-1.webp",
                 "description": "Capture d'écran de la page d'accueil du site.",
                 "type": "image"
@@ -253,7 +271,7 @@
                 "description": "Capture d'écran de tests unitaires Vitest de la classe DateUtils.",
                 "type": "image"
               },{
-                "link": "project-portfolio-3.jpg",
+                "link": "project-portfolio-3.webp",
                 "description": "Schéma de la structure du site.",
                 "type": "image"
               }

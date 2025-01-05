@@ -259,11 +259,19 @@ onMounted(() => {
             <h3 class="projectName">{{ project.nom }}</h3> 
           </div>
           <div class="pjtImgContainer">
-            <img v-if="project.images[0]" 
+            <img v-if="project.images[0].type == 'image' && project.images[0].link" 
               :src="'/images/projects/'+project.images[0].link" 
               :alt="project.images[0].description" 
               :title="project.images[0].description"
               class="projectimage">
+
+            <img v-else-if="project.images[0].type == 'icone' && project.images[0].link"
+              :src="project.images[0].link" 
+              :alt="project.images[0].description" 
+              :title="project.images[0].description"
+              class="projectimage">
+
+            <div v-else class="projectimage" id="imgMissing"><i class="pi pi-question"></i></div>
           </div>
         </router-link>
       </li>
@@ -272,6 +280,14 @@ onMounted(() => {
 </template>
 
 <style scoped>
+  div#imgMissing{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transform:scale(5);
+    color:white;
+  }
+
   @media screen and (max-width: 860px){
     .filterActivated{
       display:flex;
@@ -365,8 +381,10 @@ onMounted(() => {
  }
 
  .pjtImgContainer{
-    width: 300px;
-    height: 200px;
+    width: 100%;
+    
+    padding:7%;
+    height: 300px;
     overflow: hidden;
     position: relative;
  }

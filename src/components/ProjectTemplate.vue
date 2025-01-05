@@ -45,17 +45,23 @@ function getMaxRows(competences) {
   return Math.max(...Object.values(competences).map(v => v.length));
 }
 
+const images = data.projects[props.id].images.filter(image => {
+  if (!(image.type == "icone" && image.display === false)){
+    return image;
+  }
+})
+
 // Gestion des images
 const ActualImage = ref(0);
 const switchImage = (way) => {
-  const totalImages = data.projects[props.id].images.length;
+  const totalImages = images.length;
   ActualImage.value = (way === "back") 
     ? (ActualImage.value - 1 + totalImages) % totalImages 
     : (ActualImage.value + 1) % totalImages;
-};
+}
 
-const hasImages = computed(() => data.projects[props.id].images[0] != null);
-const multipleImages = computed(() => data.projects[props.id].images.length > 1);
+const hasImages = computed(() => images[0] != null);
+const multipleImages = computed(() => images.length > 1);
 const projectURL = ref("")
 projectURL.value = data.projects[props.id].url || data.projects[props.id].github || "";
 
@@ -122,31 +128,33 @@ function tempsPris(datedebut, datefin){
         <button id="leftButton" v-if="multipleImages" @click="switchImage('back')" :title="$t('message.projectLastImage')"><i class="pi pi-arrow-circle-left"></i></button>
     
         <span @click="openLightbox()" id="mainContentContainer">
-          <div v-if="data.projects[props.id].images[ActualImage].type == 'image'">
-              <img  :src="'/images/projects/'+data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description">  
+          <div v-if="['image', 'icone'].includes(images[ActualImage].type)">
+              <img v-if="images[ActualImage].type == 'icone'" :src="images[ActualImage].link">
+              <img v-else :src="'/images/projects/'+images[ActualImage].link" class="projectimage" :title="images[ActualImage].description">  
           </div>
 
-          <div v-else-if="data.projects[props.id].images[ActualImage].type == 'video'">
-              <iframe width="560" height="315" :src="data.projects[props.id].images[ActualImage].link" class="projectimage" :title="data.projects[props.id].images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div v-else-if="images[ActualImage].type == 'video'">
+              <iframe width="560" height="315" :src="images[ActualImage].link" class="projectimage" :title="images[ActualImage].description" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
 
-          <div v-else-if="data.projects[props.id].images[ActualImage].type == 'powerbi'">
-              <iframe width="660" height="415" :src="data.projects[props.id].images[ActualImage].link" frameborder="1" allowFullScreen="true" class="projectimage" :title="data.projects[props.id].images[ActualImage].description"></iframe>
+          <div v-else-if="images[ActualImage].type == 'powerbi'">
+              <iframe width="660" height="415" :src="images[ActualImage].link" frameborder="1" allowFullScreen="true" class="projectimage" :title="images[ActualImage].description"></iframe>
           </div>
 
-          <p class="imageDescription"><strong>{{ data.projects[props.id].images[ActualImage].description }}</strong></p> 
+          <p class="imageDescription"><strong>{{ images[ActualImage].description }}</strong></p> 
         </span>
         <button id="rightButton" v-if="multipleImages" @click="switchImage('forward')" :title="$t('message.projectNextImage')"><i class="pi pi-arrow-circle-right"></i></button>
-        <i class="pi pi-search-plus" v-if="data.projects[props.id].images[ActualImage].type == 'image'" @click="openLightbox()"></i>
+        <i class="pi pi-search-plus" v-if="['image', 'icone'].includes(images[ActualImage].type)" @click="openLightbox()"></i>
     </div>
 
-    <Lightbox 
-            :isOpen="isLightboxOpen" 
-            :content="'/images/projects/' + data.projects[props.id].images[ActualImage].link" 
-            :type="data.projects[props.id].images[ActualImage].type" 
-            :description="data.projects[props.id].images[ActualImage].description"
-            @close="closeLightbox"
-          />
+    <Lightbox
+      v-if="images[ActualImage].type == 'image' || images[ActualImage].type == 'icone'" 
+      :isOpen="isLightboxOpen" 
+      :content="(images[ActualImage].type == 'image') ? ('/images/projects/' + images[ActualImage].link) : (images[ActualImage].link)" 
+      :type="images[ActualImage].type" 
+      :description="images[ActualImage].description"
+      @close="closeLightbox"
+    />
       
       <div id="Projectlinks">
         <a v-if="data.projects[props.id].github" :href="data.projects[props.id].github">
