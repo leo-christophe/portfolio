@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue';
+import router from '../../router';
 
 // Définition des listes d'images
 const animeImg = ref([
@@ -92,9 +93,9 @@ onMounted(() => {
 
 <template>
 <div id="interetsSection">
-  <h1 id="titreAProposI">{{ $t('message.interestsTitle') }}</h1>
-  <h3 id="paragrapheAProposI">{{ $t('message.interestsDescription') }}</h3>
-
+  <div id="hobbyTitleContainer">
+    <h1 id="titreAProposI">{{ $t('message.interestsTitle') }}</h1>
+  </div>
   <div class="paragraphe" id="interets">
     <span id="conteneurInterets" ref="hobbyIcons">
       <div class="textContainer">
@@ -117,7 +118,7 @@ onMounted(() => {
           {{ $t('message.videogamesDescription') }}
         </div>
       </div>
-      <div class="textContainer">
+      <div class="textContainer" @click="router.push('/interests/cooking')">
         <img class="hobbyIcon" 
               id="cooking-pot-icon" 
               src="/images/icons/cooking-equipment.svg"
@@ -125,6 +126,7 @@ onMounted(() => {
         <div>
           <h3>{{ $t('message.cooking') }}</h3>
           {{ $t('message.cookingDescription') }}
+          <a>En savoir plus</a>
         </div>
       </div>
     </span>
@@ -239,8 +241,8 @@ onMounted(() => {
         border: 2px solid var(--secondColor);
         border-radius: 10%;
         padding: 20px;
-        max-width: 20%;
-        min-width: 15rem;
+        max-width: 30%;
+        min-width: 20%;
         min-height: 350px;
         text-align: center;
         transition:1s ease all;
@@ -257,9 +259,6 @@ onMounted(() => {
         font-size:2em !important;
     }
 
-    h1#titreAProposI, h3#paragrapheAProposI{
-        margin-left:30px;
-    }
     
     img.hobbyIcon {
         width: 10em;
@@ -278,6 +277,12 @@ onMounted(() => {
     #torii-gate-icon{
         object-fit:cover !important;
         width:10em !important;
+    }
+
+    div#hobbyTitleContainer{
+      display:flex;
+      justify-content: center;
+      margin:0;
     }
 
     /** Détails d'Hobbies */

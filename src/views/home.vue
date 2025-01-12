@@ -1,6 +1,6 @@
 <script setup>
 import HomeContact from '../components/Home/HomeContact.vue';
-import HomeSkills from '../components/Home/HomeSkills.vue';
+import HomeSkills from '../components/SkillsDisplay.vue';
 import HomeStart from '../components/Home/HomeStart.vue';
 import HomeInterests from '../components/Home/HomeInterests.vue';
 import { onMounted, ref } from 'vue';
@@ -10,7 +10,7 @@ import { onMounted, ref } from 'vue';
 <template>
   <div id="homeContent">
     <HomeStart id="start" class="pageSection"></HomeStart>
-    <HomeSkills id="skills" class="pageSection"></HomeSkills>
+    <!-- <HomeSkills id="skills" class="pageSection"></HomeSkills> -->
     <HomeInterests id="interests"></HomeInterests>
     <HomeContact id="contactSection" class="pageSection"></HomeContact>
   </div>

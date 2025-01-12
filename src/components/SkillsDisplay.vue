@@ -1,6 +1,12 @@
 <script setup>
   import { ref, onMounted, getCurrentInstance } from 'vue';
 
+  import { useRouter } from 'vue-router';
+
+  import handleSkillClick from '../utils/skillUtils';
+
+  const router = useRouter();
+
   // Accéder aux données globales
   const instance = getCurrentInstance();
   const data = instance.appContext.config.globalProperties.$JSONData;
@@ -67,10 +73,10 @@
 
 <template>
   <div class="skills-display">
-    <span id="hardSkillsContainer">
+    <span id="hardSkillsContainer" @click="router.push('/skillslist')">
       <div id="hardSkillsDescription">
         <h2 id="competencesTitre" class="typeCompetenceTitre">{{ $t('message.skillsTitle') }}</h2>
-        <p class="skillSectionDescription">{{ $t('message.hardskillsDescription') }} <a  href="/skills">{{ $t('message.learnmore') }}</a></p>
+        <p class="skillSectionDescription">{{ $t('message.hardskillsDescription') }} <a  href="/skillslist">{{ $t('message.learnmore') }}</a></p>
         <img class="banniereSkills" 
               src="/images/home/hardskills_banniere.webp"
               :alt=" $t('message.skillsTitle') "
@@ -85,7 +91,7 @@
               <div>{{ Object.keys(skill)[0] }}</div>
             </span>
             <div class="skill-level">
-              <div class="skill-percentage" :id="'skill-percentage-'+index" v-skill-bar :data-skill="skill[Object.keys(skill)[0]]" :style="{ height: '10px' }"></div>
+              <div class="skill-percentage" :id="'skill-percentage-'+index" v-skill-bar :data-skill="skill[Object.keys(skill)[0]]" :style="{ height: '20px' }"></div>
             </div>
           </div>
         </div>
@@ -105,7 +111,17 @@
       </div>
       <div class="soft-skills">
         <div class="cloud">
-          <span v-for="(skill, index) in main_soft_skills" :key="index" class="soft-skill">{{ skill }}</span>
+          <span
+            v-for="(skillObj, index) in main_soft_skills"
+            :key="index"
+            class="soft-skill"
+            @click="handleSkillClick(Object.keys(skillObj)[0], router)"
+            :title="Object.values(skillObj)[0]"
+            style="cursor:pointer;"
+          >
+            {{ Object.keys(skillObj)[0] }}
+          </span>
+
         </div>
 
         <div id="referencesContainer">
@@ -331,6 +347,7 @@
 
   /* Styles pour les barres de compétences */
   .skill-bar {
+    height:50px;
     margin-bottom: 10px;
   }
 
@@ -342,13 +359,13 @@
     background: #eee;
     border-radius: 5px;
     overflow: hidden;
-    height: 10px;
+    height: 20px;
     width: 200px;
   }
 
   .skill-percentage {
     background: #3498db;
-    height: 10px;
+    height: 20px;
     border-radius: 5px 0 0 5px;
     width: 0%;
     transition: width 1.5s ease-in-out;

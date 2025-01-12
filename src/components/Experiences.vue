@@ -65,7 +65,9 @@
                                                 <h4 class="titreExperience">{{ experienceTimeline.item.contrat + " " + experienceTimeline.item.poste }}</h4>
                                                 <p class="expDesc">{{ experienceTimeline.item.description }}</p>
                                                 <span class="learnMore">
-                                                    <i class="pi pi-info-circle"></i><p class="learnMoreText">{{ $t('message.learnmore') }}</p>
+                                                    
+                                                    <i class="pi pi-info-circle"></i><a><p class="learnMoreText">{{ $t('message.learnmore') }}</p>
+                                                </a>
                                                 </span>
                                             </div>
 
@@ -83,10 +85,9 @@
                                         v-if="experienceTimeline.item"
                                         v-model:visible="visibleDialogs[experienceTimeline.index]" 
                                         :modal="true" 
-                                        :header="$t('message.experienceModalTitle')+ ' ' + experienceTimeline.item.poste" 
+                                        :header="$t('message.experienceModalTitle')+ ' ' + experienceTimeline.item.poste + ' (' + experienceTimeline.item.entreprise + ') '"  
                                         class="custom-dialog"
-                                        :breakpoints="{ '1300px': '75vw', '800px': '80vw' }"
-                                    >
+                                        :breakpoints="{ '1300px': '75vw', '800px': '80vw' }" >
                                         <ExperienceDialog :experienceProp="experienceTimeline.item" />
                                     </Dialog>
                                 </div>
@@ -272,8 +273,8 @@
 
     .learnMore .learnMoreText{
         font-size:1.5em;
-        text-decoration: underline;
     }
+
 
     .custom-dialog {
         max-height: 80vh;

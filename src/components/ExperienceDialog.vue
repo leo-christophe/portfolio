@@ -1,5 +1,9 @@
 <script setup>
     import DateUtils from '../utils/date_utils.js';
+    import handleSkillClick from '../utils/skillUtils.js';
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter();
 
     const props = defineProps({
         experienceProp: Object
@@ -8,6 +12,9 @@
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
+
+
+
 
 </script>
 
@@ -46,9 +53,8 @@
                         <li v-for="(competence, key) in experienceProp.competences" :key="key">
                             <span>
                                 <p><strong>{{ key }}:</strong></p>
-                                <span v-for="(competenceElt, indexY) in competence" :key="indexY">
-                                    {{ capitalizeFirstLetter(competenceElt) }}
-                                    <span v-if="indexY < competence.length - 1">, </span>
+                                <span v-for="(competenceElt, indexY) in competence" :key="indexY" @click="handleSkillClick(competenceElt, router)" style="cursor:pointer;">
+                                    {{ competenceElt.toUpperCase()}}<span v-if="indexY < competence.length - 1">, </span>
                                 </span>
                                 <br> 
                                 <br> 

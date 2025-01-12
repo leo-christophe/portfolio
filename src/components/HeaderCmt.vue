@@ -12,6 +12,7 @@ const items = ref([
   { label: t('message.education'), route: '/formations', icon: 'pi pi-book' },
   //{ label: t('message.experience'), route: '/experience', icon: 'pi pi-briefcase' },
   { label: t('message.projects'), route: '/projects', icon: 'pi pi-folder' },
+  { label: t('message.skills'), route: '/skillsDisplay', icon: 'pi pi-tablet' },
   { label: t('message.contact'), route: '/contact', icon: 'pi pi-envelope' }
 ]);  
 
@@ -70,7 +71,7 @@ function switchPageLang() {
     }
 
     .menuItem{
-      padding: 1rem 0rem 0rem 0rem;
+      padding: 0.5rem 0rem 0rem 0rem;
 
     }
 
@@ -208,7 +209,7 @@ function switchPageLang() {
   }
 
   .menuItem{
-    width:200px;
+    width:170px;
     min-width:fit-content;
     height:50px;
     transition:1s ease-out all;

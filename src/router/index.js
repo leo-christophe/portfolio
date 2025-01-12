@@ -10,8 +10,10 @@ const title = useTitle()
 
 const routes = [
     { path: '/', name: 'Accueil', component: () => import('../views/home.vue') },
+    { path: '/interests/cooking', name: 'Cuisine', component: () => import('../views/cooking.vue') },
     { path: '/projects', name: 'Projets', component: () => import('../views/projects.vue') },
-    { path: '/skills', name: 'Compétences', component: () => import('../views/skills.vue') },
+    { path: '/skillslist', name: 'ReferentielCompetences', component: () => import('../views/skills.vue') },
+    { path: '/skillsdisplay', name: 'Competences', component: () => import('../views/skills_page.vue') },
     { path: '/projects/portfolio', name: 'Portfolio', component: () => import('../views/projects/project_portfolio.vue') },
     { path: '/projects/marsinvaders', name: 'Marsinvaders', component: () => import('../views/projects/project_sae101.vue') },
     { path: '/projects/skillupnow', name: 'Skillupnow', component: () => import('../views/projects/project_sae301.vue') },
@@ -36,16 +38,19 @@ const menuItems = {
     Accueil: "2",
     Formations: "3",
     Projets: "4",
-    Contact: "5",
+    'Competences': "5",
+    'ReferentielCompetences': "5",
+    Contact: "6",
     'Confidentialité': "0",
     'Mes données': "0",
-    Competences: "0"
+    "NotFound": "0",
+    "Cuisine": "0"
 };
 
 // Mis à jour du style du menu
 function updateMenuStyle(menuItem, borderBottom, color) {
     // Vérifier que menuItem est un nombre entre 1 et 5
-    if (menuItem > 0 && menuItem < 6) {
+    if (menuItem > 0 && menuItem < 7) {
         document.querySelector(`#navContent a:nth-child(${menuItem})`).style.borderBottom = borderBottom;
         document.querySelector(`#navContent a:nth-child(${menuItem})`).style.color = color;
     }

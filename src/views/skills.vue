@@ -1,125 +1,222 @@
-<script setup>
-    import InputText from 'primevue/inputtext';
-    import { computed, getCurrentInstance, ref } from 'vue';
-    import { useRouter } from 'vue-router';
-    import { useI18n } from 'vue-i18n'; 
-
-    const { t } = useI18n(); 
-    const router = useRouter();
-    const instance = getCurrentInstance();
-    const data = instance.appContext.config.globalProperties.$JSONData;
-
-    const details = ref([]);
-    // Reactive references for search input and filtered data
-    const searchQuery = ref('');
-    const filteredSkills = computed(() => {
-    if (!searchQuery.value) return data.sorted_valid_skills;
-        return data.sorted_valid_skills.filter(category => {
-            const categoryName = Object.keys(category)[0].toLowerCase();
-            const skills = Object.values(category)[0].map(skill => skill.toLowerCase());
-            return categoryName.includes(searchQuery.value.toLowerCase()) || skills.includes(searchQuery.value.toLowerCase());
-        });
-    });
-
-    /**
-     * @description Permet de fermer tous les détails sauf celui passé en paramètre (Indice)
-     * @param {int} detail 
-     */
-    function closeEveryDetails(detail){
-        if (detail === undefined || detail < 0 || detail >  details.value.length) throw new Error('Aucun index de détail n\'a été fourni');
-
-        details.value.forEach((d,index) => {
-            if (index !== detail) {
-                details.value[index].children[0].removeAttribute('open');
-            }
-        });
-    }
-
-</script>
-
 <template>
-    <div>
+  <div>
+    <h1>{{ $t('skillsDetail.skills') }}</h1>
 
-        <h1>{{$t('skillsDetail.skills')}}</h1>
-        <span id="searchBarContainer">
-            <p>{{$t('skillsDetail.search')}}</p>
-            <InputText v-model="searchQuery" :placeholder="$t('skillsDetail.searchPlaceholder')" />
-        </span>
+    <div id="filtresContainer">
+      <span id="searchBarContainer">
+        <p>{{ $t('skillsDetail.search') }}</p>
+        <AutocompleteDropdown
+          v-model="searchQuery"
+          :suggestions="suggestions"
+          :placeholder="$t('skillsDetail.searchPlaceholder')"
+          :disabled="isSorted"
+          @selectSuggestion="selectSuggestion"
+        />
+      </span>
 
-        <div id="skillsPage">
-            <div ref="details" v-for="(category, catIndex) in filteredSkills" :key="catIndex" class="skill-category">
-                <details @click="closeEveryDetails(catIndex)">
-                    <summary ><h2>{{ Object.keys(category)[0] }}</h2></summary>
-                    <div class="projects">
-                        <h3>Experiences:</h3>
-                        <div id="experiencesContainer">
-
-                        <!-- Vérifie que data.projects est défini avant d'itérer -->
-                        <div v-for="(project, projIndex) in data.projects.filter(project => 
-                                Object.keys(project?.competences || {}).includes(Object.keys(category)[0]) && 
-                                !project.wip
-                            )" 
-                        
-                            :key="projIndex" 
-                            class="listeProjets projectCard" >
-                            <div v-if="Object.keys(project.competences).includes(Object.keys(category)[0])">
-                            <div class="affichageProjet">
-                                <img 
-                                    v-if="project.images && project.images[0] && project.images[0].type == 'image'" 
-                                    :src="'/images/projects/' + project.images[0]['link']" 
-                                    :alt="'experience' + projIndex" 
-                                    width="100" height="100" 
-                                />
-
-                                <img 
-                                    v-else-if="project.images && project.images[0] && project.images[0].type == 'icone'"
-                                    :src="project.images[0]['link']"
-                                    :alt="'experience' + projIndex"
-                                    width="100" height="100"
-                                />
-
-                                <span @click="router.push(project.route)">
-                                <h4>{{ project.nom }}</h4>
-                                <p class="competenceTitre">{{ project.titre }}</p>
-                                <p class="competenceListe">
-                                    ({{ project.competences[Object.keys(category)[0]].join(', ') }})
-                                </p>
-                                </span>
-                            </div>
-                            </div>
-                        </div>
-
-                        <div v-for="(experience, projIndex) in data.experiences" :key="projIndex" class="listeExperiences projectCard">
-                        <!-- Check if the project's competences include the category -->
-                            <div v-if="Object.keys(experience.competences).includes(Object.keys(category)[0])" class="affichageExperience">
-                                <img v-if="experience.image" :src="experience.image" alt="experience" width="100"  height="100"/>
-                                <span @click="router.push('/formations')" class="projectCard">
-                                    <h4>{{ experience.contrat }} {{ experience.poste }}</h4>
-                                    <p>{{ experience.entreprise }} - {{ experience.localisation }}</p>
-                                    <p class="competenceListe">
-                                        ({{ experience.competences[Object.keys(category)[0]].join(', ') }})
-                                    </p>
-                                </span>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </details>
-            </div>
-        </div>
-
+      <span id="checkBoxesContainer">
+        <Checkbox
+          id="referentielBUT"
+          v-model="isSorted"
+          @change="handleCheckRefBUT"
+          :binary="true"
+        />
+        <label>
+          {{ $t('message.sortRefBUT') }}
+          <a
+            href="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2023-12/informatique-30855.pdf#page=15"
+            target="_blank"
+          >
+            {{ $t('message.refBUT') }}
+          </a>
+        </label>
+      </span>
     </div>
+
+    <div v-if="filteredSkills.length == 0 && isLoading == true">
+      <ProgressSpinner
+        style="width: 50px; height: 50px"
+        strokeWidth="4"
+        animationDuration=".5s"
+      />
+    </div>
+    <div v-else-if="filteredSkills.length == 0 && isLoading == false">
+      {{ t('message.noskill') }}
+    </div>
+
+    <div id="skillsPage">
+      <SkillList
+        v-if="!isLoading"
+        :isSorted="isSorted"
+        :content="isSorted ? sortedFilteredSkills : filteredSkills"
+        :filterType="isSorted ? filterType : null"
+      />
+    </div>
+  </div>
 </template>
 
-  
-  
-  
+<script setup>
+import { ref, watch, onMounted, getCurrentInstance } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+import SkillList from '../components/SkillList.vue';
+import AutocompleteDropdown from '../components/UI/AutocompleteDropdown.vue';
+import Checkbox from 'primevue/checkbox';
+import ProgressSpinner from 'primevue/progressspinner';
+
+const { t } = useI18n();
+const router = useRouter();
+const route = useRoute();
+const instance = getCurrentInstance();
+const data = instance.appContext.config.globalProperties.$JSONData;
+
+const searchQuery = ref('');
+const filteredSkills = ref(data.sorted_valid_skills);
+const isSorted = ref(false);
+const sortedFilteredSkills = ref([]);
+const filterType = ref(null);
+const isLoading = ref(false);
+const suggestions = ref([]);
+
+function getSuggestions(query) {
+  if (!query) {
+    suggestions.value = [];
+    return;
+  }
+
+  const allSuggestions = data.sorted_valid_skills.flatMap((category) => {
+    const categoryName = Object.keys(category)[0];
+    const skills = Object.values(category)[0];
+    return [categoryName, ...skills];
+  });
+
+  const uniqueSuggestions = [...new Set(allSuggestions)];
+  suggestions.value = uniqueSuggestions.sort().filter((item) =>
+    item.toLowerCase().includes(query.toLowerCase())
+  );
+}
+
+watch(searchQuery, (newQuery) => {
+  document.querySelectorAll('details').forEach((detail) => {
+    detail.open = true;
+  });
+  isLoading.value = true;
+  getSuggestions(newQuery);
+
+  setTimeout(() => {
+    if (!newQuery) {
+      filteredSkills.value = data.sorted_valid_skills;
+    } else {
+      filteredSkills.value = data.sorted_valid_skills.filter((category) => {
+        const categoryName = Object.keys(category)[0].toLowerCase().replace(/\s+/g, "");
+        const skills = Object.values(category)[0].map((skill) => skill.toLowerCase().replace(/\s+/g, ""));
+        return (
+          categoryName.includes(newQuery.toLowerCase().replace(/\s+/g, "")) ||
+          skills.includes(newQuery.toLowerCase().replace(/\s+/g, ""))
+        );
+      });
+    }
+    isLoading.value = false;
+  }, 300);
+});
+
+function selectSuggestion(suggestion) {
+  searchQuery.value = suggestion;
+}
+
+onMounted(() => {
+  const skill = route.query.skill;
+  if (skill) {
+    document.querySelector("input#inputRefComp").value =skill
+
+    searchQuery.value = skill;
+    document.querySelectorAll('details').forEach((detail) => {
+      console.log(detail.open)
+      detail.open;
+    });
+
+
+  }
+});
+
+watch(
+  () => route.query.skill,
+  (newSkill) => {
+    if (newSkill) {
+      searchQuery.value = newSkill;
+      document.querySelectorAll('details').forEach((detail) => {
+        detail.open = true;
+      });
+
+      isLoading.value = true;
+      getSuggestions(newSkill);
+      filteredSkills.value = data.sorted_valid_skills.filter((category) => {
+        const categoryName = Object.keys(category)[0].toLowerCase().trim();
+        const skills = Object.values(category)[0].map((skill) => skill.toLowerCase().trim());
+        return (
+          categoryName.includes(newSkill.toLowerCase().trim()) ||
+          skills.includes(newSkill.toLowerCase().trim())
+        );
+      });
+      isLoading.value = false;
+    }
+  }
+);
+
+function handleCheckRefBUT() {
+  isLoading.value = true;
+  filterType.value = isSorted.value ? 'UE-IUT' : null;
+  const dataUE = data.ue_but;
+
+  if (!dataUE) {
+    isLoading.value = false;
+    return;
+  }
+
+  sortedFilteredSkills.value = {
+    UE1: [],
+    UE2: [],
+    UE3: [],
+    UE4: [],
+    UE5: [],
+    UE6: [],
+  };
+
+  for (const [key, ue] of Object.entries(dataUE)) {
+    const associatedSkills = ue['competences_associes'];
+    if (associatedSkills && associatedSkills.length > 0) {
+      associatedSkills.forEach((skillCategory) => {
+        const sorted_valid_skills = data.sorted_valid_skills;
+        const categoryData = sorted_valid_skills.find((item) => item[skillCategory]);
+        if (categoryData) {
+          sortedFilteredSkills.value[key].push({
+            skillCategory: skillCategory,
+            validSkills: categoryData[skillCategory],
+          });
+        }
+      });
+    }
+  }
+  isLoading.value = false;
+}
+</script>
+
 
 <style scoped>
+
     @media screen and (max-width: 860px){
         .listeExperiences div, .listeProjets div {
             width: 100vw !important;
         }
+    }
+
+    span#checkBoxesContainer{
+        display:flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        gap:10px;
+        margin:2vh 0 0 3vw;
     }
 
     div#experiencesContainer{
@@ -166,16 +263,13 @@
 
 
     span#searchBarContainer{
-        z-index: 1; /* Positioned above the wrapper */
+        z-index: 9999; /* Positioned above the wrapper */
         position: relative; /* Ensure stacking context is respected */
         p{
             margin-right: 1vw;
         }
 
-        input{
-            line-height: 2em;
-            width: 20vw;
-        }
+        
 
         display:flex;
         flex-direction:row;
@@ -190,6 +284,10 @@
         flex-direction: column;
         justify-content: space-around;
         margin-top: 5vh;
+    }
+
+    #skillsPage{
+        margin:3vw 3vw 3vw 3vw;
     }
 
     summary{
@@ -207,18 +305,7 @@
         }
     }
 
-    .skill-category{
 
-        margin: 2vh;
-        background-color:rgb(27, 27, 27);
-        padding:2vh;
-        width:95vw;
-        max-width:95vw;
-        border:1px solid black;
-        border-radius:5px;
-        box-shadow: #000000 0px 0px 10px;
-
-    }
 
     .listeProjets{
         color:lightblue;

@@ -43,11 +43,12 @@
                                     <h5 class="obtention">{{ formationTimeline.item.obtention }}</h5>
                                 </div>
                                 <div class="imageFormation">
-                                    <img :src="formationTimeline.item.image" 
-                                        class="imgFormation" 
-                                        :alt="formationTimeline.item.titre + ' ' + formationTimeline.item.annees + ' ' + formationTimeline.item.lieu"
-                                        :title="formationTimeline.item.lieu"
-                                        @click="window.open(formationTimeline.item.website, '_blank');">
+                                    <a :href="formationTimeline.item.siteFormation"  target='_blank'>
+                                        <img :src="formationTimeline.item.image" 
+                                            class="imgFormation" 
+                                            :alt="formationTimeline.item.titre + ' ' + formationTimeline.item.annees + ' ' + formationTimeline.item.lieu"
+                                            :title="formationTimeline.item.lieu" >
+                                    </a>
                                 </div>
                             </div>
                         </div>

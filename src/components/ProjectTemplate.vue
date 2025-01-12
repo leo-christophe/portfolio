@@ -7,6 +7,10 @@ import Lightbox from './Lightbox.vue'
 
 const instance = getCurrentInstance();
 const data = instance.appContext.config.globalProperties.$JSONData;
+import { useRouter } from 'vue-router';
+import handleSkillClick from '../utils/skillUtils';
+
+const router = useRouter();
 
 // Définir les props
 const props = defineProps({
@@ -114,6 +118,16 @@ function tempsPris(datedebut, datefin){
 
     return totalMonths + " " + t('message.month');
 }
+
+onMounted(()=>{
+  document.querySelectorAll('#competences td').forEach(td => {
+    console.log(td.textContent);
+    if (td.textContent.trim() != '') {
+
+      td.classList.add('has-content');
+    }
+  });
+})
 </script>
 
 <template>
@@ -196,28 +210,30 @@ function tempsPris(datedebut, datefin){
       <h2 class="project_title">{{$t('message.mobilizedSkills')}}</h2>
     </div>
     <div id="lists ListeDescendanteConteneur">
-      <table id="competences" class=" projectElement">
+      <table id="competences" class="projectElement">
         <thead>
           <tr>
-            <!-- En-têtes des colonnes pour chaque type de compétence -->
-            <th v-for="(value, key) in data.projects[props.id].competences" :key="'header-' + key" class="ligneHeader">
+            <th v-for="(value, key) in data.projects[props.id].competences" :key="'header-' + key" class="ligneHeader"
+            :title="$t('message.projectSkillDetail') + key"
+            @click="handleSkillClick(key, router)">
               {{ key }}
             </th>
           </tr>
         </thead>
         <tbody>
-        <!-- Affichage des compétences ligne par ligne -->
-        <tr v-for="rowIndex in getMaxRows(data.projects[props.id].competences)" :key="'row-' + rowIndex">
-            
-            <td v-for="(value, key) in data.projects[props.id].competences" :key="'data-' + key + '-' + rowIndex" :class="rowIndex%2==0?'lignePaire':'ligneImpaire'">
-
-                <!-- Si l'index existe dans la colonne, affiche la valeur, sinon un champ vide -->
-                <span v-if="value[rowIndex-1]">{{ value[rowIndex-1]  }}</span>
-                <span v-else>&nbsp;</span> <!-- Champ vide pour maintenir la structure du tableau -->
+          <tr v-for="rowIndex in getMaxRows(data.projects[props.id].competences)" :key="'row-' + rowIndex">
+            <td
+              v-for="(value, key) in data.projects[props.id].competences"
+              :key="'data-' + key + '-' + rowIndex"
+              :class="rowIndex % 2 == 0 ? 'lignePaire' : 'ligneImpaire'"
+              @click="handleSkillClick(value[rowIndex - 1], router)"
+              :title="$t('message.projectSkillDetail') + value[rowIndex-1]"
+            >
+              <span v-if="value[rowIndex - 1]">{{ value[rowIndex - 1] }}</span>
+              <span v-else>&nbsp;</span>
             </td>
-        </tr>
+          </tr>
         </tbody>
-
       </table>
 
       
@@ -226,6 +242,17 @@ function tempsPris(datedebut, datefin){
 </template>
 
 <style scoped>
+table#competences td{
+  border:1px solid transparent;
+  transition:0.2s ease all;
+}
+
+table#competences td.has-content:hover {
+  border: 1px solid var(--secondColor); /* Exemple de style */
+  cursor: pointer; /* Rendre les cellules cliquables */
+  transition:0.2s ease all;
+  cursor:pointer;
+}
 
 .realisationitem {
   transform: translateY(50px);
@@ -285,6 +312,12 @@ function tempsPris(datedebut, datefin){
 .ligneHeader{
   background-color:var(--listHeader) !important;
   line-height: 3;
+  cursor:pointer;
+}
+
+table#competences thead tr th.ligneHeader:hover{
+  color:var(--secondColor);
+  transition:0.2s ease all;
 }
 
 #realisations{

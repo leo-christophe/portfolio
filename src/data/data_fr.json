@@ -20,7 +20,7 @@
             "obtention": "Obtenu avec mention Très Bien",
             "annees": "2019-2022",
             "image": "/images/career/lyceecharles.webp",
-            "siteFormation": "https://www.lycee-charles-poncet.fr/"
+            "siteFormation": "https://charles-poncet.ent.auvergnerhonealpes.fr/"
           },
           {
             "id": "brevet",
@@ -333,7 +333,7 @@
             "nom": "Matinfo",
             "dates": ["04-15-2023","06-15-2023"],
             "titre": "Logiciel de gestion du matériel MATINFO",
-            "description": "Développement en duo d'une application IHM de gestion du matériel informatique. Le principe était d'utiliser une base de données en ligne et de réaliser un logiciel le plus ergonomique possible. En première étape, le but était de réaliser des documents de conceptions basiques comme un diagramme de cas d'utilisations ou un diagramme de classes. Puis, il fallait réaliser la conception de la base de données, la base de données. Enfin, il fallait programmer le logiciel en WPF, à deux, tout en utilisant Github pour le versionning. A la fin, il fallait présenter l'application au professeur qui nous a noté.", 
+            "description": "Développement en duo d'une application IHM de gestion du matériel informatique. Le principe était d'utiliser une base de données en ligne et de réaliser un logiciel le plus ergonomique possible. En première étape, le but était de réaliser des documents de conceptions basiques comme un diagramme de cas d'utilisations ou un diagramme de classes. Puis, il fallait réaliser la conception de la base de données. Enfin, il fallait programmer le logiciel en WPF, à deux, tout en utilisant Github pour le versionning. A la fin, il fallait présenter l'application au professeur qui nous a noté.", 
             "competences": {
               "Développement logiciel": ["C#", "WPF"],
               "Base de données": ["PostgreSQL", "SQL", "Base de données"],
@@ -461,15 +461,60 @@
       }    
     ],
     "main_soft_skills":[
-        "Travail en équipe",
-        "Autonomie",
-        "Rigueur",
-        "Organisation",
-        "Créativité",
-        "Adaptabilité",
-        "Esprit critique",
-        "Force de proposition"
+        {"Travail en équipe": "J'ai beaucoup travaillé en équipe lors de tout mes projets académiques."},
+        {"Autonomie": "J'ai pu acquérir de l'expérience en travail en autonomie avec des projets personnels."},
+        {"Rigueur": "Applications des bonnes pratiques en développement et travail acharné pour réussir."},
+        {"Organisation": "Sans une bonne organisation, on ne peut pas finir un projet à temps. Ainsi, je note tout sur des post-its"},
+        {"Créativité": "Le développement, c'est aussi trouver des idées pour résoudre un problème mais aussi avec des idées pour le design."},
+        {"Adaptabilité": "Plusieurs fois pendant mes projets académiques, les retournements de situations arrivaient. Changement de technologie, ajout de rendu ou autre problèmes. Ca demande une grande force d'adaptation."},
+        {"Esprit critique":"Lors de la réfléxion (brainstorming) il est important de rester critique et de participer aux discussions. Lors d'un travail de groupe, je participe toujours."},
+        {"Force de proposition":"C'est important de proposer. Lors de mon stage à Alpha-3i, j'ai pu proposer des idées pour améliorer l'application. 'Critiquer est facile, proposer est difficile.'"}
     ],
+    "ue_but":
+      {
+        "UE1":{
+          "titre": "Réaliser",
+          "description": "Développer — c’est-à-dire concevoir, coder, tester et intégrer — une solution informatique pour un client.",
+          "competences_associes":[
+            "Développement web", "Développement logiciel", "Développement de jeux vidéo", "Conception & Architecture"
+          ]
+        },
+        "UE2":{
+          "titre":"Optimiser",
+          "description": "Proposer des applications informatiques optimisées en fonction de critères spécifiques : temps d’exécution, précision, consommation de ressources..",
+          "competences_associes":[
+            "DevOps & Déploiement", "Tests & Qualité"
+          ]
+        },
+        "UE3":{
+          "titre":"Administrer",
+          "description": "Installer, configurer, mettre à disposition, maintenir en conditions opérationnelles des infrastructures, des services et des réseaux et optimiser le système informatique d’une organisation",
+          "competences_associes":[
+            "DevOps & Déploiement", "Infrastructures et réseaux"
+          ]
+        },
+        "UE4":{
+          "titre":"Gérer",
+          "description": "Concevoir, gérer, administrer et exploiter les données de l’entreprise et mettre à disposition toutes les informations pour un bon pilotage de l’entreprise",
+          "competences_associes":[
+            "Base de données", "Outils de visualisation"
+          ]
+        },
+        "UE5":{
+          "titre":"Conduire",
+          "description": "Satisfaire les besoins des utilisateurs au regard de la chaîne de valeur du client, organiser et piloter un projet informatique avec des méthodes classiques ou agiles",
+          "competences_associes":[
+            "Gestion de projet"
+          ]
+        },
+        "UE6":{
+          "titre":"Collaborer",
+          "description": "Acquérir, développer et exploiter les aptitudes nécessaires pour travailler efficacement dans une équipe informatique",
+          "competences_associes":[
+            "Outils de collaboration", "Compétences interpersonnelles"
+          ]
+        }
+      },
     "sorted_valid_skills":[
       {
         "Développement web": [
@@ -509,6 +554,10 @@
       },{
         "Outils de visualisation": [
           "PowerBI", "Excel", "Google Analytics"
+        ]
+      },{
+        "Infrastructures et réseaux": [
+          "Raspberry PI", "Docker"
         ]
       },{
         "Compétences interpersonnelles": [
