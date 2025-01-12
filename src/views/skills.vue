@@ -96,14 +96,16 @@ function getSuggestions(query) {
   );
 }
 
-watch(searchQuery, (newQuery) => {
+import { nextTick } from 'vue';
+
+watch(searchQuery, async (newQuery) => {
   document.querySelectorAll('details').forEach((detail) => {
     detail.open = true;
   });
   isLoading.value = true;
   getSuggestions(newQuery);
 
-  setTimeout(() => {
+  setTimeout(async () => {
     if (!newQuery) {
       filteredSkills.value = data.sorted_valid_skills;
     } else {
@@ -117,9 +119,14 @@ watch(searchQuery, (newQuery) => {
       });
     }
     isLoading.value = false;
+
+    await nextTick(); // Attendre que le DOM soit mis à jour
+    const firstDetail = document.querySelector('details');
+    if (firstDetail) {
+      firstDetail.open = true;
+    }
   }, 300);
 });
-
 function selectSuggestion(suggestion) {
   searchQuery.value = suggestion;
 }
@@ -127,15 +134,31 @@ function selectSuggestion(suggestion) {
 onMounted(() => {
   const skill = route.query.skill;
   if (skill) {
-    document.querySelector("input#inputRefComp").value =skill
+    const inputElement = document.querySelector("input#inputRefComp");
+    if (inputElement) {
+      inputElement.value = skill;
+      searchQuery.value = skill;
+    } else {
+      console.error("Input element with ID 'inputRefComp' not found.");
+    }
 
-    searchQuery.value = skill;
-    document.querySelectorAll('details').forEach((detail) => {
-      console.log(detail.open)
-      detail.open;
-    });
+    const detailsElements = document.querySelectorAll('details');
+    if (detailsElements.length > 0) {
+      detailsElements.forEach((detail) => {
+        detail.open = true;
+        console.log(detail.open);
+      });
 
-
+      // Ouvrir le premier élément <details> après le montage
+      const firstDetail = detailsElements[0];
+      if (firstDetail) {
+        firstDetail.open = true;
+      }
+    } else {
+      console.warn("No <details> elements found on the page.");
+    }
+  } else {
+    console.warn("No skill query parameter found in the route.");
   }
 });
 
@@ -159,10 +182,15 @@ watch(
         );
       });
       isLoading.value = false;
+
+      // Ouvrir le premier élément <details> après le filtrage
+      const firstDetail = document.querySelector('details');
+      if (firstDetail) {
+        firstDetail.open = true;
+      }
     }
   }
 );
-
 function handleCheckRefBUT() {
   isLoading.value = true;
   filterType.value = isSorted.value ? 'UE-IUT' : null;

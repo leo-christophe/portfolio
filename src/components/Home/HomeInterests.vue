@@ -241,7 +241,7 @@ onMounted(() => {
         border: 2px solid var(--secondColor);
         border-radius: 10%;
         padding: 20px;
-        max-width: 30%;
+        max-width: 25%;
         min-width: 20%;
         min-height: 350px;
         text-align: center;
