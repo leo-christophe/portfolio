@@ -58,7 +58,7 @@
       "emailLabel": "*Email",
       "example": "exemple",
       "domain": "domaine.com",
-      "emailDisclaimer": "Votre e-mail ne sera utiliser que pour vous recontacter.",
+      "emailDisclaimer": "Votre e-mail ne sera utilisé que pour vous recontacter.",
       "formDisclaimer": "Le prénom sert uniquement à des fins d'authentifications de la personne (facultatif) et l'adresse-mail sert à des fins de contact. Chaque mail est confidentiel entre moi et la personne qui l'envoie et sont directement archivés puis supprimés après lecture. EmailJS est utilisé pour envoyer des mails automatiquement et Recaptcha est utilisé à des fins de sécurité.",
       "messageLabel": "Message",
       "submitButton": "Envoyer",
