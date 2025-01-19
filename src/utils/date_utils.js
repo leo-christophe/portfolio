@@ -26,10 +26,15 @@ class DateUtils {
             throw new Error('La date de début est supérieure à la date de fin');
         }
 
-        const options = { year: 'numeric', month: 'long', day: '2-digit' };
-        const start = new Date(startDate).toLocaleDateString(locale, options);
-        const end = new Date(endDate).toLocaleDateString(locale, options);
+        const options = { year: 'numeric', month: 'short' };
+
+        const capitalizeFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+        
+        const start = capitalizeFirstLetter(new Date(startDate).toLocaleDateString(locale, options));
+        const end = capitalizeFirstLetter(new Date(endDate).toLocaleDateString(locale, options));
+        
         return `${start} - ${end}`;
+        
     }
 
     /**
@@ -40,7 +45,7 @@ class DateUtils {
      * @returns {string} - La date formatée.
      */
     static formatDate(date, locale = 'fr') {
-        const options = { year: 'numeric', month: 'long', day: '2-digit' };
+        const options = { year: 'numeric', month: 'short' };
         return new Date(date).toLocaleDateString(locale, options);
     }
 

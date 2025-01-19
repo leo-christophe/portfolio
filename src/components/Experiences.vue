@@ -56,7 +56,7 @@
                                                         {{ DateUtils.formatDateRange(experienceTimeline.item.dates[0], experienceTimeline.item.dates[1], $i18n.locale) }}
                                                     </span>
                                                     <span v-else-if="DateUtils.isFutureDate(experienceTimeline.item.dates[0])">
-                                                        {{ DateUtils.formatDateRange(experienceTimeline.item.dates[0], experienceTimeline.item.dates[1], $i18n.locale) + " ("+$t("message.experienceComing")+")"}}
+                                                        {{ DateUtils.formatDateRange(experienceTimeline.item.dates[0], experienceTimeline.item.dates[1], $i18n.locale) }}  <small id="avenir">({{$t("message.experienceComing")}})</small>
                                                     </span>
                                                     <span v-else>
                                                         {{ DateUtils.formatDate(experienceTimeline.item.dates[0]) + " - " + $t('message.experienceOngoing') }}
@@ -209,6 +209,12 @@
 
         h4.titreExperience, h4.titreFormation{
             font-size: 1.6em !important;
+        }
+    }
+
+    @media (max-width:1567px){
+        small#avenir{
+            display:none;
         }
     }
 
@@ -482,6 +488,11 @@
 
     .imgFormation:hover, .imgExperience:hover {
         transform: scale(1.01);
+    }
+
+    small#avenir{
+        font-size: 0.8em;
+        line-height: 0.8;
     }
 
     .expDesc {

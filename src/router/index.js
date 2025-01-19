@@ -20,6 +20,8 @@ const routes = [
     { path: '/projects/amphibiens', name: 'Amphibiens', component: () => import('../views/projects/project_sae104.vue') },
     { path: '/projects/bmw', name: 'BMW', component: () => import('../views/projects/project_sae401.vue') },
     { path: '/projects/matinfo', name: 'Matinfo', component: () => import('../views/projects/project_matinfo.vue') },
+    { path: '/projects/datacare', name: 'Datacare', component: () => import('../views/projects/project_sae501.vue') },
+
     { path: '/formations', name: 'Formations', component: () => import('../views/parcours.vue') },
     { path: '/contact', name: 'Contact', component: () => import('../views/contact.vue') },
     { path: '/mesdonnees', name: 'mesdonnees', component: () => import('../views/mesdonnees.vue') },

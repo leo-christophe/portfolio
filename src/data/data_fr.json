@@ -370,7 +370,6 @@
             "pdf_docs": [ "PROJET_MATINFO_EXPLICATIONS.pdf" ],
             "route": "/projects/matinfo"
           },{
-            "wip": true,
             "id": "project_sae501",
             "nom": "Datacare",
             "dates": ["2024-11-06","2025-01-17"],
@@ -394,17 +393,34 @@
             "type": "Universitaire",
             "images": [
               {
-                "link": "project-datacare-1.webp",
-                "description": "Capture d'écran de la page d'accueil de l'application.",
+                "link": "/images/projects/project-datacare-logo.png",
+                "description": "Logo de l'application.",
+                "type": "icone",
+                "display": true
+              },{
+                "link": "project-datacare-2.jpg",
+                "description": "Page d'accueil.",
                 "type": "image"
-              },
-              {
-                "link": "project-datacare-2.webp",
-                "description": "Capture d'écran de la page de visualisation des données.",
+              },{
+                "link": "project-datacare-1.jpg",
+                "description": "Page de gestion des capteurs.",
+                "type": "image"
+              },{
+                "link": "project-datacare-3.jpg",
+                "description": "Page de visualisation de détails d'une salle.",
+                "type": "image"                
+              },{
+                "link": "project-datacare-4.jpg",
+                "description": "Page de visualisation de détails d'un mur.",
+                "type": "image"
+              },{
+                "link": "project-datacare-cartecode.png",
+                "description": "Carte de code de l'application Blazor.",
                 "type": "image"
               }
             ],
-            "url": null,
+            "pdf_docs": [ "PROJET_DATACARE_CIMOCKS.yml", "PROJET_DATACARE_CONCEPTION.pdf" ],
+            "url": "https://data-care.azurewebsites.net/",
             "github": null,
             "download": null,
             "route": "/projects/datacare"
@@ -568,7 +584,7 @@
       },{
         "Gestion de projet": [
           "Travail en équipe", "Comptes rendus de sprint", "Organisation de réunion", 
-          "Rédaction de rapport", "Gestion de projet", "Démarche agile SCRUM", "Revues de sprint", "Méthode agile", "Azure DevOps"
+          "Rédaction de rapport", "Gestion de projet", "Démarche agile SCRUM", "Revues de sprints", "Méthode agile", "Azure DevOps"
         ]
       },{
         "Vidéo-montage": ["Montage vidéo (Premiere Pro)", "Montage Photo"]
