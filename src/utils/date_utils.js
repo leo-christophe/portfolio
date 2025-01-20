@@ -46,7 +46,8 @@ class DateUtils {
      */
     static formatDate(date, locale = 'fr') {
         const options = { year: 'numeric', month: 'short' };
-        return new Date(date).toLocaleDateString(locale, options);
+        const capitalizeFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+        return capitalizeFirstLetter(new Date(date).toLocaleDateString(locale, options));
     }
 
     /**
