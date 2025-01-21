@@ -13,6 +13,14 @@
         "search": "Search: ",
         "searchPlaceholder": "Search for a skill or a category."
     },
+    "hobbies":{
+        "animes": "Anime",
+        "animesDescription": "I really enjoy Japanese animated works. I started watching anime in 2016 and since then, I’ve become a big fan of this type of content, especially isekai or comedic anime like Re:Zero.",
+        "videogames": "Video Games",
+        "videogamesDescription": "I really like creative games like Minecraft. I've been playing for nearly 10 years and I still enjoy the genre as it continues to inspire me.",
+        "cooking": "Cooking",
+        "cookingDescription": "I love cooking. From a young age, I've always enjoyed food, so being able to prepare it with my own personal touches is a real pleasure."   
+    },
     "message": {
 
     "contactGifTitle": "Contact me if you have an internship offer or information to share.",
@@ -24,12 +32,6 @@
     "aboutText": "Hi, I'm Léo Christophe, a driven 3rd year bachelor computer science student constantly learning. Fan of japanese animes and videogames, I infuse creativity into every challenge I tackle. I have developed my skills through various projects. \n\nMy career goal is to become a lead software developer, specializing in game development, where I can combine my love for technology and creativity to craft immersive experiences that captivate users worldwide.",
     "interestsTitle": "My Interests",
     "interestsDescription": "What I enjoy doing outside of programming",
-    "animes": "Anime",
-    "animesDescription": "I really enjoy Japanese animated works. I started watching anime in 2016 and since then, I’ve become a big fan of this type of content, especially isekai or comedic anime like Re:Zero.",
-    "videogames": "Video Games",
-    "videogamesDescription": "I really like creative games like Minecraft. I've been playing for nearly 10 years and I still enjoy the genre as it continues to inspire me.",
-    "cooking": "Cooking",
-    "cookingDescription": "I love cooking. From a young age, I've always enjoyed food, so being able to prepare it with my own personal touches is a real pleasure.",
     "finishedProject": "Finished Projects",
     "finishedProjectsTitle": "Counting all my projects, I have completed",
     "yearsOfProgramming": "Years of Programming",

@@ -94,7 +94,7 @@ onMounted(() => {
 <template>
 <div id="interetsSection">
   <div id="hobbyTitleContainer">
-    <h1 id="titreAProposI">{{ $t('message.interestsTitle') }}</h1>
+    <h1 id="titreAProposI">{{ $t('hobbies.interestsTitle') }}</h1>
   </div>
   <div class="paragraphe" id="interets">
     <span id="conteneurInterets" ref="hobbyIcons">
@@ -104,8 +104,8 @@ onMounted(() => {
               src="/images/icons/manga.svg"
               alt="Torii Gate Icon"/>
         <div>
-          <h3>{{ $t('message.animes') }}</h3>
-          {{ $t('message.animesDescription') }}
+          <h3>{{ $t('hobbies.animes') }}</h3>
+          {{ $t('hobbies.animesDescription') }}
         </div>
       </div>
       <div class="textContainer">
@@ -114,8 +114,8 @@ onMounted(() => {
               src="/images/icons/game-controller.svg"
               alt="Videogames Icon"/>
         <div>
-          <h3>{{ $t('message.videogames') }}</h3>
-          {{ $t('message.videogamesDescription') }}
+          <h3>{{ $t('hobbies.videogames') }}</h3>
+          {{ $t('hobbies.videogamesDescription') }}
         </div>
       </div>
       <div class="textContainer" @click="router.push('/interests/cooking')">
@@ -124,8 +124,8 @@ onMounted(() => {
               src="/images/icons/cooking-equipment.svg"
               alt="Cooking icon"/>
         <div>
-          <h3>{{ $t('message.cooking') }}</h3>
-          {{ $t('message.cookingDescription') }}
+          <h3>{{ $t('hobbies.cooking') }}</h3>
+          {{ $t('hobbies.cookingDescription') }}
           <a>En savoir plus</a>
         </div>
       </div>

@@ -1,44 +1,54 @@
 {
+    "pages":{
+      "Cuisine": "Recettes de cuisine"
+    },
     "home":{
         "homeTitle": "Bienvenue",
         "aboutText": "Bonjour, je suis Léo Christophe, étudiant de 21 ans en 3ème année de BUT Informatique à l'IUT d'Annecy. Je suis passionné par le développement en tout genres. J'ai pu acquérir une expérience significative dans ces domaines grâce à mes projets. \n\nJe suis actuellement à la recherche d'un CDI ou d'une alternance pour préparer un master en informatique d'ici Août/Septembre 2025, donc si vous avez une proposition, vous pouvez me contacter ci-dessous.",
         "viewCV": "CV",
+        "profilePicture": "Léo Christophe, Développeur: Photo de profil",
         "contact": "Contact",
-        "profilePicture": "Léo Christophe, Développeur: Photo de profil"
+        "contactSection":{
+          "btnDownload": "Télécharger le CV",
+          "btnConsult": "Consulter le CV",
+          "contactGifTitle": "Contactez-moi si vous avez une offre ou des informations à me communiquer.",
+          "homeContactTitle": "CV",
+          "homeContactDesc": "Je suis actuellement à la recherche d'une entreprise pour un contrat d'alternance (Master) ou un CDI dès Août 2025. Je suis prêt à mettre mes compétences de développeur informatique au service de vos projets.",
+          "CTA1": "Vous avez une offre ou des informations à me communiquer ? N'hésitez pas à ",
+          "CTA2": " me contacter",
+          "CTA3": " pour en discuter !"
+        },
+        "statistics":{
+          "finishedProject": "Projets Terminés",
+          "finishedProjectsTitle": "En comptant tous les projets que j'ai terminé",
+          "yearsOfProgramming": "Années de Programmation",
+          "yearsOfProgrammingTitle": "Je programme depuis plus de 5 ans",
+          "commits": "Commits",
+          "commitsTitle": "J'ai effectué plus de 450 commits sur Github ces dernières années (Commit: Modification de code dans un projet)",
+          "masteredTech": "Technologies maîtrisées",
+          "masteredTechTitle": "Dans 4 langages différents: PHP, JS, Python, C#. Frameworks: Flask, Blazor, VueJS, Laravel, ASP.NET Core, WPF et plus..."
+        }
     },
     "skillsDetail":{
       "skills": "Compétences",
       "search": "Rechercher: ",
       "searchPlaceholder": "Chercher par compétence ou domaine."
     },
-    "message": {      
-      "contactGifTitle": "Contactez-moi si vous avez une offre ou des informations à me communiquer.",
-      "month": "mois",
-      "days": "jour(s)",
-      "homeTitle": "Bienvenue",
-      "subtitle1": "Étudiant en 3ème année de BUT Informatique",
-      "subtitle2": "Localisé à Annecy, France",
-      "aboutTitle": "À propos de moi",
-      "viewCV": "CV",
-      "contact": "Contact",
+    "hobbies":{
       "interestsTitle": "Loisirs",
-      "Cuisine": "Recettes de cuisine",
-      "btnDownload": "Télécharger le CV",
-      "btnConsult": "Consulter le CV",
       "animes": "Animés",
       "animesDescription": "J'aime beaucoup les oeuvres d'animations japonaises. J'ai commencé à regarder des animes en 2016 et depuis, je suis devenu un grand fan de ce genre de contenu. Surtout les animes de type isekai ou comique comme Re:Zero.",
       "videogames": "Jeux-Vidéo",
       "videogamesDescription": "J'aime beaucoup les jeux créatifs comme Minecraft. Jouant depuis près de 10 ans, le genre me plaît toujours autant en m'inspirant toujours.",
       "cooking": "Cuisine",
-      "cookingDescription": "J'adore cuisiner. Depuis mon plus jeune âge, j'ai toujours aimé la nourriture, alors pouvoir la confectionner avec mes propres touches est un vrai plaisir.",
-      "finishedProject": "Projets Terminés",
-      "finishedProjectsTitle": "En comptant tous les projets que j'ai terminé",
-      "yearsOfProgramming": "Années de Programmation",
-      "yearsOfProgrammingTitle": "Je programme depuis plus de 5 ans",
-      "commits": "Commits",
-      "commitsTitle": "J'ai effectué plus de 450 commits sur Github ces dernières années (Commit: Modification de code dans un projet)",
-      "masteredTech": "Technologies maîtrisées",
-      "masteredTechTitle": "Dans 4 langages différents: PHP, JS, Python, C#. Frameworks: Flask, Blazor, VueJS, Laravel, ASP.NET Core, WPF et plus...",
+      "cookingDescription": "J'adore cuisiner. Depuis mon plus jeune âge, j'ai toujours aimé la nourriture, alors pouvoir la confectionner avec mes propres touches est un vrai plaisir."
+    },
+    
+    "message": {      
+      
+      "month": "mois",
+      "days": "jour(s)",
+
       "skillsTitle": "Compétences techniques",
       "softskillsTitle": "Compétences interpersonnelles",
       "softskillsDescription": "Capacités interpersonnelles et d'adaptation favorisant la collaboration et la gestion efficace. (Communication, travail en équipe, gestion du temps, adaptabilité...)",
@@ -47,11 +57,7 @@
       "at": "à l'",
       "at_au": "au",
       "mobile": "Tel",
-      "homeContactTitle": "CV",
-      "homeContactDesc": "Je suis actuellement à la recherche d'une entreprise pour un contrat d'alternance (Master) ou un CDI dès Août 2025. Je suis prêt à mettre mes compétences de développeur informatique au service de vos projets.",
-      "CTA1": "Vous avez une offre ou des informations à me communiquer ? N'hésitez pas à ",
-      "CTA2": " me contacter",
-      "CTA3": " pour en discuter !",
+
       "contactTitle": "Contactez-moi",
       "subtitle": "Vous avez une offre d'emploi ? Vous voulez me faire part de vos remarques ?",
       "nameLabel": "Nom",

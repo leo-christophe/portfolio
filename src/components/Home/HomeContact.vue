@@ -41,24 +41,24 @@
                         <img 
                             id="imgContact" 
                             alt="Contact Gif"
-                            :title="$t('message.contactGifTitle')"
+                            :title="$t('home.contactSection.contactGifTitle')"
                             src="/images/home/contactGif.gif">
                     </div>
                 </span>
                 <span>
-                    <h1 id="CVTitre">{{ $t('message.homeContactTitle') }}</h1>
-                    <div id="SousTitre">{{ $t('message.homeContactDesc') }}</div>
+                    <h1 id="CVTitre">{{ $t('home.contactSection.homeContactTitle') }}</h1>
+                    <div id="SousTitre">{{ $t('home.contactSection.homeContactDesc') }}</div>
 
                     <div id="finalText" class="CVsection computer">
-                        <h2>{{ $t('message.CTA1') }}<RouterLink to="/contact">{{ $t('message.CTA2') }}</RouterLink>{{ $t('message.CTA3')}}</h2>
+                        <h2>{{ $t('home.contactSection.CTA1') }}<RouterLink to="/contact">{{ $t('home.contactSection.CTA2') }}</RouterLink>{{ $t('home.contactSection.CTA3')}}</h2>
                     </div>
 
                     <span id="buttons">
                         <Button id="blackVariant" @click="downloadCV">
-                            <i class="pi pi-download"></i>{{ $t("message.btnDownload") }}
+                            <i class="pi pi-download"></i>{{ $t("home.contactSection.btnDownload") }}
                         </Button>
                         <Button id="blackVariant" @click="consultCV">
-                            <i class="pi pi-eye"></i>{{ $t("message.btnConsult") }}
+                            <i class="pi pi-eye"></i>{{ $t("home.contactSection.btnConsult") }}
                         </Button>
                     </span>
                 </span>
