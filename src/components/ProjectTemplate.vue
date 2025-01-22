@@ -242,29 +242,6 @@ onMounted(()=>{
 </template>
 
 <style scoped>
-table#competences td{
-  border:1px solid transparent;
-  transition:0.2s ease all;
-}
-
-table#competences td.has-content:hover {
-  border: 1px solid var(--secondColor); /* Exemple de style */
-  cursor: pointer; /* Rendre les cellules cliquables */
-  transition:0.2s ease all;
-  cursor:pointer;
-}
-
-.realisationitem {
-  transform: translateY(50px);
-  opacity: 0;
-  transition: transform 1s ease-out, opacity 1s ease-out; /* Ajout de la transition */
-}
-
-.realisationitem.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-
 
 @media (max-width: 860px) {
   div#desc{
@@ -366,11 +343,11 @@ table#competences thead tr th.ligneHeader:hover{
   text-align:justify;
   margin:5vh 10vw 5vh 10vw;
   padding: 20px;
+  font-size:20px !important;
 }
 
 .imageDescription{
-    color:lightgray;
-    font-size:0.9rem;
+    color:rgb(225, 225, 225);
 }
 
 #project {
@@ -523,6 +500,37 @@ small{
     color:white;
     padding:5px;
     width:40vw;
+}
+
+h1{
+  font-size:2.5rem;
+}
+
+div#titre{
+  font-size:20px !important;
+}
+
+table#competences td{
+  border:1px solid transparent;
+  transition:0.2s ease all;
+}
+
+table#competences td.has-content:hover {
+  border: 1px solid var(--secondColor); /* Exemple de style */
+  cursor: pointer; /* Rendre les cellules cliquables */
+  transition:0.2s ease all;
+  cursor:pointer;
+}
+
+.realisationitem {
+  transform: translateY(50px);
+  opacity: 0;
+  transition: transform 1s ease-out, opacity 1s ease-out; /* Ajout de la transition */
+}
+
+.realisationitem.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 

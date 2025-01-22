@@ -43,7 +43,7 @@
             <li class="footerURLLink">
                 <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/mesdonnees">{{ $t('pages.personalData') }}</RouterLink>
             </li>
-            <li>
+            <li class="footerURLLink">
                 <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/contact">{{ $t('pages.contactInfo') }}</RouterLink>
             </li>
             <li class="footerURLLink">
@@ -84,6 +84,47 @@
 
 
 <style scoped>
+    /*//////////////////////////////////////
+    ///         SMARTPHONE STYLES        ///
+    ///        (0px - 860px)             ///
+    ///       (Portrait et paysage)      ///
+    //////////////////////////////////////*/
+
+    @media screen and (max-width: 860px){
+
+        div#links {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 25px;
+            margin-right:15%;
+            top:30%;
+            right:0;
+            position: absolute;
+            transform: scale(1.5);
+        }
+
+        ul{
+            display:flex;
+            flex-direction:column;
+            gap:20px;
+        }
+
+        li.footerURLLink {
+            font-size:1.5em;
+        }
+
+        p#watermark strong{
+            font-size:1.5em;
+        }
+        
+    }
+
+    /*//////////////////////////////////////
+    ///         ORDINATEUR STYLES        ///
+    ///        (860px -1920px)           ///
+    ///       (Portrait et paysage)      ///
+    //////////////////////////////////////*/
+
     .footerURLLink:hover{
         text-decoration:underline;
     }
