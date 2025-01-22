@@ -28,8 +28,8 @@
 <template>
     <!-- Section Expériences -->
     <span class="column experience">
-            <h1 id="titreExperience" class="formationTitres">{{ $t('message.experienceTitle') }}</h1>
-            <h4 class="sousTitreFormations formationTitres">{{ $t('message.experienceSubtitle') }}</h4>
+            <h1 id="titreExperience" class="formationTitres">{{ $t('experiences.experienceTitle') }}</h1>
+            <h4 class="sousTitreFormations formationTitres">{{ $t('experiences.experienceSubtitle') }}</h4>
             <span id="conteneurColonneExperiences">
 
                     <span id="conteneurTimelineFormations">
@@ -56,17 +56,17 @@
                                                         {{ DateUtils.formatDateRange(experienceTimeline.item.dates[0], experienceTimeline.item.dates[1], $i18n.locale) }}
                                                     </span>
                                                     <span v-else-if="DateUtils.isFutureDate(experienceTimeline.item.dates[0])">
-                                                        {{ DateUtils.formatDateRange(experienceTimeline.item.dates[0], experienceTimeline.item.dates[1], $i18n.locale) }}  <small id="avenir">({{$t("message.experienceComing")}})</small>
+                                                        {{ DateUtils.formatDateRange(experienceTimeline.item.dates[0], experienceTimeline.item.dates[1], $i18n.locale) }}  <small id="avenir">({{$t("experiences.experienceComing")}})</small>
                                                     </span>
                                                     <span v-else>
-                                                        {{ DateUtils.formatDate(experienceTimeline.item.dates[0]) + " - " + $t('message.experienceOngoing') }}
+                                                        {{ DateUtils.formatDate(experienceTimeline.item.dates[0], $i18n.locale) + " - " + $t('experiences.experienceOngoing') }}
                                                     </span>
                                                 </h5>
                                                 <h4 class="titreExperience">{{ experienceTimeline.item.contrat + " " + experienceTimeline.item.poste }}</h4>
                                                 <p class="expDesc">{{ experienceTimeline.item.description }}</p>
                                                 <span class="learnMore">
                                                     
-                                                    <i class="pi pi-info-circle"></i><a><p class="learnMoreText">{{ $t('message.learnmore') }}</p>
+                                                    <i class="pi pi-info-circle"></i><a><p class="learnMoreText">{{ $t('words.learnmore') }}</p>
                                                 </a>
                                                 </span>
                                             </div>
@@ -85,7 +85,7 @@
                                         v-if="experienceTimeline.item"
                                         v-model:visible="visibleDialogs[experienceTimeline.index]" 
                                         :modal="true" 
-                                        :header="$t('message.experienceModalTitle')+ ' ' + experienceTimeline.item.poste + ' (' + experienceTimeline.item.entreprise + ') '"  
+                                        :header="$t('experiences.experienceModalTitle')+ ' ' + experienceTimeline.item.poste + ' (' + experienceTimeline.item.entreprise + ') '"  
                                         class="custom-dialog"
                                         :breakpoints="{ '1300px': '75vw', '800px': '80vw' }" >
                                         <ExperienceDialog :experienceProp="experienceTimeline.item" />

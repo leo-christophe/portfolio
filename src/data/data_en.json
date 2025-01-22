@@ -333,7 +333,69 @@
         "github": "https://github.com/leoChris7/MATINFO",
         "download": "/files/Matinfo-Explications.pdf",
         "route": "/projects/matinfo"
-      }
+      },
+      {
+        "id": "project_sae501",
+        "nom": "Datacare",
+        "dates": ["2024-11-06", "2025-01-17"],
+        "titre": "Creation of a sensor data management and visualization application",
+        "description": "The goal of this group project of 5 people was to create a sensor data management and visualization application. The application had to allow viewing, analyzing, and exporting sensor data. The application had to be ergonomic and intuitive. The database had to be created using code-first with Entity Framework Core. The application had to be developed in C# with WPF. The application had to be tested with unit tests and integration tests. The application had to be deployed on an Azure server. The application had to be presented in front of a panel of professors.",
+        "competences": {
+            "Software Development": ["C#", "Entity Framework", "CodeFirst", "Repository", "Dependency Injection"],
+            "Web Development": ["C#", "Blazor", "HTML", "CSS"],
+            "Database": ["SQL", "MLD", "MCD", "InfluxDB", "noSQL"],
+            "DevOps & Deployment": ["Azure", "CI/CD", "Github"],
+            "Testing & Quality": ["End-to-End Tests", "Unit Tests", "Mock Tests"],
+            "Visualization Tools": ["Grafana", "Flux"]
+        },
+        "realisations": [
+            "Configuration of a Raspberry PI to retrieve sensor data and send it to an InfluxDB database using ZwaveJS and HomeAssistant",
+            "Creation of an InfluxDB database and a Rest API in C# to manage and retrieve this data",
+            "Creation of the database in MCD on PowerAMC, then in SQL on PostgreSQL (Hosted on AlwaysData)",
+            "Development of a Rest API in C# with Entity Framework Core with several mock tests for each controller method.",
+            "Development of the web application in Blazor (WebAssembly) with end-to-end tests",
+            "Deployment of the Blazor application and API on Azure."
+        ],
+        "type": "University",
+        "images": [
+            {
+                "link": "/images/projects/project-datacare-logo.png",
+                "description": "Logo of the application.",
+                "type": "icone",
+                "display": true
+            },
+            {
+                "link": "project-datacare-2.jpg",
+                "description": "Homepage.",
+                "type": "image"
+            },
+            {
+                "link": "project-datacare-1.jpg",
+                "description": "Sensor management page.",
+                "type": "image"
+            },
+            {
+                "link": "project-datacare-3.jpg",
+                "description": "Room details page.",
+                "type": "image"
+            },
+            {
+                "link": "project-datacare-4.jpg",
+                "description": "Wall details page.",
+                "type": "image"
+            },
+            {
+                "link": "project-datacare-cartecode.png",
+                "description": "Code map of the Blazor application.",
+                "type": "image"
+            }
+        ],
+        "pdf_docs": ["PROJET_DATACARE_CIMOCKS.yml", "PROJET_DATACARE_CONCEPTION.pdf"],
+        "url": "https://data-care.azurewebsites.net/",
+        "github": null,
+        "download": null,
+        "route": "/projects/datacare"
+    }
       
     ]
     ,
@@ -370,33 +432,33 @@
       ]      
     ],
     "main_hard_skills": [
-        {
-            "Software Development": [
-                {"Web Development (JS, Python, PHP)": "95%"},
-                {"Software and Game Development (C#, Python)": "70%"},
-                {"Data Management (SQL, Python)": "85%"},
-                {"Networks": "65%"}
-            ]
-        },
-        {
-            "Other": [
-                {"English Language (~C1)": "80%"},
-                {"Italian Language (~B1)": "60%"},
-                {"Video Editing": "70%"},
-                {"Photo Editing": "60%"}
-            ]
-        }
-    ],
+      {
+          "Software Development": [
+              {"Web Development": "90%"},
+              {"Software and Game Development": "70%"},
+              {"Data Management": "80%"},
+              {"Networks": "50%"}
+          ]
+      },
+      {
+          "Other": [
+              {"English Language (~C1)": "90%"},
+              {"Italian Language (~B1)": "60%"},
+              {"Video Editing": "70%"},
+              {"Photo Editing": "60%"}
+          ]
+      }
+  ],
     "main_soft_skills": [
-        "Teamwork",
-        "Autonomy",
-        "Rigor",
-        "Organization",
-        "Creativity",
-        "Adaptability",
-        "Critical Thinking",
-        "Proactivity"
-    ],
+      {"Teamwork": "I have worked a lot in teams during all my academic projects."},
+      {"Autonomy": "I have gained experience in autonomous work with personal projects."},
+      {"Rigor": "Application of best practices in development and hard work to succeed."},
+      {"Organization": "Without good organization, you cannot finish a project on time. Thus, I note everything on post-its."},
+      {"Creativity": "Development is also about finding ideas to solve a problem but also with ideas for design."},
+      {"Adaptability": "Several times during my academic projects, unexpected situations arose. Change of technology, addition of deliverables, or other problems. It requires great adaptability."},
+      {"Critical Thinking": "During brainstorming, it is important to remain critical and participate in discussions. During group work, I always participate."},
+      {"Proposal Strength": "It is important to propose. During my internship at Alpha-3i, I was able to propose ideas to improve the application. 'Criticizing is easy, proposing is difficult.'"}
+  ],
     "sorted_valid_skills": [
       {
         "Web Development": [
@@ -422,11 +484,11 @@
         ]
       },{
         "Database": [
-            "SQL", "PostgreSQL", "MLD", "MCD", "NoSQL", "plpgSQL", "plpSQL", "MongoDB", "Database Management", "Authentication", "PowerBI", "PowerAMC", "SQLite", "Relational Databases"
+            "SQL", "PostgreSQL", "MLD", "MCD", "NoSQL", "Flux","plpgSQL", "plpSQL", "MongoDB", "Database Management", "Authentication", "PowerBI", "PowerAMC", "SQLite", "Relational Databases"
         ]
       },{
         "Design & Architecture": [
-            "State-Transition", "Class Diagram", "Diagrams", "Design", "BPMN", "UML",
+            "State-Transition", "Class Diagram", "Diagrams", "Design", "BPMN", "UML", "Use Cases",
             "Technical Documents", "Acceptance Criteria", "Documentation", "MVC", "MVVM", "Repository", "Dependency Injection"
         ]
       },{
@@ -441,7 +503,7 @@
         ]
       },{
         "Visualization Tools": [
-            "PowerBI", "Excel", "Google Analytics"
+            "PowerBI", "Excel", "Google Analytics", "Grafana"
         ]
       },{
         "Project Management": [
@@ -455,6 +517,50 @@
       },{
           "Collaboration Tools": ["Trello", "Discord"]
       }
-    ]
+    ],
+    "ue_but": {
+      "UE1": {
+          "titre": "Realize",
+          "description": "Develop — that is, design, code, test, and integrate — an IT solution for a client.",
+          "competences_associes": [
+              "Web Development", "Software Development", "Game Development", "Design & Architecture"
+          ]
+      },
+      "UE2": {
+          "titre": "Optimize",
+          "description": "Propose optimized IT applications based on specific criteria: execution time, accuracy, resource consumption...",
+          "competences_associes": [
+              "DevOps & Deployment", "Testing & Quality"
+          ]
+      },
+      "UE3": {
+          "titre": "Administer",
+          "description": "Install, configure, make available, maintain in operational conditions infrastructures, services, and networks, and optimize the IT system of an organization.",
+          "competences_associes": [
+              "DevOps & Deployment", "Infrastructure & Networks"
+          ]
+      },
+      "UE4": {
+          "titre": "Manage",
+          "description": "Design, manage, administer, and exploit company data and make all information available for good company management.",
+          "competences_associes": [
+              "Database", "Visualization Tools"
+          ]
+      },
+      "UE5": {
+          "titre": "Lead",
+          "description": "Satisfy user needs regarding the client's value chain, organize and lead an IT project with classical or agile methods.",
+          "competences_associes": [
+              "Project Management"
+          ]
+      },
+      "UE6": {
+          "titre": "Collaborate",
+          "description": "Acquire, develop, and exploit the necessary skills to work effectively in an IT team.",
+          "competences_associes": [
+              "Collaboration Tools", "Interpersonal Skills"
+          ]
+      }
+    }
   }
   

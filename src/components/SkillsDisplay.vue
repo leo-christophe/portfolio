@@ -75,12 +75,12 @@
   <div class="skills-display">
     <span id="hardSkillsContainer" @click="router.push('/skillslist')">
       <div id="hardSkillsDescription">
-        <h2 id="competencesTitre" class="typeCompetenceTitre">{{ $t('message.skillsTitle') }}</h2>
-        <p class="skillSectionDescription">{{ $t('message.hardskillsDescription') }} <a  href="/skillslist">{{ $t('message.learnmore') }}</a></p>
+        <h2 id="competencesTitre" class="typeCompetenceTitre">{{ $t('skills.skillsTitle') }}</h2>
+        <p class="skillSectionDescription">{{ $t('skills.hardskillsDescription') }} <a  href="/skillslist">{{ $t('words.learnmore') }}</a></p>
         <img class="banniereSkills" 
               src="/images/home/hardskills_banniere.webp"
-              :alt=" $t('message.skillsTitle') "
-              :title=" $t('message.skillsTitle') "></img>
+              :alt=" $t('skills.skillsTitle') "
+              :title=" $t('skills.skillsTitle') "></img>
       </div>
       <div class="hard-skills">
         <div v-for="(category, index) in main_hard_skills" :key="index" class="compType">
@@ -100,14 +100,14 @@
 
     <span id="softSkillsContainer">
       <div id="softSkillsDescription">
-        <h2 class="typeCompetenceTitre">{{ $t('message.softskillsTitle') }}</h2>
+        <h2 class="typeCompetenceTitre">{{ $t('skills.softskillsTitle') }}</h2>
         <span>
-          <p class="skillSectionDescription">{{ $t('message.softskillsDescription') }}</p>
+          <p class="skillSectionDescription">{{ $t('skills.softskillsDescription') }}</p>
         </span>
         <img class="banniereSkills" 
               src="/images/home/softskills_banniere.webp" 
-              :alt="$t('message.softskillsTitle')"
-              :title="$t('message.softskillsTitle')"></img>
+              :alt="$t('skills.softskillsTitle')"
+              :title="$t('skills.softskillsTitle')"></img>
       </div>
       <div class="soft-skills">
         <div class="cloud">
@@ -125,11 +125,11 @@
         </div>
 
         <div id="referencesContainer">
-          <h2 class="references-title">{{ $t('message.references') }}</h2>
+          <h2 class="references-title">{{ $t('skills.references') }}</h2>
           <div class="references-row">
             <div v-for="(ref, index1) in data.references[0]" :key="index1" class="reference">
               <h3><strong>{{ ref.name }}</strong></h3><br>
-                <i class="pi pi-briefcase"/> <em>{{ ref.occupation }}</em> {{ $t("message.at") }}{{ ref.enterprise }}<br>
+                <i class="pi pi-briefcase"/> <em>{{ ref.occupation }}</em> {{ $t("words.at") }}{{ ref.enterprise }}<br>
               {{ ref.location }}<br>
               <span id="contactRef">
                 <div><i class="pi pi-envelope"/> <a :href="'mailto:' + ref.email">{{ ref.email }}</a></div>

@@ -1,49 +1,49 @@
 <template>
   <div class="privacy-policy">
-    <h1>{{ $t('message.privacy.title') }}</h1>
+    <h1>{{ $t('privacy.title') }}</h1>
     <small>{{ DateUtils.formatDate('2024-11-27', locale) }}</small>
 
     <section>
-      <h2>{{ $t('message.privacy.cookies.title') }}</h2>
-      <p>{{ $t('message.privacy.cookies.intro') }}</p>
+      <h2>{{ $t('privacy.cookies.title') }}</h2>
+      <p>{{ $t('privacy.cookies.intro') }}</p>
 
-      <h3>{{ $t('message.privacy.cookies.details.title') }}</h3>
+      <h3>{{ $t('privacy.cookies.details.title') }}</h3>
       <ul>
-        <li><strong>{{ $t('message.privacy.cookies.details.lang.name') }}</strong>: 
-          <h4>{{ $t('message.privacy.cookies.details.lang.description') }}</h4>
-          {{ $t('message.privacy.cookies.details.lang.details') }}
+        <li><strong>{{ $t('privacy.cookies.details.lang.name') }}</strong>: 
+          <h4>{{ $t('privacy.cookies.details.lang.description') }}</h4>
+          {{ $t('privacy.cookies.details.lang.details') }}
         </li>
 
-        <li><strong>{{ $t('message.privacy.cookies.details.rc_a.name') }}</strong>: 
-          <h4>{{ $t('message.privacy.cookies.details.rc_a.description') }}</h4>
-          {{ $t('message.privacy.cookies.details.rc_a.details') }}
+        <li><strong>{{ $t('privacy.cookies.details.rc_a.name') }}</strong>: 
+          <h4>{{ $t('privacy.cookies.details.rc_a.description') }}</h4>
+          {{ $t('privacy.cookies.details.rc_a.details') }}
         </li>
 
-        <li><strong>{{ $t('message.privacy.cookies.details.rc_c.name') }}</strong>: 
-          <h4>{{ $t('message.privacy.cookies.details.rc_c.description') }}</h4>
-          {{ $t('message.privacy.cookies.details.rc_c.details') }}
+        <li><strong>{{ $t('privacy.cookies.details.rc_c.name') }}</strong>: 
+          <h4>{{ $t('privacy.cookies.details.rc_c.description') }}</h4>
+          {{ $t('privacy.cookies.details.rc_c.details') }}
         </li>
       </ul>
     </section>
 
     <section>
-      <h2>{{ $t('message.privacy.data_protection.title') }}</h2>
-      <p>{{ $t('message.privacy.data_protection.content') }}</p>
+      <h2>{{ $t('privacy.data_protection.title') }}</h2>
+      <p>{{ $t('privacy.data_protection.content') }}</p>
     </section>
 
     <section>
-      <h2>{{ $t('message.privacy.user_rights.title') }}</h2>
-      <p>{{ $t('message.privacy.user_rights.content') }}</p>
+      <h2>{{ $t('privacy.user_rights.title') }}</h2>
+      <p>{{ $t('privacy.user_rights.content') }}</p>
     </section>
 
     <section>
-      <h2>{{ $t('message.privacy.contact.title') }}</h2>
-      <p>{{ $t('message.privacy.contact.content', {email: '[leochristophe@outlook.fr]'}) }}</p>
+      <h2>{{ $t('privacy.contact.title') }}</h2>
+      <p>{{ $t('privacy.contact.content', {email: '[leochristophe@outlook.fr]'}) }}</p>
     </section>
 
     <section>
-      <h2>{{ $t('message.privacy.policy_update.title') }}</h2>
-      <p>{{ $t('message.privacy.policy_update.content') }}</p>
+      <h2>{{ $t('privacy.policy_update.title') }}</h2>
+      <p>{{ $t('privacy.policy_update.content') }}</p>
     </section>
   </div>
 </template>

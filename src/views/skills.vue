@@ -22,12 +22,12 @@
           :binary="true"
         />
         <label>
-          {{ $t('message.sortRefBUT') }}
+          {{ $t('skillsDetail.sortRefBUT') }}
           <a
             href="https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2023-12/informatique-30855.pdf#page=15"
             target="_blank"
           >
-            {{ $t('message.refBUT') }}
+            {{ $t('skillsDetail.refBUT') }}
           </a>
         </label>
       </span>
@@ -41,7 +41,7 @@
       />
     </div>
     <div v-else-if="filteredSkills.length == 0 && isLoading == false">
-      {{ t('message.noskill') }}
+      {{ t('skillsDetail.noskill') }}
     </div>
 
     <div id="skillsPage">

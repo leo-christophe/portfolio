@@ -9,20 +9,20 @@ import Portfolio from '../../components/ProjectTemplate.vue'
     
     
     <div class="project_title_container">
-        <h2>Details</h2>
+        <h2>{{$t('projects.details')}}</h2>
     </div>  
 
     <section>
         <div class="project_title_container">
-            <h3>Utilisation d'API</h3>
+            <h3>{{$t('projects.portfolio.api_use_title')}}</h3>
         </div>  
 
         <article>
             <span class="sectionText">
                 <div class="project_title_container">
-                    <h4>EmailJS</h4>
+                    <h4>{{$t('projects.portfolio.email_js')}}</h4>
                 </div>
-                <p>Utilisation de l'API du service <a href="https://www.emailjs.com/" target="_blank">emailJS</a> pour récupérer le formulaire de contact. Le formulaire a besoin de la validation Google Recaptcha pour fonctionner. Si l'utilisateur est confirmé humain, les données du formulaire sont envoyées à EmailJS qui envoie un mail dans ma boîte mail.</p>
+                <p>{{$t('projects.portfolio.email_js_details')}}<a href="https://www.emailjs.com/" target="_blank">{{ $t("projects.portfolio.email_js") }}</a> {{$t('projects.portfolio.email_js_end')}}</p>
                 </span>
             <img class="projectImg" src="/images/projects/emailjs.webp" alt="EmailJS">
         </article>
@@ -30,9 +30,9 @@ import Portfolio from '../../components/ProjectTemplate.vue'
         <article>
             <span class="sectionText">
                 <div class="project_title_container">
-                    <h4>Google Recaptcha 3</h4>
+                    <h4>{{$t('projects.portfolio.google_recaptcha')}}</h4>
                 </div>
-                <p>Utilisation de l'API de Google Recaptcha 3 pour vérifier si l'utilisateur est un robot pour protéger le formulaire de contact. Google Recaptcha fonctionne sans vérification de l'utilisateur directe mais d'une façon indirecte, selon ses actions lors de l'utilisation du site.</p>
+                <p>{{$t('projects.portfolio.google_recaptcha_details')}}</p>
                 </span>
             <img class="projectImg" src="/images/projects/recaptcha.webp" alt="Google Recaptcha">
         </article>
@@ -40,10 +40,10 @@ import Portfolio from '../../components/ProjectTemplate.vue'
 
     <section>
         <div class="project_title_container">
-            <h3>RGPD</h3>
+            <h3>{{$t('projects.portfolio.rgpd')}}</h3>
         </div>
         <p>
-            Bien que le site soit un portfolio, l'utilisation d'un système de traduction et d'un système de vérification de véracité de l'utilisateur révèlent l'utilisation de cookies. Ainsi, conformement aux règlementations européennes en vigueur (03/11/2025), le site est conforme à la réglementation RGPD. Les données personnelles sont protégées et les cookies sont utilisés de manière transparente. (Voir la page <a href="/confidentialite" target="_blank">politique de confidentialité</a> pour plus d'informations)
+            {{$t('projects.portfolio.rgpd_details')}} <a href="/confidentialite" target="_blank">{{ $t('pages.Confidentialité') }}</a> {{$t('projects.portfolio.rgpd_end')}})
         </p>
     </section>
 </template>

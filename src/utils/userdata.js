@@ -35,8 +35,8 @@ export const copyToClipboard = async (text, toastService, tradService) => {
       if (!isMobile()) {
         toastService.add({ 
           severity: 'info', 
-          summary: tradService('message.copySummary'), 
-          detail: tradService('message.copyMessage'), 
+          summary: tradService('contact.copySummary'), 
+          detail: tradService('contact.copyMessage'), 
           life: 2500 
         });
       }
@@ -46,8 +46,8 @@ export const copyToClipboard = async (text, toastService, tradService) => {
       if (!isMobile()) {
           toastService.add({ 
           severity: 'error', 
-          summary: tradService('message.error'), 
-          detail: tradService('message.errorMessage'), 
+          summary: tradService('contact.error'), 
+          detail: tradService('contact.errorMessage'), 
           life: 2500 
         });
       }

@@ -47,7 +47,7 @@ const loadRecaptcha = async () => {
       console.error('reCAPTCHA not loaded');
     }
   } catch (error) {
-    showError(t('message.errorMessage')); // Utilise 't' au lieu de $t
+    showError(t('contact.errorMessage')); // Utilise 't' au lieu de $t
   }
 };
 
@@ -64,7 +64,7 @@ onMounted(() => {
 // Handles form submission
 const handleSubmit = async () => {
   if (!recaptchaToken.value) {
-    showError(t('message.errorMessage')); // Utilise 't' au lieu de $t
+    showError(t('contact.errorMessage')); // Utilise 't' au lieu de $t
     return;
   }
 
@@ -107,12 +107,12 @@ const showSuccess = () => {
     vibrate();
   }
 
-  toast.add({ severity: 'success', summary: t('message.success'), detail: t('message.successMessage'), life: 4000 });
+  toast.add({ severity: 'success', summary: t('contact.success'), detail: t('contact.successMessage'), life: 4000 });
 };
 
 // Error toast notification
-const showError = (Emessage = t('message.errorMessage')) => {
-  toast.add({ severity: 'error', summary: t('message.error'), detail: Emessage, life: 5000 });
+const showError = (Emessage = t('contact.errorMessage')) => {
+  toast.add({ severity: 'error', summary: t('contact.error'), detail: Emessage, life: 5000 });
 };
 
 /** @function openGoogleMaps
@@ -185,177 +185,92 @@ function openGoogleMaps() {
 
 <template>
   <span>
-  <div id="content">
-    <!-- Contact form -->
-    <h1 id="contentText">{{ $t('message.subtitle') }}</h1>
-    <br>
-    <br>
-    <br>
-    <div id="everythingContainer">
+    <div id="content">
+      <!-- Contact form -->
+      <h1 id="contentText">{{ $t('contact.subtitle') }}</h1>
+      <br>
+      <br>
+      <br>
+      <div id="everythingContainer">
 
-<!--     
-      <div id="leftAnimation">
-      <div>
-        <span id="lineOfText"></span>
-        <span class="linesOfText"></span>
-        <span class="linesOfText"></span>
-        <span class="linesOfText"></span>
-        <span class="linesOfText"></span>
-        <span class="linesOfText"></span>
-        <span class="linesOfText"></span>
-      </div>
-    </div> -->
-
-    <div id="formAIcons">
-      <div id="contactform" class="ContactSquare">
-        <h2>{{ $t('message.contactTitle') }}</h2>
-        <form id="demo-form" @submit.prevent="handleSubmit">
-          <br>
-          <!-- Name input -->
-          <div class="flex flex-column gap-2">
-            <label for="name">{{ $t('message.nameLabel') }}</label>
-            <InputText type="text" id="name" v-model="form.name" aria-required="true" :placeholder="$t('message.nameLabel')" />
-          </div>
-          <br>
-          <!-- Email input -->
-          <div class="flex flex-column gap-2">
-            <label for="email">{{ $t('message.emailLabel') }}</label>
-            <InputText v-model="form.email" type="email" id="email" :placeholder="$t('message.example')+'@'+$t('message.domain')" aria-required="true" required />
-            <small>({{ $t('message.emailDisclaimer') }})</small>
-          </div>
-          <br>
-          <!-- Message input -->
-          <div class="flex justify-content-center">
-            <Textarea id="message" v-model="form.message" variant="filled" required autoResize rows="5" cols="30" aria-required="true" :placeholder="$t('message.messageLabel')"></Textarea>
-          </div>
-          <!-- Submit button -->
-          <div>
-            <Button 
-            ref="submitButton"
-            type="submit" 
-            id="greenValid" 
-            class="g-recaptcha" 
-            :disabled="!recaptchaToken">{{ $t('message.submitButton') }}</Button>
-            <ProgressSpiner v-if="!recaptchaToken" style="width: 40px; height: 40px"/>
-          </div>
-          <small>
-            {{ $t('message.formDisclaimer') }}
-          </small>
-        </form>
-      </div>
-      <span id="infoBubbles" style="display:flex;flex-direction: column;justify-content: space-evenly;">
-        <div id="bubble1" class="bubble">
-          <div @click="callNumber_asClient(MOBILE)" :title="$t('message.availability') " class="iconContainer">
-            <i class="pi pi-phone infoRightIcon"></i>
-          </div>
-          <div class="bubbleInfo">
-            <span>{{$t('message.phoneSectionTitle')}}</span>
-            <div>
-              <span>{{ MOBILE }}</span><i class="pi pi-clone" @click="copyToClipboard(MOBILE, toast, t)" :title="$t('message.copyTitle')"></i>
-            </div>
-          </div>
-        </div>
-        <div id="bubble2" class="bubble">
-          <div @click="sendMail_asClient(EMAIL)" class="iconContainer">
-            <i class="pi pi-envelope infoRightIcon"></i>
-          </div>
-          <div class="bubbleInfo">
-            <span>{{$t('message.emailSectionTitle')}}</span>
-            <div>
-              <span>leo.christophe@etu.univ-savoie.fr</span><i class="pi pi-clone" @click="copyToClipboard(EMAIL, toast, t)" :title="$t('message.copyTitle')"></i>
-            </div>
-          </div>
-        </div>
-        <div id="bubble3" class="bubble">
-          <div @click="openGoogleMaps" class="iconContainer">
-            <i class="pi pi-map-marker infoRightIcon"></i>
-          </div>
-          <div class="bubbleInfo">
-            <span>{{$t('message.locationTitle')}}</span>
-            <span>Annecy, France</span>
-          </div>
-        </div>
-      </span>
-    </div>
-  </div>
-
-    <!-- Additional information (email, phone) -->
-    <!-- <div id="informationsCard" class="ContactSquare">
-      <div id="socialLinks">
-        <div id="Mails">
-          <div id="mailInfoContainer">
-            <h2>{{ $t('message.emailSectionTitle') }}</h2>
-            <div class="maillink">
-              <div id="mailEtCopy">
-                <p class="e-mail_adress">{{ EMAIL }}</p>
-                <i class="pi pi-clone" @click="copyToClipboard(EMAIL, toast, t)" :title="$t('message.copyTitle')"></i>
+        <div id="formAIcons">
+          <div id="contactform" class="ContactSquare">
+            <h2>{{ $t('contact.contactTitle') }}</h2>
+            <form id="demo-form" @submit.prevent="handleSubmit">
+              <br>
+              <!-- Name input -->
+              <div class="flex flex-column gap-2">
+                <label for="name">{{ $t('contact.nameLabel') }}</label>
+                <InputText type="text" id="name" v-model="form.name" aria-required="true" :placeholder="$t('contact.nameLabel')" />
               </div>
-              <Button id="greenValid" @click="sendMail_asClient(EMAIL)">{{ $t('message.contactButton') }}</Button>
-            </div>
+              <br>
+              <!-- Email input -->
+              <div class="flex flex-column gap-2">
+                <label for="email">{{ $t('contact.emailLabel') }}</label>
+                <InputText v-model="form.email" type="email" id="email" :placeholder="$t('contact.example')+'@'+$t('contact.domain')" aria-required="true" required />
+                <small>({{ $t('contact.emailDisclaimer') }})</small>
+              </div>
+              <br>
+              <!-- Message input -->
+              <div class="flex justify-content-center">
+                <Textarea id="message" v-model="form.message" variant="filled" required autoResize rows="5" cols="30" aria-required="true" :placeholder="$t('contact.messageLabel')"></Textarea>
+              </div>
+              <!-- Submit button -->
+              <div>
+                <Button 
+                ref="submitButton"
+                type="submit" 
+                id="greenValid" 
+                class="g-recaptcha" 
+                :disabled="!recaptchaToken">{{ $t('contact.submitButton') }}</Button>
+                <ProgressSpiner v-if="!recaptchaToken" style="width: 40px; height: 40px"/>
+              </div>
+              <small>
+                {{ $t('contact.formDisclaimer') }}
+              </small>
+            </form>
           </div>
-
-          <div id="mobileInfoContainer">
-            <h2>{{ $t('message.phoneSectionTitle') }}</h2>
-            <div id="mobileEtCopy">
-              <p class="e-mail_adress">{{ MOBILE }}</p>
-              <i class="pi pi-clone" @click="copyToClipboard(MOBILE, toast, t)" :title="$t('message.copyTitle')"></i>
+          <span id="infoBubbles" style="display:flex;flex-direction: column;justify-content: space-evenly;">
+            <div id="bubble1" class="bubble">
+              <div @click="callNumber_asClient(MOBILE)" :title="$t('contact.availability') " class="iconContainer">
+                <i class="pi pi-phone infoRightIcon"></i>
+              </div>
+              <div class="bubbleInfo">
+                <span>{{$t('contact.phoneSectionTitle')}}</span>
+                <div>
+                  <span>{{ MOBILE }}</span><i class="pi pi-clone" @click="copyToClipboard(MOBILE, toast, t)" :title="$t('contact.copyTitle')"></i>
+                </div>
+              </div>
             </div>
-            <small>{{ $t('message.availability') }}</small>
-            <div class="numlink">
-              <Button id="greenValid" @click="callNumber_asClient(MOBILE.replace(/\s/g, ''))">{{ $t('message.callButton') }}</Button>
-              <Button v-if="isMobile()" id="greenValid" @click="sendSMS_asClient(MOBILE.replace(/\s/g, ''))">{{ $t('message.smsButton') }}</Button>
+            <div id="bubble2" class="bubble">
+              <div @click="sendMail_asClient(EMAIL)" class="iconContainer">
+                <i class="pi pi-envelope infoRightIcon"></i>
+              </div>
+              <div class="bubbleInfo">
+                <span>{{$t('contact.emailSectionTitle')}}</span>
+                <div>
+                  <span>leo.christophe@etu.univ-savoie.fr</span><i class="pi pi-clone" @click="copyToClipboard(EMAIL, toast, t)" :title="$t('contact.copyTitle')"></i>
+                </div>
+              </div>
             </div>
-          </div>
+            <div id="bubble3" class="bubble">
+              <div @click="openGoogleMaps" class="iconContainer">
+                <i class="pi pi-map-marker infoRightIcon"></i>
+              </div>
+              <div class="bubbleInfo">
+                <span>{{$t('contact.locationTitle')}}</span>
+                <span>Annecy, France</span>
+              </div>
+            </div>
+          </span>
         </div>
       </div>
-    </div> -->
-
-    <!-- <span id="localisationSquare" class="ContactSquare">
-      <div id="carteContainer">
-        <iframe width="100%" height="100%" src="https://www.openstreetmap.org/export/embed.html?bbox=5.901374816894532%2C45.7957758736992%2C6.354560852050782%2C46.002208482091724&amp;layer=mapnik&amp;marker=45.899088112583115%2C6.127967834472656" ></iframe>
-      </div>
-      <div id="localisationSquareText">
-        <h2>{{ $t('message.locationTitle') }}</h2>
-        <br>
-        <p id="localisationSquareDescription">{{ $t('message.localisationDescription') }}</p>
-        <br>
-        <h3>{{ $t('message.currentAddress') }}</h3>
-        <p>
-          <strong>74000 ANNECY</strong>
-          <br>
-          <strong>{{ $t('message.region') }}</strong>
-        </p>
-        <br>
-        <h3>{{ $t('message.permanentAddress') }}</h3>
-        <p>
-          <strong>74970 MARIGNIER</strong>
-          <br>
-          <strong>{{ $t('message.region') }}</strong>
-        </p>
-      </div>
-    </span> -->
-  </div>
-</span>
+    </div>
+  </span>
 </template>
 
 
 <style scoped>
-/* 
-.linesOfText {
-  display: inline-block;
-  margin: 5px;
-  font-weight: bold !important; 
-  position: relative !important; 
-  transition: transform 0.3s ease;
-  white-space: pre; 
-  color:rgb(71, 71, 71);
-}
-
-.linesOfText:hover {
-  transform: scale(1.1);
-  transition: transform 0.2s ease-in-out;
-} */
-
 
 .bubble{
   display:flex;

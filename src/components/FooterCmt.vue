@@ -41,33 +41,33 @@
     <footer>
         <ul>
             <li class="footerURLLink">
-                <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/mesdonnees">{{ $t('message.personalData') }}</RouterLink>
+                <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/mesdonnees">{{ $t('pages.personalData') }}</RouterLink>
             </li>
             <li>
-                <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/contact">{{ $t('message.contactInfo') }}</RouterLink>
+                <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/contact">{{ $t('pages.contactInfo') }}</RouterLink>
             </li>
             <li class="footerURLLink">
-                <a :href="CVAdress" class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }">{{ $t('message.readCV') }}</a>
+                <a :href="CVAdress" class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }">{{ $t('footer.readCV') }}</a>
             </li>
             <li class="footerURLLink">
                 <div>
                     <!-- Language switch button -->
-                    <a v-if="boolLang" id="switchLanguageFooter" @click="switchLanguage('fr')" :style="{ color: COULEUR_MENU_SELECTIONNE }"> {{ $t('message.changeLang') }} </a>
-                    <a v-else id="switchLanguageFooter"  @click="switchLanguage('en')" :style="{ color: COULEUR_MENU_SELECTIONNE }"> {{ $t('message.changeLang') }} </a>
+                    <a v-if="boolLang" id="switchLanguageFooter" @click="switchLanguage('fr')" :style="{ color: COULEUR_MENU_SELECTIONNE }"> {{ $t('footer.changeLang') }} </a>
+                    <a v-else id="switchLanguageFooter"  @click="switchLanguage('en')" :style="{ color: COULEUR_MENU_SELECTIONNE }"> {{ $t('footer.changeLang') }} </a>
                 </div>
             </li>
             <li class="footerURLLink">
                 <div>
-                    <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/confidentialite">{{ $t('message.privacy.title') }}</RouterLink>
+                    <RouterLink class="footerURLLink" :style="{ color: COULEUR_MENU_SELECTIONNE }" to="/confidentialite">{{ $t('privacy.title') }}</RouterLink>
                 </div>
             </li>
         </ul>
 
-        <p id="watermark"><strong>© {{ new Date().getFullYear() }} {{  $t('message.name')  }}</strong></p>
+        <p id="watermark"><strong>© {{ new Date().getFullYear() }} {{  $t('footer.name')  }}</strong></p>
 
         <div id="links">
             <div v-for="link in links" :key="link.name" :id="link.name" class="link">
-                <a :href="link.url" target="_blank" :aria-label="$t('message.link')+link.name+' - Léo Christophe'" v-if="link.url">
+                <a :href="link.url" target="_blank"  v-if="link.url">
                     <i v-if="link.classpi" :class="link.classpi + ' imgLink'" :id="link.name+'_img'"></i>
                     <img 
                         v-else

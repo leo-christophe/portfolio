@@ -43,20 +43,20 @@ function effacerStockageLocal(){
     return router.go(-1);  // Go back to the previous page
 }
     const showSuccess = () => {
-        toast.add({ severity: 'success', summary: t('message.deletedData'), detail: t('message.succesToast'), life: 2500 });
+        toast.add({ severity: 'success', summary: t('manage_data.deletedData'), detail: t('manage_data.succesToast'), life: 2500 });
     };
 
     const showInfo = () => {
-        toast.add({ severity: 'info', summary: t('message.infoData'), detail: t('message.infoToast'), life: 2500 });
+        toast.add({ severity: 'info', summary: t('manage_data.infoData'), detail: t('manage_data.infoToast'), life: 2500 });
     };
 
     const confirm2 = () => {
     confirm.require({
-        message: t('message.etesVousSur'),
-        header: t('message.etesVousSurHeader'),
+        message: t('manage_data.etesVousSur'),
+        header: t('manage_data.etesVousSurHeader'),
         icon: 'pi pi-exclamation-circle',
-        rejectLabel: t('message.cancel'),
-        acceptLabel: t('message.delete'),
+        rejectLabel: t('manage_data.cancel'),
+        acceptLabel: t('manage_data.delete'),
         rejectClass: 'p-button-secondary p-button-outlined',
         acceptClass: 'p-button-danger',
         accept: () => {
@@ -72,14 +72,14 @@ function effacerStockageLocal(){
 <template>
     <div id="dataPageContent">
         <div id="title_container">
-            <h1 id="title">{{$t('message.donneesTitle')}}</h1>
+            <h1 id="title">{{$t('manage_data.donneesTitle')}}</h1>
         </div>
 
-        <p id="disclaimer">{{$t('message.donneesDisclaimer')}}<a href="/confidentialite">{{ $t('message.privacy.title') }}</a>.<br><br>{{ $t('message.donneesDisclaimer2') }}
+        <p id="disclaimer">{{$t('manage_data.donneesDisclaimer')}}<a href="/confidentialite">{{ $t('privacy.title') }}</a>.<br><br>{{ $t('manage_data.donneesDisclaimer2') }}
         </p>
     
         <div id="suppButtonContainer">
-            <Button id="suppButton" :label="t('message.donneesBtnSupp')" severity="danger" @click="confirm2()"/>
+            <Button id="suppButton" :label="t('manage_data.donneesBtnSupp')" severity="danger" @click="confirm2()"/>
         </div>
     </div>
 </template>
