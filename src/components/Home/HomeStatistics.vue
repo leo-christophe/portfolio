@@ -50,24 +50,24 @@ onMounted(() => {
 <template>
     <div id="statisticsContentContainer">
         <ul id="statisticsList">
-            <li class="statistic" id="statistic1" v-tooltip.top="$t('message.finishedProjectsTitle')" @click="changePage('/projects')">
+            <li class="statistic" id="statistic1" v-tooltip.top="$t('home.statistics.finishedProjectsTitle')" @click="changePage('/projects')">
                 <span class="number">{{ projectsCompleted }}</span>
-                <span class="textN">{{$t('message.finishedProject')}}</span>
+                <span class="textN">{{$t('home.statistics.finishedProject')}}</span>
             </li>
 
-            <li class="statistic" id="statistic2" v-tooltip.bottom="$t('message.yearsOfProgrammingTitle')" @click="changePage('/formations')">
+            <li class="statistic" id="statistic2" v-tooltip.bottom="$t('home.statistics.yearsOfProgrammingTitle')" @click="changePage('/formations')">
                 <span class="number">{{ programmingYears }}</span>
-                <span class="textN">{{$t('message.yearsOfProgramming')}}</span>
+                <span class="textN">{{$t('home.statistics.yearsOfProgramming')}}</span>
             </li>
 
-            <li class="statistic" id="statistic3" v-tooltip.top="$t('message.commitsTitle')" @click="changePage('github.com/leo-christophe')"> 
+            <li class="statistic" id="statistic3" v-tooltip.top="$t('home.statistics.commitsTitle')" @click="changePage('github.com/leo-christophe')"> 
                 <span class="number">{{ commitsNumber }}</span>
-                <span class="textN">{{$t('message.commits')}}</span>
+                <span class="textN">{{$t('home.statistics.commits')}}</span>
             </li>
 
-            <li class="statistic" id="statistic4" v-tooltip.bottom="$t('message.masteredTechTitle')" @click="changePage('/skills')">
+            <li class="statistic" id="statistic4" v-tooltip.bottom="$t('home.statistics.masteredTechTitle')" @click="changePage('/skills')">
                 <span class="number">{{ technologiesMastered }}</span>
-                <span class="textN">{{$t('message.masteredTech')}}</span>
+                <span class="textN">{{$t('home.statistics.masteredTech')}}</span>
             </li>
         </ul>
     </div>

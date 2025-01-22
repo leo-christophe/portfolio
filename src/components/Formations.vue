@@ -15,8 +15,8 @@
     <!-- Section Formations -->
     <span class="column education">
 
-        <h1 id="titreFormations" class="formationTitres">{{ $t('message.educationTitle') }}</h1>
-        <h4 class="sousTitreFormations formationTitres">{{ $t('message.educationSubtitle') }}</h4>
+        <h1 id="titreFormations" class="formationTitres">{{ $t('experiences.educationTitle') }}</h1>
+        <h4 class="sousTitreFormations formationTitres">{{ $t('experiences.educationSubtitle') }}</h4>
 
         <span id="conteneurTimelineFormations">
             <div class="card flex flex-wrap gap-12">

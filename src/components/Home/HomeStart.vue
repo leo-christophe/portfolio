@@ -146,7 +146,8 @@ const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child
         display:flex;
         flex-direction:row-reverse;
         justify-content: space-between;
-        width:80vw;
+        width:85vw;
+        gap:10%;
 
         /* Paragraphe 1 */
         #mainTextContainer{

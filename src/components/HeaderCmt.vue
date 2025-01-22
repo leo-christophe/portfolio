@@ -8,12 +8,12 @@ import { changeLang, getLangFromUrl } from '../utils/traduction.js';
 const { t, locale } = useI18n(); // Accès à la fonction de traduction
 
 const items = ref([
-  { label: t('message.home'), route: '/', icon: 'pi pi-home' },
-  { label: t('message.education'), route: '/formations', icon: 'pi pi-book' },
-  //{ label: t('message.experience'), route: '/experience', icon: 'pi pi-briefcase' },
-  { label: t('message.projects'), route: '/projects', icon: 'pi pi-folder' },
-  { label: t('message.skills'), route: '/skillsDisplay', icon: 'pi pi-tablet' },
-  { label: t('message.contact'), route: '/contact', icon: 'pi pi-envelope' }
+  { label: t('pages.home'), route: '/', icon: 'pi pi-home' },
+  { label: t('pages.education'), route: '/formations', icon: 'pi pi-book' },
+  //{ label: t('pages.experience'), route: '/experience', icon: 'pi pi-briefcase' },
+  { label: t('pages.projects'), route: '/projects', icon: 'pi pi-folder' },
+  { label: t('pages.skills'), route: '/skillsDisplay', icon: 'pi pi-tablet' },
+  { label: t('pages.Contact'), route: '/contact', icon: 'pi pi-envelope' }
 ]);  
 
 onMounted(() => {
@@ -48,7 +48,7 @@ function switchPageLang() {
       </RouterLink>
 
       <div id="buttonTranslateContainer" class="buttonTranslateContainer" >
-        <button id="buttonTranslate" :title="$t('message.translateHeaderDesc')" @click="switchPageLang()">
+        <button id="buttonTranslate" :title="$t('header.translateHeaderDesc')" @click="switchPageLang()">
           <i id="buttonTranslateIcon" class="pi pi-language" style="font-size: var(--IconSize)"></i>
         </button>
       </div>

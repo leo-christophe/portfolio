@@ -380,7 +380,8 @@
               "Développement web": ["C#", "Blazor", "HTML", "CSS" ],
               "Base de données": ["SQL", "MLD", "MCD", "InfluxDB", "noSQL"],
               "DevOps & Déploiement": ["Azure", "CI/CD", "Github"],
-              "Tests & Qualité": ["Tests E2E", "Tests unitaires", "Tests mocks"]
+              "Tests & Qualité": ["Tests E2E", "Tests unitaires", "Tests mocks"],
+              "Outils de visualisation": ["Grafana", "Flux"]
             },
             "realisations": [
               "Configuration d'une Raspberry PI, de sorte à récupérer les données des capteurs pour les envoyer vers une base de données InfluxDB à l'aide de ZwaveJS et HomeAssistant",
@@ -556,7 +557,7 @@
         ]
       },{
         "Base de données": [
-          "SQL", "PostgreSQL", "MLD", "MCD", "noSQL", "InfluxDB" ,"plpgSQL", "plpSQL", "MongoDB", "Gestion des bases de données", "Authentification", "PowerBI", "PowerAMC", "SQLite", "Bases de données relationnelles"
+          "SQL", "PostgreSQL", "MLD", "MCD", "Flux", "InfluxDB","noSQL", "InfluxDB" ,"plpgSQL", "plpSQL", "MongoDB", "Gestion des bases de données", "Authentification", "PowerBI", "PowerAMC", "SQLite", "Bases de données relationnelles"
         ]
       },{
         "Conception & Architecture": [
@@ -569,7 +570,7 @@
         ]
       },{
         "Outils de visualisation": [
-          "PowerBI", "Excel", "Google Analytics"
+          "PowerBI", "Excel", "Google Analytics", "Grafana"
         ]
       },{
         "Infrastructures et réseaux": [

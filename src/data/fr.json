@@ -1,57 +1,175 @@
 {
+    "words": {      
+      "month": "mois",
+      "days": "jour(s)",
+      "at": "à l'",
+      "at_au": "au",
+      "mobile": "Tel",
+      "learnmore": "En savoir plus"
+    },
+
+    "pages":{
+      "Cuisine": "Recettes de cuisine",
+      "home": "Accueil",
+      "projects": "Projets",
+      "experience": "Experience",
+      "education": "Parcours",
+      "skills": "Compétences",
+      "Competences": "Compétences",
+      "ReferentielCompetences": "Référentiel de compétences",
+      "Accueil": "Léo Christophe - Accueil",
+      "Formations": "Parcours",
+
+      "Projets": "Projets",
+      "Portfolio": "Portfolio",
+      "Marsinvaders": "Marsinvaders",
+      "Skillupnow": "SkillUpNow",
+      "Amphibiens": "Amphibiens",
+      "Matinfo": "Matinfo",
+      "BMW": "BMW",
+      "Datacare": "Datacare",
+
+      "mesdonnees": "Mes données",
+      "Confidentialité": "Confidentialité",
+      "Contact": "Contact",
+      "Compétences": "Compétences",
+      "personalData": "Données personnelles",
+      "contactInfo": "Informations de contact"
+    },
+
+    "header":{
+      "translateHeaderDesc": "Passer en anglais"
+    },
+
+    "footer":{
+      "readCV": "Consulter mon CV",
+      "changeLang": "Changer en anglais",
+      "name": "Léo CHRISTOPHE"
+    },
+
     "home":{
         "homeTitle": "Bienvenue",
         "aboutText": "Bonjour, je suis Léo Christophe, étudiant de 21 ans en 3ème année de BUT Informatique à l'IUT d'Annecy. Je suis passionné par le développement en tout genres. J'ai pu acquérir une expérience significative dans ces domaines grâce à mes projets. \n\nJe suis actuellement à la recherche d'un CDI ou d'une alternance pour préparer un master en informatique d'ici Août/Septembre 2025, donc si vous avez une proposition, vous pouvez me contacter ci-dessous.",
         "viewCV": "CV",
+        "profilePicture": "Léo Christophe, Développeur: Photo de profil",
         "contact": "Contact",
-        "profilePicture": "Léo Christophe, Développeur: Photo de profil"
+        "contactSection":{
+          "btnDownload": "Télécharger le CV",
+          "btnConsult": "Consulter le CV",
+          "contactGifTitle": "Contactez-moi si vous avez une offre ou des informations à me communiquer.",
+          "homeContactTitle": "CV",
+          "homeContactDesc": "Je suis actuellement à la recherche d'une entreprise pour un contrat d'alternance (Master) ou un CDI dès Août 2025. Je suis prêt à mettre mes compétences de développeur informatique au service de vos projets.",
+          "CTA1": "Vous avez une offre ou des informations à me communiquer ? N'hésitez pas à ",
+          "CTA2": " me contacter",
+          "CTA3": " pour en discuter !"
+        },
+        "statistics":{
+          "finishedProject": "Projets Terminés",
+          "finishedProjectsTitle": "En comptant tous les projets que j'ai terminé",
+          "yearsOfProgramming": "Années de Programmation",
+          "yearsOfProgrammingTitle": "Je programme depuis plus de 5 ans",
+          "commits": "Commits",
+          "commitsTitle": "J'ai effectué plus de 450 commits sur Github ces dernières années (Commit: Modification de code dans un projet)",
+          "masteredTech": "Technologies maîtrisées",
+          "masteredTechTitle": "Dans 4 langages différents: PHP, JS, Python, C#. Frameworks: Flask, Blazor, VueJS, Laravel, ASP.NET Core, WPF et plus..."
+        }
     },
+
     "skillsDetail":{
       "skills": "Compétences",
       "search": "Rechercher: ",
-      "searchPlaceholder": "Chercher par compétence ou domaine."
+      "searchPlaceholder": "Chercher par compétence ou domaine.",
+      "noskill": "Aucune compétence n'a été trouvé...",
+      "sortRefBUT": "Trier par rapport aux ",
+      "refBUT": "référentiels de BUT Informatique"
     },
-    "message": {      
-      "contactGifTitle": "Contactez-moi si vous avez une offre ou des informations à me communiquer.",
-      "month": "mois",
-      "days": "jour(s)",
-      "homeTitle": "Bienvenue",
-      "subtitle1": "Étudiant en 3ème année de BUT Informatique",
-      "subtitle2": "Localisé à Annecy, France",
-      "aboutTitle": "À propos de moi",
-      "viewCV": "CV",
-      "contact": "Contact",
+
+    "hobbies":{
       "interestsTitle": "Loisirs",
-      "Cuisine": "Recettes de cuisine",
-      "btnDownload": "Télécharger le CV",
-      "btnConsult": "Consulter le CV",
       "animes": "Animés",
       "animesDescription": "J'aime beaucoup les oeuvres d'animations japonaises. J'ai commencé à regarder des animes en 2016 et depuis, je suis devenu un grand fan de ce genre de contenu. Surtout les animes de type isekai ou comique comme Re:Zero.",
       "videogames": "Jeux-Vidéo",
       "videogamesDescription": "J'aime beaucoup les jeux créatifs comme Minecraft. Jouant depuis près de 10 ans, le genre me plaît toujours autant en m'inspirant toujours.",
       "cooking": "Cuisine",
-      "cookingDescription": "J'adore cuisiner. Depuis mon plus jeune âge, j'ai toujours aimé la nourriture, alors pouvoir la confectionner avec mes propres touches est un vrai plaisir.",
-      "finishedProject": "Projets Terminés",
-      "finishedProjectsTitle": "En comptant tous les projets que j'ai terminé",
-      "yearsOfProgramming": "Années de Programmation",
-      "yearsOfProgrammingTitle": "Je programme depuis plus de 5 ans",
-      "commits": "Commits",
-      "commitsTitle": "J'ai effectué plus de 450 commits sur Github ces dernières années (Commit: Modification de code dans un projet)",
-      "masteredTech": "Technologies maîtrisées",
-      "masteredTechTitle": "Dans 4 langages différents: PHP, JS, Python, C#. Frameworks: Flask, Blazor, VueJS, Laravel, ASP.NET Core, WPF et plus...",
+      "cookingDescription": "J'adore cuisiner. Depuis mon plus jeune âge, j'ai toujours aimé la nourriture, alors pouvoir la confectionner avec mes propres touches est un vrai plaisir."
+    },
+
+    "skills":{
       "skillsTitle": "Compétences techniques",
       "softskillsTitle": "Compétences interpersonnelles",
       "softskillsDescription": "Capacités interpersonnelles et d'adaptation favorisant la collaboration et la gestion efficace. (Communication, travail en équipe, gestion du temps, adaptabilité...)",
       "hardskillsDescription": "Compétences techniques spécifiques liées à l'exécution de tâches complexes dans un domaine précis. (maîtrise des langages de programmation, gestion de bases de données, administration de réseaux...)",
-      "references": "Références",
-      "at": "à l'",
-      "at_au": "au",
-      "mobile": "Tel",
-      "homeContactTitle": "CV",
-      "homeContactDesc": "Je suis actuellement à la recherche d'une entreprise pour un contrat d'alternance (Master) ou un CDI dès Août 2025. Je suis prêt à mettre mes compétences de développeur informatique au service de vos projets.",
-      "CTA1": "Vous avez une offre ou des informations à me communiquer ? N'hésitez pas à ",
-      "CTA2": " me contacter",
-      "CTA3": " pour en discuter !",
+      "references": "Références"
+    },
+
+    "experiences":{
+      "experienceOngoing": "En cours",
+      "experienceComing": "À venir",
+      "educationTitle": "Formations",
+      "educationSubtitle": "Mon parcours académique",
+      "experienceTitle": "Expériences",
+      "experienceSubtitle": "Mes expériences professionnelles",
+      "experienceCompetenceTitle": "Compétences mobilisées",
+      "experienceMissionsTitle": "Missions",
+      "experienceModalTitle": "Détails de la mission:"
+    },
+
+    "projects":{
+      "details": "Détails",
+      "portfolio": {
+          "api_use_title": "Utilisation de l'API",
+          "email_js": "EmailJS",
+          "email_js_details": "Utilisation de la bibliothèque ",
+          "email_js_end": " pour envoyer des e-mails automatiquement depuis le formulaire de contact. Le formulaire nécessite une validation Google Recaptcha pour fonctionner. Si l'utilisateur est confirmé comme humain, les données du formulaire sont envoyées à EmailJs, ce qui envoie un e-mail directement dans ma boîte de réception.",
+          "google_recaptcha": "Google Recaptcha 3",
+          "google_recaptcha_details": "Utilisation du service Google Recaptcha 3 pour valider le formulaire de contact. Ce service distingue les humains des robots et garantit que seuls les utilisateurs réels peuvent envoyer des messages. Sa principale différence avec la version précédente est qu'il ne nécessite pas d'interaction de l'utilisateur.",
+          "rgpd": "RGPD",
+          "rgpd_details": "Bien que le site soit un portfolio, l'utilisation d'un système de traduction et d'un système de captcha nécessite l'utilisation de cookies. L'utilisateur peut les supprimer à tout moment. Le site n'utilise aucun cookie de suivi ou de publicité. Voir la ",
+          "rgpd_end": " pour plus d'informations."
+      },
+      "datacare": {
+          "contributions": "Contributions",
+          "contributionsDetails": "J'ai contribué à la création de l'API distante (Azure), d'un tableau de bord, de la base de données et du client.",
+          "technologies": "Technologies",
+          "technologiesDetails": "Front : Blazor avec Bootstrap, Back : API Rest en C# avec EntityFramework, Base de données : Postgresql hébergé sur AlwaysData, Visualisation des données : Grafana, Cloud : Azure",
+          "api": "Détails de l'API",
+          "apiDetails": "L'API Rest en C# applique les bonnes pratiques en développement informatique. Méthodes asynchrones, Gestionnaire de données, DTO et AutoMapper, Injection de dépendances, Intégration continue et déploiement continu, Tests mock",
+          "client": "Détails du client",
+          "clientDetailsBlazorFramework": "Framework Blazor",
+          "clientDetails": "Le client, réalisé avec le ",
+          "clientDetailsEnd": " (sorti en 2018), a été développé de la manière la plus ergonomique possible. Utilisation de composants, notamment des pop-ups ou des infobulles, Utilisation de la bibliothèque ChartJs et Blazor Bootstrap, Architecture MVVM, Injection de dépendances, Déploiement continu"
+      },
+      "filters":{
+        "projectsTitle": "Projets",
+        "projectsDateLabel": "Date",
+        "projectsKeywordsLabel": "Mots-clés",
+        "projectsFiltersKeyword": "Filtrer",
+        "projectsFiltersKeywordTitle": "Mots-clés pour trier les projets en utilisant l'algorithme de Levenshtein",
+        "projectsTypeLabel": "Type de projet",
+        "projectsTypePersonal": "Personnel",
+        "projectsTypePersonalTitle": "Les projets personnels sont des projets que j'ai développés moi-même.",
+        "projectsTypeUniversity": "Universitaire",
+        "projectsTypeUniversityTitle": "Les projets académiques sont des projets que j'ai développés dans le cadre de mes études.",
+        "dateFilter_du": "Du",
+        "dateFilter_au": "au",
+        "projectsSort": "Trier par",
+        "projectsMostRecent": "Plus Récent",
+        "projectsOldest": "Plus Ancien",
+        "projectsLongest": "Le Plus Long",
+        "projectsShortest": "Le Plus Court"  
+      },
+      "detailsTemplate":{
+        "projectLastImage": "Dernière image",
+        "projectNextImage": "Image suivante",
+        "projectRealisationsMissionsTitle": "Réalisations et missions",
+        "projectSkillDetail": "Autres expériences en rapport avec ",
+        "mobilizedSkills": "Compétences mobilisées"
+      },
+      "projectsOnGoing": "En cours",
+      "projectsDateError": "La date de fin doit être supérieure à la date de début."
+    },
+
+    "contact":{
       "contactTitle": "Contactez-moi",
       "subtitle": "Vous avez une offre d'emploi ? Vous voulez me faire part de vos remarques ?",
       "nameLabel": "Nom",
@@ -75,77 +193,10 @@
       "copySummary": "Copié",
       "success": "Succès",
       "error": "Erreur",
-      "locationTitle": "Localisation",
-      "localisationDescription": "Localisé entre montagnes et lacs, dans le magnifique département de la Haute-Savoie.",
-      "currentAddress": "Adresse actuelle:",
-      "permanentAddress": "Adresse fixe:",
-      "region": "Haute-Savoie, France",
-      "experienceOngoing": "En cours",
-      "experienceComing": "À venir",
-      "educationTitle": "Formations",
-      "educationSubtitle": "Mon parcours académique",
-      "experienceTitle": "Expériences",
-      "experienceSubtitle": "Mes expériences professionnelles",
-      "experienceCompetenceTitle": "Compétences mobilisées",
-      "experienceMissionsTitle": "Missions",
-      "experienceModalTitle": "Détails de la mission:",
-      "projectsTitle": "Projets",
-      "projectsDateLabel": "Date",
-      "projectsKeywordsLabel": "Mots-clés",
-      "projectsFiltersKeyword": "Filtrer",
-      "projectsFiltersKeywordTitle": "Mots-clés pour trier les projets en utilisant l'algorithme de Levenshtein",
-      "projectsTypeLabel": "Type de projet",
-      "projectsTypePersonal": "Personnel",
-      "projectsTypePersonalTitle": "Les projets personnels sont des projets que j'ai développés moi-même.",
-      "projectsTypeUniversity": "Universitaire",
-      "projectsTypeUniversityTitle": "Les projets académiques sont des projets que j'ai développés dans le cadre de mes études.",
-      "projectsOnGoing": "En cours",
-      "dateFilter_du": "Du",
-      "dateFilter_au": "au",
-      "projectsSort": "Trier par",
-      "projectsMostRecent": "Plus Récent",
-      "projectsOldest": "Plus Ancien",
-      "projectsLongest": "Le Plus Long",
-      "projectsShortest": "Le Plus Court",
-      "projectsInvalidDate": "Veuillez entrer des dates valides.",
-      "projectsDateError": "La date de fin doit être supérieure à la date de début.",
-      "projectsNotFound": "Aucun projet correspondant à votre recherche n'a été trouvé.",
-      "projectLastImage": "Dernière image",
-      "projectNextImage": "Image suivante",
-      "projectRealisationsMissionsTitle": "Réalisations et missions",
-      "projectSkillDetail": "Autres expériences en rapport avec ",
-      "mobilizedSkills": "Compétences mobilisées",
-      "home": "Accueil",
-      "projects": "Projets",
-      "experience": "Experience",
-      "education": "Parcours",
-      "skills": "Compétences",
-      "Competences": "Compétences",
-      "ReferentielCompetences": "Référentiel de compétences",
-      "noskill": "Aucune compétence n'a été trouvé...",
-      "sortRefBUT": "Trier par rapport aux ",
-      "refBUT": "référentiels de BUT Informatique",
-      "translateHeaderDesc": "Passer en anglais",
-      "Accueil": "Léo Christophe - Accueil",
-      "Formations": "Parcours",
-      "Projets": "Projets",
-      "Portfolio": "Portfolio",
-      "Marsinvaders": "Marsinvaders",
-      "Skillupnow": "SkillUpNow",
-      "Amphibiens": "Amphibiens",
-      "ChrisConverter": "ChrisConverter",
-      "Matinfo": "Matinfo",
-      "BMW": "BMW",
-      "project_video": "Silken Sweets",
-      "mesdonnees": "Mes données",
-      "Confidentialité": "Confidentialité",
-      "Contact": "Contact",
-      "Compétences": "Compétences",
-      "personalData": "Données personnelles",
-      "contactInfo": "Informations de contact",
-      "readCV": "Consulter mon CV",
-      "changeLang": "Changer en anglais",
-      "name": "Léo CHRISTOPHE",
+      "locationTitle": "Localisation"
+    },
+
+    "manage_data":{
       "etesVousSur": "Êtes-vous sûr de vouloir supprimer toutes vos données ?",
       "etesVousSurHeader": "Suppression de vos données",
       "cancel": "Non",
@@ -157,63 +208,60 @@
       "donneesTitle": "Vos données",
       "donneesDisclaimer": "Vos données stockées sur le navigateur ont un but purement ergonomique, \n                          de traduction ou pour savoir si vous être un robot ou non (Google Recaptcha). \n                          Elles ne sont pas utilisées à des fins commerciales ou de tracking. Pour plus\n                          de détails concernant vos données, leur utilisation et leur suppression, veuillez\n                          consulter la ",
       "donneesDisclaimer2": "Vous pouvez effacer les données facultatives (ergonomiques) à tous moments en cliquant sur le bouton ci-dessous.",
-      "donneesBtnSupp": "Supprimer mes données",
-      "learnmore": "En savoir plus",
-      "link": "Lien vers ",
-      "notfound": {
-        "pageTitle": "Page inconnue",
-        "title": "404 - Page inconnue",
-        "message": "La page que vous cherchez n'existe pas.",
-        "home": "Retour à l'accueil"
-      },
-      "cookieBanner": {
-        "disclaimer": "Ce site utilise des cookies pour améliorer votre expérience utilisateur. En continuant à naviguer sur ce site, vous acceptez la ",
-        "privacypolicy": "politique de confidentialité",
-        "buttons": {
-          "accept": "Accepter",
-          "refuse": "Refuser"
-        }
-      },
-      "privacy": {
-        "title": "Politique de confidentialité",
-        "cookies": {
-          "title": "Cookies",
-          "intro": "\n            Cette politique de cookies explique ce que sont les cookies, \n            comment ils sont utilisés, comment des services tiers, comme Google Recaptcha, \n            peuvent les utiliser sur ce site, vos choix concernant ces cookies, \n            et des informations complémentaires sur leur usage.",
-          "details": {
-            "title": "Types de cookies utilisés",
-            "lang": {
-              "name": "Cookie 'lang'",
-              "description": "Utilisé pour gérer la préférence de langue de l'utilisateur. (Fonctionnel, Permanent)",
-              "details": "Ce cookie est uniquement utilisé pour améliorer l'ergonomie et vous présenter le site dans la langue de votre choix."
-            },
-            "rc_a": {
-              "name": "Cookie 'rc::a'",
-              "description": "Nécessaire au fonctionnement du service de captcha (Google Recaptcha). (Nécessaire, Permanent)",
-              "details": "Ce cookie est utilisé pour distinguer les humains des robots, assurant que seul un utilisateur réel puisse interagir avec le formulaire de contact."
-            },
-            "rc_c": {
-              "name": "Cookie 'rc::c'",
-              "description": "Utilisé pour les sessions utilisateurs concernant le captcha (Google Recaptcha). (Nécessaire, Session)",
-              "details": "Ce cookie est temporaire et permet de vérifier qu'un utilisateur réel remplit le formulaire de contact, sans conserver d'informations personnelles au-delà de la session."
-            }
+      "donneesBtnSupp": "Supprimer mes données"
+    },
+    
+    "notfound": {
+      "pageTitle": "Page inconnue",
+      "title": "404 - Page inconnue",
+      "message": "La page que vous cherchez n'existe pas.",
+      "home": "Retour à l'accueil"
+    },
+
+    "cookieBanner": {
+      "disclaimer": "Ce site utilise des cookies pour améliorer votre expérience utilisateur. En continuant à naviguer sur ce site, vous acceptez la ",
+      "privacypolicy": "politique de confidentialité"
+    },
+
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "cookies": {
+        "title": "Cookies",
+        "intro": "\n            Cette politique de cookies explique ce que sont les cookies, \n            comment ils sont utilisés, comment des services tiers, comme Google Recaptcha, \n            peuvent les utiliser sur ce site, vos choix concernant ces cookies, \n            et des informations complémentaires sur leur usage.",
+        "details": {
+          "title": "Types de cookies utilisés",
+          "lang": {
+            "name": "Cookie 'lang'",
+            "description": "Utilisé pour gérer la préférence de langue de l'utilisateur. (Fonctionnel, Permanent)",
+            "details": "Ce cookie est uniquement utilisé pour améliorer l'ergonomie et vous présenter le site dans la langue de votre choix."
+          },
+          "rc_a": {
+            "name": "Cookie 'rc::a'",
+            "description": "Nécessaire au fonctionnement du service de captcha (Google Recaptcha). (Nécessaire, Permanent)",
+            "details": "Ce cookie est utilisé pour distinguer les humains des robots, assurant que seul un utilisateur réel puisse interagir avec le formulaire de contact."
+          },
+          "rc_c": {
+            "name": "Cookie 'rc::c'",
+            "description": "Utilisé pour les sessions utilisateurs concernant le captcha (Google Recaptcha). (Nécessaire, Session)",
+            "details": "Ce cookie est temporaire et permet de vérifier qu'un utilisateur réel remplit le formulaire de contact, sans conserver d'informations personnelles au-delà de la session."
           }
-        },
-        "data_protection": {
-          "title": "Protection des données",
-          "content": "\n            Je suis engagé à protéger vos données personnelles. Les données collectées par les cookies \n            sont exclusivement utilisées pour améliorer votre expérience utilisateur (préférences de langue, filtres de projets) \n            ,pour assurer le bon fonctionnement du formulaire de contact avec Recaptcha V3 ou pour l'envoi de mail automatique à \n            partir du formulaire de contact. Ce formulaire de contact envoie chaque mail directement à mon adresse mail et est\n            archivé puis supprimé après lecture."
-        },
-        "user_rights": {
-          "title": "Droits des utilisateurs",
-          "content": "\n            Vous avez le droit d'accéder à vos données, de les rectifier ou de les supprimer. \n            Une page dédiée dans le pied de page vous permet de supprimer vos données en toute simplicité."
-        },
-        "contact": {
-          "title": "Contact",
-          "content": "\n            Pour toute question concernant cette politique de confidentialité ou l'utilisation des cookies, \n            veuillez me contacter à {email}."
-        },
-        "policy_update": {
-          "title": "Mise à jour de la politique",
-          "content": "\n            Cette politique de confidentialité peut être mise à jour périodiquement. \n            Toute modification sera affichée ici, avec la date de la dernière mise à jour indiquée en haut de cette page."
         }
+      },
+      "data_protection": {
+        "title": "Protection des données",
+        "content": "\n            Je suis engagé à protéger vos données personnelles. Les données collectées par les cookies \n            sont exclusivement utilisées pour améliorer votre expérience utilisateur (préférences de langue, filtres de projets) \n            ,pour assurer le bon fonctionnement du formulaire de contact avec Recaptcha V3 ou pour l'envoi de mail automatique à \n            partir du formulaire de contact. Ce formulaire de contact envoie chaque mail directement à mon adresse mail et est\n            archivé puis supprimé après lecture."
+      },
+      "user_rights": {
+        "title": "Droits des utilisateurs",
+        "content": "\n            Vous avez le droit d'accéder à vos données, de les rectifier ou de les supprimer. \n            Une page dédiée dans le pied de page vous permet de supprimer vos données en toute simplicité."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "\n            Pour toute question concernant cette politique de confidentialité ou l'utilisation des cookies, \n            veuillez me contacter à {email}."
+      },
+      "policy_update": {
+        "title": "Mise à jour de la politique",
+        "content": "\n            Cette politique de confidentialité peut être mise à jour périodiquement. \n            Toute modification sera affichée ici, avec la date de la dernière mise à jour indiquée en haut de cette page."
       }
     }
   }

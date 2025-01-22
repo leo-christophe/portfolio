@@ -1,219 +1,267 @@
-
 {
+    "words": {      
+      "month": "month",
+      "days": "day(s)",
+      "at": "at the",
+      "at_au": "at",
+      "mobile": "Phone",
+      "learnmore": "Learn more"
+    },
+
+    "pages":{
+      "Cuisine": "Cooking Recipes",
+      "home": "Home",
+      "projects": "Projects",
+      "experience": "Experience",
+      "education": "Education",
+      "skills": "Skills",
+      "Competences": "Skills",
+      "ReferentielCompetences": "Skills Reference",
+      "Accueil": "Léo Christophe - Home",
+      "Formations": "Education",
+
+      "Projets": "Projects",
+      "Portfolio": "Portfolio",
+      "Marsinvaders": "Marsinvaders",
+      "Skillupnow": "SkillUpNow",
+      "Amphibiens": "Amphibians",
+      "Matinfo": "Matinfo",
+      "BMW": "BMW",
+      "Datacare": "Datacare",
+
+      "mesdonnees": "My Data",
+      "Confidentialité": "Privacy",
+      "Contact": "Contact",
+      "Compétences": "Skills",
+      "personalData": "Personal Data",
+      "contactInfo": "Contact Information"
+    },
+
+    "header":{
+      "translateHeaderDesc": "Switch to English"
+    },
+
+    "footer":{
+      "readCV": "View my CV",
+      "changeLang": "Change to English",
+      "name": "Léo CHRISTOPHE"
+    },
+
     "home":{
         "homeTitle": "Welcome",
-        "subtitle1": "3rd year bachelor computer science student",
+        "aboutText": "Hello, I am Léo Christophe, a 21-year-old student in my 3rd year of a Bachelor's in Computer Science at the IUT of Annecy. I am passionate about all kinds of development. I have gained significant experience in these fields through my projects.\n\nI am currently looking for a permanent contract (CDI) or an apprenticeship to prepare for a Master's in Computer Science by August/September 2025. If you have a proposal, you can contact me below.",
+        "viewCV": "CV",
         "profilePicture": "Léo Christophe, Developer: Profile Picture",
-        "viewCV": "Resume ",
         "contact": "Contact",
-        "aboutText": "Hi, I'm Léo Christophe, a driven 3rd year bachelor computer science student constantly learning. Fan of japanese animes and videogames, I infuse creativity into every challenge I tackle. I have developed my skills through various projects. \n\nMy career goal is to become a lead software developer, specializing in game development, where I can combine my love for technology and creativity to craft immersive experiences that captivate users worldwide."
+        "contactSection":{
+          "btnDownload": "Download CV",
+          "btnConsult": "View CV",
+          "contactGifTitle": "Contact me if you have an offer or information to share.",
+          "homeContactTitle": "CV",
+          "homeContactDesc": "I am currently looking for a company for an apprenticeship contract (Master's) or a permanent position starting August 2025. I am ready to put my skills as a software developer to work on your projects.",
+          "CTA1": "Do you have an offer or information to share? Feel free to ",
+          "CTA2": " contact me",
+          "CTA3": " to discuss it!"
+        },
+        "statistics":{
+          "finishedProject": "Completed Projects",
+          "finishedProjectsTitle": "Counting all the projects I have completed",
+          "yearsOfProgramming": "Years of Programming",
+          "yearsOfProgrammingTitle": "I have been programming for over 5 years",
+          "commits": "Commits",
+          "commitsTitle": "I have made over 450 commits on Github in recent years (Commit: Code modification in a project)",
+          "masteredTech": "Mastered Technologies",
+          "masteredTechTitle": "In 4 different languages: PHP, JS, Python, C#. Frameworks: Flask, Blazor, VueJS, Laravel, ASP.NET Core, WPF, and more..."
+        }
     },
-    "skillsDetail":{
-        "skills": "Skills",
-        "search": "Search: ",
-        "searchPlaceholder": "Search for a skill or a category."
-    },
-    "message": {
 
-    "contactGifTitle": "Contact me if you have an internship offer or information to share.",
-    "month": "month(s)",
-    "days": "day(s)",
-    "subtitle1": "3rd year bachelor computer science student",
-    "subtitle2": "Based in Annecy, France",
-    "aboutTitle": "About Me",
-    "aboutText": "Hi, I'm Léo Christophe, a driven 3rd year bachelor computer science student constantly learning. Fan of japanese animes and videogames, I infuse creativity into every challenge I tackle. I have developed my skills through various projects. \n\nMy career goal is to become a lead software developer, specializing in game development, where I can combine my love for technology and creativity to craft immersive experiences that captivate users worldwide.",
-    "interestsTitle": "My Interests",
-    "interestsDescription": "What I enjoy doing outside of programming",
-    "animes": "Anime",
-    "animesDescription": "I really enjoy Japanese animated works. I started watching anime in 2016 and since then, I’ve become a big fan of this type of content, especially isekai or comedic anime like Re:Zero.",
-    "videogames": "Video Games",
-    "videogamesDescription": "I really like creative games like Minecraft. I've been playing for nearly 10 years and I still enjoy the genre as it continues to inspire me.",
-    "cooking": "Cooking",
-    "cookingDescription": "I love cooking. From a young age, I've always enjoyed food, so being able to prepare it with my own personal touches is a real pleasure.",
-    "finishedProject": "Finished Projects",
-    "finishedProjectsTitle": "Counting all my projects, I have completed",
-    "yearsOfProgramming": "Years of Programming",
-    "yearsOfProgrammingTitle": "I have been programming for over 5 years",
-    "commits": "Commits",
-    "commitsTitle": "I have made over 450 commits on Github in the pasts years",
-    "masteredTech": "Mastered Technologies",
-    "masteredTechTitle": "In 4 diffent languages: PHP, JS, Python, C#. Frameworks: Flask, Blazor, VueJS, Laravel, ASP.NET Core, WPF and more... ",
-    "skillsTitle": "Hard skills",
-    "softskillsTitle": "Soft skills",
-    "softskillsDescription": "My interpersonal skills reflect my ability to interact well with others and adapt to situations. This includes communication, teamwork, time management and adaptability.",
-    "hardskillsDescription": "My technical skills are specific abilities I've gained through studies and professional experience. This includes, for example, proficiency in programming languages, database management, and network administration.",
-    "references": "References",
-    "at": "at ",
-    "at_au": "at ",
-    "mobile": "Mob",
-    "homeContactTitle": "Resume",
-    "homeContactDesc": "I am currently looking for an end-of-study internship in web development, C# development, or video game development. The internship would take place between January 20, 2025 and May 1, 2025, for a maximum duration of 14 weeks.",
-    "CTA1": "Do you have an internship offer or information to share with me? Feel free to",
-    "CTA2": " contact me",
-    "CTA3": " to discuss further!",
-    "btnDownload": "Download resume",
-    "btnConsult": "Consult resume",
-    "contactTitle": "Contact Me",
-    "subtitle": "Got a job offer? Want to share your thoughts?",
-    "nameLabel": "Name",
-    "emailLabel": "*Email",
-    "example": "example",
-    "domain": "domain.com",
-    "emailDisclaimer": "Your email will only be used to recontact you.",
-    "formDisclaimer": "The first name is used solely for authentication purposes of the person (optional), and the email address is used for contact purposes. Each email is confidential between me and the person sending it and is directly archived and then deleted after reading. EmailJS is used to send email automatically and Recaptcha is used for security purposes.",
-    "messageLabel": "Message",
-    "submitButton": "Send",
-    "successMessage": "Message sent successfully!",
-    "errorMessage": "Try again or contact me directly.",
-    "emailSectionTitle": "University Email Address:",
-    "phoneSectionTitle": "Phone Number:",
-    "availability": "Available from 1 PM to 2 PM and from 7 PM to 8 PM.",
-    "contactButton": "Contact Me",
-    "callButton": "Call",
-    "smsButton": "Send SMS",
-    "copyMessage": "Text copied to clipboard.",
-    "copySummary": "Copied",
-    "copyTitle": "Copy text to clipboard",
-    "success": "Success",
-    "error": "Error",
-    "locationTitle": "Location",
-    "localisationDescription": "Located between mountains and lakes, in the beautiful department of Haute-Savoie.",
-    "currentAddress": "Current Address:",
-    "permanentAddress": "Permanent Address:",
-    "region": "Haute-Savoie, France",
-    "educationTitle": "Education",
-    "educationSubtitle": "My academic background",
-    "experienceComing": "Upcoming",
-    "experienceTitle": "Experience",
-    "experienceSubtitle": "My professional experiences",
-    "experienceCompetenceTitle": "Mobilized skills",
-    "experienceMissionsTitle": "Missions",
-    "experienceOngoing": "Ongoing",
-    "experienceModalTitle": "Job details:",
-    "projectsTitle": "Projects",
-    "projectsDateLabel": "Date",
-    "projectsKeywordsLabel": "Keywords",
-    "projectsFiltersKeyword": "Filter",
-    "projectsFiltersKeywordTitle": "Keywords to sort projects using the Levenshtein algorithm",
-    "projectsTypeLabel": "Project type",
-    "projectsTypePersonal": "Personal",
-    "projectsTypePersonalTitle": "Personal projects are projects that I have developed on my own.",
-    "projectsTypeUniversity": "University",
-    "projectsTypeUniversityTitle": "Academic projects are projects that I have developed as part of my studies.",
-    "projectsOnGoing": "Ongoing",
-    "dateFilter_du": "From",
-    "dateFilter_au": "To",
-    "projectsSort": "Sort by",
-    "projectsMostRecent": "Most Recent",
-    "projectsOldest": "Oldest",
-    "projectsLongest": "Longest",
-    "projectsShortest": "Shortest",
-    "projectsInvalidDate": "Please, enter valid dates.",
-    "projectsDateError": "The end date must be greater than the start date.",
-    "projectsNotFound": "No project was found corresponding to your search.",
-    "projectLastImage": "Last image",
-    "projectNextImage": "Next image",
-    "projectRealisationsMissionsTitle": "Realizations and missions",
-    "mobilizedSkills": "Mobilized skills",
-    "home": "Home",
-    "projects": "Projects",
-    "experience": "Experience",
-    "education": "Career Path",
-    "hobbies": "Hobbies",
-    "translateHeaderDesc": "Switch to French",
-    "Accueil": "Léo Christophe - Home",
-    "Formations": "Career",
-    "Projets": "Projects",
-    "Portfolio": "Portfolio",
-    "Marsinvaders": "Marsinvaders",
-    "Skillupnow": "SkillUpNow",
-    "Amphibiens": "Amphibians",
-    "ChrisConverter": "ChrisConverter",
-    "Matinfo": "Matinfo",
-    "BMW": "BMW",
-    "project_video": "Silken Sweets",
-    "mesdonnees": "My data",
-    "Confidentialité": "Privacy",
-    "Contact": "Contact",
-    "Compétences": "Skills",
-    "personalData": "Personal Data",
-    "contactInfo": "Contact Information",
-    "readCV": "Consult my CV",
-    "changeLang": "Switch to french",
-    "name": "Leo CHRISTOPHE",
-    "etesVousSur": "Are you sure you want to delete all your data?",
-    "etesVousSurHeader": "Deleting your data",
-    "cancel": "No",
-    "delete": "Yes",
-    "infoData": "No data",
-    "deletedData": "Deleted data",
-    "succesToast": "Your data has been successfully deleted.",
-    "infoToast": "You have no data to delete.",
-    "donneesTitle": "Your data",
-    "donneesDisclaimer": "Your data stored on the browser is purely for ergonomic, translation purposes or to determine if you are a bot or not (Google Recaptcha). \n      They are not used for commercial or tracking purposes. For more details regarding your data, their use and deletion, please consult the ",
-    "donneesDisclaimer2": "You can delete optional (ergonomic) data at any time by clicking the button below.",
-    "donneesBtnSupp": "Delete my data",
-    "learnmore": "Learn more",
-    "link": "Link to ",
+    "skillsDetail":{
+      "skills": "Skills",
+      "search": "Search: ",
+      "searchPlaceholder": "Search by skill or field.",
+      "noskill": "No skills found...",
+      "sortRefBUT": "Sort by ",
+      "refBUT": "Computer Science Bachelor's reference"
+    },
+
+    "hobbies":{
+      "interestsTitle": "Hobbies",
+      "animes": "Anime",
+      "animesDescription": "I really enjoy Japanese animated works. I started watching anime in 2016, and since then, I have become a big fan of this genre. Especially isekai or comedic anime like Re:Zero.",
+      "videogames": "Video Games",
+      "videogamesDescription": "I really enjoy creative games like Minecraft. Having played for nearly 10 years, the genre still excites me and continues to inspire me.",
+      "cooking": "Cooking",
+      "cookingDescription": "I love cooking. Since I was young, I have always enjoyed food, so being able to prepare it with my own touches is a real pleasure."
+    },
+
+    "skills":{
+      "skillsTitle": "Technical Skills",
+      "softskillsTitle": "Interpersonal Skills",
+      "softskillsDescription": "Interpersonal and adaptive abilities that promote collaboration and effective management. (Communication, teamwork, time management, adaptability...)",
+      "hardskillsDescription": "Specific technical skills related to executing complex tasks in a particular field. (mastery of programming languages, database management, network administration...)",
+      "references": "References"
+    },
+
+    "experiences":{
+      "experienceOngoing": "Ongoing",
+      "experienceComing": "Upcoming",
+      "educationTitle": "Education",
+      "educationSubtitle": "My academic journey",
+      "experienceTitle": "Experiences",
+      "experienceSubtitle": "My professional experiences",
+      "experienceCompetenceTitle": "Skills Utilized",
+      "experienceMissionsTitle": "Missions",
+      "experienceModalTitle": "Mission Details:"
+    },
+
+    "projects":{
+      "details": "Details",
+      "portfolio":{
+        "api_use_title": "API Use",
+        "email_js": "EmailJS",
+        "email_js_details": "Use of the ",
+        "email_js_end": " library to send emails automatically from the contact form. The form needs Google Recaptcha validation to function. If the user is confirmed as a human, data from the form is sent to EmailJs, sending an e-mail directly into my mailbox.",
+        "google_recaptcha": "Google Recaptcha 3",
+        "google_recaptcha_details": "Use of the Google Recaptcha 3 service to validate the contact form. This service distinguishes humans from robots and ensures that only real users can send messages. Its key difference from the previous version is that it does not require user interaction.",
+        "rgpd": "RGPD",
+        "rgpd_details": "While the site is a portfolio, the use of a traduction system and a captcha system requires the use of cookies. The user can delete them at any time. The site does not use any tracking or advertising cookies. See the ",
+        "rgpd_end": " for more information."
+    },
+      "datacare":{
+        "contributions": "Contributions",
+        "contributionsDetails": "I contributed to the creation of the remote API (Azure), a dashboard, the database, and the client.",
+        "technologies": "Technologies",
+        "technologiesDetails": "Front: Blazor with Bootstrap, Back: API Rest in C# with EntityFramework, Database: Postgresql hosted on AlwaysData, Data Visualization: Grafana, Cloud: Azure",
+        "api": "API Details",
+        "apiDetails": "The Rest API in C# applies best practices in computer development. Asynchronous methods, Data Manager, DTO and AutoMapper, Dependency Injection, Continuous Integration and Continuous Deployment, Mock tests",
+        "client": "Client Details",
+        "clientDetailsBlazorFramework": "Blazor Framework",
+        "clientDetails": "The client, made with the ",
+        "clientDetailsEnd": " (released in 2018), was developed in the most ergonomic way possible. Use of components, including pop-ups or tooltips, Use of the ChartJs and Blazor Bootstrap library, MVVM architecture, Dependency Injection, Continuous Deployment"
+      },
+      "filters":{
+        "projectsTitle": "Projects",
+        "projectsDateLabel": "Date",
+        "projectsKeywordsLabel": "Keywords",
+        "projectsFiltersKeyword": "Filter",
+        "projectsFiltersKeywordTitle": "Keywords to sort projects using the Levenshtein algorithm",
+        "projectsTypeLabel": "Project Type",
+        "projectsTypePersonal": "Personal",
+        "projectsTypePersonalTitle": "Personal projects are projects I developed myself.",
+        "projectsTypeUniversity": "Academic",
+        "projectsTypeUniversityTitle": "Academic projects are projects I developed as part of my studies.",
+        "dateFilter_du": "From",
+        "dateFilter_au": "to",
+        "projectsSort": "Sort by",
+        "projectsMostRecent": "Most Recent",
+        "projectsOldest": "Oldest",
+        "projectsLongest": "Longest",
+        "projectsShortest": "Shortest"  
+      },
+      "detailsTemplate":{
+        "projectLastImage": "Last image",
+        "projectNextImage": "Next image",
+        "projectRealisationsMissionsTitle": "Achievements and Missions",
+        "projectSkillDetail": "Other experiences related to ",
+        "mobilizedSkills": "Skills Utilized"
+      },
+      "projectsOnGoing": "Ongoing",
+      "projectsDateError": "The end date must be after the start date."
+    },
+
+    "contact":{
+      "contactTitle": "Contact Me",
+      "subtitle": "Do you have a job offer? Do you want to share your feedback?",
+      "nameLabel": "Name",
+      "emailLabel": "*Email",
+      "example": "example",
+      "domain": "domain.com",
+      "emailDisclaimer": "Your email will only be used to contact you back.",
+      "formDisclaimer": "The first name is only used for authentication purposes (optional), and the email is used for contact purposes. Each email is confidential between me and the sender and is directly archived and deleted after reading. EmailJS is used to send emails automatically, and Recaptcha is used for security purposes.",
+      "messageLabel": "Message",
+      "submitButton": "Send",
+      "successMessage": "Message sent successfully!",
+      "errorMessage": "Please try again or contact me directly.",
+      "emailSectionTitle": "University Email:",
+      "phoneSectionTitle": "Phone Number:",
+      "availability": "Available from 1 PM to 2 PM and 7 PM to 8 PM.",
+      "contactButton": "Contact Me",
+      "callButton": "Call",
+      "smsButton": "Send SMS",
+      "copyMessage": "Text copied to clipboard.",
+      "copyTitle": "Copy text to clipboard",
+      "copySummary": "Copied",
+      "success": "Success",
+      "error": "Error",
+      "locationTitle": "Location"
+    },
+
+    "manage_data":{
+      "etesVousSur": "Are you sure you want to delete all your data?",
+      "etesVousSurHeader": "Delete Your Data",
+      "cancel": "No",
+      "delete": "Yes",
+      "infoData": "No data",
+      "deletedData": "Data deleted",
+      "succesToast": "Your data has been successfully deleted.",
+      "infoToast": "You have no data to delete.",
+      "donneesTitle": "Your Data",
+      "donneesDisclaimer": "Your data stored in the browser is purely for ergonomic purposes, \n                          translation, or to determine if you are a robot or not (Google Recaptcha). \n                          It is not used for commercial or tracking purposes. For more\n                          details about your data, its use, and deletion, please\n                          consult the ",
+      "donneesDisclaimer2": "You can delete optional (ergonomic) data at any time by clicking the button below.",
+      "donneesBtnSupp": "Delete My Data"
+    },
+    
     "notfound": {
-        "pageTitle": "Error 404",
-        "title": "404 - Page not found",
-        "message": "The page you are looking for does not exist.",
-        "home": "Back to home"
+      "pageTitle": "Unknown Page",
+      "title": "404 - Unknown Page",
+      "message": "The page you are looking for does not exist.",
+      "home": "Return to Home"
     },
+
     "cookieBanner": {
-        "disclaimer": "This site uses cookies to improve your user experience. By continuing to browse this site, you accept the ",
-        "privacypolicy": "privacy policy",
-        "buttons": {
-        "accept": "Accept",
-        "refuse": "Refuse"
-        }
+      "disclaimer": "This site uses cookies to improve your user experience. By continuing to browse this site, you accept the ",
+      "privacypolicy": "privacy policy"
     },
+
     "privacy": {
-        "title": "Privacy Policy",
-        "cookies": {
+      "title": "Privacy Policy",
+      "cookies": {
         "title": "Cookies",
-        "intro": "\n            This cookie policy explains what cookies are, \n            how they are used, how third-party services such as Google Recaptcha \n            may use cookies on this site, your choices regarding these cookies, \n            and additional information about their usage.",
+        "intro": "\n            This cookie policy explains what cookies are, \n            how they are used, how third-party services, such as Google Recaptcha, \n            may use them on this site, your choices regarding these cookies, \n            and additional information about their usage.",
         "details": {
-            "title": "Types of Cookies Used",
-            "lang": {
-            "name": "Cookie 'lang'",
+          "title": "Types of Cookies Used",
+          "lang": {
+            "name": "'lang' Cookie",
             "description": "Used to manage the user's language preference. (Functional, Permanent)",
-            "details": "This cookie is solely used to improve user experience by displaying the site in your preferred language."
-            },
-            "rc_a": {
-            "name": "Cookie 'rc::a'",
-            "description": "Required for the proper functioning of the captcha service (Google Recaptcha). (Essential, Permanent)",
-            "details": "This cookie is used to distinguish between humans and bots, ensuring that only real users can interact with the contact form."
-            },
-            "rc_c": {
-            "name": "Cookie 'rc::c'",
-            "description": "Used for user sessions related to the captcha (Google Recaptcha). (Essential, Session)",
-            "details": "This temporary cookie verifies that a real user is filling out the contact form and does not retain personal data beyond the session."
-            },
-            "filter_prefs": {
-            "name": "Cookie 'filter_prefs'",
-            "description": "Used to save filter preferences on the project page. (Functional, Permanent)",
-            "details": "This cookie remembers your filter preferences to simplify navigation without collecting additional personal data."
-            }
+            "details": "This cookie is only used to improve ergonomics and present the site in your preferred language."
+          },
+          "rc_a": {
+            "name": "'rc::a' Cookie",
+            "description": "Necessary for the functioning of the captcha service (Google Recaptcha). (Necessary, Permanent)",
+            "details": "This cookie is used to distinguish humans from robots, ensuring that only a real user can interact with the contact form."
+          },
+          "rc_c": {
+            "name": "'rc::c' Cookie",
+            "description": "Used for user sessions related to captcha (Google Recaptcha). (Necessary, Session)",
+            "details": "This cookie is temporary and ensures that a real user fills out the contact form, without retaining personal information beyond the session."
+          }
         }
-        },
-        "data_protection": {
+      },
+      "data_protection": {
         "title": "Data Protection",
-        "content": "\n            I am committed to protecting your personal data. The data collected via cookies or services  \n            are exclusively used to enhance your user experience (language preferences, project filters) \n            ,to ensure the proper functioning of the contact form using Recaptcha V3 or to contact me via EmailJS.\n            EmailJS is used to send each email directly to my email address and is archived and then deleted after reading."
-        },
-        "user_rights": {
+        "content": "\n            I am committed to protecting your personal data. The data collected by cookies \n            is exclusively used to improve your user experience (language preferences, project filters), \n            to ensure the proper functioning of the contact form with Recaptcha V3, or to send automatic emails \n            from the contact form. This contact form sends each email directly to my email address and is \n            archived and deleted after reading."
+      },
+      "user_rights": {
         "title": "User Rights",
         "content": "\n            You have the right to access, rectify, or delete your data. \n            A dedicated page in the footer allows you to delete your data easily."
-        },
-        "contact": {
+      },
+      "contact": {
         "title": "Contact",
         "content": "\n            For any questions regarding this privacy policy or the use of cookies, \n            please contact me at {email}."
-        },
-        "policy_update": {
-        "title": "Policy Updates",
+      },
+      "policy_update": {
+        "title": "Policy Update",
         "content": "\n            This privacy policy may be updated periodically. \n            Any changes will be displayed here, with the date of the last update indicated at the top of this page."
-        }
+      }
     }
-}
-}
+  }

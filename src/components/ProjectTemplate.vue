@@ -113,10 +113,10 @@ function tempsPris(datedebut, datefin){
     const totalMonths = years * 12 + months;
 
     if (totalMonths == 0){
-      return end.getDate() - start.getDate()  + " " + t('message.days');
+      return end.getDate() - start.getDate()  + " " + t('words.days');
     }
 
-    return totalMonths + " " + t('message.month');
+    return totalMonths + " " + t('words.month');
 }
 
 onMounted(()=>{
@@ -139,7 +139,7 @@ onMounted(()=>{
     <div id="images-container" class="projectElement">
 
     <div v-if="hasImages" id="images">
-        <button id="leftButton" v-if="multipleImages" @click="switchImage('back')" :title="$t('message.projectLastImage')"><i class="pi pi-arrow-circle-left"></i></button>
+        <button id="leftButton" v-if="multipleImages" @click="switchImage('back')" :title="$t('projects.detailsTemplate.projectLastImage')"><i class="pi pi-arrow-circle-left"></i></button>
     
         <span @click="openLightbox()" id="mainContentContainer">
           <div v-if="['image', 'icone'].includes(images[ActualImage].type)">
@@ -157,7 +157,7 @@ onMounted(()=>{
 
           <p class="imageDescription"><strong>{{ images[ActualImage].description }}</strong></p> 
         </span>
-        <button id="rightButton" v-if="multipleImages" @click="switchImage('forward')" :title="$t('message.projectNextImage')"><i class="pi pi-arrow-circle-right"></i></button>
+        <button id="rightButton" v-if="multipleImages" @click="switchImage('forward')" :title="$t('projects.detailsTemplate.projectNextImage')"><i class="pi pi-arrow-circle-right"></i></button>
         <i class="pi pi-search-plus" v-if="['image', 'icone'].includes(images[ActualImage].type)" @click="openLightbox()"></i>
     </div>
 
@@ -198,7 +198,7 @@ onMounted(()=>{
     </div>
 
     <div class="project_title_container">
-      <h2 class="project_title">{{$t('message.projectRealisationsMissionsTitle')}}</h2>
+      <h2 class="project_title">{{$t('projects.detailsTemplate.projectRealisationsMissionsTitle')}}</h2>
     </div>
     <div id="realisations" class="ListeDescendanteConteneur projectElement ">
         <div class="ListeDescendante" v-for="realisation in data.projects[props.id].realisations" :key="realisation">
@@ -207,14 +207,14 @@ onMounted(()=>{
       </div>
 
     <div class="project_title_container">
-      <h2 class="project_title">{{$t('message.mobilizedSkills')}}</h2>
+      <h2 class="project_title">{{$t('projects.detailsTemplate.mobilizedSkills')}}</h2>
     </div>
     <div id="lists ListeDescendanteConteneur">
       <table id="competences" class="projectElement">
         <thead>
           <tr>
             <th v-for="(value, key) in data.projects[props.id].competences" :key="'header-' + key" class="ligneHeader"
-            :title="$t('message.projectSkillDetail') + key"
+            :title="$t('projects.detailsTemplate.projectSkillDetail') + key"
             @click="handleSkillClick(key, router)">
               {{ key }}
             </th>
@@ -227,7 +227,7 @@ onMounted(()=>{
               :key="'data-' + key + '-' + rowIndex"
               :class="rowIndex % 2 == 0 ? 'lignePaire' : 'ligneImpaire'"
               @click="handleSkillClick(value[rowIndex - 1], router)"
-              :title="$t('message.projectSkillDetail') + value[rowIndex-1]"
+              :title="$t('projects.detailsTemplate.projectSkillDetail') + value[rowIndex-1]"
             >
               <span v-if="value[rowIndex - 1]">{{ value[rowIndex - 1] }}</span>
               <span v-else>&nbsp;</span>

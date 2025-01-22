@@ -28,8 +28,8 @@
   <!-- Affiche le bandeau si le cookie n'a pas encore été choisi -->
   <div v-if="!cookiesAccepted" class="cookie-banner">
     <p>
-      {{ $t('message.cookieBanner.disclaimer') }}
-      <a href="/confidentialite">{{ $t('message.cookieBanner.privacypolicy') }}</a>.
+      {{ $t('cookieBanner.disclaimer') }}
+      <a href="/confidentialite">{{ $t('cookieBanner.privacypolicy') }}</a>.
     </p>
     <div class="actions" @click="rejectCookies">
       <Button id="btnReject"><i class="pi pi-times"></i></Button>

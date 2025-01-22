@@ -32,10 +32,10 @@
                     {{ DateUtils.formatDateRange(experienceProp.dates[0], experienceProp.dates[1], $i18n.locale) }}
                 </span>
                 <span v-else-if="DateUtils.isFutureDate(experienceProp.dates[0])">
-                    {{ DateUtils.formatDateRange(experienceProp.dates[0], experienceProp.dates[1], $i18n.locale) + " ("+$t("message.experienceComing")+")"}}
+                    {{ DateUtils.formatDateRange(experienceProp.dates[0], experienceProp.dates[1], $i18n.locale) + " ("+$t("experiences.experienceComing")+")"}}
                 </span>
                 <span v-else>
-                    {{ DateUtils.formatDate(experienceProp.dates[0]) + " - " + $t('message.experienceOngoing') }}
+                    {{ DateUtils.formatDate(experienceProp.dates[0], $i18n.locale) + " - " + $t('experiences.experienceOngoing') }}
                 </span>
             </div>
         </section>
@@ -48,7 +48,7 @@
         <section>
             <div id="missionEtRealisation">
                 <span class="expCacheContainerSkills">
-                    <h4 class="expSkillsTitle">{{ $t('message.experienceCompetenceTitle') }}</h4>
+                    <h4 class="expSkillsTitle">{{ $t('experiences.experienceCompetenceTitle') }}</h4>
                     <ul class="skillsListExp">
                         <li v-for="(competence, key) in experienceProp.competences" :key="key">
                             <span>
@@ -63,7 +63,7 @@
                     </ul>
                 </span>
                 <span class="expCacheContainerMissions">
-                    <h4 class="expMissionsTitle">{{ $t('message.experienceMissionsTitle') }}</h4>
+                    <h4 class="expMissionsTitle">{{ $t('experiences.experienceMissionsTitle') }}</h4>
                     <ul class="missionsListExp">
                         <li v-for="(mission, index) in experienceProp.missions" :key="index" class="">
                             {{ mission }}

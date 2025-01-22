@@ -45,7 +45,7 @@ onMounted(() => {
     if (data.projects && data.projects.length > 0) {
       const projectDates = data.projects.map(project => {
         const projectStart = new Date(project.dates[0])
-        const projectEnd = project.dates[1] === t('message.projectsOnGoing') ? new Date() : new Date(project.dates[1])
+        const projectEnd = project.dates[1] === t('projects.projectsOnGoing') ? new Date() : new Date(project.dates[1])
         return { start: projectStart, end: projectEnd }
       })
       
@@ -69,13 +69,13 @@ onMounted(() => {
       
       // Ne devrait théoriquement jamais arriver
       if (start > end) {
-        alert(t('message.projectsDateError'))
+        alert(t('projects.projectsDateError'))
         return []
       }
       
       projects = projects.filter(project => {
         const projectStartDate = new Date(project.dates[0])
-        const projectEndDate = project.dates[1] === t('message.projectsOnGoing') ? new Date() : new Date(project.dates[1])
+        const projectEndDate = project.dates[1] === t('projects.projectsOnGoing') ? new Date() : new Date(project.dates[1])
         return projectStartDate >= start && projectEndDate <= end
       })
     }
@@ -203,51 +203,51 @@ onMounted(() => {
 <template>
   
   <div>
-    <h1>{{$t('message.projectsTitle')}}</h1>
+    <h1>{{$t('projects.filters.projectsTitle')}}</h1>
     <span id="sortFilterContainer">
       <Button class="blackVariant">
         <p id="textFilterHeader" @click="switchFilter">
           <i ref="iconFilter" class="pi pi-angle-down" style="margin: 0 10px 0 0"></i> 
-          {{$t('message.projectsFiltersKeyword')}}
+          {{$t('projects.filters.projectsFiltersKeyword')}}
         </p>
       </Button>
 
       <div class="sort-filter">
-        <label for="sort">{{$t('message.projectsSort')}}</label>
+        <label for="sort">{{$t('projects.filters.projectsSort')}}</label>
         <select id="sort" v-model="sortBy" class="blackVariant">
-          <option value="recent">{{$t('message.projectsMostRecent')}}</option>
-          <option value="oldest">{{$t('message.projectsOldest')}}</option>
-          <option value="longest">{{$t('message.projectsLongest')}}</option>
-          <option value="shortest">{{$t('message.projectsShortest')}}</option>
+          <option value="recent">{{$t('projects.filters.projectsMostRecent')}}</option>
+          <option value="oldest">{{$t('projects.filters.projectsOldest')}}</option>
+          <option value="longest">{{$t('projects.filters.projectsLongest')}}</option>
+          <option value="shortest">{{$t('projects.filters.projectsShortest')}}</option>
         </select>
       </div>
     </span>
 
     <div id="filters" class="card gap-3 p-fluid filterDeactivated" ref="filters">
       <div id="dateFilters">
-        <h3>{{ $t('message.projectsDateLabel') }}</h3>
+        <h3>{{ $t('projects.filters.projectsDateLabel') }}</h3>
         <div id="datedebutcontainer">
-          <p>{{$t('message.dateFilter_du')}}</p> <Calendar  v-model="startDate" class="dateInput" id="startDate" :showIcon="true" dateFormat="yy-mm-dd" :maxDate="maxEndDate" />
+          <p>{{$t('projects.filters.dateFilter_du')}}</p> <Calendar  v-model="startDate" class="dateInput" id="startDate" :showIcon="true" dateFormat="yy-mm-dd" :maxDate="maxEndDate" />
         </div>
         <div id="datefincontainer">
-          <p>{{$t('message.dateFilter_au')}}</p> <Calendar v-model="endDate" class="dateInput" id="endDate" :showIcon="true" dateFormat="yy-mm-dd" :minDate="minStartDate" />
+          <p>{{$t('projects.filters.dateFilter_au')}}</p> <Calendar v-model="endDate" class="dateInput" id="endDate" :showIcon="true" dateFormat="yy-mm-dd" :minDate="minStartDate" />
         </div>
       </div>
 
       <div id="motClesContainer">
-        <h3>{{ $t('message.projectsKeywordsLabel') }}</h3>
-        <Chips v-model="Compvalue" separator="," :title="$t('message.projectsFiltersKeywordTitle')"/>
+        <h3>{{ $t('projects.filters.projectsKeywordsLabel') }}</h3>
+        <Chips v-model="Compvalue" separator="," :title="$t('projects.filters.projectsFiltersKeywordTitle')"/>
       </div>
 
       <div id="typeProjetContainer">
-        <h3>{{$t('message.projectsTypeLabel')}}</h3>
+        <h3>{{$t('projects.filters.projectsTypeLabel')}}</h3>
         <div>
-          <Checkbox v-model="checkType" inputId="University" value="University" :title="$t('message.projectsTypeUniversityTitle')"/>
-          <label for="University"> {{$t('message.projectsTypeUniversity')}} </label>
+          <Checkbox v-model="checkType" inputId="University" value="University" :title="$t('projects.filters.projectsTypeUniversityTitle')"/>
+          <label for="University"> {{$t('projects.filters.projectsTypeUniversity')}} </label>
         </div>
         <div>
-          <Checkbox v-model="checkType" inputId="Personal" value="Personal" :title="$t('message.projectsTypePersonalTitle')"/>
-          <label for="Personal"> {{$t('message.projectsTypePersonal')}} </label>
+          <Checkbox v-model="checkType" inputId="Personal" value="Personal" :title="$t('projects.filters.projectsTypePersonalTitle')"/>
+          <label for="Personal"> {{$t('projects.filters.projectsTypePersonal')}} </label>
         </div>
       </div>
     </div>

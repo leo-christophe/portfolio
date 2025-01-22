@@ -89,9 +89,9 @@ router.afterEach((to) => {
     updateMenuStyle(menuItem, '2px solid ' + COULEUR_MENU_SELECTIONNE, COULEUR_MENU_SELECTIONNE);
 
     if (to.name == "NotFound") {
-        title.value = i18n.global.t("message.notfound.pageTitle");
+        title.value = i18n.global.t("notfound.pageTitle");
     }  else {
-        title.value = i18n.global.t('message.'+to.name);
+        title.value = i18n.global.t('pages.'+to.name);
     }
 });
 
