@@ -43,14 +43,18 @@
         "localisation": "Villaz, France",
         "dates": ["2025-01-20", "2025-04-25"],
         "competences": {
-          "Web Development": ["javascript", "php", "html", "css"],
-          "UI/UX & User Experience": ["ergonomics", "ui/ux"]
+          "Web Development": ["Nuxt.js", "Typescript"],
+          "Software Development & API": ["C#", "RESTful API", "JWT Tokens"],
+          "UI/UX & User Experience": ["Ergonomics", "UI/UX"],
+          "DevOps & Deployment": ["GitHub"],
+          "Project Management": ["GitHub Projects"],
+          "Interpersonal Skills": ["Rigor", "Autonomy", "Teamwork"]
         },
         "description": "Development of a website for a company specializing in the design and manufacture of 3D components.",
         "missions": [
-          "Development of the front end in Javascript",
-          "Development of the back end in PHP using a Python API",
-          "Creation of an algorithm to calculate the approximate price of the shopping cart with the alternatives"
+          "Development of the front end in Javascript with the Nuxt.js framework, refering to a Figma model for the design",
+          "Development of the back end in C# using the API Rest technology and JWT Tokens for security",
+          "Creation of the database in PostgreSQL for better scalability"
         ],
         "website": "https://www.arpi-technology.com/",
         "image": "/images/career/arpi.webp"
@@ -63,11 +67,11 @@
         "localisation": "Alby-sur-Chéran, France",
         "dates": ["2024-04-15", "2024-07-05"],
         "competences": {
-          "Web Development": ["javascript", "webdev"],
-          "Software Development": ["wlangage"],
-          "UI/UX & User Experience": ["ergonomics", "ui/ux", "CSS"],
+          "Web Development": ["Javascript", "WebDev"],
+          "Software Development & API": ["WLangage"],
+          "UI/UX & User Experience": ["Ergonomics", "UI/UX", "CSS"],
           "Testing & Quality": ["Squash", "Manual Testing"],
-          "Interpersonal Skills": ["rigor", "autonomy", "teamwork"]
+          "Interpersonal Skills": ["Rigor", "Autonomy", "Teamwork"]
         },
         "description": "Developping new features in the workflow of employee absences.",
         "missions": [
@@ -90,10 +94,10 @@
         "titre": "Development of a space-themed video game",
         "description": "Programming in C# using the Monogame framework in a team of two. The goal was to create a video game in a few weeks by relying directly on the documentation, adhering to best practices during development (Naming, Code structure, Comments, etc.). The game had to be playable and include a menu, a gameplay screen, and an end screen. The game was presented at the end of the project in a video, then in front of a jury of professors.",
         "competences": {
-          "Software Development": ["C#", "Monogame", "Visual Studio 2022"],
-          "Interpersonal Skills": ["Teamwork", "Brainstorming", "Presentation"],
+          "Software Development & API": ["C#", "Monogame", "Visual Studio 2022"],
           "Game Development": ["Monogame", "Tiled"],
-          "Other": ["Sony Vegas", "Photoshop", "Github"]
+          "DevOps & Deployment": ["GitHub"],
+          "Interpersonal Skills": ["Teamwork", "Brainstorming", "Presentation"]
         },
         "realisations": [
           "Researching the game idea to develop, brainstorming",
@@ -120,7 +124,7 @@
           }
         ],
         "url": null,
-        "github": "https://github.com/leoChris7/Mars-Invaders",
+        "GitHub": "https://GitHub.com/leoChris7/Mars-Invaders",
         "download": null,
         "route": "/projects/marsinvaders"
       },{
@@ -130,11 +134,11 @@
         "titre": "Creation of a fictitious training website in PHP (Laravel)",
         "description": "Creation of a fictitious website in a team of 4. Using Laravel, a PHP framework for both server and client parts. Developing the database in PostgreSQL. Encrypting sensitive user data like passwords. Conducting a robustness and performance test. Optimizing disk space used by the site on the server, for example by using SVG images. Organizing development using Agile methodology, with the SCRUM method. Weekly sprint reviews in French, one of which was in English.",
         "competences": {
-          "Web Development": ["PHP", "Laravel", "HTML", "CSS", "Github"],
-          "Database": ["PostgreSQL", "SQL", "Database", "MCD", "MLD"],
+          "Web Development": ["PHP", "Laravel", "HTML", "CSS", "GitHub"],
+          "Database": ["PostgreSQL", "SQL", "Database"],
           "Project Management": ["SCRUM", "Sprint Reviews", "Meeting Organization", "Report Writing"],
-          "Design & Architecture": ["Use Cases", "Class Diagrams", "BPMN", "UML"],
-          "Security": ["Cryptography"]
+          "Design & Architecture": ["Use Cases", "Class Diagrams", "BPMN", "UML", "CDM", "LDM"],
+          "Interpersonal Skills": ["Teamwork", "Organization","English"]
         },
         "realisations": [
           "Creating design documents",
@@ -144,6 +148,12 @@
         ],
         "type": "University",
         "images": [
+          {
+            "link": "/images/projects/project-skillupnow-logo.jpg",
+            "description": "Logo du site SkillUpNow",
+            "display": false,
+            "type": "icone"
+          },
           {
             "link": "project-skillupnow-1.webp",
             "description": "Screenshot of the site's homepage.",
@@ -156,7 +166,7 @@
           }
         ],
         "url": null,
-        "github": null,
+        "GitHub": null,
         "download": null,
         "route": "/projects/skillupnow"
       },
@@ -164,22 +174,22 @@
         "id": "project_sae401",
         "nom": "BMW",
         "dates": ["2024-03-01", "2024-04-05"],
-        "titre": "Creation of a fictitious BMW website in Javascript (Vue-JS) with API Rest in C#",
-        "description": "Creation of a fictitious website in a team of 5, applying best practices in terms of programming, quality, security, and performance. Communication from the Javascript client to the REST API developed in C#. The database was implemented using code first with Entity Framework Core. Using Vue-JS for the client side with Vue-Router, Pinia, Prime Vue frameworks. The quality of the API was verified through unit testing and mock testing, and the client’s quality was validated through unit and 'End to End' testing. Presentation of the website and the API in front of a jury of two professors.",
+        "titre": "Creation of a fictitious BMW website in Javascript (Vue.js) with API Rest in C#",
+        "description": "Creation of a fictitious website in a team of 5, applying best practices in terms of programming, quality, security, and performance. Communication from the Javascript client to the REST API developed in C#. The database was implemented using code first with Entity Framework Core. Using Vue.js for the client side with Vue-Router, Pinia, Prime Vue frameworks. The quality of the API was verified through unit testing and mock testing, and the client’s quality was validated through unit and 'End to End' testing. Presentation of the website and the API in front of a jury of two professors.",
         "competences": {
-          "Web Development": ["Javascript", "Vue-JS", "HTML", "CSS", "Github"],
-          "Software Development": ["C#", "API Rest", "Visual Studio 2022", "Repository", "Dependency Injection"],
-          "Database": ["PostgreSQL", "SQL", "Database", "MLD", "MCD"],
-          "DevOps & Deployment": ["Azure DevOps", "Vercel.app", "CI/CD", "Continuous Deployment", "Github"],
+          "Web Development": ["Javascript", "Vue.js"],
+          "Software Development & API": ["C#", "RESTful API", "Visual Studio 2022", "Repository"],
+          "Database": ["PostgreSQL", "SQL", "Database"],
+          "DevOps & Deployment": ["Azure DevOps", "Vercel.app", "CI/CD", "GitHub"],
           "Testing & Quality": ["Vitest", "Cypress", "Unit Tests"],
-          "Project Management": ["Meeting Organization", "Meeting Minutes", "Project Management"],
+          "Project Management": ["Meeting Organization", "Project Management"],
           "UI/UX & User Experience": ["UI/UX", "User Experience"]
         },
         "realisations": [
           "Creating design documents",
           "Developing the database in PostgreSQL",
           "Developing the REST API in C#",
-          "Developing the client in Vue-JS",
+          "Developing the client in Vue.js",
           "Optimization",
           "Organizing a weekly meeting",
           "Managing the project on Azure DevOps"
@@ -187,6 +197,20 @@
         "type": "University",
         "images": [
           {
+            "link": "/images/projects/project-bmw-logo.svg",
+            "description": "BMW Logo",
+            "display": false,
+            "type": "icone"
+          },{
+            "link": "project-bmw-2.webp",
+            "description": "Footer of the website.",
+            "type": "image"
+          },{
+            "link": "project-bmw-3.webp",
+            "description": "Sign up page.",
+            "type": "image"
+          }
+          ,{
             "link": "project-bmw-1.webp",
             "description": "Screenshot of the site's homepage.",
             "type": "image"
@@ -201,7 +225,8 @@
           }
         ],
         "url": "https://bmw-client.vercel.app/",
-        "github": null,
+        "pdf_docs": [ "PROJET_BMW_DOSSIER_TECHNIQUE.pdf" ],
+        "GitHub": null,
         "download": null,
         "route": "/projects/bmw"
       },
@@ -209,26 +234,31 @@
         "id": "project_portfolio",
         "nom": "Portfolio",
         "dates": ["2024-05-23", "2024-10-15"],
-        "titre": "Development of a web portfolio in Vue-JS",
-        "description": "Creating a web portfolio in Vue-JS to showcase my skills and projects. Using the nodeJS libraries PrimeVue and Vue-Route. Continuous deployment on Vercel.App with each push to Github. Applying best practices in terms of security.",
+        "titre": "Development of a web portfolio",
+        "description": "Creating a web portfolio in Vue.js to showcase my skills and projects. Using the nodeJS libraries PrimeVue and Vue-Route. Continuous deployment on Vercel.App with each push to GitHub. Applying best practices in terms of security.",
         "competences": {
-          "Web Development": ["Javascript", "Vue-JS", "HTML", "CSS", "Responsive", "NodeJS", "JQuery", "JSON"],
-          "DevOps & Deployment": ["Vercel.app", "Continuous Deployment", "CI/CD", "Github"],
-          "UI/UX & User Experience": ["UI/UX", "User Experience"],
-          "Interpersonal Skills": ["Autonomy", "Versatility"],
-          "Security": ["Environment Variables (Managing Sensitive Variables)", "User Input Validation (Preventing XSS Attack)"]
+          "Web Development": ["Javascript", "Vue.js", "JSON"],
+          "DevOps & Deployment": ["Vercel.app", "CI/CD", "GitHub"],
+          "UI/UX & User Experience": ["UI/UX", "User Experience", "Ergonomics"],
+          "Interpersonal Skills": ["Autonomy", "Versatility"]
         },
         "realisations": [
           "Creating the site structure",
           "Retrieving data via a JSON file",
           "Creating Vue components",
           "Styling with CSS and PrimeVue",
-          "Linking with Github for versioning",
+          "Linking with GitHub for versioning",
           "Deploying on Vercel.app server",
           "Creating the navigation menu with Route-JS"
         ],
         "type": "Personal",
         "images": [
+          {
+            "link": "/images/app_identity/icon.webp",
+            "description": "Icone du portfolio, réalisée avec Canvas",
+            "display": false,
+            "type": "icone"
+          },
           {
             "link": "project-portfolio-1.webp",
             "description": "Screenshot of the site's homepage.",
@@ -238,10 +268,15 @@
             "link": "project-portfolio-2.webp",
             "description": "Screenshot of some Vitest unit tests.",
             "type": "image"
+          },
+          {
+            "link": "project-portfolio-3.webp",
+            "description": "Website structure.",
+            "type": "image"
           }
         ],
         "url": "https://leochristophe.vercel.app",
-        "github": null,
+        "GitHub": null,
         "download": null,
         "route": "/projects/portfolio"
       },
@@ -252,7 +287,8 @@
         "titre": "Creation of a database to catalog amphibians found in the Hauts de France region and data visualization",
         "description": "Creation of an amphibian database in a team of 3 from a conceptual data model. Generating fictitious data using Excel, SQL queries, and various name generation sites. Conducting various queries, visualizing data with PowerBI, and presenting results to a jury of professors, supported by the report created.",
         "competences": {
-          "Database": ["SQL", "PostgreSQL", "PowerAMC", "MCD", "MLD"],
+          "Database": ["SQL", "PostgreSQL", "PowerAMC"],
+          "Conception & Architecture": ["CDM", "LDM"],
           "Visualization Tools": ["PowerBI", "Excel"],
           "Interpersonal Skills": ["Teamwork", "Presentation"],
           "Project Management": ["Report Writing"]
@@ -288,7 +324,7 @@
           }
         ],
         "url": null,
-        "github": null,
+        "GitHub": null,
         "download": "/files/Rapport.pbix",
         "route": "/projects/amphibiens"
       },{
@@ -298,18 +334,18 @@
         "titre": "MATINFO Equipment Management Software",
         "description": "Development in pairs of a GUI application for IT equipment management. The goal was to use an online database and create software as ergonomic as possible. The first step was to create basic design documents, such as a use case diagram and a class diagram. Then, we needed to design and implement the database itself. Finally, we had to program the software in WPF, working together and using GitHub for version control. At the end, we presented the application to the professor, who graded us.",
         "competences": {
-          "Software Development": ["C#", "WPF"],
+          "Software Development & API": ["C#", "WPF"],
           "Database": ["PostgreSQL", "SQL", "Database"],
           "Design & Architecture": ["Use cases", "Class diagram", "UML", "Object-relational mapping (ORM)"],
           "UI/UX & User Experience": ["Ergonomics"],
-          "DevOps & Deployment": ["Github"]
+          "DevOps & Deployment": ["GitHub"]
         },
         "realisations": [
           "Creation of design documents for the database and the application",
           "Database creation with PostgreSQL",
           "Application development in C# with WPF",
           "Ergonomics optimization",
-          "Version control on Github"
+          "Version control on GitHub"
         ],
         "type": "University",
         "images": [
@@ -330,7 +366,7 @@
           }
         ],
         "url": null,
-        "github": "https://github.com/leoChris7/MATINFO",
+        "GitHub": "https://GitHub.com/leoChris7/MATINFO",
         "download": "/files/Matinfo-Explications.pdf",
         "route": "/projects/matinfo"
       },
@@ -341,17 +377,17 @@
         "titre": "Creation of a sensor data management and visualization application",
         "description": "The goal of this group project of 5 people was to create a sensor data management and visualization application. The application had to allow viewing, analyzing, and exporting sensor data. The application had to be ergonomic and intuitive. The database had to be created using code-first with Entity Framework Core. The application had to be developed in C# with WPF. The application had to be tested with unit tests and integration tests. The application had to be deployed on an Azure server. The application had to be presented in front of a panel of professors.",
         "competences": {
-            "Software Development": ["C#", "Entity Framework", "CodeFirst", "Repository", "Dependency Injection"],
+            "Software Development & API": ["API RESTful", "C#", "Entity Framework"],
             "Web Development": ["C#", "Blazor", "HTML", "CSS"],
-            "Database": ["SQL", "MLD", "MCD", "InfluxDB", "noSQL"],
-            "DevOps & Deployment": ["Azure", "CI/CD", "Github"],
+            "Database": ["SQL", "noSQL", "PostgreSQL", "InfluxDB"],
+            "DevOps & Deployment": ["Azure", "CI/CD", "GitHub"],
             "Testing & Quality": ["End-to-End Tests", "Unit Tests", "Mock Tests"],
             "Visualization Tools": ["Grafana", "Flux"]
         },
         "realisations": [
             "Configuration of a Raspberry PI to retrieve sensor data and send it to an InfluxDB database using ZwaveJS and HomeAssistant",
             "Creation of an InfluxDB database and a Rest API in C# to manage and retrieve this data",
-            "Creation of the database in MCD on PowerAMC, then in SQL on PostgreSQL (Hosted on AlwaysData)",
+            "Creation of the database in CDM on PowerAMC, then in SQL on PostgreSQL (Hosted on AlwaysData)",
             "Development of a Rest API in C# with Entity Framework Core with several mock tests for each controller method.",
             "Development of the web application in Blazor (WebAssembly) with end-to-end tests",
             "Deployment of the Blazor application and API on Azure."
@@ -392,7 +428,7 @@
         ],
         "pdf_docs": ["PROJET_DATACARE_CIMOCKS.yml", "PROJET_DATACARE_CONCEPTION.pdf"],
         "url": "https://data-care.azurewebsites.net/",
-        "github": null,
+        "GitHub": null,
         "download": null,
         "route": "/projects/datacare"
     }
@@ -405,9 +441,9 @@
             "url": "https://www.linkedin.com/in/leo-christophe/",
             "classpi": "pi pi-linkedin"
         },{
-            "name": "Github",
-            "url": "https://github.com/leo-christophe",
-            "classpi": "pi pi-github"
+            "name": "GitHub",
+            "url": "https://GitHub.com/leo-christophe",
+            "classpi": "pi pi-GitHub"
         }
         
     ],
@@ -433,7 +469,7 @@
     ],
     "main_hard_skills": [
       {
-          "Software Development": [
+          "Software Development & API": [
               {"Web Development": "90%"},
               {"Software and Game Development": "70%"},
               {"Data Management": "80%"},
@@ -462,12 +498,15 @@
     "sorted_valid_skills": [
       {
         "Web Development": [
-            "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue-JS", "PrimeVue", "Phaser",
-            "Responsive", "Ergonomics", "NodeJS", "JQuery", "Git", "Vercel.app", "Flask", "Python", "WebDev", "API Rest", "C#"
+            "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue.js", "PrimeVue", "Phaser", "Nuxt.js", 
+            "Responsive", "Ergonomics", "NodeJS", "JQuery", "Vercel.app", "Flask", "Python", 
+            "WebDev", "RESTful API", "C#", "Blazor", "Typescript"
         ]
       },{
-        "Software Development": [
-            "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "WPF", "FFMPEG","WinUI", "CodeFirst", "Repository", "Object-relational mapping (ORM)", "Dependency Injection"
+        "Software Development & API": [
+            "RESTful API","C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", 
+            "Entity Framework", "WLangage", "WPF","WinUI", "CodeFirst", "Repository", 
+            "Object-relational mapping (ORM)", "Dependency Injection"
         ]
       },{
         "Game Development": [
@@ -475,21 +514,25 @@
         ]
       },{
         "DevOps & Deployment": [
-            "Continuous Deployment", "CI/CD", "Vercel.app", "Azure", "Git"
+            "CI/CD", "Vercel.app", "Azure",  "GitHub"
         ]
       },{
         "Testing & Quality": [
-            "Cypress", "Vitest", "Unit Testing", "Mock Testing", "Integration Testing", "Functional Testing", "Performance Testing", "Security Testing", "Load Testing", "Non-Regression Testing", 
-            "Robustness Testing", "Scalability Testing", "Regression Testing", "Validation Testing", "Manual Testing"
+            "Cypress", "Vitest", "Unit Testing", "Mock Testing", "Integration Testing", "Functional Testing", 
+            "Performance Testing", "Security Testing", "Load Testing", "Non-Regression Testing", 
+            "Robustness Testing", "Scalability Testing", "Regression Testing", "Validation Testing", 
+            "Manual Testing"
         ]
       },{
         "Database": [
-            "SQL", "PostgreSQL", "MLD", "MCD", "NoSQL", "Flux","plpgSQL", "plpSQL", "MongoDB", "Database Management", "Authentication", "PowerBI", "PowerAMC", "SQLite", "Relational Databases"
+            "SQL", "PostgreSQL", "NoSQL", "Flux","plpgSQL", "plpSQL", "MongoDB", 
+            "Database Management", "Authentication", "PowerBI", "PowerAMC", "SQLite", "Relational Databases"
         ]
       },{
         "Design & Architecture": [
             "State-Transition", "Class Diagram", "Diagrams", "Design", "BPMN", "UML", "Use Cases",
-            "Technical Documents", "Acceptance Criteria", "Documentation", "MVC", "MVVM", "Repository", "Dependency Injection"
+            "Technical Documents", "Acceptance Criteria", "Documentation", "MVC", "MVVM", "Repository", 
+            "Dependency Injection", "CDM", "LDM"
         ]
       },{
         "UI/UX & User Experience": [
@@ -498,7 +541,8 @@
       },{
         "Interpersonal Skills": [
             "Teamwork", "Autonomy", "Rigor", "Organization", "Creativity",
-            "Adaptability", "Critical Thinking", "Proactivity", "Versatility", "Communication", "Analysis", "Presentation",
+            "Adaptability", "Critical Thinking", "Proactivity", "Versatility", "Communication", "Analysis", 
+            "Presentation",
             "English"
         ]
       },{
@@ -508,7 +552,8 @@
       },{
         "Project Management": [
             "Teamwork", "Sprint Reports", "Meeting Organization", 
-            "Report Writing", "Project Management", "Agile SCRUM Methodology", "Sprint Reviews", "Agile Methodology", "Azure DevOps"
+            "Report Writing", "Project Management", "Agile SCRUM Methodology", "Sprint Reviews", 
+            "Agile Methodology", "Azure DevOps", "GitHub Projects"
         ]
       },{
         "Video Editing": [
@@ -523,7 +568,7 @@
           "titre": "Realize",
           "description": "Develop — that is, design, code, test, and integrate — an IT solution for a client.",
           "competences_associes": [
-              "Web Development", "Software Development", "Game Development", "Design & Architecture"
+              "Web Development", "Software Development & API", "Game Development", "Design & Architecture"
           ]
       },
       "UE2": {

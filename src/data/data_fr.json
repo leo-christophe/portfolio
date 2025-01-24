@@ -44,14 +44,17 @@
           "localisation": "Villaz, France",
           "dates": ["2025-01-20", "2025-04-25"],
           "competences": {
-            "Développement web": ["javascript", "php", "html", "css"],
-            "UI/UX & Expérience utilisateur": ["ergonomie", "ui/ux"]
+            "Développement web": ["Nuxt.js", "Typescript"],
+            "Développement logiciel & API": ["C#", "API RESTful", "Tokens JWT"],
+            "DevOps & Déploiement": ["GitHub"],
+            "Gestion de projet": ["GitHub Projects"],
+            "Compétences interpersonnelles": ["Rigueur", "Autonomie", "Travail en équipe"]
           },
           "description": "Développement d'un site web pour une entreprise de vente de matériel 3D",
           "missions": [
-            "Développement du front end du site web vitrine en Javascript",
-            "Développement du back end en PHP avec une API en Python",
-            "Création d'algorithmes de calcul du prix selon les produits choisis"
+            "Développement de l'interface en Javascript avec le framework Nuxt.js, en se basant à une maquette Figma pour le design.",
+            "Développement du back end en C# avec une API Rest, en utilisant des tokens JWT pour l'authentification.",
+            "Création d'une base de données PostgreSQL pour une meilleurs scalabilité."
           ],
           "website": "https://www.arpi-technology.com/",
           "image": "/images/career/arpi.png"
@@ -64,11 +67,11 @@
             "localisation": "Alby-sur-Chéran, France",
             "dates": ["2024-04-15", "2024-07-05"],
             "competences": {
-              "Développement web": ["javascript", "webdev"],
-              "Développement logiciel": ["wlangage"],
-              "UI/UX & Expérience utilisateur": ["ergonomie", "ui/ux"],
+              "Développement web": ["Javascript", "WebDev"],
+              "Développement logiciel & API": ["WLangage"],
+              "UI/UX & Expérience utilisateur": ["Ergonomie", "UI/UX"],
               "Tests & Qualité": ["Squash", "Tests manuels"],
-              "Compétences interpersonnelles": ["rigueur", "autonomie", "travail en équipe"]
+              "Compétences interpersonnelles": ["Rigueur", "Autonomie", "Travail en équipe"]
             },
             "description": "Développement de nouvelles fonctionnalités dans le workflow des absences et congés des salariés",
             "missions": [
@@ -92,11 +95,10 @@
             "titre": "Développement d'un jeu vidéo sur le thème de l'espace",
             "description": "Programmation en C# avec le framework Monogame en équipe de deux. Le but était de réaliser un jeu vidéo en quelques semaines en s'appuyant directement sur la documentation, en respectant les bonnes pratiques lors du développement (Nommage, Structure du code, Commentaires, etc.). Le jeu devait être jouable et présenter un menu, un écran de jeu et un écran de fin. Le jeu devait être présenté à la fin du projet en vidéo, puis devant un jury de professeur.", 
             "competences": {
-              "Développement logiciel": ["C#", "Visual Studio 2022"],
-              "Compétences interpersonnelles": ["Travail en équipe", "Brainstorming", "Présentation"],
+              "Développement logiciel & API": ["C#", "Visual Studio 2022"],
               "Développement de jeux vidéo": ["Tiled", "Monogame"],
-              "Vidéo-montage": ["Sony Vegas", "Photoshop"],
-              "DevOps & Déploiement": ["Github"]
+              "DevOps & Déploiement": ["GitHub"],
+              "Compétences interpersonnelles": ["Travail en équipe", "Brainstorming", "Présentation"]
             },
             "realisations": [
               "Recherche de l'idée de jeu à développer, brainstorming",
@@ -123,7 +125,7 @@
               }
             ],
             "url": null,
-            "github": "https://github.com/leoChris7/Mars-Invaders",
+            "GitHub": "https://GitHub.com/leoChris7/Mars-Invaders",
             "download": null,
             "route": "/projects/marsinvaders"
           },{
@@ -133,11 +135,11 @@
             "titre": "Création d'un site web fictif de formations en PHP (Laravel)",
             "description": "Création d'un site web fictif en équipe de 4 personnes. Utilisation de Laravel, framework php pour la partie serveur et client. Réalisation de la base de données sous PostgreSQL. Cryptage des données utilisateurs sensibles comme le mot de passe. Réalisation d'un test de robustesse et de performance. Optimisation de l'espace disque que prend le site sur le serveur en utilisant par exemple des images d'extension svg. Organisation du développement en méthode agile, avec la méthode SCRUM. Revues de sprints hebdomadaires, en français, dont une en anglais.",
             "competences": {
-              "Développement web": ["PHP", "Laravel", "HTML", "CSS", "Github"],
-              "Base de données": ["PostgreSQL", "SQL", "Base de données", "MCD", "MLD"],
+              "Développement web": ["PHP", "Laravel", "HTML", "CSS", "GitHub"],
+              "Base de données": ["PostgreSQL", "SQL", "Base de données"],
               "Gestion de projet": ["SCRUM", "Revues de sprints", "Organisation de réunion", "Rédaction de rapport"],
-              "Conception & Architecture": ["Cas d'utilisations", "Diagramme de classes", "BPMN", "UML"],
-              "Outils de collaboration": ["Azure DevOps", "Discord"]
+              "Conception & Architecture": ["Cas d'utilisations", "Diagramme de classes", "BPMN", "UML", "MCD", "MLD"],
+              "Compétences interpersonnelles": ["Travail en équipe", "Organisation", "Anglais"]
             },
             "realisations": [
               "Réalisation de documents de conception",
@@ -165,7 +167,7 @@
               }
             ],
             "url": null,
-            "github": "https://github.com/leoChris7/Mars-Invaders",
+            "GitHub": "https://GitHub.com/leoChris7/Mars-Invaders",
             "download": null,
             "route": "/projects/skillupnow"
           }
@@ -174,13 +176,13 @@
             "id": "project_sae401",
             "nom": "BMW",
             "dates": ["2024-03-01","2024-04-05"],
-            "titre": "Création d'un site web fictif BMW en Javascript (Vue-JS) avec API Rest en C#",
-            "description": "Création d'un site web fictif en équipe de 5 personnes en appliquant les bonnes pratiques en terme de programmation, de qualité, de sécurité et de performance. Communication du client Javascript avec l'API Rest réalisée en C#. La base de données a été réalisée en code first avec Entity Framework Core. Utilisation de Vue-JS pour la partie cliente avec les frameworks Vue-Router, Pinia, Prime Vue. La qualité de l'API a été vérifié en réalisant des tests unitaires et des tests mock et la qualité du client a été vérifié en réalisant des tests unitaires et 'End to End'. Présentation du site web et de l'API devant un jury de deux professeurs.",
+            "titre": "Création d'un site web fictif BMW en Javascript (Vue.js) avec API Rest en C#",
+            "description": "Création d'un site web fictif en équipe de 5 personnes en appliquant les bonnes pratiques en terme de programmation, de qualité, de sécurité et de performance. Communication du client Javascript avec l'API Rest réalisée en C#. La base de données a été réalisée en code first avec Entity Framework Core. Utilisation de Vue.js pour la partie cliente avec les frameworks Vue-Router, Pinia, Prime Vue. La qualité de l'API a été vérifié en réalisant des tests unitaires et des tests mock et la qualité du client a été vérifié en réalisant des tests unitaires et 'End to End'. Présentation du site web et de l'API devant un jury de deux professeurs.",
             "competences": {
-              "Développement web": ["Javascript", "Vue-JS", "HTML", "CSS", "Github"],
-              "Développement logiciel": ["C#", "API Rest", "Visual Studio 2022", "Repository", "Injection de dépendances"],
-              "Base de données": ["PostgreSQL", "SQL", "Base de données", "MLD", "MCD"],
-              "DevOps & Déploiement": ["Azure DevOps", "Vercel.app", "CI/CD", "Github"],
+              "Développement web": ["Javascript", "Vue.js"],
+              "Développement logiciel & API": ["C#", "API RESTful", "Visual Studio 2022", "Repository"],
+              "Base de données": ["PostgreSQL", "SQL", "Base de données"],
+              "DevOps & Déploiement": ["Azure DevOps", "Vercel.app", "CI/CD", "GitHub"],
               "Tests & Qualité": ["Vitest", "Cypress", "Tests unitaires"],
               "Gestion de projet": ["Organisation de réunion", "compte rendu de réunion", "gestion de projet"],
               "Conception & Architecture": ["MCD","MLD","UML","BPMN"]
@@ -189,7 +191,7 @@
               "Réalisation de documents de conception (UML, MCD, BPMN)",
               "Réalisation de la base de données sous PostgreSQL",
               "Développement de l'API Rest en C#",
-              "Développement du client en Vue-JS avec les librairies Vue-Router, Pinia et Prime Vue",
+              "Développement du client en Vue.js avec les librairies Vue-Router, Pinia et Prime Vue",
               "Optimisation de la mémoire (Utilisation de singleton), de la sécurité (Cryptage des mots de passe) et de la performance (Utilisation de l'API Rest)",
               "Organisation d'une réunion hebdomadaire",
               "Gestion du projet sur Azure DevOps",
@@ -227,7 +229,7 @@
             ],
             "url": "https://bmw-client.vercel.app/",
             "pdf_docs": [ "PROJET_BMW_DOSSIER_TECHNIQUE.pdf" ],
-            "github": null,
+            "GitHub": null,
             "download": null,
             "route": "/projects/bmw"
           }
@@ -235,21 +237,20 @@
             "id": "project_portfolio",
             "nom": "Portfolio",
             "dates": ["2024-05-20","2024-10-15"],
-            "titre": "Développement d'un portfolio web en Vue-JS",
-            "description": "Création d'un portfolio web en Vue-JS pour présenter mes compétences et mes projets. Utilisation des librairies nodeJS PrimeVue et Vue-Route. Déploiement continu sur Vercel.App à chaque push sur Github. Application des bonnes pratiques en terme de sécurité.", 
+            "titre": "Développement d'un portfolio web en Vue.js",
+            "description": "Création d'un portfolio web en Vue.js pour présenter mes compétences et mes projets. Utilisation des librairies nodeJS PrimeVue et Vue-Route. Déploiement continu sur Vercel.App à chaque push sur GitHub. Application des bonnes pratiques en terme de sécurité.", 
             "competences": {
-              "Développement web": ["Javascript", "Vue-JS", "HTML", "CSS", "PrimeVue", "Route-JS", "Github", "Responsive", "Ergonomie", "NodeJS", "JQuery", "JSON"],
-              "DevOps & Déploiement": ["Vercel.app", "Déploiement continu", "CI/CD", "Github"],
-              "UI/UX & Expérience utilisateur": ["UI/UX", "Expérience Utilisateur"],
-              "Compétences interpersonnelles": ["Autonomie", "Polyvalence"],
-              "Sécurité": ["Variables d'environnements (Gestion des variables sensibles)", "Validation des entrées utilisateur (Eviter une attaque XSS)"]
+              "Développement web": ["Javascript", "Vue.js", "NodeJS", "JSON"],
+              "DevOps & Déploiement": ["Vercel.app", "CI/CD", "GitHub"],
+              "UI/UX & Expérience utilisateur": ["UI/UX", "Expérience Utilisateur", "Ergonomie"],
+              "Compétences interpersonnelles": ["Autonomie", "Polyvalence"]
             },
             "realisations": [
               "Création de la structure du site",
               "Récupération des données par un fichier en format json",
               "Création de composants Vue",
               "Mise en forme avec CSS et PrimeVue",
-              "Lien avec Github pour le versionning",
+              "Lien avec GitHub pour le versionning",
               "Déploiement sur serveur Vercel.app",
               "Création du menu de navigation avec route-js"
             ],
@@ -277,7 +278,7 @@
               }
             ],
             "url": "https://leochristophe.vercel.app",
-            "github": null,
+            "GitHub": null,
             "download": null,
             "route": "/projects/portfolio"
           }
@@ -288,7 +289,8 @@
             "titre": "Création d'une base de données permettant de repertorier des amphibiens comptabilisés dans la région Hauts de France et visualisation des données",
             "description": "Création d'une base de données d'amphibiens en équipe de 3 personnes à partir d'un modèle conceptuel de données. Génération des données fictives à l'aide d'Excel, de requêtes SQL et de divers sites de génération de noms. Réalisation de diverses requêtes, visualisation des données avec PowerBI et présentation des résultats devant un jury de professeurs en s'appuyant sur le rapport réalisé.",
             "competences": {
-              "Base de données": ["SQL", "PostgreSQL", "PowerAMC","MCD", "MLD"],
+              "Base de données": ["SQL", "PostgreSQL", "PowerAMC"],
+              "Conception & Architecture": ["MCD", "MLD"],
               "Outils de visualisation": ["PowerBI", "Excel"],
               "Compétences interpersonnelles": ["Travail en équipe", "Anglais", "Analyse", "Présentation"],
               "UI/UX & Expérience utilisateur": ["Design de dashboards attrayants et ergonomiques"]
@@ -325,7 +327,7 @@
               }
             ],
             "url": null,
-            "github": null,
+            "GitHub": null,
             "download": "/files/Rapport.pbix",
             "route": "/projects/amphibiens"
           },{
@@ -333,20 +335,20 @@
             "nom": "Matinfo",
             "dates": ["04-15-2023","06-15-2023"],
             "titre": "Logiciel de gestion du matériel MATINFO",
-            "description": "Développement en duo d'une application IHM de gestion du matériel informatique. Le principe était d'utiliser une base de données en ligne et de réaliser un logiciel le plus ergonomique possible. En première étape, le but était de réaliser des documents de conceptions basiques comme un diagramme de cas d'utilisations ou un diagramme de classes. Puis, il fallait réaliser la conception de la base de données. Enfin, il fallait programmer le logiciel en WPF, à deux, tout en utilisant Github pour le versionning. A la fin, il fallait présenter l'application au professeur qui nous a noté.", 
+            "description": "Développement en duo d'une application IHM de gestion du matériel informatique. Le principe était d'utiliser une base de données en ligne et de réaliser un logiciel le plus ergonomique possible. En première étape, le but était de réaliser des documents de conceptions basiques comme un diagramme de cas d'utilisations ou un diagramme de classes. Puis, il fallait réaliser la conception de la base de données. Enfin, il fallait programmer le logiciel en WPF, à deux, tout en utilisant GitHub pour le versionning. A la fin, il fallait présenter l'application au professeur qui nous a noté.", 
             "competences": {
-              "Développement logiciel": ["C#", "WPF"],
+              "Développement logiciel & API": ["C#", "WPF"],
               "Base de données": ["PostgreSQL", "SQL", "Base de données"],
               "Conception & Architecture": ["Cas d'utilisations", "Diagramme de classes", "UML", "Mapping objet-relationnel (ORM)"],
               "UI/UX & Expérience utilisateur": ["Ergonomie"],
-              "DevOps & Déploiement": ["Github"]
+              "DevOps & Déploiement": ["GitHub"]
             },
             "realisations": [
               "Réalisation de documents de conceptions pour la base de données et pour l'application",
               "Création de la base de données sous PostgreSQL",
               "Développement de l'application en C# avec WPF",
               "Optimisation de l'ergonomie",
-              "Versionning sur Github"
+              "Versionning sur GitHub"
             ],
             "type": "Universitaire",
             "images": [
@@ -365,7 +367,7 @@
               }
             ],
             "url": null,
-            "github": null,
+            "GitHub": null,
             "download": null,
             "pdf_docs": [ "PROJET_MATINFO_EXPLICATIONS.pdf" ],
             "route": "/projects/matinfo"
@@ -376,10 +378,10 @@
             "titre": "Création d'une application de gestion et de visualisation de données de capteurs",
             "description": "Le but de ce travail en groupe de 5 personnes était de réaliser une application de gestion et de visualisation de données de capteurs. L'application devait permettre de visualiser les données de capteurs, de les analyser et de les exporter. L'application devait être ergonomique et intuitive. La base de données devait être réalisée en code first avec Entity Framework Core. L'application devait être réalisée en C# avec WPF. L'application devait être testée avec des tests unitaires et des tests d'intégration. L'application devait être déployée sur un serveur Azure. L'application devait être présentée devant un jury de professeurs.",
             "competences": {
-              "Développement logiciel": ["C#", "Entity Framework", "CodeFirst", "Repository", "Injection de dépendances"],
+              "Développement logiciel & API": ["API RESTful", "C#", "Entity Framework"],
               "Développement web": ["C#", "Blazor", "HTML", "CSS" ],
-              "Base de données": ["SQL", "MLD", "MCD", "InfluxDB", "noSQL"],
-              "DevOps & Déploiement": ["Azure", "CI/CD", "Github"],
+              "Base de données": ["SQL", "noSQL", "PostgreSQL","InfluxDB"],
+              "DevOps & Déploiement": ["Azure", "CI/CD", "GitHub"],
               "Tests & Qualité": ["Tests E2E", "Tests unitaires", "Tests mocks"],
               "Outils de visualisation": ["Grafana", "Flux"]
             },
@@ -422,7 +424,7 @@
             ],
             "pdf_docs": [ "PROJET_DATACARE_CIMOCKS.yml", "PROJET_DATACARE_CONCEPTION.pdf" ],
             "url": "https://data-care.azurewebsites.net/",
-            "github": null,
+            "GitHub": null,
             "download": null,
             "route": "/projects/datacare"
           }
@@ -433,9 +435,9 @@
             "url": "https://www.linkedin.com/in/leo-christophe/",
             "classpi": "pi pi-linkedin"
             },{
-            "name": "Github",
-            "url": "https://github.com/leo-christophe",
-            "classpi": "pi pi-github"
+            "name": "GitHub",
+            "url": "https://GitHub.com/leo-christophe",
+            "classpi": "pi pi-GitHub"
         }
         
     ],
@@ -461,7 +463,7 @@
     ],
     "main_hard_skills":[
       {
-          "Développement Logiciel": [
+          "Développement logiciel & API": [
               {"Développement Web": "90%"},
               {"Développement de logiciels et de jeux": "70%"},
               {"Gestion des Données": "80%"},
@@ -493,7 +495,7 @@
           "titre": "Réaliser",
           "description": "Développer — c’est-à-dire concevoir, coder, tester et intégrer — une solution informatique pour un client.",
           "competences_associes":[
-            "Développement web", "Développement logiciel", "Développement de jeux vidéo", "Conception & Architecture"
+            "Développement web", "Développement logiciel & API", "Développement de jeux vidéo", "Conception & Architecture"
           ]
         },
         "UE2":{
@@ -535,12 +537,14 @@
     "sorted_valid_skills":[
       {
         "Développement web": [
-          "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue-JS", "PrimeVue", "Phaser", "Blazor",
-          "Responsive", "Ergonomie", "NodeJS", "JQuery", "Git", "Vercel.app", "Flask", "Python", "WebDev", "API Rest", "C#"
+          "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue.js", "PrimeVue", "Phaser", "Blazor",
+          "Responsive", "Ergonomie", "NodeJS", "JQuery",  "Vercel.app", "Flask", "Python", "WebDev", 
+          "API RESTful", "C#", "Nuxt.js", "Typescript"
         ]
       },{
-        "Développement logiciel": [
-          "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", "WLangage", "FFMPEG","WPF", "WinUI","CodeFirst", "Repository", "Injection de dépendances"
+        "Développement logiciel & API": [
+          "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", 
+          "WLangage", "FFMPEG","WPF", "WinUI","CodeFirst", "Repository", "Injection de dépendances"
         ]
       },{
         "Développement de jeux vidéo":[
@@ -548,25 +552,32 @@
         ]
       },{
         "DevOps & Déploiement": [
-          "CI/CD", "Vercel.app", "Azure", "Git", "Gitlab", "Github"
+          "CI/CD", "Vercel.app", "Azure",  "Gitlab", "GitHub"
         ]
       },{
         "Tests & Qualité": [
-          "Cypress", "Vitest", "Tests unitaires", "Tests mock", "Tests d'intégration", "Tests fonctionnels", "Tests de performance", "Tests de sécurité", "Tests de charge", "Tests de non régression", "Tests de robustesse", 
-          "Tests de montée en charge", "Tests de régression", "Tests de validation", "Tests manuels"
+          "Cypress", "Vitest", "Tests unitaires", "Tests mock", "Tests d'intégration", "Tests fonctionnels", 
+          "Tests de performance", "Tests de sécurité", "Tests de charge", "Tests de non régression", 
+          "Tests de robustesse", "Tests de montée en charge", "Tests de régression", "Tests de validation", 
+          "Tests manuels"
         ]
       },{
         "Base de données": [
-          "SQL", "PostgreSQL", "MLD", "MCD", "Flux", "InfluxDB","noSQL", "InfluxDB" ,"plpgSQL", "plpSQL", "MongoDB", "Gestion des bases de données", "Authentification", "PowerBI", "PowerAMC", "SQLite", "Bases de données relationnelles"
+          "SQL", "PostgreSQL", "Flux", "InfluxDB","noSQL", "InfluxDB" ,"plpgSQL", "plpSQL", 
+          "MongoDB", "Gestion des bases de données", "Authentification", "PowerBI", "PowerAMC", "SQLite", 
+          "Bases de données relationnelles"
         ]
       },{
         "Conception & Architecture": [
-          "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conception", "UML", "BPMN", "Mapping objet-relationnel (ORM)",
-          "Documents techniques", "Cahier de recette", "Rédaction", "MVC", "MVVM", "Repository", "Injection de dépendances"
+          "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conception", "UML", "BPMN", 
+          "Mapping objet-relationnel (ORM)", "MCD", "MLD",
+          "Documents techniques", "Cahier de recette", "Rédaction", "MVC", "MVVM", "Repository", 
+          "Injection de dépendances"
         ]
       },{
         "UI/UX & Expérience utilisateur": [
-          "UI/UX", "Expérience Utilisateur", "Ergonomie", "Conception centrée utilisateur", "Tiled", "Game Design"
+          "UI/UX", "Expérience Utilisateur", "Ergonomie", "Conception centrée utilisateur", "Tiled", 
+          "Game Design"
         ]
       },{
         "Outils de visualisation": [
@@ -579,13 +590,15 @@
       },{
         "Compétences interpersonnelles": [
           "Travail en équipe", "Autonomie", "Rigueur", "Organisation", "Créativité",
-          "Adaptabilité", "Esprit critique", "Force de proposition", "Polyvalence", "Communication", "Analyse", "Présentation",
+          "Adaptabilité", "Esprit critique", "Force de proposition", "Polyvalence", "Communication", 
+          "Analyse", "Présentation",
           "Anglais"
         ]
       },{
         "Gestion de projet": [
           "Travail en équipe", "Comptes rendus de sprint", "Organisation de réunion", 
-          "Rédaction de rapport", "Gestion de projet", "Démarche agile SCRUM", "Revues de sprints", "Méthode agile", "Azure DevOps"
+          "Rédaction de rapport", "Gestion de projet", "Démarche agile SCRUM", "Revues de sprints", 
+          "Méthode agile", "Azure DevOps", "GitHub Projects"
         ]
       },{
         "Vidéo-montage": ["Montage vidéo (Premiere Pro)", "Montage Photo"]

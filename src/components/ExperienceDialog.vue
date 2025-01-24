@@ -1,7 +1,9 @@
 <script setup>
-    import DateUtils from '../utils/date_utils.js';
+    import { onMounted } from 'vue';
+import DateUtils from '../utils/date_utils.js';
     import handleSkillClick from '../utils/skillUtils.js';
     import { useRouter } from 'vue-router';
+import { onUnmounted } from 'vue';
 
     const router = useRouter();
 
@@ -14,6 +16,29 @@
     };
 
 
+    onMounted(() => {
+    document.querySelectorAll('.p-dialog-mask').forEach(mask => {
+
+        // Ajouter un écouteur de clic pour fermer le modal
+        mask.addEventListener('click', (event) => {
+            if (!event.target.closest('.p-dialog')) {
+                const dialog = mask.querySelector('.p-dialog');
+                if (dialog) {
+                    // Utiliser l'API PrimeVue pour fermer (si applicable)
+                    const closeButton = dialog.querySelector('.p-dialog-header-close');
+                    if (closeButton) closeButton.click();
+                }
+            }
+        });
+    });
+});
+
+// Nettoyer les événements pour éviter les fuites de mémoire
+onUnmounted(() => {
+    document.querySelectorAll('.p-dialog-mask').forEach(mask => {
+        mask.removeEventListener('click', () => {}); // Supprimer le listener
+    });
+});
 
 
 </script>

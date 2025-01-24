@@ -314,9 +314,9 @@ div.p-dialog#confirmDialogMainComponent .p-dialog-footer{
   padding-bottom:20px;
 }
 
-
 div.p-dialog.p-component.p-ripple-disabled.custom-dialog{
-  width:80vw;
+  width:50vw;
+  z-index:999;
 }
 
 div.p-dialog#confirmDialogMainComponent .p-dialog-footer button{

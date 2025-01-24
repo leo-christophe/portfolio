@@ -250,12 +250,15 @@ const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child
     @keyframes spinCyan {
         0% {
             border-color: transparent;
+            filter:drop-shadow(0 0 0.1rem white);
         }
         50% {
             border-color: var(--secondColor);
+            filter:drop-shadow(0 0 0.2rem white);
         }
         100%{
             border-color: transparent;
+            filter:drop-shadow(0 0 0.1rem white);
         }
     }
 

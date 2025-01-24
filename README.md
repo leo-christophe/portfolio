@@ -1,6 +1,6 @@
 Portfolio réalisé en Vue.JS (framework Javascript)
 
-Le besoin est de créer un portfolio en Javascript avec le framework Vue-JS qui soit plaisant à lire, optimisé et intéréssant.
+Le besoin est de créer un portfolio en Javascript avec le framework Vue.js qui soit plaisant à lire, optimisé et intéréssant.
 
 Concepts clés
 - 4 Pages: Accueil, Parcours, Projets, Contact

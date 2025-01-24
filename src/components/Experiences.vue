@@ -284,7 +284,6 @@
 
     .custom-dialog {
         max-height: 80vh;
-        min-width:80vw;
         overflow: auto;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
