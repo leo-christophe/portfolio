@@ -69,7 +69,7 @@
           "yearsOfProgramming": "Années de Programmation",
           "yearsOfProgrammingTitle": "Je programme depuis plus de 5 ans",
           "commits": "Commits",
-          "commitsTitle": "J'ai effectué plus de 450 commits sur GitHub ces dernières années (Commit: Modification de code dans un projet)",
+          "commitsTitle": "J'ai contribué sur le code de plusieurs projets sur GitHub depuis des années...",
           "masteredTech": "Technologies maîtrisées",
           "masteredTechTitle": "Dans 4 langages différents: PHP, JS, Python, C#. Frameworks: Flask, Blazor, VueJS, Laravel, ASP.NET Core, WPF et plus..."
         }
@@ -99,7 +99,19 @@
       "softskillsTitle": "Compétences interpersonnelles",
       "softskillsDescription": "Capacités interpersonnelles et d'adaptation favorisant la collaboration et la gestion efficace. (Communication, travail en équipe, gestion du temps, adaptabilité...)",
       "hardskillsDescription": "Compétences techniques spécifiques liées à l'exécution de tâches complexes dans un domaine précis. (maîtrise des langages de programmation, gestion de bases de données, administration de réseaux...)",
-      "references": "Références"
+      "references": "Références",
+
+      "langs":{
+        "talkedLangs": "Langues parlées",
+        "french": "Français",
+        "english": "Anglais",
+        "italian": "Italien",
+        "japanese": "Japonais",
+        "notions": "Notions (A1)",
+        "intermediate": "Intermédiaire (B1)",
+        "advanced": "Avancé (C1)",
+        "native": "Langue maternelle"
+      }
     },
 
     "experiences":{

@@ -1,17 +1,21 @@
 <script setup>
-const list = defineProps({
+// Utiliser defineProps sans destructuration
+const props = defineProps({
   isSorted: {
     type: Boolean,
     required: true
   },
   content: {
-    type: Object,
-    default: [],
+    type: [Array, Object], // Ajuster selon le type réel
     required: true
   },
   filterType: {
     type: String,
     required: false
+  },
+  searchQuery: {
+    type: String,
+    default: ''
   }
 });
 
@@ -23,7 +27,7 @@ import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n'; 
 import SkillList from '../components/SkillList.vue';
 
-const { t } = useI18n(); 
+
 const router = useRouter();
 const instance = getCurrentInstance();
 const data = instance.appContext.config.globalProperties.$JSONData;
@@ -52,28 +56,49 @@ function closeEveryDetails(detail, custom=false) {
         }
     });
 }
+
+// Calculer les noms de catégories
+const categoryNames = computed(() => {
+  return props.content.map(cat => {
+    const categoryKey = Object.keys(cat)[0];
+    return categoryKey.toLowerCase().trim().replace(/\s+/g, '');
+  });
+});
+
+// Vérifier si la recherche correspond à une catégorie
+const isCategorySearch = computed(() => {
+  const query = props.searchQuery.toLowerCase().trim().replace(/\s+/g, '');
+  return categoryNames.value.includes(query);
+});
+
+
 </script>
 
 
 <template>
-    <div v-if="!isSorted" ref="details" @click="closeEveryDetails(catIndex)" v-for="(category, catIndex) in list.content" :key="catIndex" class="skill-category">
-        <details >
-            <summary>
-                <h2>{{ Object.keys(category)[0] }}</h2>
-                <!-- Conditional icons based on open state -->
-            </summary>
-            <div class="projects">
-                <h3>Experiences:</h3>
-                <div id="experiencesContainer">
-
-                <!-- Vérifie que data.projects est défini avant d'itérer -->
-                <div v-for="(project, projIndex) in data.projects.filter(project => 
-                        Object.keys(project?.competences || {}).includes(Object.keys(category)[0]) && 
-                        !project.wip
-                    )" 
-                
-                    :key="projIndex" 
-                    class="listeProjets projectCard" >
+  <div v-if="!isSorted" ref="details" 
+       v-for="(category, catIndex) in content" 
+       :key="catIndex"
+       @click="closeEveryDetails(catIndex)">    <details>
+      <summary>
+        <h2>{{ Object.keys(category)[0] }}</h2>
+      </summary>
+      <div class="projects">
+        <h3>Experiences:</h3>
+        <div id="experiencesContainer">
+          <!-- Projets -->
+          <div v-for="(project, projIndex) in data.projects.filter(p => {
+    const categoryName = Object.keys(category)[0];
+    const skills = p.competences[categoryName] || [];
+    
+    // Ajouter cette condition pour la recherche vide
+    if (!searchQuery) return true;
+    
+    return isCategorySearch || 
+            skills.some(s => s.toLowerCase().trim() === searchQuery.toLowerCase().trim())
+})" 
+:key="projIndex" 
+class="listeProjets projectCard">
                     <div v-if="Object.keys(project.competences).includes(Object.keys(category)[0])">
                     <div class="affichageProjet">
                         <img 
@@ -101,7 +126,24 @@ function closeEveryDetails(detail, custom=false) {
                     </div>
                 </div>
 
-                <div v-for="(experience, projIndex) in data.experiences" :key="projIndex" class="listeExperiences projectCard">
+                <div v-for="(experience, expIndex) in data.experiences.filter(experience => {
+    const categoryName = Object.keys(category)[0];
+    const competences = experience?.competences || {};
+    const hasCategory = Object.keys(competences).includes(categoryName);
+    
+    if (!hasCategory) return false;
+    // Ajouter cette condition pour la recherche vide
+    if (!searchQuery) return true;
+    
+    if (isCategorySearch) return true;
+    
+    return competences[categoryName].some(skill => 
+        skill.toLowerCase().trim().replace(/\s+/g, '') === 
+        searchQuery.toLowerCase().trim().replace(/\s+/g, '')
+    );
+})" 
+:key="expIndex" 
+class="listeExperiences projectCard">
                 <!-- Check if the project's competences include the category -->
                     <div v-if="Object.keys(experience.competences).includes(Object.keys(category)[0])" class="affichageExperience">
                         <img v-if="experience.image" :src="experience.image" alt="experience" width="100"  height="100"/>
@@ -120,76 +162,56 @@ function closeEveryDetails(detail, custom=false) {
     </div>
 
     <div v-else >
-        <div v-for="comp,index in Object.keys(list.content)">
-            <h2 class="uetitle">
-                {{ comp }}: {{ data.ue_but[comp].titre }} 
-                <div class="infoTooltip" v-tooltip.right="data.ue_but[comp].description">
-                    <i class="pi pi-info-circle"></i>
-                </div>
-            </h2>
-            <div>
-                <div v-for="(skill, index) in list.content[comp]" :key="index" @click="closeEveryDetails(index, custom=true)" ref="details" >
-                    <details>
-                        <summary><h2>{{ skill.skillCategory }}</h2></summary>
-                        <div class="projects">
-                            <h3>Experiences:</h3>
-                            <div id="experiencesContainer">
-                                
-                            <!-- Vérifie que data.projects est défini avant d'itérer -->
-                            <div v-for="(project, projIndex) in data.projects.filter(project => {
-                                    return Object.keys(project?.competences || {}).includes(skill.skillCategory) && 
-                                    !project.wip })" 
-                            
-                                :key="projIndex" 
-                                class="listeProjets projectCard" >
-                                
-                                <div v-if="Object.keys(project?.competences || {}).includes(skill.skillCategory)">
-                                <div class="affichageProjet">
-                                    <img 
-                                        v-if="project.images && project.images[0] && project.images[0].type == 'image'" 
-                                        :src="'/images/projects/' + project.images[0]['link']" 
-                                        :alt="'experience' + projIndex" 
-                                        width="100" height="100" 
-                                    />
-
-                                    <img 
-                                        v-else-if="project.images && project.images[0] && project.images[0].type == 'icone'"
-                                        :src="project.images[0]['link']"
-                                        :alt="'experience' + projIndex"
-                                        width="100" height="100"
-                                    />
-
-                                    <span @click="router.push(project.route)">
-                                    <h4>{{ project.nom }}</h4>
-                                    <p class="competenceTitre">{{ project.titre }}</p>
-                                    <p class="competenceListe">
-                                        ({{ project.competences[skill.skillCategory].join(', ') }})
-                                    </p>
-                                    </span>
-                                </div>
-                                </div>
-                            </div>
-
-                            <div v-for="(experience, projIndex) in data.experiences" :key="projIndex" class="listeExperiences projectCard">
-                            <!-- Check if the project's competences include the category -->
-                                <div v-if="Object.keys(experience.competences).includes(Object.keys(skill.skillCategory)[0])" class="affichageExperience">
-                                    <img v-if="experience.image" :src="experience.image" alt="experience" width="100"  height="100"/>
+    <!-- Remplacer list.content par props.content -->
+    <div v-for="(ue, index) in Object.keys(props.content)" :key="index">
+        <h2 class="uetitle">
+            {{ ue }}: {{ data.ue_but[ue].titre }} 
+            <div class="infoTooltip" v-tooltip.right="data.ue_but[ue].description">
+                <i class="pi pi-info-circle"></i>
+            </div>
+        </h2>
+        <div>
+            <!-- Utiliser props.content[ue] au lieu de list.content[comp] -->
+            <div v-for="(skill, skillIndex) in props.content[ue]" 
+                 :key="skillIndex" 
+                 @click="closeEveryDetails(skillIndex, custom=true)" 
+                 ref="details">
+                <details>
+                    <summary><h2>{{ skill.skillCategory }}</h2></summary>
+                    <div class="projects">
+                        <h3>Experiences:</h3>
+                        <div id="experiencesContainer">
+                            <!-- Corriger les références à skill.skillCategory -->
+                            <div v-for="(experience, expIndex) in data.experiences.filter(e => 
+                                Object.keys(e.competences).includes(skill.skillCategory))" 
+                                :key="expIndex" 
+                                class="listeExperiences projectCard">
+                                <div class="affichageExperience">
+                                    <img v-if="experience.image" 
+                                        :src="experience.image" 
+                                        alt="experience" 
+                                        width="100"  
+                                        height="100"/>
+                                    
                                     <span @click="router.push('/formations')" class="projectCard">
                                         <h4>{{ experience.contrat }} {{ experience.poste }}</h4>
                                         <p>{{ experience.entreprise }} - {{ experience.localisation }}</p>
                                         <p class="competenceListe">
-                                            ({{ experience.competences[Object.keys(skill.skillCategory)[0]].join(', ') }})
+                                            ({{ experience.competences[skill.skillCategory].join(', ') }})
                                         </p>
                                     </span>
+                                    <p class="competenceListe">
+                                        ({{ experience.competences[skill.skillCategory].join(', ') }})
+                                    </p>
                                 </div>
                             </div>
-                            </div>
                         </div>
-                    </details>
-                </div>
-            </div>                
+                    </div>
+                </details>
+            </div>
         </div>
     </div>
+</div>
 </template>
 
 <style scoped>

@@ -1,3 +1,5 @@
+import { ref } from "vue"
+
 /**
  *  COULEURS ET DIMENSIONS
  */
@@ -29,6 +31,57 @@ export const LINKEDIN_ICON = ''
 export const INTERNET_ICON = ''
 export const CV_NAME_WEB = 'LEO-CHRISTOPHE-CV-2025.pdf'
 export const CV_NAME_WEB_EN = 'LEO-CHRISTOPHE-CV_2025_ENGLISH.pdf'
+export const hardSkillsImages = [
+    // 1 - Développement Web
+    [
+      "Javascript.webp",
+      "Laravel.webp",
+      "Nuxt.webp",
+      "PHP.webp",
+      "Vite.webp",
+      "Blazor.webp",
+      "Flask.webp"
+    ],
+    
+    // 2 - Développement Logiciel ou Jeux
+    [
+      "CSharp.webp",
+      "Dotnet.webp",
+      "Windev.webp",
+      "Unity.webp",
+      "WinUI.webp",
+      "WPF.webp"
+    ],
+
+    // 3 - Analyse et Gestion des Données
+    [
+      "Grafana.webp",
+      "InfluxDB.svg",
+      "MySQL.webp",
+      "PostgreSQL.webp",
+      "PowerBI.webp"
+    ],
+
+    // 4 - Déploiement & DevOps
+    [
+      "Azure.webp",
+      "Github.webp",
+      "Gitlab.webp",
+      "Vercel.webp",
+      "VirtualBox.webp",
+      "Linux.webp"
+    ]
+  ];
+
+/**
+ * ICONES
+ */
+export const hardSkillsIcons = ref([
+    "pi pi-globe",
+    "pi pi-desktop",
+    "pi pi-database",
+    "pi pi-sitemap"
+  ])
 
 /**
  *  DONNEES PERSONNELLES DYNAMIQUES

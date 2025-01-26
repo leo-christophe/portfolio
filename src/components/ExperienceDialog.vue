@@ -77,9 +77,11 @@ onUnmounted(() => {
                     <ul class="skillsListExp">
                         <li v-for="(competence, key) in experienceProp.competences" :key="key">
                             <span>
-                                <p><strong>{{ key }}:</strong></p>
-                                <span v-for="(competenceElt, indexY) in competence" :key="indexY" @click="handleSkillClick(competenceElt, router)" style="cursor:pointer;">
-                                    {{ competenceElt.toUpperCase()}}<span v-if="indexY < competence.length - 1">, </span>
+                                <p @click="handleSkillClick(key, router)" style="cursor:pointer;"><strong>{{ key }}</strong></p>
+                                <span id="skillsContainer">
+                                    <span v-for="(competenceElt, indexY) in competence" :key="indexY" @click="handleSkillClick(competenceElt, router)" class="skillExpItem">
+                                        {{ competenceElt}}
+                                    </span>
                                 </span>
                                 <br> 
                                 <br> 
@@ -102,6 +104,29 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+    span#skillsContainer{
+        display:flex;
+        flex-wrap:wrap;
+        gap:2%;
+    }
+
+    span.skillExpItem{
+        cursor:pointer;
+        padding:5px;
+        background-color:black;
+        color:white;
+        border-radius:50px;
+        border:1px solid white;
+        transition: 0.5s ease-in all;
+    }
+
+    span.skillExpItem:hover{
+        color:var(--secondColor);
+        border:1px solid var(--secondColor);
+        filter:drop-shadow(0px 0px 2px var(--secondColor));
+        transition: 0.5s ease-in all;
+    }
+
     .imgExpDialog{
         border-radius:5%;
     }

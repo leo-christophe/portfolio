@@ -50,6 +50,7 @@
         :isSorted="isSorted"
         :content="isSorted ? sortedFilteredSkills : filteredSkills"
         :filterType="isSorted ? filterType : null"
+        :searchQuery="searchQuery"
       />
     </div>
   </div>
@@ -109,14 +110,25 @@ watch(searchQuery, async (newQuery) => {
     if (!newQuery) {
       filteredSkills.value = data.sorted_valid_skills;
     } else {
-      filteredSkills.value = data.sorted_valid_skills.filter((category) => {
-        const categoryName = Object.keys(category)[0].toLowerCase().replace(/\s+/g, "");
-        const skills = Object.values(category)[0].map((skill) => skill.toLowerCase().replace(/\s+/g, ""));
-        return (
-          categoryName.includes(newQuery.toLowerCase().replace(/\s+/g, "")) ||
-          skills.includes(newQuery.toLowerCase().replace(/\s+/g, ""))
+      const normalizedQuery = newQuery.toLowerCase().trim().replace(/\s+/g, '');
+      const allCategoryNames = data.sorted_valid_skills.map(cat => 
+        Object.keys(cat)[0].toLowerCase().trim().replace(/\s+/g, '')
+      );
+      
+      if (allCategoryNames.includes(normalizedQuery)) {
+        // Recherche par catégorie exacte
+        filteredSkills.value = data.sorted_valid_skills.filter(category => 
+          Object.keys(category)[0].toLowerCase().trim().replace(/\s+/g, '') === normalizedQuery
         );
-      });
+      } else {
+        // Recherche par compétence exacte
+        filteredSkills.value = data.sorted_valid_skills.filter(category => {
+          const skills = Object.values(category)[0].map(skill => 
+            skill.toLowerCase().trim().replace(/\s+/g, '')
+          );
+          return skills.includes(normalizedQuery);
+        });
+      }
     }
     isLoading.value = false;
 
@@ -218,8 +230,8 @@ function handleCheckRefBUT() {
         const categoryData = sorted_valid_skills.find((item) => item[skillCategory]);
         if (categoryData) {
           sortedFilteredSkills.value[key].push({
-            skillCategory: skillCategory,
-            validSkills: categoryData[skillCategory],
+              skillCategory: skillCategory, // Doit être une string
+              validSkills: categoryData[skillCategory],
           });
         }
       });

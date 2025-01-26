@@ -87,7 +87,7 @@
                                         :modal="true" 
                                         :header="$t('experiences.experienceModalTitle')+ ' ' + experienceTimeline.item.poste + ' (' + experienceTimeline.item.entreprise + ') '"  
                                         class="custom-dialog"
-                                        :breakpoints="{ '1300px': '75vw', '800px': '80vw' }" >
+                                        :breakpoints="{ '1300px': '75vw', '800px': '100vw' }" >
                                         <ExperienceDialog :experienceProp="experienceTimeline.item" />
                                     </Dialog>
                                 </div>

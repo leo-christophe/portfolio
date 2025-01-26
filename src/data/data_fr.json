@@ -46,7 +46,7 @@
           "competences": {
             "Développement web": ["Nuxt.js", "Typescript"],
             "Développement logiciel & API": ["C#", "API RESTful", "Tokens JWT"],
-            "DevOps & Déploiement": ["GitHub"],
+            "Conception & Architecture": ["MCD", "Cas d'utilisations", "BPMN"],
             "Gestion de projet": ["GitHub Projects"],
             "Compétences interpersonnelles": ["Rigueur", "Autonomie", "Travail en équipe"]
           },
@@ -68,7 +68,7 @@
             "dates": ["2024-04-15", "2024-07-05"],
             "competences": {
               "Développement web": ["Javascript", "WebDev"],
-              "Développement logiciel & API": ["WLangage"],
+              "Développement logiciel & API": ["WLangage", "Windev"],
               "UI/UX & Expérience utilisateur": ["Ergonomie", "UI/UX"],
               "Tests & Qualité": ["Squash", "Tests manuels"],
               "Compétences interpersonnelles": ["Rigueur", "Autonomie", "Travail en équipe"]
@@ -437,7 +437,7 @@
             },{
             "name": "GitHub",
             "url": "https://GitHub.com/leo-christophe",
-            "classpi": "pi pi-GitHub"
+            "classpi": "pi pi-github"
         }
         
     ],
@@ -449,7 +449,8 @@
           "enterprise": "IUT Annecy",
           "location": "Annecy-le-Vieux, France",
           "email": "stephanie.vibrac@etu.univ-smb.fr",
-          "phone": "+33 6 33 22 07 98"
+          "phone": "+33 6 33 22 07 98",
+          "image": "woman.png"
         },
         {
           "name": "M. Damas",
@@ -457,7 +458,8 @@
           "enterprise": "IUT Annecy",
           "location": "Annecy-le-Vieux, France",
           "email": "luc.damas@etu.univ-smb.fr",
-          "phone": null
+          "phone": null,
+          "image": "man.png"
         }
       ]      
     ],
@@ -537,12 +539,12 @@
       {
         "Développement web": [
           "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue.js", "PrimeVue", "Phaser", "Blazor",
-          "Responsive", "Ergonomie", "NodeJS", "JQuery",  "Vercel.app", "Flask", "Python", "WebDev", 
-          "API RESTful", "C#", "Nuxt.js", "Typescript"
+          "Responsive", "NodeJS", "JQuery",  "Vercel.app", "Flask", "Python", "WebDev", 
+          "API RESTful", "C#", "Nuxt.js", "Typescript", "Windev"
         ]
       },{
         "Développement logiciel & API": [
-          "C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", 
+          "C#", "Python", "Visual Studio 2022", "Visual Studio Code", "Entity Framework", 
           "WLangage", "FFMPEG","WPF", "WinUI","CodeFirst", "Repository", "Injection de dépendances",
           "Tokens JWT", "API RESTful"
         ]
@@ -569,7 +571,7 @@
         ]
       },{
         "Conception & Architecture": [
-          "Etats-Transitions", "Diagramme de classes", "Diagrammes", "Conception", "UML", "BPMN", 
+          "Etats-Transitions", "Diagramme de classes", "Cas d'utilisations", "Conception", "UML", "BPMN", 
           "Mapping objet-relationnel (ORM)", "MCD", "MLD",
           "Documents techniques", "Cahier de recette", "Rédaction", "MVC", "MVVM", "Repository", 
           "Injection de dépendances"

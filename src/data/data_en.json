@@ -68,7 +68,7 @@
         "dates": ["2024-04-15", "2024-07-05"],
         "competences": {
           "Web Development": ["Javascript", "WebDev"],
-          "Software Development & API": ["WLangage"],
+          "Software Development & API": ["WLangage", "Windev"],
           "UI/UX & User Experience": ["Ergonomics", "UI/UX", "CSS"],
           "Testing & Quality": ["Squash", "Manual Testing"],
           "Interpersonal Skills": ["Rigor", "Autonomy", "Teamwork"]
@@ -443,7 +443,7 @@
         },{
             "name": "GitHub",
             "url": "https://GitHub.com/leo-christophe",
-            "classpi": "pi pi-GitHub"
+            "classpi": "pi pi-github"
         }
         
     ],
@@ -455,7 +455,8 @@
           "enterprise": "IUT Annecy",
           "location": "Annecy-le-Vieux, France",
           "email": "stephanie.vibrac@etu.univ-smb.fr",
-          "phone": "+33(0)633 220 798"
+          "phone": "+33(0)633 220 798",
+          "image": "woman.png"
         },
         {
           "name": "M. Damas",
@@ -463,49 +464,28 @@
           "enterprise": "IUT Annecy",
           "location": "Annecy-le-Vieux, France",
           "email": "luc.damas@etu.univ-smb.fr",
-          "phone": null
+          "phone": null,
+          "image": "man.png"
         }
       ]      
     ],
-    "main_hard_skills": [
-      {
-          "Software Development & API": [
-              {"Web Development": "90%"},
-              {"Software and Game Development": "70%"},
-              {"Data Management": "80%"},
-              {"Networks": "50%"}
-          ]
-      },
-      {
-          "Other": [
-              {"English Language (~C1)": "90%"},
-              {"Italian Language (~B1)": "60%"},
-              {"Video Editing": "70%"},
-              {"Photo Editing": "60%"}
-          ]
-      }
-  ],
-    "main_soft_skills": [
-      {"Teamwork": "I have worked a lot in teams during all my academic projects."},
-      {"Autonomy": "I have gained experience in autonomous work with personal projects."},
-      {"Rigor": "Application of best practices in development and hard work to succeed."},
-      {"Organization": "Without good organization, you cannot finish a project on time. Thus, I note everything on post-its."},
-      {"Creativity": "Development is also about finding ideas to solve a problem but also with ideas for design."},
-      {"Adaptability": "Several times during my academic projects, unexpected situations arose. Change of technology, addition of deliverables, or other problems. It requires great adaptability."},
-      {"Critical Thinking": "During brainstorming, it is important to remain critical and participate in discussions. During group work, I always participate."},
-      {"Proposal Strength": "It is important to propose. During my internship at Alpha-3i, I was able to propose ideas to improve the application. 'Criticizing is easy, proposing is difficult.'"}
-  ],
+    "main_hard_skills":{
+      "Fullstack web development": "90%",
+      "Software & Game Development": "75%",
+      "Data Management & Processing": "80%",
+      "DevOps & Deployment": "80%"
+    },
     "sorted_valid_skills": [
       {
         "Web Development": [
             "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue.js", "PrimeVue", "Phaser", "Nuxt.js", 
-            "Responsive", "Ergonomics", "NodeJS", "JQuery", "Vercel.app", "Flask", "Python", 
-            "WebDev", "RESTful API", "C#", "Blazor", "Typescript"
+            "Responsive", "NodeJS", "JQuery", "Vercel.app", "Flask", "Python", 
+            "WebDev", "RESTful API", "C#", "Blazor", "Typescript", "Visual Studio Code"
         ]
       },{
         "Software Development & API": [
-            "RESTful API","C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", 
-            "Entity Framework", "WLangage", "WPF","WinUI", "CodeFirst", "Repository", 
+            "RESTful API","C#", "Python", "Monogame", "Visual Studio 2022", 
+            "Entity Framework", "WLangage", "WPF","WinUI", "CodeFirst", "Repository", "Windev",
             "Object-relational mapping (ORM)", "Dependency Injection", "JWT Tokens"
         ]
       },{

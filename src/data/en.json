@@ -69,7 +69,7 @@
           "yearsOfProgramming": "Years of Programming",
           "yearsOfProgrammingTitle": "I have been programming for over 5 years",
           "commits": "Commits",
-          "commitsTitle": "I have made over 450 commits on GitHub in recent years (Commit: Code modification in a project)",
+          "commitsTitle": "I have made over 800 commits on GitHub in recent years (Commit: Code modification in a project)",
           "masteredTech": "Mastered Technologies",
           "masteredTechTitle": "In 4 different languages: PHP, JS, Python, C#. Frameworks: Flask, Blazor, VueJS, Laravel, ASP.NET Core, WPF, and more..."
         }
@@ -99,7 +99,19 @@
       "softskillsTitle": "Interpersonal Skills",
       "softskillsDescription": "Interpersonal and adaptive abilities that promote collaboration and effective management. (Communication, teamwork, time management, adaptability...)",
       "hardskillsDescription": "Specific technical skills related to executing complex tasks in a particular field. (mastery of programming languages, database management, network administration...)",
-      "references": "References"
+      "references": "References",
+
+      "langs":{
+        "talkedLangs": "Languages Spoken",
+        "french": "French",
+        "english": "English",
+        "italian": "Italian",
+        "japanese": "Japanese",
+        "notions": "Notions (A1)",
+        "intermediate": "Intermediate (B1)",
+        "advanced": "Advanced (C1)",
+        "native": "Native Speaker"
+      }
     },
 
     "experiences":{
