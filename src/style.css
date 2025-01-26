@@ -303,6 +303,11 @@ button[autofocus] {
   padding:0.4em ;
 }
 
+.p-carousel-indicator.p-highlight button{
+  background-color: var(--secondColor);
+}
+
+
 
 /*? Confirm */
 div.p-dialog#confirmDialogMainComponent .p-dialog-footer{

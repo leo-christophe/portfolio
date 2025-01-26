@@ -178,7 +178,7 @@
         "description": "Creation of a fictitious website in a team of 5, applying best practices in terms of programming, quality, security, and performance. Communication from the Javascript client to the REST API developed in C#. The database was implemented using code first with Entity Framework Core. Using Vue.js for the client side with Vue-Router, Pinia, Prime Vue frameworks. The quality of the API was verified through unit testing and mock testing, and the client’s quality was validated through unit and 'End to End' testing. Presentation of the website and the API in front of a jury of two professors.",
         "competences": {
           "Web Development": ["Javascript", "Vue.js"],
-          "Software Development & API": ["C#", "RESTful API", "Visual Studio 2022", "Repository"],
+          "Software Development & API": ["C#", "RESTful API", "Visual Studio 2022", "Repository", "JWT Tokens"],
           "Database": ["PostgreSQL", "SQL", "Database"],
           "DevOps & Deployment": ["Azure DevOps", "Vercel.app", "CI/CD", "GitHub"],
           "Testing & Quality": ["Vitest", "Cypress", "Unit Tests"],
@@ -506,7 +506,7 @@
         "Software Development & API": [
             "RESTful API","C#", "Python", "Monogame", "Visual Studio 2022", "Visual Studio Code", 
             "Entity Framework", "WLangage", "WPF","WinUI", "CodeFirst", "Repository", 
-            "Object-relational mapping (ORM)", "Dependency Injection"
+            "Object-relational mapping (ORM)", "Dependency Injection", "JWT Tokens"
         ]
       },{
         "Game Development": [

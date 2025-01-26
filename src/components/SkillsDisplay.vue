@@ -14,17 +14,90 @@
   const main_hard_skills = ref(data.main_hard_skills);
   const main_soft_skills = ref(data.main_soft_skills);
 
-  const hardSkillsIcons = ref([[
+import Carousel from 'primevue/carousel';
+
+// Add responsive options for carousel
+const responsiveOptions = ref([
+  {
+    breakpoint: '1400px',
+    numVisible: 2,
+    numScroll: 3
+  },
+  {
+    breakpoint: '1199px',
+    numVisible: 3,
+    numScroll: 1
+  },
+  {
+    breakpoint: '767px',
+    numVisible: 2,
+    numScroll: 1
+  },
+  {
+    breakpoint: '575px',
+    numVisible: 1,
+    numScroll: 1
+  }
+]);
+
+
+// Helper function to get images for each skill category
+const getSkillImages = (index) => {
+  return hardSkillsImages.value[index].map(img => ({
+    image: img,
+    name: img.replace('.webp', '').replace('.svg',  '') // Remove file extension for display
+  }));
+};
+
+    const hardSkillsImages = ref([
+    // 1 - Développement Web
+    [
+      "Javascript.webp",
+      "Laravel.webp",
+      "Nuxt.webp",
+      "PHP.webp",
+      "Vite.webp",
+      "Blazor.webp",
+      "Flask.webp"
+    ],
+    
+    // 2 - Développement Logiciel ou Jeux
+    [
+      "CSharp.webp",
+      "Dotnet.webp",
+      "Windev.webp",
+      "Unity.webp",
+      "WinUI.webp",
+      "WPF.webp"
+    ],
+
+    // 3 - Analyse et Gestion des Données
+    [
+      "Grafana.webp",
+      "InfluxDB.svg",
+      "MySQL.webp",
+      "PostgreSQL.webp",
+      "PowerBI.webp"
+    ],
+
+    // 4 - Déploiement & DevOps
+    [
+      "Azure.webp",
+      "Github.webp",
+      "Gitlab.webp",
+      "Vercel.webp",
+      "VirtualBox.webp",
+      "Linux.webp"
+    ]
+  ]);
+
+
+  const hardSkillsIcons = ref([
     "pi pi-globe",
     "pi pi-desktop",
     "pi pi-database",
     "pi pi-sitemap"
-  ],[
-    "pi pi-flag",
-    "pi pi-flag",
-    "pi pi-video",
-    "pi pi-camera"
-  ]])
+  ])
 
   // Définir une directive personnalisée pour observer les barres de compétences
   const observer = ref(null);
@@ -54,7 +127,7 @@
   };
 
   onMounted(() => {
-    const containers = document.querySelectorAll('#softSkillsContainer, #hardSkillsContainer');
+    const containers = document.querySelectorAll('#langsContainer, #hardSkillsContainer');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -69,82 +142,171 @@
       observer.observe(container);
     });
   });
+
+  
 </script>
 
 <template>
-  <div class="skills-display">
-    <span id="hardSkillsContainer" @click="router.push('/skillslist')">
-      <div id="hardSkillsDescription">
-        <h2 id="competencesTitre" class="typeCompetenceTitre">{{ $t('skills.skillsTitle') }}</h2>
-        <p class="skillSectionDescription">{{ $t('skills.hardskillsDescription') }} <a  href="/skillslist">{{ $t('words.learnmore') }}</a></p>
-        <img class="banniereSkills" 
-              src="/images/home/hardskills_banniere.webp"
-              :alt=" $t('skills.skillsTitle') "
-              :title=" $t('skills.skillsTitle') "></img>
-      </div>
-      <div class="hard-skills">
-        <div v-for="(category, index) in main_hard_skills" :key="index" class="compType">
-          <h4 class="hardSkillName">{{ Object.keys(category)[0] }}</h4>
-          <div v-for="(skill, skillIndex) in category[Object.keys(category)[0]]" :key="skillIndex" class="skill-bar">
-            <span class="skill-name">
-              <i :class="hardSkillsIcons[index][skillIndex]"></i>
-              <div>{{ Object.keys(skill)[0] }}</div>
-            </span>
-            <div class="skill-level">
-              <div class="skill-percentage" :id="'skill-percentage-'+index" v-skill-bar :data-skill="skill[Object.keys(skill)[0]]" :style="{ height: '20px' }"></div>
+
+  <div class="skills-page">
+    <div id="skills-page-title">
+      <h1>Compétences</h1>
+    </div>
+
+    <div class="skills-display">
+      <span>
+        <span id="hardSkillsContainer">
+          <!--? Titre de la section "Compétences" -->
+          <div id="hardSkillsDescription">
+            <h2 id="competencesTitre" class="typeCompetenceTitre">{{ $t('skills.skillsTitle') }} 
+              <small>
+                <a href="/skillslist">({{ $t('words.learnmore') }})</a>
+              </small>
+            </h2>
+          </div>
+
+          <!--? Barres de progression: Compétences -->
+          <div class="hard-skills">
+            <div v-for="(percentage, skillName, index) in main_hard_skills" :key="index" class="skill-bar-container">
+              <div class="skill-content">
+                <div class="skill-info">
+                  <span class="skill-name">
+                    <i :class="hardSkillsIcons[index]"></i>
+                    <h3>{{ skillName }}</h3>
+                  </span>
+                  <div class="skill-level">
+                    <div class="skill-percentage" 
+                        :id="'skill-percentage-' + index" 
+                        v-skill-bar 
+                        :data-skill="percentage"
+                        style="height: 20px;">
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Carousel for skill images -->
+                <Carousel :value="getSkillImages(index)" 
+                        :numVisible="3" 
+                        :numScroll="1"
+                        :responsiveOptions="responsiveOptions"
+                        circular :autoplayInterval="3500"
+                        class="skill-carousel">
+                  <template #item="slotProps">
+                    <div class="skill-image-card">
+                      <img :src="'/images/icons/tech/' + slotProps.data.image" 
+                          :alt="slotProps.data.name"
+                          class="skill-image" />
+                      <div class="skill-image-name">{{ slotProps.data.name }}</div>
+                    </div>
+                  </template>
+                </Carousel>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </span>
-
-    <span id="softSkillsContainer">
-      <div id="softSkillsDescription">
-        <h2 class="typeCompetenceTitre">{{ $t('skills.softskillsTitle') }}</h2>
-        <span>
-          <p class="skillSectionDescription">{{ $t('skills.softskillsDescription') }}</p>
         </span>
-        <img class="banniereSkills" 
-              src="/images/home/softskills_banniere.webp" 
-              :alt="$t('skills.softskillsTitle')"
-              :title="$t('skills.softskillsTitle')"></img>
-      </div>
-      <div class="soft-skills">
-        <div class="cloud">
-          <span
-            v-for="(skillObj, index) in main_soft_skills"
-            :key="index"
-            class="soft-skill"
-            @click="handleSkillClick(Object.keys(skillObj)[0], router)"
-            :title="Object.values(skillObj)[0]"
-            style="cursor:pointer;"
-          >
-            {{ Object.keys(skillObj)[0] }}
-          </span>
 
-        </div>
 
-        <div id="referencesContainer">
-          <h2 class="references-title">{{ $t('skills.references') }}</h2>
-          <div class="references-row">
-            <div v-for="(ref, index1) in data.references[0]" :key="index1" class="reference">
-              <h3><strong>{{ ref.name }}</strong></h3><br>
-                <i class="pi pi-briefcase"/> <em>{{ ref.occupation }}</em> {{ $t("words.at") }}{{ ref.enterprise }}<br>
-              {{ ref.location }}<br>
-              <span id="contactRef">
-                <div><i class="pi pi-envelope"/> <a :href="'mailto:' + ref.email">{{ ref.email }}</a></div>
-                <span v-if="ref.phone"><i class="pi pi-phone"/> {{ ref.phone }}</span>
-              </span>
+        <span id="langsContainer">
+          <div>
+            <h2>Langues parlées</h2>
+          </div>
+          <div>
+            <img src="/images/icons/tech/France.png" class="drapeau"/>
+            <h3>Français</h3>
+            <h4>Langue maternelle</h4>
+          </div>
+          <div>
+            <img src="/images/icons/tech/English.png" class="drapeau"/>
+            <h3>Anglais</h3>
+            <h4>Niveau avancé (C2)</h4>
+          </div>
+          <div>
+            <img src="/images/icons/tech/Italy.png" class="drapeau"/>
+            <h3>Italien</h3>
+            <h4>Niveau intermédiaire (B2)</h4>
+          </div>
+          <div>
+            <img src="/images/icons/tech/Japanese.png" class="drapeau"/>
+            <h3>Japonais</h3>
+            <h4>Notions (A0)</h4>
+          </div>
+        </span>
+      </span>
+      <span id="langsContainer">
+
+        <div class="soft-skills">
+          <div id="referencesContainer">
+            <h2 class="references-title">{{ $t('skills.references') }}</h2>
+            <div class="references-row">
+              <div v-for="(ref, index1) in data.references[0]" :key="index1" class="reference">
+                <h3><strong>{{ ref.name }}</strong></h3><br>
+                  <i class="pi pi-briefcase"/> <em>{{ ref.occupation }}</em> {{ $t("words.at") }}{{ ref.enterprise }}<br>
+                {{ ref.location }}<br>
+                <span id="contactRef">
+                  <div><i class="pi pi-envelope"/> <a :href="'mailto:' + ref.email">{{ ref.email }}</a></div>
+                  <span v-if="ref.phone"><i class="pi pi-phone"/> {{ ref.phone }}</span>
+                </span>
+              </div>
             </div>
           </div>
+          
         </div>
-        
-      </div>
-    </span>
+      </span>
+    </div>
   </div>
 </template>
 
 <style scoped>
+img.drapeau{
+  width:50px;
+  height:50px;
+  object-fit:cover;
+  margin:5px;
+}
+
+#skills-page-title{
+  text-align:center;
+  margin-top:20px;
+}
+
+.skill-content{
+  display: flex;
+  flex-direction: row;
+  gap:5vw;
+  justify-content: left;
+  align-items: left;
+}
+
+.skill-image{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin: 5px;
+}
+
+.skill-carousel{
+  max-width:50%;
+  background-color:rgb(36, 36, 36);
+  border-radius:5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skill-content {
+    flex-direction: column;
+  }
+  
+  .skill-info {
+    width: 100%;
+  }
+  
+  .skill-carousel {
+
+    width: 100%;
+    max-width: none;
+  }
+}
+
   /*
   * /////////////////
   *   STYLE MOBILE
@@ -155,7 +317,7 @@
       max-width:75%;
     }
 
-    p.skillSectionDescription, div#hardSkillsDescription , div#softSkillsDescription  {
+    p.skillSectionDescription, div#hardSkillsDescription , div#langsDescription  {
       width:auto !important;
       display:block !important;
       max-width:100% !important;
@@ -163,11 +325,11 @@
     }
 
     div.hard-skills{
-      flex-direction: row;
+      flex-direction: column;
     }
 
 
-    span#softSkillsContainer, span#hardSkillsContainer {
+    span#langsContainer, span#hardSkillsContainer {
       flex-direction: column; /* Stack containers vertically */
       min-width: auto !important;
       width:100vw;
@@ -205,7 +367,7 @@
   * /////////////////
   */
   @media (max-width:1470px) and (min-width: 860px) {
-    span#softSkillsContainer, span#hardSkillsContainer {
+    span#langsContainer, span#hardSkillsContainer {
       min-width:1200px;
     }
   }
@@ -237,7 +399,7 @@
     border-radius:5px;
   }
 
-  #softSkillsDescription > img{
+  #langsDescription > img{
     height:175px;
   }
 
@@ -266,25 +428,33 @@
   .skills-display {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     flex-wrap: wrap; 
     gap:100px;
   }
 
-  #hardSkillsContainer > div.hard-skills > div:nth-child(2){
-    margin-left: 20px;
+  .skills-display span{
+    display:flex;
+    flex-direction:row;
   }
 
-  #softSkillsContainer, #hardSkillsContainer {
+  span#langsContainer{
+    margin-left:5vw;
+
+  }
+
+
+  #hardSkillsContainer,#langsContainer {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     background-color: rgb(26, 26, 26);
     padding: 20px;
     border: 1px solid black;
     border-radius: 20px;
-    width:80vw;
-    min-width: 850px;
-    max-width: 85%;
+    min-width: 300px;
+    max-width: 900px;
     height: fit-content;
     position: relative;
     transform: translateY(50px);
@@ -293,22 +463,27 @@
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.4);
   }
 
-  #softSkillsContainer {
-    flex-direction: row-reverse;
+  #langsContainer {
+    flex-direction: column;
+    height:fit-content;
   }
 
   .hard-skills {
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items:left;
     min-width: 500px;
+    height: 50vh;
   }
 
-  #hardSkillsContainer.show, #softSkillsContainer.show {
+  #hardSkillsContainer.show, #langsContainer.show {
     transform: translateY(0);
     opacity: 1;
   }
 
   /* Descriptions des sections */
-  div#softSkillsDescription, div#hardSkillsDescription {
+  div#langsDescription, div#hardSkillsDescription {
     max-width: 500px;
     width:45vw;
     min-width:250px;
@@ -360,7 +535,15 @@
     border-radius: 5px;
     overflow: hidden;
     height: 20px;
-    width: 200px;
+    width:350px;
+  }
+
+  .skill-image-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    margin:5px;
   }
 
   .skill-percentage {
