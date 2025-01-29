@@ -43,9 +43,6 @@ async function getContributions() {
       totalContributions += count;
     }
 
-    console.log('Contributions annuelles:', contributions);
-    console.log('Total des contributions:', totalContributions);
-
     return totalContributions;
   } catch (error) {
     console.error('Erreur lors de la récupération des contributions:', error);
@@ -80,15 +77,12 @@ const animateNumbers = (refVariable, target) => {
 
 onMounted(async () => {
   // Récupérer le nombre total de contributions
-  const totalCommits = await getContributions();
-
-  if (totalCommits === 0) {
-    console.warn('Impossible de récupérer les contributions, la valeur par défaut sera utilisée.');
-    totalCommits = 500; // Utiliser une valeur par défaut
-    } else {
-        targetValues.value.commits = totalCommits; // Utiliser .value pour accéder à l'objet réactif
-
-    }
+  let totalCommits = await getContributions();
+  console.log(totalCommits == 0)
+  if (totalCommits == 0) {
+    totalCommits = 500;
+  }
+  targetValues.value.commits = totalCommits; // Utiliser .value pour accéder à l'objet réactif
 
 
   // Lancer les animations
