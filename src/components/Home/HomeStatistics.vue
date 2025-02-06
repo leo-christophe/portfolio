@@ -111,7 +111,7 @@ onMounted(async () => {
                 <span class="textN">{{$t('home.statistics.commits')}}</span>
             </li>
 
-            <li class="statistic" id="statistic4" v-tooltip.bottom="$t('home.statistics.masteredTechTitle')" @click="changePage('/skills')">
+            <li class="statistic" id="statistic4" v-tooltip.bottom="$t('home.statistics.masteredTechTitle')" @click="changePage('/skillsDisplay')">
                 <span class="number">{{ technologiesMastered }}</span>
                 <span class="textN">{{$t('home.statistics.masteredTech')}}</span>
             </li>
@@ -121,38 +121,12 @@ onMounted(async () => {
 
 <style scoped>
 
-/*//////////////////////////////////////
-///         SMARTPHONE STYLES        ///
-///        (0px - 860px)             ///
-////////////////////////////////////////*/
 
-@media screen and (max-width: 860px){
-    div#statisticsContentContainer{
-        display:none !important;
-    }
-}
 
-/*//////////////////////////////////////
-///         TABLETTE ET TEL          ///
-///        (0px - 1500px)            ///
-////////////////////////////////////////*/
-@media screen and (max-width: 1500px){
-    ul#statisticsList{
-        margin:0;
-        padding:0;
-        font-size:smaller;
-        justify-content: space-around;
-    }
-
-    li.statistic{
-        padding:0.5em;
-        width: min-content !important;
-    }
-}
 
 @media screen and (max-width: 1200px){
     ul{
-        flex-wrap: wrap !important;
+        flex-wrap: wrap;
     }
 }
 
@@ -167,7 +141,7 @@ li.statistic{
     display:flex;
     padding:1em;    
     width:10vw;
-    width: min-content !important;
+    width: min-content;
     cursor:pointer;
 }
 
@@ -179,13 +153,44 @@ ul{
 
 .number{
     color: var(--secondColor);
-    font-size: 4em !important;
+    font-size: 4em;
     font-weight: bold;
     margin-right: 1em;
 }
 
-.textN{
-    font-size: 2em !important;
+span.textN{
+    font-size: 2em;
     font-weight: bold;
+}
+
+
+
+/*//////////////////////////////////////
+///         SMARTPHONE STYLES        ///
+///        (0px - 860px)             ///
+////////////////////////////////////////*/
+
+@media screen and (max-width: 1024px){
+
+ul#statisticsList{
+    flex-direction:column;
+    gap:7vh;
+    width:auto;
+    max-width:30%;
+}
+
+li.statistic{
+    flex-direction: column;
+}
+
+span.number{
+    font-size:4em;
+}
+
+span.textN{
+  font-size:40px;
+  max-width: 50px;
+  max-height:fit-content;
+}
 }
 </style>

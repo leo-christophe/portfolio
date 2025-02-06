@@ -479,7 +479,7 @@
       {
         "Web Development": [
             "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue.js", "PrimeVue", "Phaser", "Nuxt.js", 
-            "Responsive", "NodeJS", "JQuery", "Vercel.app", "Flask", "Python", 
+            "Responsive", "NodeJS", "JQuery", "Flask", "Python", 
             "WebDev", "RESTful API", "C#", "Blazor", "Typescript", "Visual Studio Code"
         ]
       },{
@@ -501,12 +501,12 @@
             "Cypress", "Vitest", "Unit Testing", "Mock Testing", "Integration Testing", "Functional Testing", 
             "Performance Testing", "Security Testing", "Load Testing", "Non-Regression Testing", 
             "Robustness Testing", "Scalability Testing", "Regression Testing", "Validation Testing", 
-            "Manual Testing"
+            "Manual Testing", "Playwright", "Squash"
         ]
       },{
         "Database": [
-            "SQL", "PostgreSQL", "NoSQL", "Flux","plpgSQL", "plpSQL", "MongoDB", 
-            "Database Management", "Authentication", "PowerBI", "PowerAMC", "SQLite", "Relational Databases"
+            "SQL", "PostgreSQL", "NoSQL", "Flux","plpgSQL", "plpSQL", "MongoDB",
+            "Database Management", "PowerBI", "PowerAMC", "SQLite", "Relational Databases"
         ]
       },{
         "Design & Architecture": [
@@ -522,8 +522,7 @@
         "Interpersonal Skills": [
             "Teamwork", "Autonomy", "Rigor", "Organization", "Creativity",
             "Adaptability", "Critical Thinking", "Proactivity", "Versatility", "Communication", "Analysis", 
-            "Presentation",
-            "English"
+            "Presentation", "English"
         ]
       },{
         "Visualization Tools": [
@@ -531,7 +530,7 @@
         ]
       },{
         "Project Management": [
-            "Teamwork", "Sprint Reports", "Meeting Organization", 
+            "Sprint Reports", "Meeting Organization", 
             "Report Writing", "Project Management", "Agile SCRUM Methodology", "Sprint Reviews", 
             "Agile Methodology", "Azure DevOps", "GitHub Projects"
         ]

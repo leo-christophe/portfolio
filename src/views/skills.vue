@@ -6,7 +6,7 @@
       <span id="searchBarContainer">
         <p>{{ $t('skillsDetail.search') }}</p>
         <AutocompleteDropdown
-          v-model="searchQuery"
+          :v-model="searchQuery"
           :suggestions="suggestions"
           :placeholder="$t('skillsDetail.searchPlaceholder')"
           :disabled="isSorted"
@@ -33,20 +33,25 @@
       </span>
     </div>
 
-    <div v-if="filteredSkills.length == 0 && isLoading == true">
+    <div v-show="filteredSkills.length == 0 && isLoading == true &&  isSorted == false">
       <ProgressSpinner
         style="width: 50px; height: 50px"
         strokeWidth="4"
         animationDuration=".5s"
       />
     </div>
-    <div v-else-if="filteredSkills.length == 0 && isLoading == false">
-      {{ t('skillsDetail.noskill') }}
+    <div v-show="filteredSkills.length == 0 && isLoading == false &&  isSorted == false" id="noskillText">
+      <p style="width:100vw; display:flex;flex-direction: column; justify-content:center;align-items:center; gap:5vh;">
+        <p style="font-size:2em;font-weight:700;">{{ t('skillsDetail.noskill') }}</p>
+        <p style="display:flex;justify-content:center;border-radius:50%;background-color: white; width:300px;height:300px;">
+          <img src="/images/icons/no_skills.png" alt="No skills found" style="width:100%;padding:50px;" />
+        </p>
+      </p>
     </div>
 
     <div id="skillsPage">
       <SkillList
-        v-if="!isLoading"
+        v-show="!isLoading"
         :isSorted="isSorted"
         :content="isSorted ? sortedFilteredSkills : filteredSkills"
         :filterType="isSorted ? filterType : null"
@@ -145,11 +150,11 @@ function selectSuggestion(suggestion) {
 
 onMounted(() => {
   const skill = route.query.skill;
+  searchQuery.value = skill;
   if (skill) {
     const inputElement = document.querySelector("input#inputRefComp");
     if (inputElement) {
       inputElement.value = skill;
-      searchQuery.value = skill;
     } else {
       console.error("Input element with ID 'inputRefComp' not found.");
     }
@@ -375,5 +380,24 @@ function handleCheckRefBUT() {
     .skills-list {
         display: flex;
         flex-wrap:wrap;
+    }
+
+    div#noskillText{
+      transition:0.5s ease-in-out all;
+      display:block;
+
+      img{
+        filter:drop-shadow(20px 20px 20px rgba(88, 125, 126, 0.525));
+      }
+    }
+
+    div#noskillText p{
+      width:100%;
+
+      text-align:center;
+    }
+
+    div#noskillText{
+      margin-top:5vh;
     }
 </style>

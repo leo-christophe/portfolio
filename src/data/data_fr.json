@@ -183,7 +183,7 @@
               "Développement logiciel & API": ["C#", "API RESTful", "Visual Studio 2022", "Repository", "Tokens JWT"],
               "Base de données": ["PostgreSQL", "SQL", "Base de données"],
               "DevOps & Déploiement": ["Azure DevOps", "Vercel.app", "CI/CD", "GitHub"],
-              "Tests & Qualité": ["Vitest", "Cypress", "Tests unitaires"],
+              "Tests & Qualité": ["Vitest", "Cypress", "Tests unitaire"],
               "Gestion de projet": ["Organisation de réunion", "compte rendu de réunion", "gestion de projet"],
               "Conception & Architecture": ["MCD","MLD","UML","BPMN"]
             },
@@ -382,7 +382,7 @@
               "Développement web": ["C#", "Blazor", "HTML", "CSS" ],
               "Base de données": ["SQL", "noSQL", "PostgreSQL","InfluxDB"],
               "DevOps & Déploiement": ["Azure", "CI/CD", "GitHub"],
-              "Tests & Qualité": ["Tests E2E", "Tests unitaires", "Tests mocks"],
+              "Tests & Qualité": ["Tests E2E", "Tests unitaire", "Tests mock"],
               "Outils de visualisation": ["Grafana", "Flux"]
             },
             "realisations": [
@@ -539,7 +539,7 @@
       {
         "Développement web": [
           "Javascript", "PHP", "HTML", "CSS", "Laravel", "Vue.js", "PrimeVue", "Phaser", "Blazor",
-          "Responsive", "NodeJS", "JQuery",  "Vercel.app", "Flask", "Python", "WebDev", 
+          "Responsive", "NodeJS", "JQuery", "Flask", "Python", "WebDev", 
           "API RESTful", "C#", "Nuxt.js", "Typescript", "Windev"
         ]
       },{
@@ -558,15 +558,15 @@
         ]
       },{
         "Tests & Qualité": [
-          "Cypress", "Vitest", "Tests unitaires", "Tests mock", "Tests d'intégration", "Tests fonctionnels", 
+          "Cypress", "Vitest", "Tests unitaire", "Tests mock", "Tests d'intégration", "Tests fonctionnels", 
           "Tests de performance", "Tests de sécurité", "Tests de charge", "Tests de non régression", 
           "Tests de robustesse", "Tests de montée en charge", "Tests de régression", "Tests de validation", 
-          "Tests manuels"
+          "Tests manuels", "Playwright", "Tests E2E", "Squash"
         ]
       },{
         "Base de données": [
           "SQL", "PostgreSQL", "Flux", "InfluxDB","noSQL", "InfluxDB" ,"plpgSQL", "plpSQL", 
-          "MongoDB", "Gestion des bases de données", "Authentification", "PowerBI", "PowerAMC", "SQLite", 
+          "MongoDB", "Gestion des bases de données", "PowerBI", "PowerAMC", "SQLite", 
           "Bases de données relationnelles"
         ]
       },{
@@ -579,7 +579,7 @@
       },{
         "UI/UX & Expérience utilisateur": [
           "UI/UX", "Expérience Utilisateur", "Ergonomie", "Conception centrée utilisateur", "Tiled", 
-          "Game Design"
+          "Game Design", "Design de dashboards attrayants et ergonomiques"
         ]
       },{
         "Outils de visualisation": [
@@ -598,7 +598,7 @@
         ]
       },{
         "Gestion de projet": [
-          "Travail en équipe", "Comptes rendus de sprint", "Organisation de réunion", 
+          "Comptes rendus de sprint", "Organisation de réunion", 
           "Rédaction de rapport", "Gestion de projet", "Démarche agile SCRUM", "Revues de sprints", 
           "Méthode agile", "Azure DevOps", "GitHub Projects"
         ]

@@ -208,7 +208,7 @@ function openGoogleMaps() {
               <div class="flex flex-column gap-2">
                 <label for="email">{{ $t('contact.emailLabel') }}</label>
                 <InputText v-model="form.email" type="email" id="email" :placeholder="$t('contact.example')+'@'+$t('contact.domain')" aria-required="true" required />
-                <small>({{ $t('contact.emailDisclaimer') }})</small>
+                <small id="emailDisclaimer">({{ $t('contact.emailDisclaimer') }})</small>
               </div>
               <br>
               <!-- Message input -->
@@ -225,7 +225,7 @@ function openGoogleMaps() {
                 :disabled="!recaptchaToken">{{ $t('contact.submitButton') }}</Button>
                 <ProgressSpiner v-if="!recaptchaToken" style="width: 40px; height: 40px"/>
               </div>
-              <small>
+              <small id="formDisclaimer">
                 {{ $t('contact.formDisclaimer') }}
               </small>
             </form>
@@ -272,6 +272,10 @@ function openGoogleMaps() {
 
 <style scoped>
 
+::placeholder{
+  padding-left:0.25em;
+}
+
 .bubble{
   display:flex;
   flex-direction: row;
@@ -312,6 +316,7 @@ function openGoogleMaps() {
   padding:25px 0 25px 15px; 
   min-width:287px;
 }
+
   @media screen and (max-width: 860px) {
     div#formAIcons{
       display:flex;
@@ -338,7 +343,7 @@ function openGoogleMaps() {
     }
 
     p,label,::placeholder,input{
-      font-size: 1.5rem !important;
+      font-size: 1.4rem !important;
     }
 
     input{
@@ -349,8 +354,12 @@ function openGoogleMaps() {
       height: 10rem !important;
     }
 
-    small{
-      font-size: 1rem !important;
+    small#formDisclaimer{
+      font-size: 1rem;
+    }
+
+    small#emailDisclaimer{
+      font-size: 1.15rem;
     }
 
     div#content{
@@ -362,7 +371,6 @@ function openGoogleMaps() {
     }
 
     .pi-clone{
-      transform:scale(1.5);
       height:min-content;
     }
 
@@ -504,11 +512,12 @@ function openGoogleMaps() {
   input, textarea {
     margin: 5px;
     width: 100%;
+    font-size:1em;
+    line-height: 2;
   }
 
   input:focus, textarea:focus {
       outline: none;
-      border-color: #3a833d; /* Change border color on focus */
   }
 
   #formAIcons{

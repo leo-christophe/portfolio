@@ -45,80 +45,12 @@ const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child
 </template>
 
 
-<style lang="scss" scoped>
-    ////////////////////////////////////////
-    ///         SMARTPHONE STYLES        ///
-    ///        (0px - 860px)             ///
-    ///       (Portrait et paysage)      ///
-    ////////////////////////////////////////
+<style scoped>
 
-    @media screen and (max-width: 860px){
-        #statisticComponent{
-            display:none !important;
-        }
-
-        #CTAButtons{
-            width:80vw;
-        }
-
-        h5#paragrapheAPropos{
-            min-width:80vw;
-            width:100%;
-        }
-        
-        div#textAndButtons{
-            margin:0;
-
-            Button{
-                font-size:2em !important;
-            }
-        }
-
-        #photoContainer{
-            width: 400px !important;
-            height: 400px !important;
-            margin-bottom:1vh;
-        }
-
-        div#textAndPhoto{
-            flex-direction: column-reverse;
-            max-width:100vw;
-            min-width:90vw;
-            justify-content: left;
-            margin: 0 5vw 0 10vw;
-        }
-    }
-
-    ////////////////////////////////////////
-    ///         TABLETTE STYLES          ///
-    ///         (861px - 1439px)         ///
-    ///        (Portrait et paysage)     ///
-    ////////////////////////////////////////
-
-    @media screen and (min-width: 861px) and (max-width: 1439px){
-        #photoProfil{
-            width: 100% !important;
-            height: 100% !important;
-        }
-
-        #photoContainer{
-            min-width: 350px !important;
-            min-height: 350px !important;
-            margin-bottom:1vh;
-        }
-
-        #textAndPhoto{
-            flex-direction:column;
-            justify-content: center;
-            align-items: center;
-            width:100%;
-        }
-    }
-
-    ////////////////////////////////////////
+    /* ////////////////////////////////////////
     ///          GENERAL STYLES          ///
     ///          ET VARIABLES            ///
-    ////////////////////////////////////////
+    //////////////////////////////////////// */
 
     h5#paragrapheAPropos{
         white-space: pre-line;
@@ -224,16 +156,14 @@ const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child
     }
 
     #paragrapheAPropos{
-        font-size:1.25em !important;
-        line-height: 1.4em;
         animation:aboutTextAppear 1s ease-in-out;
     }
-
+/* 
     ////////////////////////////////////////
     //             ANIMATIONS             //
-    ////////////////////////////////////////
+    //////////////////////////////////////// */
 
-    // Flèches boutons
+    /* // Flèches boutons */
     @keyframes goLeftAndRight{
         0%{
             transform: translateX(0);
@@ -246,7 +176,7 @@ const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child
         }
     }
 
-    // Cercle Avatar
+    /* // Cercle Avatar */
     @keyframes spinCyan {
         0% {
             border-color: transparent;
@@ -299,4 +229,63 @@ const CVAdress = document.querySelector('#app > div > footer > ul > li:nth-child
             opacity:1;
         }
     }
+
+        /* ////////////////////////////////////////
+    ///         SMARTPHONE STYLES        ///
+    ///        (0px - 860px)             ///
+    ///       (Portrait et paysage)      ///
+    //////////////////////////////////////// */
+    @media screen and (max-width:1024px){
+        #CTAButtons{
+            flex-direction:column;
+            margin:0;
+        }
+
+        #CTAButtons button{
+            min-width:100%;
+            font-size:2em !important;
+        }
+
+        span#photoContainer{
+            width: 300px;
+            height: 300px;
+        }
+
+        #photoContainer img {
+            width: 100%;
+            height: 100%;
+        }
+
+        h5#paragrapheAPropos{
+            font-size:5em;
+            height:45vh;
+        }
+
+        #statisticComponent{
+            width:30%;
+        }
+
+        div#statistics{
+            width:30%;
+        }
+
+        div#contentContainer{
+            display:flex;
+            flex-direction:row;
+            width:100%;
+        }
+
+        div#textAndButtons{
+            margin: 0vh 5vw;
+            width:50vw;
+        }
+
+        div#textAndPhoto{
+            flex-direction:column-reverse;
+            gap:5vh;
+            width:80%;
+        }
+    }
+
+
 </style>

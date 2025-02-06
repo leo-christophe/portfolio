@@ -39,7 +39,7 @@
   --listHeader: black;
 
   --IconSize: 1.5rem;
-  --HeaderSize: 2.5rem;
+  --HeaderSize: 1rem;
 
   --p-tooltip-padding: 5em !important; /* Ajuste la valeur ici */
   --p-focus-ring-color:black !important;
@@ -56,6 +56,7 @@
 
 html, body {
   min-width: 900px;
+  scroll-behavior: smooth;
   height: 100%;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -110,29 +111,29 @@ h1.default{
 }
 
 h2.default {
-  font-size: 2em !important;
-  line-height: 1.1 !important;
+  font-size: 2em;
+  line-height: 1.1;
 }
 
 h3.default {
-  font-size: 1.7em !important;
-  line-height: 1.1 !important;
+  font-size: 1.7em;
+  line-height: 1.1;
 }
 
 h4.default {
-  font-size: 1.2em !important;
-  line-height: 1.1 !important;
+  font-size: 1.2em;
+  line-height: 1.1;
 }
 
 h5.default {
-  font-size: 1em !important;
-  line-height: 1.1 !important;
-  font-weight:bold !important;
+  font-size: 1em;
+  line-height: 1.1;
+  font-weight:bold;
 }
 
 p,div,span:not(.p-confirm-dialog-icon){
-  font-size: 1em !important;
-  line-height: 1.5 !important;
+  font-size: 1em;
+  line-height: 1.5;
 }
 
 div#SousTitre, div.textContainer div, h4.formationTitres{
@@ -381,6 +382,11 @@ div.p-dialog#confirmDialogMainComponent button.p-confirm-dialog-reject {
   border:0;
 }
 
+.p-timeline-event-opposite{
+  display:none;
+}
+
+
 @media screen and (max-width: 860px) {
 
   h1 {
@@ -427,8 +433,8 @@ div.p-dialog#confirmDialogMainComponent button.p-confirm-dialog-reject {
   }
   
   :root{
-    --IconSize: 2rem;
-    --HeaderSize: 3rem !important;
+    --IconSize: 1.5rem;
+    --HeaderSize: 1rem;
   }
 }
 

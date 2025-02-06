@@ -6,6 +6,7 @@
 
   import{ gestionVisibilite, vSkillBar, responsiveOptions, animateLangues} from '../utils/skillsDisplayUtils'
   import { hardSkillsImages, hardSkillsIcons } from '../data/const';
+  import { isMobile } from "../utils/userdata"
 
   const router = useRouter();
 
@@ -121,24 +122,24 @@ const referencesResponsiveOptions = ref([
       <div class="indicator" :class="{ active: currentSection === 2 }"></div>
     </div>
 
-    <div id="skills-page-title">
+    <!-- <div id="skills-page-title">
       <h1>{{$t('pages.skills')}}</h1>
-    </div>
+    </div> -->
     <div class="skills-display">
 
     <section class="sectionPage">
+      <!--? Titre de la section "Compétences" -->
+      <div id="hardSkillsDescription">
+        <h1 id="competencesTitre" class="typeCompetenceTitre sectionTitle">
+          {{ $t('skills.skillsTitle') }}
+          <br> 
+          <small>
+            <a href="/skillslist">({{ $t('words.learnmore') }})</a>
+          </small>
+        </h1>
+      </div>
       <span>
-        <span id="hardSkillsContainer" class="skillsContainer">
-          <!--? Titre de la section "Compétences" -->
-          <div id="hardSkillsDescription">
-            <h2 id="competencesTitre" class="typeCompetenceTitre">
-              {{ $t('skills.skillsTitle') }} 
-              <small>
-                <a href="/skillslist">({{ $t('words.learnmore') }})</a>
-              </small>
-            </h2>
-          </div>
-
+        <span id="hardSkillsContainer" class="skillsContainer" v-if="!isMobile()">
           <!--? Barres de progression: Compétences -->
           <div class="hard-skills">
             <div v-for="(percentage, skillName, index) in main_hard_skills" :key="index" class="skill-bar-container">
@@ -180,14 +181,30 @@ const referencesResponsiveOptions = ref([
           </div>
         </span>
 
+        <span v-else id="hardSkillsContainer" class="skillsContainer">
+          <div>
+            <h1>{{ $t('skills.skillsTitle') }}</h1>
+          </div>
+          <div id="skillsGrid">
+            <span v-for="(percentage, skillName, index) in main_hard_skills" :key="index" class="skill-name">
+              <div v-for="(skill, index1) in hardSkillsImages[index]" :key="index" @click="router.push({ path: '/skillslist', query: { skill: (skill === 'CSharp' ? 'C#' : skill.replace('.svg', '').replace('.webp', '')) }})">
+                <img :src="'/images/icons/tech/' + hardSkillsImages[index][index1]" 
+                    :alt="skillName"
+                    
+                    class="skill-image-phone skill-image" />
+              </div>
+            </span>
+          </div>
+        </span>
+
       </span>
     </section>
 
     <section class="sectionPage">
+      <div id="langsTitle">
+        <h1 class="sectionTitle">{{ $t('skills.langs.talkedLangs') }}</h1>
+      </div>
       <span id="langsContainer" class="skillsContainer">
-        <div>
-          <h2>{{ $t('skills.langs.talkedLangs') }}</h2>
-        </div>
         <div id="langsSectionContainer">
           <div>
             <div class="drapeauContainer">
@@ -230,50 +247,63 @@ const referencesResponsiveOptions = ref([
     </section>
 
     <section class="sectionPage">
-  <span id="references" class="skillsContainer">
-    <div class="soft-skills">
-      <div id="referencesContainer">
-        <h2 class="references-title">{{ $t('skills.references') }}</h2>
-        
-        <!-- Carousel des références -->
-        <Carousel :value="data.references[0]" 
-                :numVisible="1" 
-                :numScroll="1"
-                :responsiveOptions="referencesResponsiveOptions"
-                :circular="false"
-                :autoplayInterval="0"
-                class="references-carousel">
-          <template #item="slotProps">
-            <div class="reference-card">
-              <div class="reference-image-container">
-                <img :src="'/images/icons/' + slotProps.data.image" 
-                    :alt="slotProps.data.name"
-                    class="reference-image" />
-              </div>
-              <div class="reference-content">
-                <h3><strong>{{ slotProps.data.name }}</strong></h3>
-                <div class="reference-details">
-                  <i class="pi pi-briefcase"/> <em>{{ slotProps.data.occupation }}</em> 
-                  {{ $t("words.at") }} {{ slotProps.data.enterprise }}<br>
-                  {{ slotProps.data.location }}<br>
-                  <span id="contactRef">
-                    <div><i class="pi pi-envelope"/> <a :href="'mailto:' + slotProps.data.email">{{ slotProps.data.email }}</a></div>
-                    <span v-if="slotProps.data.phone"><i class="pi pi-phone"/> {{ slotProps.data.phone }}</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </template>
-        </Carousel>
+      <div id="referenceTitle">
+        <h1 class="references-title sectionTitle">{{ $t('skills.references') }}</h1>
       </div>
-    </div>
-  </span>
-</section>
+      <span id="references" class="skillsContainer">
+        <div class="soft-skills">
+          <div id="referencesContainer">
+            <!-- Carousel des références -->
+            <Carousel :value="data.references[0]" 
+                    :numVisible="1" 
+                    :numScroll="1"
+                    :responsiveOptions="referencesResponsiveOptions"
+                    :circular="false"
+                    :autoplayInterval="0"
+                    class="references-carousel">
+              <template #item="slotProps">
+                <div class="reference-card">
+                  <div class="reference-image-container">
+                    <img :src="'/images/icons/' + slotProps.data.image" 
+                        :alt="slotProps.data.name"
+                        class="reference-image" />
+                  </div>
+                  <div class="reference-content">
+                    <h3><strong>{{ slotProps.data.name }}</strong></h3>
+                    <div class="reference-details">
+                      <i class="pi pi-briefcase"/> <em>{{ slotProps.data.occupation }}</em> 
+                      {{ $t("words.at") }} {{ slotProps.data.enterprise }}<br>
+                      {{ slotProps.data.location }}<br>
+                      <span id="contactRef">
+                        <div>
+                          <i class="pi pi-envelope"/> 
+                          <a :href="'mailto:' + slotProps.data.email">{{ slotProps.data.email }}</a>
+                        </div>
+                        <span v-if="slotProps.data.phone"><i class="pi pi-phone"/> {{ slotProps.data.phone }}</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </Carousel>
+          </div>
+        </div>
+      </span>
+    </section>
     </div>
   </div>
 </template>
 
 <style scoped>
+
+
+img.skill-image-phone{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 5px;
+}
+
 /* Styles pour le carrousel des références */
 .references-carousel {
   width: 80%;
@@ -288,6 +318,7 @@ const referencesResponsiveOptions = ref([
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
   min-height: 400px;
+  height:100%;
 }
 
 .reference-image-container {
@@ -392,6 +423,7 @@ const referencesResponsiveOptions = ref([
 section.sectionPage{
   height:100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -458,87 +490,7 @@ img.drapeau{
   border-radius:5px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .skill-content {
-    flex-direction: column;
-  }
-  
-  .skill-info {
-    width: 100%;
-  }
-  
-  .skill-carousel {
 
-    width: 100%;
-    max-width: none;
-  }
-}
-
-  /*
-  * /////////////////
-  *   STYLE MOBILE
-  * /////////////////
-  */
-  @media (max-width: 1278px) {
-    span.skill-name{
-      max-width:75%;
-    }
-
-    p.skillSectionDescription, div#hardSkillsDescription , div#langsDescription  {
-      width:auto !important;
-      display:block !important;
-      max-width:100% !important;
-      min-width:auto !important;
-    }
-
-    div.hard-skills{
-      flex-direction: column;
-    }
-
-
-    .skillsContainer {
-      flex-direction: column; /* Stack containers vertically */
-      min-width: auto !important;
-      width:100vw;
-    }
-
-    .hard-skills {
-      flex-direction: column; /* Stack skills vertically */
-    }
-
-    div.references-row {
-      flex-direction: row;
-      justify-content: space-between;
-      gap:10%;
-      min-width:100% !important;
-    }
-
-    div.reference{
-      width:40%;
-      min-width:40%;
-      max-width:50%;
-    }
-
-    .skill-level {
-      width: 100%; /* Full width for skill levels */
-    }
-
-    div.soft-skills{
-      max-width:100% !important;
-    }
-  }
-
-  /*
-  * /////////////////
-  *   STYLE TABLETTE
-  * /////////////////
-  */
-  @media (max-width:1470px) and (min-width: 860px) {
-    .skillsContainer {
-      min-width:1200px;
-    }
-  }
 
   /*
   * /////////////////
@@ -605,9 +557,6 @@ img.drapeau{
 
 
 
-  #hardSkillsContainer{
-    max-width: 900px;
-  }
 
   .skillsContainer {
     display: flex;
@@ -733,8 +682,8 @@ img.drapeau{
   .soft-skills {
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    max-width: 50%;
+    justify-content: center;
+    width:100%;
   }
 
   .cloud {
@@ -757,4 +706,36 @@ img.drapeau{
   .soft-skill:hover {
     transform: scale(1.1);
   }
+
+  @media (max-width: 1099px) {
+  .skills-page .hard-skills {
+    max-height:80vh;
+    max-width:80vw;
+  }
+
+  div#langsSectionContainer{
+    
+    flex-direction: column;
+    width:50vw;
+    gap:20px;
+  }
+}
+.sectionTitle{
+  margin-bottom:50px;
+  font-size:2em;
+  text-align: center;
+  max-width:100%;
+}
+
+@media screen and (max-width:1676px){
+    #hardSkillsContainer{
+      max-width: 900px;
+    }
+  }
+
+@media screen and (min-width:1676px){
+   #hardSkillsContainer{
+      max-width: 1200px;
+    }
+}
 </style>

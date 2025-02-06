@@ -68,63 +68,6 @@
 </template>
 
 <style scoped>
-    /*
-    * /////////////////
-    *   STYLE TELEPHONE
-    * /////////////////
-    */
-    @media (max-width: 860px) {
-        Button#blackVariant {
-            max-width: 90vw;
-            width:50vw;
-        }
-
-        span#buttons{
-            flex-direction: column;
-            justify-content:left;
-            min-width:50vw;
-            display:flex;
-        }
-
-        .computer {
-            display: none !important;
-        }
-
-        div#CV {
-            display: none !important;
-        }
-
-        div#contactSection div#CV {
-            min-width: auto;
-            max-width: 100%;
-            width: 100vw;
-            margin: 0;
-            padding: 0;
-        }
-
-        #contactSection {
-            flex-direction: column;
-        }
-
-        .CVsection #SousTitre {
-            width: 90vw;
-            max-width:50vw;
-        }
-
-        div div#finalText.CVsection {
-            width: 80vw;
-        }
-
-        #mainText {
-            width: 80vw !important;
-            max-width:90vw !important;
-            margin: 0;
-        }
-
-        h5#SousTitre {
-            max-width: 60vw !important;
-        }
-    }
 
     /*
     * /////////////////
@@ -235,4 +178,64 @@
         margin-top:5vh;
         text-align:center;
     }
+
+        /*
+    * /////////////////
+    *   STYLE TELEPHONE
+    * /////////////////
+    */
+    @media (max-width: 860px) {
+        Button#blackVariant {
+            max-width: 90vw;
+            width:50vw;
+        }
+
+        span#buttons{
+            flex-direction: column;
+            justify-content:left;
+            min-width:50vw;
+            display:flex;
+        }
+
+        .computer {
+            display: none !important;
+        }
+
+        div#CV {
+            display: none !important;
+        }
+
+        div#contactSection div#CV {
+            min-width: auto;
+            max-width: 100%;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        #contactSection {
+            flex-direction: column;
+            font-size:1.5em;
+        }
+
+        .CVsection #SousTitre {
+            width: 90vw;
+            max-width:50vw;
+        }
+
+        div div#finalText.CVsection {
+            width: 80vw;
+        }
+
+        #mainText {
+            width: 80vw !important;
+            max-width:90vw !important;
+            margin: 0;
+        }
+
+        h5#SousTitre {
+            max-width: 60vw !important;
+        }
+    }
+
 </style>

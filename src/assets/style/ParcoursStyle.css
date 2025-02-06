@@ -1,0 +1,203 @@
+/* Styles communs pour les deux composants */
+h5.annees{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--secondColor);
+}
+
+h4.titreExperience, h4.titreFormation {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+h5.obtention {
+    font-size: 1em;
+    color: var(--secondColor);
+}
+
+.formationTitres {
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+}
+
+#titreFormations, #titreExperience {
+    font-size: 2.5em;
+}
+
+.sousTitreFormations {
+    font-size: 1em;
+}
+
+.column {
+    width: 45%;
+    position: relative;
+}
+
+.conteneurBox {
+    background-color: rgb(19, 21, 21);
+    color: white;
+    
+    min-height: 25vh;
+    
+    position: relative;
+    margin: 5px;
+    box-shadow: 5px 5px 5px 5px black;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    align-items: center;
+    padding: 10px;
+}
+
+#conteneurFormations div.conteneurBox, span.text-image-exp{
+    display:flex;
+}
+
+.imageFormation, .imgExperienceContainer{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.conteneurBox img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.information {
+    padding-left: 20px;
+}
+
+.imgFormation, .imgExperience {
+    display: grid;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    align-items: center;
+    position: relative;
+    transition: transform 0.5s;
+}
+
+.imgFormation:hover, .imgExperience:hover {
+    transform: scale(1.01);
+}
+
+.expDesc {
+    max-width:100%;
+}
+
+.experience .information, .formation .information {
+    padding-left: 20px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.experience {
+    display: flex;
+    flex-direction: row;
+}
+
+.customized-timeline i.pi-circle-fill {
+    padding: 10px;
+    margin: 5px 5px 5px 5px;
+    background-color: white;
+    font-size: 0.5rem;
+    border-radius: 100%;
+    border: 2px solid black;
+    color: var(--secondColor);
+}
+
+/* Styles spécifiques pour les écrans mobiles */
+@media (max-width: 860px) {
+    .column {
+        width: 80vw !important;
+    }
+
+    .conteneurBox {
+        min-height:fit-content;
+        width: 70%;
+    }
+
+    .information {
+        max-width: 100%;
+    }
+
+    .imgExperienceContainer {
+        width: auto;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .imgExperience {
+        width: 100%;
+    }
+
+    .expDesc {
+        max-width: 100%;
+    }
+
+    .downArrowExperienceContainer {
+        padding-left: 0;
+    }
+
+    div#formationExperienceContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .conteneurBox.experienceBox {
+        width: 100%;
+    }
+
+    div.conteneurBox.experienceBox, div.partieCachee.conteneurBox.experienceBox, div.conteneurBox {
+        width: 90vw;
+        height:15vh;
+    }
+
+    div.conteneurBox.experienceBox img {
+        height: auto;
+    }
+
+    div.information.experienceInf {
+        max-width: 80%;
+    }
+
+    h4.titreExperience, h4.titreFormation {
+        font-size: 1.6em !important;
+    }
+}
+
+/* Styles spécifiques pour les tablettes */
+@media (max-width: 1300px) and (min-width: 860px) {
+    #formationExperienceContainer {
+        flex-direction: column !important;
+    }
+
+    h1.formationTitres, h4.formationTitres {
+        width: 100%;
+        text-align: center;
+        position: relative;
+    }
+
+    div.conteneurBox.experienceBox, div.partieCachee.conteneurBox.experienceBox, div.conteneurBox {
+        width: 90vw;
+        height:fit-content;
+    }
+
+    span#conteneurTimelineFormations {
+        width: 100vw;
+    }
+
+    .conteneurBox {
+        min-width: min-content !important;
+    }
+}
