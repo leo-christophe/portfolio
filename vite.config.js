@@ -4,6 +4,18 @@ import viteCompression from "vite-plugin-compression";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/",
+build: {
+    outDir: 'dist',
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
+      }
+    }
+  },
   plugins: [
     vue(),
     viteCompression({
