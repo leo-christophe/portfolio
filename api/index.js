@@ -23,7 +23,7 @@ export default async function handler(request, response) {
   
   // For preflight requests
   if (request.method === 'OPTIONS') {
-    response.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    response.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS, GET');
     response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     response.setHeader('Access-Control-Max-Age', '86400'); // 24 hours
     return response.status(200).end();
