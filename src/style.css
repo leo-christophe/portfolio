@@ -1,0 +1,462 @@
+:root {
+  --mobileWidth: 860px;
+  --laptopWidth: 1470px;
+  --desktopWidth: 1920px;
+
+  --basicBackground-color: #242424;
+  --darkBackground-color: black;
+  --secondColor: rgb(159, 229, 227);
+
+  --secondColorLight: #baeceb;
+  --secondColorLighter: #d6f4f3;
+  --secondColorLightest: #f1fbfb;
+
+  --secondColorDark: #36c4bf;
+  --secondColorDarker: #24827f;
+  --secondColorDarkest: #124140;
+
+  --home-background-color1: rgb(33, 33, 33);
+  --home-background-color2: rgb(30, 30, 30);
+  --home-background-color3: rgb(21, 21, 21);
+
+  --experience_mission_background: #1a1a1a;
+
+  --textBasicColor: white;
+  --textSecondaryColor: lightgray;
+  --textTertiaryColor: var(--cyan-50);
+  --textQuaternaryColor: #cfcfcf;
+  --textImportant: #ff4040;
+  --textImportantHover: #f21d1d;
+
+  --buttonShadow: rgb(34, 34, 34);
+
+  --skillDevColor: rgb(10, 106, 116);
+  --skillOtherColor: rgb(74, 189, 185);
+
+  --listPaire: var(--gray-500);
+  --listImpaire: var(--gray-700);
+  --listHeader: black;
+
+  --IconSize: 1.5rem;
+  --HeaderSize: 1rem;
+
+  --p-tooltip-padding: 5em !important; /* Ajuste la valeur ici */
+  --p-focus-ring-color: black !important;
+  --p-dialog-background: #333 !important; /* Override the design token */
+  --p-dialog-border-color: #000 !important; /* Override border color design token */
+}
+
+*:not(button, div.p-dialog-content) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-width: 900px;
+  scroll-behavior: smooth;
+  height: 100%;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  box-sizing: border-box;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*TODO Page de Projet (Devrait être dans la page de projet directement)*/
+input:invalid:not(:placeholder-shown) {
+  border: 1px solid red;
+}
+
+#typeProjetContainer > div > label {
+  margin-left: 10px;
+}
+
+#motClesContainer > div > ul input {
+  line-height: 1.9;
+}
+
+#motClesContainer > div > ul {
+  padding-left: 5px;
+}
+
+a {
+  font-weight: 500;
+  color: var(--secondColor);
+  text-decoration: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+body {
+  min-width: 320px;
+  height: 100vh;
+}
+
+h1.default {
+  font-size: 3.2em;
+  line-height: 1.2;
+}
+
+h2.default {
+  font-size: 2em;
+  line-height: 1.1;
+}
+
+h3.default {
+  font-size: 1.7em;
+  line-height: 1.1;
+}
+
+h4.default {
+  font-size: 1.2em;
+  line-height: 1.1;
+}
+
+h5.default {
+  font-size: 1em;
+  line-height: 1.1;
+  font-weight: bold;
+}
+
+p,
+div,
+span:not(.p-confirm-dialog-icon) {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+div#SousTitre,
+div.textContainer div,
+h4.formationTitres {
+  font-size: 1.3em !important;
+  line-height: 1.5 !important;
+}
+
+button#blackVariant,
+button#greenValid,
+.blackVariant {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+  i {
+    margin: 2px 0 0 15px;
+  }
+}
+
+button#greenValid {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+button#greenValid:hover {
+  background-color: #45a049;
+  border: 1px solid white;
+  outline: white;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card {
+  padding: 2em;
+}
+
+Button#blackVariant,
+.blackVariant {
+  color: RGB(159, 229, 227);
+  background-color: black;
+  transition: 0.25s ease-in-out all;
+}
+
+Button#blackVariant:hover,
+.blackVariant:hover {
+  background-color: black;
+  transition: 0.25s ease-in-out all;
+  filter: drop-shadow(0 0 2px white);
+  border: 1px solid white;
+  color: white;
+}
+
+button[autofocus] {
+  outline: none;
+  margin-right: 5px;
+}
+
+/* Recaptcha */
+.grecaptcha-badge {
+  visibility: collapse;
+}
+
+/*? Toast */
+.p-toast {
+  margin: -5px 2px 20px 0px;
+  width: 25%;
+  z-index: 9001 !important;
+}
+
+.p-toast-message-icon {
+  margin: 5px;
+}
+
+.p-toast-message-content {
+  margin: 3px;
+}
+
+.p-toast-close-button::content {
+  margin-right: 50px !important;
+  position: relative !important;
+  outline: none !important;
+  background: none !important;
+  border: none !important;
+}
+
+/*? Boite de dialogues */
+.p-dialog .p-dialog-content {
+  background-color: rgb(36, 36, 36);
+  border: 2px solid black;
+  color: white;
+  padding: 1em 5em 1em 5em;
+}
+
+.p-dialog .p-dialog-header {
+  line-height: 1.5em;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/*? Timeline */
+.p-timeline-event {
+  min-height: var(--p-timeline-event-min-height);
+}
+
+.p-timeline-event-content {
+  padding: var(--p-timeline-horizontal-event-content-padding);
+}
+
+.p-timeline-event-connector {
+  background-color: var(--p-timeline-event-connector-color);
+  width: var(--p-timeline-event-connector-size);
+}
+
+.p-timeline-event-marker {
+  width: var(--p-timeline-event-marker-size);
+  height: var(--p-timeline-event-marker-size);
+  background-color: var(--p-timeline-event-marker-background);
+  border-radius: var(--p-timeline-event-marker-border-radius);
+}
+
+/*? Calendrier */
+.dateInput .p-datepicker-trigger {
+  background-color: black;
+  color: lightblue;
+  border: none;
+}
+
+.dateInput .p-datepicker-trigger:hover {
+  color: white; /* Fond au survol */
+  border: 1px solid white; /* Couleur de l'icône au survol */
+}
+
+.dateInput input[aria-expanded="true"],
+.p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext {
+  outline: 1px solid black;
+}
+
+/* 2. Survol des mois et des années dans le calendrier */
+.p-datepicker-calendar .p-datepicker-month:hover,
+.p-datepicker-calendar .p-datepicker-year:hover {
+  background-color: lightblue;
+  color: black;
+}
+
+/*? Skeleton */
+.p-skeleton {
+  background-color: #a3a3a3;
+}
+
+/*? Checkboxes */
+.p-checkbox.p-highlight .p-checkbox-box {
+  background: black;
+  border-color: black;
+  color: var(--secondColor) !important;
+}
+
+.p-checkbox.p-highlight .p-checkbox-box {
+  color: var(--secondColor) !important;
+}
+
+/*? Tooltip */
+.p-tooltip div.p-tooltip-text {
+  padding: 0.4em;
+}
+
+.p-carousel-indicator.p-highlight button {
+  background-color: var(--secondColor);
+}
+
+/*? Confirm */
+div.p-dialog#confirmDialogMainComponent .p-dialog-footer {
+  background-color: rgba(240, 240, 240, 0);
+  display: flex;
+  justify-content: center;
+  gap: 15%;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+div.p-dialog.p-component.p-ripple-disabled.custom-dialog {
+  min-width: 50vw;
+  z-index: 999;
+}
+
+div.p-dialog#confirmDialogMainComponent .p-dialog-footer button {
+  font-size: 2em;
+}
+
+div.p-dialog#confirmDialogMainComponent
+  .p-dialog-footer
+  button[data-pc-name="rejectbutton"] {
+  background-color: rgba(240, 240, 240, 0);
+  color: white;
+  border: 1px solid white;
+}
+
+div.p-dialog#confirmDialogMainComponent
+  .p-dialog-footer
+  button[data-pc-name="acceptbutton"] {
+  background-color: rgb(205, 0, 0);
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(255, 194, 194);
+}
+
+div.p-dialog#confirmDialogMainComponent .p-dialog-header {
+  color: rgb(36, 36, 36);
+  background-color: white;
+}
+
+div.p-dialog#confirmDialogMainComponent {
+  background-color: rgb(36, 36, 36);
+  width: 600px;
+  height: 600px;
+  color: white;
+}
+
+div.p-dialog#confirmDialogMainComponent .p-confirm-dialog-icon {
+  font-size: 5em !important;
+}
+
+div.p-dialog#confirmDialogMainComponent .p-dialog-content {
+  display: flex;
+  flex-direction: column;
+  font-size: 2em !important;
+  font-weight: 800;
+  justify-content: space-around;
+  width: 100%;
+  height: 80%;
+  border: 0;
+
+  i.p-confirm-dialog-icon {
+    margin: 0 1em 0 0;
+    font-size: 10em !important;
+  }
+
+  .p-confirm-dialog-message {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+div.p-dialog#confirmDialogMainComponent button.p-confirm-dialog-reject {
+  border: 0;
+}
+
+.p-timeline-event-opposite {
+  display: none;
+}
+
+@media screen and (max-width: 860px) {
+  h1 {
+    font-size: 4rem !important;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 3rem !important;
+    line-height: 1.1 !important;
+  }
+
+  h3 {
+    font-size: 2.3rem !important;
+    line-height: 1.1 !important;
+  }
+
+  h4 {
+    font-size: 2rem !important;
+    line-height: 1.1 !important;
+  }
+
+  h5 {
+    font-size: 1.7rem !important;
+    line-height: 1.1 !important;
+    font-weight: bold !important;
+  }
+
+  .p-toast {
+    width: 90vw !important;
+  }
+
+  select#sort.blackVariant {
+    font-size: 1.5rem;
+    height: 100%;
+  }
+
+  Button,
+  button,
+  select,
+  .sort-filter label {
+    font-size: 1.5rem !important;
+
+    i:not(#buttonTranslateIcon) {
+      font-size: 1.5rem !important;
+    }
+  }
+
+  :root {
+    --IconSize: 1.5rem;
+    --HeaderSize: 1rem;
+  }
+}
+
+/* Reset CSS */
+@layer reset {
+  button {
+    outline: none;
+  }
+}
+
+/* Order */
+@layer reset, primevue;

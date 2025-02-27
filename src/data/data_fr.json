@@ -1,0 +1,895 @@
+{
+  "formations": [
+    {
+      "id": "butinfo",
+      "titre": "BUT Informatique",
+      "lieu": "IUT Annecy",
+      "ville": "Annecy",
+      "departement": "74",
+      "obtention": "En cours",
+      "annees": "2022-2025",
+      "image": "/images/career/iutannecy.webp",
+      "siteFormation": "https://www.univ-smb.fr/iut-annecy/"
+    },
+    {
+      "id": "bac",
+      "titre": "Bac Général (Spécialités NSI, Math)",
+      "lieu": "Lycée Charles Poncet",
+      "ville": "Cluses",
+      "departement": "74",
+      "obtention": "Obtenu avec mention Très Bien",
+      "annees": "2019-2022",
+      "image": "/images/career/lyceecharles.webp",
+      "siteFormation": "https://charles-poncet.ent.auvergnerhonealpes.fr/"
+    },
+    {
+      "id": "brevet",
+      "titre": "Brevet",
+      "lieu": "Collège Camille Claudel",
+      "ville": "Marignier",
+      "departement": "74",
+      "obtention": "Obtenu avec mention Très Bien",
+      "annees": "2015-2019",
+      "image": "/images/career/collegemarignier.webp",
+      "siteFormation": "https://camilleclaudel-marignier.ent.auvergnerhonealpes.fr/"
+    }
+  ],
+  "experiences": [
+    {
+      "id": "arpi",
+      "contrat": "Stagiaire",
+      "poste": "Développeur Web",
+      "entreprise": "ARPI TECHNOLOGIES",
+      "localisation": "Villaz, France",
+      "dates": ["2025-01-20", "2025-04-25"],
+      "competences": {
+        "Développement web": [
+          "Nuxt",
+          "Typescript",
+          "Google Recaptcha",
+          "API Gemini",
+          "Optimisation du SEO",
+          "Stripe"
+        ],
+        "Développement logiciel & API": [
+          "C#",
+          "API RESTful",
+          "Entity Framework Core",
+          "Mime Kit",
+          "ASP.NET Core"
+        ],
+        "Gestion des données": [
+          "PostgreSQL",
+          "SQL",
+          "Bases de données relationnelles",
+          "LINQ",
+          "Database First"
+        ],
+        "Sécurité": [
+          "BCrypt",
+          "Protection Brute Force",
+          "Validation des données",
+          "Tokens JWT",
+          "CORS",
+          "Authentification"
+        ],
+        "Conception & Architecture": [
+          "MCD (Modèle conceptuel de données)",
+          "Diagramme de cas d'utilisations",
+          "BPMN",
+          "Repository Design Pattern",
+          "DTO (Pattern de transfert de données)"
+        ],
+        "Gestion de projet": [
+          "GitHub Projects",
+          "Méthodologie Agile (SCRUM)",
+          "Word",
+          "PowerPoint"
+        ],
+        "Soft skills": [
+          "Rigueur",
+          "Autonomie",
+          "Travail en équipe",
+          "Brainstorming",
+          "Gestion des priorités",
+          "Gestion du temps",
+          "Prise de décision"
+        ]
+      },
+      "description": "Développement d'un site web pour une entreprise spécialisée en conseil et vente de pièces en impression 3D",
+      "missions": [
+        "Développement de l'interface en Javascript avec le framework Nuxt, en se basant à une maquette Figma pour le design.",
+        "Implémentation d'un chatbot IA (Grace à l'API Gemini) pour la gestion des demandes des clients.",
+        "Développement du back end en C# avec une API Rest, en utilisant des tokens JWT pour l'authentification.",
+        "Création d'une base de données PostgreSQL pour une meilleurs scalabilité."
+      ],
+      "website": "https://www.arpi-technology.com/",
+      "image": "/images/career/arpi.png"
+    },
+    {
+      "id": "alpha3i",
+      "contrat": "Stagiaire",
+      "poste": "Développeur R&D (Gestion des temps et des absences)",
+      "entreprise": "Groupe Alpha-3i",
+      "localisation": "Alby-sur-Chéran, France",
+      "dates": ["2024-04-15", "2024-07-05"],
+      "competences": {
+        "Développement web": ["Javascript", "WebDev"],
+        "UI/UX & Expérience utilisateur": [
+          "Ergonomie",
+          "Expérience Utilisateur / Interface Utilisateur",
+          "Design réactif"
+        ],
+        "Tests & Qualité": [
+          "Squash",
+          "Tests exploratoires",
+          "BDD (Behavior Driven Development)"
+        ],
+        "Gestion de projet": [
+          "Word",
+          "Rédaction de rapport",
+          "Microsoft Teams",
+          "Méthodologie Agile (SCRUM)"
+        ],
+        "Soft skills": [
+          "Rigueur",
+          "Autonomie",
+          "Travail en équipe",
+          "Proactivité",
+          "Force de proposition",
+          "Organisation"
+        ]
+      },
+      "description": "Développement de nouvelles fonctionnalités dans le workflow des absences et congés des salariés",
+      "missions": [
+        "Analyse des besoins des utilisateurs et des contraintes techniques",
+        "Développement de nouvelles fonctionnalités en WLangage et Javascript sur Webdev",
+        "Rédaction et réalisation de scénarios de tests sur Squash",
+        "Amélioration de l'ergonomie, augmentant la satisfaction globale des utilisateurs",
+        "Amélioration du style de l'application en suivant les bonnes pratiques de design réactif"
+      ],
+      "website": "https://www.alpha-3i.com/",
+      "image": "/images/career/alpha3i.webp"
+    }
+  ],
+  "projects": [
+    {
+      "id": "project_sae101",
+      "nom": "Mars Invaders",
+      "dates": ["2023-01-01", "2023-01-15"],
+      "titre": "Développement d'un jeu vidéo sur le thème de l'espace",
+      "description": "Programmation en C# avec le framework Monogame en équipe de deux. Le but était de réaliser un jeu vidéo en quelques semaines en s'appuyant directement sur la documentation, en respectant les bonnes pratiques lors du développement (Nommage, Structure du code, Commentaires, etc.). Le jeu devait être jouable et présenter un menu, un écran de jeu et un écran de fin. Le jeu devait être présenté à la fin du projet en vidéo, puis devant un jury de professeur.",
+      "competences": {
+        "Développement logiciel & API": ["C#", "Visual Studio 2022"],
+        "Développement de jeux vidéo": ["Tiled", "Monogame"],
+        "DevOps & Déploiement": ["GitHub"],
+        "Soft skills": [
+          "Travail en équipe",
+          "Brainstorming",
+          "Présentation",
+          "Communication",
+          "Force de proposition"
+        ]
+      },
+      "realisations": [
+        "Recherche de l'idée de jeu à développer, brainstorming",
+        "Développement du jeu en C# avec le framework Monogame",
+        "Création et recherche de ressources libres de droit",
+        "Présentation du jeu à la fin du projet en vidéo"
+      ],
+      "type": "Universitaire",
+      "images": [
+        {
+          "link": "project-marsinvaders-1.webp",
+          "description": "Capture d'écran du jeu pendant une partie.",
+          "type": "image"
+        },
+        {
+          "link": "project-marsinvaders-2.webp",
+          "description": "Capture d'écran du menu du jeu.",
+          "type": "image"
+        },
+        {
+          "link": "https://www.youtube-nocookie.com/embed/cXkS7AoTs98?si=_f9r0uaOs8Vvmosv&amp;controls=0",
+          "description": "Vidéo de démonstration commentée du jeu.",
+          "type": "video"
+        }
+      ],
+      "url": null,
+      "GitHub": "https://GitHub.com/leoChris7/Mars-Invaders",
+      "download": null,
+      "route": "/projects/marsinvaders"
+    },
+    {
+      "id": "project_sae301",
+      "nom": "SkillUpNow",
+      "dates": ["2023-10-15", "2024-01-15"],
+      "titre": "Création d'un site web fictif de formations en PHP (Laravel)",
+      "description": "Création d'un site web fictif en équipe de 4 personnes. Utilisation de Laravel, framework php pour la partie serveur et client. Réalisation de la base de données sous PostgreSQL. Cryptage des données utilisateurs sensibles comme le mot de passe. Réalisation d'un test de robustesse et de performance. Optimisation de l'espace disque que prend le site sur le serveur en utilisant par exemple des images d'extension svg. Organisation du développement en méthode agile, avec la méthode SCRUM. Revues de sprints hebdomadaires, en français, dont une en anglais.",
+      "competences": {
+        "Développement web": ["PHP", "Laravel", "Blade", "HTML", "CSS"],
+        "Gestion des données": [
+          "PostgreSQL",
+          "SQL",
+          "Bases de données relationnelles",
+          "Database First"
+        ],
+        "Gestion de projet": [
+          "Méthodologie Agile (SCRUM)",
+          "Revues de sprints",
+          "Organisation de réunion",
+          "Rédaction de rapport",
+          "Azure"
+        ],
+        "Conception & Architecture": [
+          "Diagramme de cas d'utilisations",
+          "Diagramme de classes",
+          "BPMN",
+          "UML",
+          "MCD (Modèle conceptuel de données)",
+          "MLD (Modèle logique de données)"
+        ],
+        "Soft skills": [
+          "Travail en équipe",
+          "Organisation",
+          "Adaptabilité",
+          "Anglais",
+          "Gestion du temps",
+          "Polyvalence",
+          "Présentation"
+        ]
+      },
+      "realisations": [
+        "Réalisation de documents de conception",
+        "Réalisation de la base de données",
+        "Développement du site en Laravel",
+        "Optimisation"
+      ],
+      "type": "Universitaire",
+      "images": [
+        {
+          "link": "/images/projects/project-skillupnow-logo.jpg",
+          "description": "Logo du site SkillUpNow",
+          "display": false,
+          "type": "icone"
+        },
+        {
+          "link": "project-skillupnow-1.webp",
+          "description": "Capture d'écran de la page d'accueil du site.",
+          "type": "image"
+        },
+        {
+          "link": "project-skillupnow-2.webp",
+          "description": "Capture d'écran d'une formation.",
+          "type": "image"
+        }
+      ],
+      "url": null,
+      "GitHub": null,
+      "download": null,
+      "route": "/projects/skillupnow"
+    },
+    {
+      "id": "project_sae401",
+      "nom": "BMW",
+      "dates": ["2024-03-01", "2024-04-05"],
+      "titre": "Création d'un site web fictif BMW en Javascript (Vue.js) avec API Rest en C#",
+      "description": "Création d'un site web fictif en équipe de 5 personnes en appliquant les bonnes pratiques en terme de programmation, de qualité, de sécurité et de performance. Communication du client Javascript avec l'API Rest réalisée en C#. La base de données a été réalisée en code first avec Entity Framework Core. Utilisation de Vue.js pour la partie cliente avec les frameworks Vue-Router, Pinia, Prime Vue. La qualité de l'API a été vérifié en réalisant des tests unitaires et des tests mock et la qualité du client a été vérifié en réalisant des tests unitaires et 'End to End'. Présentation du site web et de l'API devant un jury de deux professeurs.",
+      "competences": {
+        "Développement web": [
+          "Javascript",
+          "Vue.js",
+          "Vite",
+          "HTML",
+          "CSS",
+          "NodeJS"
+        ],
+        "Développement logiciel & API": [
+          "C#",
+          "API RESTful",
+          "Visual Studio 2022",
+          "ASP.NET Core",
+          "Entity Framework Core"
+        ],
+        "Sécurité": ["Authentification", "BCrypt", "Tokens JWT"],
+        "Gestion des données": [
+          "PostgreSQL",
+          "SQL",
+          "Bases de données relationnelles",
+          "LINQ",
+          "Migrations",
+          "Code First"
+        ],
+        "DevOps & Déploiement": ["Azure DevOps", "Vercel", "CI/CD", "GitHub"],
+        "Tests & Qualité": ["Vitest", "Cypress", "Tests unitaire", "Tests E2E"],
+        "Conception & Architecture": [
+          "MCD (Modèle conceptuel de données)",
+          "MLD (Modèle logique de données)",
+          "UML",
+          "BPMN"
+        ]
+      },
+      "realisations": [
+        "Réalisation de documents de conception (UML, MCD, BPMN)",
+        "Réalisation de la base de données sous PostgreSQL",
+        "Développement de l'API Rest en C#",
+        "Développement du client en Vue.js avec les librairies Vue-Router, Pinia et Prime Vue",
+        "Optimisation de la mémoire (Utilisation de singleton), de la sécurité (Cryptage des mots de passe) et de la performance (Utilisation de l'API Rest)",
+        "Organisation d'une réunion hebdomadaire",
+        "Gestion du projet sur Azure DevOps",
+        "Réalisation de tests sur l'API Rest (Tests unitaires) et sur le client (Tests unitaires et End2End avec Cypress et Vitest)"
+      ],
+      "type": "Universitaire",
+      "images": [
+        {
+          "link": "/images/projects/project-bmw-logo.svg",
+          "description": "Logo du site BMW",
+          "display": false,
+          "type": "icone"
+        },
+        {
+          "link": "project-bmw-1.webp",
+          "description": "Page d'accueil du site.",
+          "type": "image"
+        },
+        {
+          "link": "project-bmw-2.webp",
+          "description": "Le pied de page du site web.",
+          "type": "image"
+        },
+        {
+          "link": "project-bmw-3.webp",
+          "description": "Page d'inscription.",
+          "type": "image"
+        },
+        {
+          "link": "project_bmw_crypt.webp",
+          "description": "Implémentation d'une fonction de hashage pour sécuriser les mots de passe.",
+          "type": "image"
+        },
+        {
+          "link": "project_bmw_crypt_singleton.webp",
+          "description": "Utilisation de la bonne pratique du singleton pour assurer une optimisation de la mémoire lors du cryptage.",
+          "type": "image"
+        }
+      ],
+      "url": "https://bmw-client.vercel.app/",
+      "pdf_docs": ["PROJET_BMW_DOSSIER_TECHNIQUE.pdf"],
+      "GitHub": null,
+      "download": null,
+      "route": "/projects/bmw"
+    },
+    {
+      "id": "project_portfolio",
+      "nom": "Portfolio",
+      "dates": ["2024-05-20", "2024-10-15"],
+      "titre": "Développement d'un portfolio web en Vue.js",
+      "description": "Création d'un portfolio web en Vue.js pour présenter mes compétences et mes projets. Utilisation des librairies nodeJS PrimeVue et Vue-Route. Déploiement continu sur Vercel.App à chaque push sur GitHub. Application des bonnes pratiques en terme de sécurité.",
+      "competences": {
+        "Développement web": [
+          "Javascript",
+          "Vue.js",
+          "NodeJS",
+          "Vite",
+          "Optimisation du SEO",
+          "Google Search Engine",
+          "Google Recaptcha"
+        ],
+        "DevOps & Déploiement": ["Vercel", "CI/CD", "GitHub"],
+        "UI/UX & Expérience utilisateur": [
+          "Expérience Utilisateur / Interface Utilisateur",
+          "Ergonomie",
+          "Animations et transitions fluides",
+          "Design réactif",
+          "Navigation intuitive"
+        ],
+        "Soft skills": [
+          "Autonomie",
+          "Polyvalence",
+          "Créativité",
+          "Esprit critique",
+          "Prise de décision",
+          "Anglais"
+        ]
+      },
+      "realisations": [
+        "Récupération des données par un fichier en format json",
+        "Création et utilisation de composants Vue",
+        "Mise en forme avec CSS et PrimeVue",
+        "Lien avec GitHub pour le versionning",
+        "Déploiement continu sur Vercel.app",
+        "Création du menu de navigation avec route-js"
+      ],
+      "type": "Personnel",
+      "images": [
+        {
+          "link": "/images/app_identity/icon.webp",
+          "description": "Icone du portfolio, réalisée avec Canvas",
+          "display": false,
+          "type": "icone"
+        },
+        {
+          "link": "project-portfolio-1.webp",
+          "description": "Capture d'écran de la page d'accueil du site.",
+          "type": "image"
+        },
+        {
+          "link": "project-portfolio-2.webp",
+          "description": "Capture d'écran de tests unitaires Vitest de la classe DateUtils.",
+          "type": "image"
+        },
+        {
+          "link": "project-portfolio-3.webp",
+          "description": "Schéma de la structure du site.",
+          "type": "image"
+        }
+      ],
+      "url": "https://leochristophe.vercel.app",
+      "GitHub": null,
+      "download": null,
+      "route": "/projects/portfolio"
+    },
+    {
+      "id": "project_sae104",
+      "nom": "Amphibiens",
+      "dates": ["2023-04-01", "2023-06-15"],
+      "titre": "Création d'une base de données permettant de repertorier des amphibiens comptabilisés dans la région Hauts de France et visualisation des données",
+      "description": "Création d'une base de données d'amphibiens en équipe de 3 personnes à partir d'un modèle conceptuel de données. Génération des données fictives à l'aide d'Excel, de requêtes SQL et de divers sites de génération de noms. Réalisation de diverses requêtes, visualisation des données avec PowerBI et présentation des résultats devant un jury de professeurs en s'appuyant sur le rapport réalisé.",
+      "competences": {
+        "Gestion des données": [
+          "SQL",
+          "PostgreSQL",
+          "Bases de données relationnelles",
+          "PowerAMC"
+        ],
+        "Conception & Architecture": [
+          "MCD (Modèle conceptuel de données)",
+          "MLD (Modèle logique de données)"
+        ],
+        "Outils de visualisation": ["PowerBI", "Excel", "Chart.js"],
+        "Soft skills": [
+          "Travail en équipe",
+          "Anglais",
+          "Analyse",
+          "Présentation",
+          "Brainstorming"
+        ],
+        "UI/UX & Expérience utilisateur": [
+          "Design de dashboards attrayants et ergonomiques"
+        ]
+      },
+      "realisations": [
+        "Conception de la base de données grâce à un diagramme MCD",
+        "Création de la base de données sous PostgreSQL",
+        "Création d'un jeu de données inséré dans la base à l'aide d'Excel",
+        "Réalisation de requêtes SQL simples",
+        "Visualisation des données avec PowerBI",
+        "Présentation orale des résultats devant un jury français et anglais"
+      ],
+      "type": "Universitaire",
+      "images": [
+        {
+          "link": "project-amphibien-1.webp",
+          "description": "Page des caractéristiques d'amphibiens",
+          "type": "image"
+        },
+        {
+          "link": "https://app.powerbi.com/view?r=eyJrIjoiN2E4MTQyNGUtNGRiZS00NWRlLTg5ZjUtNjUxYmRjZTdkNTZkIiwidCI6ImUyMWU5NzgzLWQwYTAtNDhmOC04NTBlLTBiMDgxYjQ2ZDc4OCIsImMiOjh9&pageName=ReportSection",
+          "description": "Rapport PowerBI dynamique/interactif (Possibilité d'interaction)",
+          "type": "powerbi"
+        },
+        {
+          "link": "project-amphibien-2.webp",
+          "description": "Page de statistiques de la population d'amphibiens",
+          "type": "image"
+        },
+        {
+          "link": "project-amphibien-3.webp",
+          "description": "Page de statistiques de comptage des amphibiens",
+          "type": "image"
+        }
+      ],
+      "url": null,
+      "GitHub": null,
+      "download": "/files/Rapport.pbix",
+      "route": "/projects/amphibiens"
+    },
+    {
+      "id": "matinfo",
+      "nom": "Matinfo",
+      "dates": ["04-15-2023", "06-15-2023"],
+      "titre": "Logiciel de gestion du matériel MATINFO",
+      "description": "Développement en duo d'une application IHM de gestion du matériel informatique. Le principe était d'utiliser une base de données en ligne et de réaliser un logiciel le plus ergonomique possible. En première étape, le but était de réaliser des documents de conceptions basiques comme un diagramme de cas d'utilisations ou un diagramme de classes. Puis, il fallait réaliser la conception de la base de données. Enfin, il fallait programmer le logiciel en WPF, à deux, tout en utilisant GitHub pour le versionning. A la fin, il fallait présenter l'application au professeur qui nous a noté.",
+      "competences": {
+        "Développement logiciel & API": ["C#", "WPF"],
+        "Gestion des données": [
+          "PostgreSQL",
+          "SQL",
+          "Bases de données relationnelles",
+          "Database First"
+        ],
+        "Conception & Architecture": [
+          "Diagramme de cas d'utilisations",
+          "Diagramme de classes",
+          "UML",
+          "Mapping objet-relationnel (ORM)"
+        ],
+        "DevOps & Déploiement": ["GitHub"],
+        "Soft skills": [
+          "Prise d'initiatives",
+          "Autonomie",
+          "Brainstorming",
+          "Gestion des priorités",
+          "Travail en équipe"
+        ]
+      },
+      "realisations": [
+        "Réalisation de documents de conceptions pour la base de données et pour l'application",
+        "Création de la base de données sous PostgreSQL",
+        "Développement de l'application en C# avec WPF",
+        "Optimisation de l'ergonomie",
+        "Versionning sur GitHub"
+      ],
+      "type": "Universitaire",
+      "images": [
+        {
+          "link": "project-matinfo.webp",
+          "description": "Capture d'écran de l'application",
+          "type": "image"
+        },
+        {
+          "link": "project-matinfo-2.webp",
+          "description": "Code permettant de créer un nouveau matériel.",
+          "type": "image"
+        },
+        {
+          "link": "project-matinfo-3.webp",
+          "description": "Implémentation du CRUD en tant qu'interface.",
+          "type": "image"
+        }
+      ],
+      "url": null,
+      "GitHub": "https://github.com/leo-christophe/MATINFO",
+      "download": null,
+      "pdf_docs": ["PROJET_MATINFO_EXPLICATIONS.pdf"],
+      "route": "/projects/matinfo"
+    },
+    {
+      "id": "project_sae501",
+      "nom": "Datacare",
+      "dates": ["2024-11-06", "2025-01-17"],
+      "titre": "Création d'une application de gestion et de visualisation de données de capteurs",
+      "description": "Le but de ce travail en groupe de 5 personnes était de réaliser une application de gestion et de visualisation de données de capteurs. L'application devait permettre de visualiser les données de capteurs, de les analyser et de les exporter. L'application devait être ergonomique et intuitive. La base de données devait être réalisée en code first avec Entity Framework Core. L'application devait être réalisée en C# avec WPF. L'application devait être testée avec des tests unitaires et des tests d'intégration. L'application devait être déployée sur un serveur Azure. L'application devait être présentée devant un jury de professeurs.",
+      "competences": {
+        "Développement logiciel & API": [
+          "API RESTful",
+          "C#",
+          "Entity Framework Core",
+          "ASP.NET Core"
+        ],
+        "Développement web": [
+          "C#",
+          "Blazor",
+          "HTML",
+          "CSS",
+          "Visual Studio Code",
+          "Blazor Bootstrap"
+        ],
+        "Gestion des données": [
+          "SQL",
+          "noSQL",
+          "PostgreSQL",
+          "InfluxDB",
+          "Code First",
+          "Migrations",
+          "LINQ"
+        ],
+        "DevOps & Déploiement": ["Azure DevOps", "CI/CD", "GitHub"],
+        "Tests & Qualité": [
+          "Tests E2E",
+          "Tests unitaire",
+          "Tests mock",
+          "Playwright",
+          "MSTest",
+          "CI/CD avec tests automatisés"
+        ],
+        "Outils de visualisation": ["Grafana", "Flux"]
+      },
+      "realisations": [
+        "Configuration d'une Raspberry PI, de sorte à récupérer les données des capteurs pour les envoyer vers une base de données InfluxDB à l'aide de ZwaveJS et HomeAssistant",
+        "Realisation d'une base de données InfluxDB et d'une API Rest en C# permettant de gérer et récupérer ces données",
+        "Realisation de la base de données en MCD sur PowerAMC, puis en SQL sous PostgreSQL (Hebergée sur AlwaysData)",
+        "Développement d'une API Rest en C# avec Entity Framework Core avec plusieurs tests mocks pour chaque méthode de controlleur.",
+        "Développement de l'application web (Architecture MVVM) en Blazor (WebAssembly) avec des des tests End to End",
+        "Déploiement de l'application Blazor et de l'API sur Azure."
+      ],
+      "type": "Universitaire",
+      "images": [
+        {
+          "link": "/images/projects/project-datacare-logo.png",
+          "description": "Logo de l'application.",
+          "type": "icone",
+          "display": true
+        },
+        {
+          "link": "project-datacare-2.jpg",
+          "description": "Page d'accueil.",
+          "type": "image"
+        },
+        {
+          "link": "project-datacare-1.jpg",
+          "description": "Page de gestion des capteurs.",
+          "type": "image"
+        },
+        {
+          "link": "project-datacare-3.jpg",
+          "description": "Page de visualisation de détails d'une salle.",
+          "type": "image"
+        },
+        {
+          "link": "project-datacare-4.jpg",
+          "description": "Page de visualisation de détails d'un mur.",
+          "type": "image"
+        },
+        {
+          "link": "project-datacare-cartecode.png",
+          "description": "Carte de code de l'application Blazor.",
+          "type": "image"
+        }
+      ],
+      "pdf_docs": [
+        "PROJET_DATACARE_CIMOCKS.yml",
+        "PROJET_DATACARE_CONCEPTION.pdf"
+      ],
+      "url": "https://data-care.azurewebsites.net/",
+      "GitHub": null,
+      "download": null,
+      "route": "/projects/datacare"
+    }
+  ],
+  "links": [
+    {
+      "name": "Linkedin",
+      "url": "https://www.linkedin.com/in/leo-christophe/",
+      "classpi": "pi pi-linkedin"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://GitHub.com/leo-christophe",
+      "classpi": "pi pi-github"
+    }
+  ],
+  "references": [
+    [
+      {
+        "name": "Mme Vibrac",
+        "occupation": "Professeure d'Anglais",
+        "enterprise": "IUT Annecy",
+        "location": "Annecy-le-Vieux, France",
+        "email": "stephanie.vibrac@etu.univ-smb.fr",
+        "phone": "+33 6 33 22 07 98",
+        "image": "woman.png"
+      },
+      {
+        "name": "M. Damas",
+        "occupation": "Professeur associé",
+        "enterprise": "IUT Annecy",
+        "location": "Annecy-le-Vieux, France",
+        "email": "luc.damas@etu.univ-smb.fr",
+        "phone": null,
+        "image": "man.png"
+      }
+    ]
+  ],
+  "main_hard_skills": {
+    "Développement Web Fullstack": "90%",
+    "Développement de Logiciels & Jeux": "75%",
+    "Gestion et Exploitation des Données": "80%",
+    "DevOps & Déploiement": "80%"
+  },
+  "ue_but": {
+    "UE1": {
+      "titre": "Réaliser",
+      "description": "Développer — c’est-à-dire concevoir, coder, tester et intégrer — une solution informatique pour un client.",
+      "competences_associes": [
+        "Développement web",
+        "Développement logiciel & API",
+        "Développement de jeux vidéo",
+        "Conception & Architecture"
+      ]
+    },
+    "UE2": {
+      "titre": "Optimiser",
+      "description": "Proposer des applications informatiques optimisées en fonction de critères spécifiques : temps d’exécution, précision, consommation de ressources..",
+      "competences_associes": ["DevOps & Déploiement", "Tests & Qualité"]
+    },
+    "UE3": {
+      "titre": "Administrer",
+      "description": "Installer, configurer, mettre à disposition, maintenir en conditions opérationnelles des infrastructures, des services et des réseaux et optimiser le système informatique d’une organisation",
+      "competences_associes": [
+        "DevOps & Déploiement",
+        "Infrastructures et réseaux"
+      ]
+    },
+    "UE4": {
+      "titre": "Gérer",
+      "description": "Concevoir, gérer, administrer et exploiter les données de l’entreprise et mettre à disposition toutes les informations pour un bon pilotage de l’entreprise",
+      "competences_associes": [
+        "Gestion des données",
+        "Outils de visualisation",
+        "Sécurité"
+      ]
+    },
+    "UE5": {
+      "titre": "Conduire",
+      "description": "Satisfaire les besoins des utilisateurs au regard de la chaîne de valeur du client, organiser et piloter un projet informatique avec des méthodes classiques ou agiles",
+      "competences_associes": ["Gestion de projet"]
+    },
+    "UE6": {
+      "titre": "Collaborer",
+      "description": "Acquérir, développer et exploiter les aptitudes nécessaires pour travailler efficacement dans une équipe informatique",
+      "competences_associes": ["Soft skills"]
+    }
+  },
+  "sorted_valid_skills": [
+    {
+      "Développement web": [
+        "Javascript",
+        "PHP",
+        "HTML",
+        "CSS",
+        "Laravel",
+        "Vue.js",
+        "Blazor",
+        "NodeJS",
+        "WebDev",
+        "API RESTful",
+        "C#",
+        "Nuxt",
+        "Google Recaptcha",
+        "Typescript",
+        "Vite",
+        "Visual Studio Code",
+        "API Gemini",
+        "Stripe",
+        "Optimisation du SEO",
+        "Google Search Engine",
+        "Blade"
+      ]
+    },
+    {
+      "Sécurité": [
+        "BCrypt",
+        "Tokens JWT",
+        "Authentification",
+        "CORS",
+        "Protection Injection SQL",
+        "Protection XSS",
+        "Protection CSRF",
+        "Protection Brute Force",
+        "Protection DDoS",
+        "Protection Clickjacking",
+        "Validation des données"
+      ]
+    },
+    {
+      "Développement logiciel & API": [
+        "C#",
+        "Visual Studio 2022",
+        "Entity Framework Core",
+        "WPF",
+        "CodeFirst",
+        "API RESTful",
+        "Mime Kit",
+        "ASP.NET Core"
+      ]
+    },
+    {
+      "Développement de jeux vidéo": ["Monogame", "Tiled", "Unity"]
+    },
+    {
+      "DevOps & Déploiement": ["CI/CD", "Vercel", "GitHub", "Azure DevOps"]
+    },
+    {
+      "Tests & Qualité": [
+        "Cypress",
+        "Vitest",
+        "Playwright",
+        "Squash",
+        "Tests unitaire",
+        "Tests mock",
+        "Tests E2E",
+        "Tests exploratoires",
+        "Tests de performance",
+        "CI/CD avec tests automatisés",
+        "BDD (Behavior Driven Development)"
+      ]
+    },
+    {
+      "Gestion des données": [
+        "SQL",
+        "PostgreSQL",
+        "InfluxDB",
+        "noSQL",
+        "InfluxDB",
+        "PowerBI",
+        "PowerAMC",
+        "Bases de données relationnelles",
+        "LINQ",
+        "Code First",
+        "Database First",
+        "Migrations"
+      ]
+    },
+    {
+      "Conception & Architecture": [
+        "Diagramme d'états-transitions",
+        "Diagramme de classes",
+        "Diagramme de cas d'utilisations",
+        "UML",
+        "BPMN",
+        "Mapping objet-relationnel (ORM)",
+        "MCD (Modèle conceptuel de données)",
+        "MLD (Modèle logique de données)",
+        "Repository Design Pattern",
+        "DTO (Pattern de transfert de données)"
+      ]
+    },
+    {
+      "UI/UX & Expérience utilisateur": [
+        "Expérience Utilisateur / Interface Utilisateur",
+        "Ergonomie",
+        "Design de dashboards attrayants et ergonomiques",
+        "Design réactif",
+        "Animations et transitions fluides",
+        "Navigation intuitive",
+        "Accessibilité"
+      ]
+    },
+    {
+      "Outils de visualisation": [
+        "PowerBI",
+        "Excel",
+        "Grafana",
+        "Chart.js",
+        "Flux"
+      ]
+    },
+    {
+      "Soft skills": [
+        "Travail en équipe",
+        "Autonomie",
+        "Rigueur",
+        "Organisation",
+        "Créativité",
+        "Adaptabilité",
+        "Esprit critique",
+        "Force de proposition",
+        "Polyvalence",
+        "Communication",
+        "Analyse",
+        "Présentation",
+        "Anglais",
+        "Brainstorming",
+        "Prise de décision",
+        "Gestion du temps",
+        "Gestion des priorités",
+        "Proactivité",
+        "Prise d'initiatives"
+      ]
+    },
+    {
+      "Gestion de projet": [
+        "Organisation de réunion",
+        "Rédaction de rapport",
+        "Méthodologie Agile (SCRUM)",
+        "Revues de sprints",
+        "GitHub Projects",
+        "Microsoft Teams",
+        "Azure",
+        "Word",
+        "PowerPoint"
+      ]
+    }
+  ]
+}

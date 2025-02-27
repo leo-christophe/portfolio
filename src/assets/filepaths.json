@@ -1,0 +1,37 @@
+{
+  "experiences": [
+    {
+      "id": "alpha3i",
+      "resources": [
+        {
+          "type": "image",
+          "name": "icon",
+          "path": "../../public/images/career/alpha3i.webp"
+        },
+        {
+          "type": "url",
+          "name": "website",
+          "path": "alpha3i.com"
+        }
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "id": "college",
+      "resources": [
+        {
+          "type": "image",
+          "name": "icon",
+          "path": "../../public/images/career/alpha3i.webp"
+        },
+        {
+          "type": "url",
+          "name": "url",
+          "path": "college.com"
+        }
+      ]
+    }
+  ],
+  "projects": []
+}
