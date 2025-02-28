@@ -1,12 +1,18 @@
 {
-    "headers": [
-      {
-        "source": "/api/(.*)",
-        "headers": [
-          { "key": "Access-Control-Allow-Origin", "value": "https://leochristophe.fr" },
-          { "key": "Access-Control-Allow-Methods", "value": "POST, OPTIONS, GET" },
-          { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
-        ]
-      }
-    ]
-  }
+  "rewrites": [
+    { 
+      "source": "/((?!api/|_next/|favicon\\.ico|assets/).*)", 
+      "destination": "/index.html" 
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "https://leochristophe.fr" },
+        { "key": "Access-Control-Allow-Methods", "value": "POST, GET, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+      ]
+    }
+  ]
+}
